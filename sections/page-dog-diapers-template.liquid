@@ -1,0 +1,26 @@
+<!-- snippets/page-dog-diapers.liquid-->
+{% include 'page-dog-diapers' %}
+{% schema %}
+  {
+    "name": "dog Diapers",
+	"max_blocks": 5,
+    "settings": [
+		{"type":"image_picker","id":"header_image","label":"Header Image"},
+		{"type":"text","id":"header_bellow_text","label":"Header Bellow Text","default":"Dog Diapers"},
+		{"type":"color","id":"bg_color","label":"Choose title bg color","default":"#11b6bd"},
+		{"type":"color","id":"count_bg_color","label":"Choose counter bg color","default":"#ec1a39"},
+		{"type":"checkbox","id":"is_warn","label":"Show Warning Text","default":true},
+		{"type":"text","id":"warn_text","label":"Add Footer Warning Text","default":"Use of fabric softener will reduce absorbency."}
+	],
+	"blocks" : [
+      {
+        "type": "bellybands",
+        "name": "Instructions",
+        "settings": [
+          {"type": "image_picker","id": "image","label": "Image"},
+		  {"type": "text","id": "title", "label":"title"}
+        ]
+      }
+    ]
+  }
+{% endschema %}

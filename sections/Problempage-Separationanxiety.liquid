@@ -1,0 +1,133 @@
+{% include 'problemPage-template-snippets' %}
+
+{% schema %}
+  {
+    "name": "Pet Products",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"image_picker","id":"addi_imgMob","label":"Banner Image[mobile]"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"},
+		 {"type":"url","id":"section2url","label":"Section 2 - Button url"},
+      	   {"type": "header","content": "Bottom Container options"},
+	       {"type":"color","id":"proHedcolor","label":"Heading Color"},
+	       {"type":"text","id":"proHedName","label":"Heading Name"},
+	       {"type":"image_picker","id":"prosuppimg1","label":"Supplement Image"},
+	       {"type":"text","id":"proBottCont","label":"Bottom Content"},
+      	   {"type": "header","content": "Need More Info"},
+		 {"type":"image_picker","id":"needMoreInfo","label":"Need More Info Image"},
+		 {"type":"url","id":"needMoreInfourl","label":"Url"},
+      	 {"type": "header","content": "FAQ Data"},
+		 {"type":"checkbox","id":"proPagefaq","label":"Show FAQ","default":false},
+	     {"type":"text","id":"faqText","label":"FAQ Text (1)","default":"Information retrieved from"},
+	     {"type":"text","id":"faqGotFrom","label":"FAQ Text (2)"},
+		 {"type":"url","id":"faqGotFromUrl","label":" FAQ URL"}
+	],
+	"blocks" : [{
+        "type": "ProBanner",
+        "name": "ProBanner",
+        "settings": [
+	       {"type":"image_picker","id":"prodBanner","label":"Product Banner"},
+	       {"type":"text","id":"prodBannerHeading","label":"Product Name"}
+		]},
+		{
+        "type": "ProContent",
+        "name": "ProContent",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+        {"type":"image_picker","id":"addi_img3","label":"Product Image"},
+		   {"type":"url","id":"imgProducturl","label":" Product URL"},
+        {"type":"text","id":"head1","label":"Heading title (1)"},
+        {"type":"html","id":"content1","label":"Heading Content (1)"},
+        {"type":"color","id":"colorHead","label":"Color Heading (2)","default":"#00b6bd"},
+        {"type":"text","id":"head2","label":"Heading title (2)"},
+        {"type":"html","id":"content2","label":"Heading Content (2)"}
+		]},
+		{
+        "type": "AddToCart",
+        "name": "AddToCart",
+        "settings": [
+		   {"type":"product","id":"content_product","label":"Choose Product"}, 
+		   {"type":"checkbox","id":"varientLine","label":"Cart Long Line","default":false},
+		   {"type":"checkbox","id":"list_variant","label":"Show variant","default":false},
+		   {"type":"text","id":"variant","label":"List custom vairant"},
+	       {"type":"text","id":"proname","label":"Product Name"},
+	       {"type":"url","id":"learnmoreProduct","label":"Learn More - Product Link"}
+		]},
+		{
+        "type": "twoproduct",
+        "name": "Two Product",
+        "settings": [
+		   {"type":"text","id":"headlineTwoProduct","label":"Headline - Left"},
+	       {"type":"text","id":"pargph","label": "Paragraph Text"},
+	       {"type":"text","id":"headlineTwoProduct2","label":"Headline - Right"},
+	       {"type":"image_picker","id":"twoproImg","label": "bottom banner"}
+		]},
+		{
+			"type":"multicart",
+			"name":"Mulicart",
+			"settings":[
+				{"type":"text","id":"pro_1_text","label":"product 1 title"},
+				{ "type":"product","id":"pro_1","label":"Prodcut 1"},
+				{"type":"text","id":"pro_2_text","label":"product 2 title"},
+				{ "type":"product","id":"pro_2","label":"Prodcut 2"},
+				{"type":"text","id":"pro_3_text","label":"product 3 title"},
+				{ "type":"product","id":"pro_3","label":"Prodcut 3"},
+				{"type":"text","id":"pro_4_text","label":"product 4 title"},
+				{ "type":"product","id":"pro_4","label":"Prodcut 4"},
+				{"type":"text","id":"pro_5_text","label":"product 5 title"},
+				{ "type":"product","id":"pro_5","label":"Prodcut 5"},
+				{"type":"checkbox","id":"varientLine","label":"Cart Long Line","default":false}
+				
+			]
+		},
+		{
+			"type":"faq",
+			"name":"faq content",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data","label":"Faq Content"}
+			   ]
+		},
+{
+        "type": "ProContentCompair",
+        "name": "ProContentCompair",
+        "settings": [
+		{"type": "select","id": "alignCompair",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+	       {"type":"image_picker","id":"sf_img_compar1","label":"Product Image 1"},
+		   {"type":"url","id":"sf_url_compar1","label":" Product URL 1"},
+		   {"type":"image_picker","id":"sf_img_compar2","label":"Product Image 2"},
+		   {"type":"url","id":"sf_url_compar2","label":" Product URL 2"},
+	       {"type":"text","id":"sf_title_compar1","label":"Heading title (1)"},
+			{"type":"color","id":"sf_color_compar1","label":"Color Heading (1)","default":"#B4B5B7"},
+	       {"type":"html","id":"sf_content_compar1","label":"Content (1)"},		   
+	       {"type":"text","id":"sf_title_compar2","label":"Heading title (2)"},
+		   {"type":"color","id":"sf_color_compar2","label":"Color Heading (2)","default":"#81AEC5"},
+	       {"type":"html","id":"sf_content_compar2","label":"Content (2)"},
+ 		   {"type":"text","id":"sf_title_compar3","label":"Heading title (3)"},
+		   {"type":"color","id":"sf_color_compar3","label":"Color Heading (3)","default":"#00B7BC"},
+	       {"type":"html","id":"sf_content_compar3","label":"Content (3)"}
+		]}
+],
+	"presets":[{
+      "name": "Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<style>
+  .dogSupplement-heading.ProHead h3 span{
+    color:{{section.settings.proHedcolor}};
+  }
+</style>

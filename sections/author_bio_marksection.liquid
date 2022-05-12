@@ -1,0 +1,72 @@
+<!-- /section/author_bio_marksection.liquid -->
+<div class="author_bio_main">
+  <div class="author_bio_left">
+    <div class="content_art_bio">
+      <div class="white_space" itemscope itemtype="http://schema.org/Article">
+        <div class="author_leftcontent">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="author_bio_right">
+    <div class="author_rightsidebar">
+    	<div class="__also_like_verticalbio"><a href="javascript:;">ARTICLES BY THIS AUTHOR</a></div>  
+        {% assign featuredBlogs = 'petblog,wholesale,buying,' | split:',' %}
+        {% for featuredBlog in featuredBlogs %}
+            {% if blogs[featuredBlog].articles %}
+                {% if featuredArticles %}
+                    {% assign featuredArticles = featuredArticles | concat:blogs[featuredBlog].articles %}
+                {% else %}
+                    {% assign featuredArticles = blogs[featuredBlog].articles %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if featuredArticles %}
+            {% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+            {% for article in featuredArticles limit:3 %}
+                 {% if article.author contains "Micka"  and  article.image != blank %}
+                  <a href="{{ article.url }}">            
+                    <div class="authorpet_bio">
+                     <div class="logo_sign_textbio">
+                     <!--{ { settings.blog_logo | img_url:'master' | img_tag: 'blogLogo','img-responsive' }}-->
+                      <span>
+                        <span class="__blog_title_left">{{ article.title | escape }}</span>
+                      </span>
+                      <div class="at_tagreadmore">Read More</div>
+                    </div>           
+                  </div>
+                    <div class="__Blog_bio">
+                     {{ article.image | img_url: 'master' | img_tag: article.title | escape }}
+                    </div>
+                 </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+  </div>
+</div>
+<style>
+  .logo_sign_text a:hover {
+    color: #fff;
+	}
+
+.logo_sign_text p.__tags_type:hover a, .logo_sign_text p.__tags_type:hover, .logo_sign_text:hover p {
+    background: transparent !important;
+}
+  .see_more_articles a:hover {
+    color: #fff;
+}
+.at_tagreadmore {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    font-style: italic;
+    width: 100%;
+    float: left;
+}
+div#shopify-section-article-template ul li a:hover {
+    color: #fff !important;
+}
+</style>

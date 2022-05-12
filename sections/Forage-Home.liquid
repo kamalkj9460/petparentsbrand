@@ -1,0 +1,40 @@
+<section id="section_id_{{section.id}}"  class="ForageHome"{% if section.settings.home_bg_img != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{ block.settings.home_bg_img }})"{% else %} style="background:{{section.settings.home_bg_color}}"{% endif %}>
+  <a href="{{section.settings.home_banner_url}}">
+  <div class="container">
+          <div class="row">
+            
+              <div class="ForageHomeM">
+                  <div class="ForageHomeMain">
+                    <h2>{{section.settings.home_banner_heading}}</h2>
+                    <p>{{section.settings.home_banner_des}}</p>
+                    <span class="leanMore">Learn More</span>          
+              </div>
+              <div class="ForageHomeImg">
+                {% if section.settings.home_banner1 %}
+                {{ section.settings.home_banner1 | img_url:'master' | img_tag:'home_banner1','home_Forage home_Forage_desktab' }}
+                {% endif %}
+                {% if section.settings.home_banner2 %}
+                {{ section.settings.home_banner2 | img_url:'master' | img_tag:'home_banner2','home_Forage home_Forage_mobile' }}
+                {% endif %} 
+              </div>
+          </div> 
+      </div>
+      </div></a>
+</section>
+{% schema %}
+{
+"name" : "Forage Home",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Banner Image"},
+{"type":"image_picker","id":"home_banner2","label":"Banner Image [Mobile]"},
+{"type":"color","id":"home_bg_color","label":"Background Color","default":"#09babe"},
+{"type":"image_picker","id":"home_bg_img","label":"Background Image"},
+{"type":"text","id":"home_banner_heading","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des","label":"Banner Description"},
+{"type":"url","id":"home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Forage Home"
+}]
+}
+{% endschema %}

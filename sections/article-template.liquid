@@ -1,0 +1,126 @@
+<!-- /templates/article.liquid -->
+{% assign number_of_comments = article.comments_count %}
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<div class="white_space" itemscope itemtype="http://schema.org/Article">
+<!--   <div id="__Contact_banner"> 
+        <div class="__articlebanner">
+          {% comment %}{{ article.image | img_url:"master" | img_tag:'article_img','img-responsive' }}{% endcomment  %}
+        </div>
+    </div> -->
+  <!-- title and tags -->
+  <h1>{{ article.title }}</h1>
+  {% if article.tags.size > 0 %}
+ <!--  <div class="_tips_diapears">  
+        {% if article.tags.size > 0 %}
+          {% for tag in article.tags %}
+            <a href="{{ blog.url }}/tagged/{{ tag | handle }}">#{{ tag }}</a>
+          {% endfor %}
+        {% endif %}    
+  </div> -->
+  <div class="clear"></div> 
+  {% endif %}
+  <div class="social">
+    {% if section.settings.social_sharing_blog %}
+          {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+     {% endif %}
+  </div>
+  <div class="clear"></div> 
+  <div class="__articleContent" itemprop="articleBody">
+    {{ article.content }}
+  </div>
+  <div class="clear"></div> 
+  <!-- add article commment-->
+  <div class="__commentData white_space">{% include 'article-comment-data' %}</div>
+  <div class="clear"></div> 
+  <!-- back to blog -->
+  <div class="text-center">
+    {% assign current_tag = article.tags.first %}
+    {% assign collection_titles = article.title %}
+  <!--  <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="return-link">&larr; {{ 'blogs.article.back_to_blog' | t: title: article.tags.first }}</a>-->
+  </div>
+</div>
+<div class="white_space blog_sing_slides" id="relatedata"> 
+  <div class="__also_like"><a href="javascript:;">Related Articles</a></div>
+  <div class="__Blog_More">
+   <ul class="__relArticles">     
+     {% assign count = 0 %}
+     {% for article in blogs[blog.title].articles %}
+     {% if article.tags contains current_tag and article.title != collection_titles %}
+     {% assign count = count | plus: 1 %}
+     {% if count <= 10 %}
+     <li>
+       <a href="{{ article.url }}">
+       <div class="logo_sign_text">
+		 <!-- {{ '61.png' | file_img_url:'small' | img_tag: 'blogLogo','img-responsive' }}-->
+          <span>
+            <span class="__blog_title_left">{{ article.title | escape }}</span>
+          </span>
+          <!--<p>read more</p>-->
+         {% comment %}
+         {% if article.tags.size > 0 %}
+          <p class="__tags_type">{% if article.tags.size > 0 %}
+            {% for tag in article.tags %}
+            <a href="{{ shop.url }}/blogs/{{ blog.title }}/tagged/{{ tag | handle }}" class="__tips">{{ tag }}</a>
+            {% endfor %}
+            {% endif %}
+          </p>
+         {% endif %}
+         {% endcomment %}
+        </div>
+        <div class="__Blog_More_img">
+           {{ article.image | img_url: 'master' | img_tag: article.title | escape }}
+        </div>
+       </a>
+      </li>
+     {% endif %}
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+ 
+  {% if blog.title =='wholesale' %}
+	<div class="see_more_articles  wholesaledata"><a href="https://petparentsbrand.com/pages/pet-parents-wholesale-blog" class="">BLOG HOME PAGE</a></div>
+{% else %}	
+ <div class="see_more_articles"><a href="/pages/blog/" class="">BLOG HOME PAGE</a></div>
+{% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Article pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .logo_sign_text a:hover {
+    color: #fff;
+	}
+
+.logo_sign_text p.__tags_type:hover a, .logo_sign_text p.__tags_type:hover, .logo_sign_text:hover p {
+    background: transparent !important;
+}
+  .see_more_articles a:hover {
+    color: #fff;
+}
+.at_tagreadmore {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    font-style: italic;
+    width: 100%;
+    float: left;
+}
+div#shopify-section-article-template ul li a:hover {
+    color: #fff !important;
+}
+</style>

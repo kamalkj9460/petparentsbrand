@@ -1,0 +1,23 @@
+<!-- snippets/page-washing-instructions.liquid-->
+{% include 'page-washing-instructions' %}
+{% schema %}
+  {
+    "name": "Washing Instructions",
+	"max_blocks": 3,
+    "settings": [
+		{"type":"image_picker","id":"header_image","label":"Header Image"},
+		{"type":"html","id":"header_bellow_text","label":"Header Bellow Text"}
+	],
+	"blocks" : [
+      {
+        "type": "wash-content",
+        "name": "wash content",
+        "settings": [
+          {"type": "image_picker","id": "image","label": "Image"},
+		  {"type": "text","id": "title", "label":"title"},
+		  {"type": "url","id": "url", "label":"URL"}
+        ]
+      }
+    ]
+  }
+{% endschema %}   

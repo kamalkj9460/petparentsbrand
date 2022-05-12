@@ -1,0 +1,195 @@
+<div class="__problem_pageContainer">
+  <div class="__probContent__PetAge">
+    {% if  section.settings.addi_img1 %}
+    {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+    {% endif %}
+  </div>
+  <div class="__section2-problem problem_blue">
+    <p>{{section.settings.section2Content}}</p>
+  </div>
+  <div class="__prductDetailsPro">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'ProBanner' %}
+            <div class="__problemProductBanner {{block.settings.prodBannerHeading}}">
+              	{% if  block.settings.prodBanner %}
+              		{{ block.settings.prodBanner | img_url:'master' |img_tag:'prodBanner','img-responsive' }}
+              	{% endif %}
+              <h2>{{block.settings.prodBannerHeading}}</h2>
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'ProContent' %}
+            <div class="__problemProductContent prob_30_70 pnt_p">
+            	{%if block.settings.align =="left"%}
+              		<div class="productIng">
+                      <span>
+          			{% if  block.settings.addi_img3 %}
+              			{{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+              		{% endif %}
+                      </span>
+                      <div class="prodpawline"></div>
+              		</div>
+              		
+              	{% endif %}
+              	<div class="productDetailsContent">
+                  <span>
+                  {% if block.settings.head1 != '' %}
+                    <div class="contentProduct">
+                      <h5>{{block.settings.head1}}</h5>
+                      <p>{{block.settings.content1}}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.head2 != '' %}
+                    <div class="contentProduct">
+                      <h5>{{block.settings.head2}}</h5>
+                      <p>{{block.settings.content2}}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.head3 != '' %}
+                    <div class="contentProduct">
+                      <h5>{{block.settings.head3}}</h5>
+                      <p>{{block.settings.content3}}</p>
+                    </div>
+                  {% endif %}
+                  </span>
+              	</div>
+            	{%if block.settings.align =="right"%}
+              		
+              		<div class="productIng righ_Img">
+                      <div class="prodpawline"></div>
+                      <span>
+          			{% if  block.settings.addi_img3 %}
+              			{{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+              		{% endif %}
+                      </span>
+              		</div>
+              	{% endif %}
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'AddToCart' %}
+    		{% assign = product_id 		= block.settings.content_product %}
+    		{% assign = product_data	= all_products[product_id] %}
+    		{% assign product_price 	= product_data.price | money %}
+    
+    		{% unless block.settings.list_variant  %}
+                {% assign product_price = product_data.selected_or_first_available_variant.price | money %}                	
+            {% endunless %}
+    		{% assign selected = product_data.selected_or_first_available_variant.id %}
+            {% if block.settings.variant != blank %}
+            	{% for variant in product_data.variants %}
+                	{% if variant.option1 == block.settings.variant %}
+    					{% assign selected = variant.id %}
+                        {% assign  product_price = variant.price | money %}
+    					{% break %}
+                	{% endif %}
+                {% endfor %}
+            {% endif %}
+    
+    		{% capture prodictTitle %}{% if block.settings.proname %}{{block.settings.proname}}{% else %}{{product_data.title}}{% endif %}{% endcapture %}
+    		
+            <div class="AddToCartInPages {{ prodictTitle }}">
+              <div class="cartContent">
+                <h2 data-id="{{selected}}">{{ prodictTitle }}</h2>
+              </div>              
+              <div class="chooseCartSize {% if block.settings.varientLine %} cartLine {% endif %}">
+                  {% if block.settings.list_variant %}
+                    <p>CHOOSE <br> THE SIZE</p>
+                	{% if block.settings.variant == blank %}
+                      {% for product_option in product_data.options_with_values %}
+                        {% if product_option.name == 'Size' %}
+                          {% assign sizes = product_option.values.size %}
+                          {% for variant in product_data.variants %}
+                            {% if forloop.index <=  sizes %}
+                              <span class="cartSize" id="{{forloop.index}}">
+                                <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                              </span>
+                            {% endif %}
+                          {% endfor %}
+                        {% endif%}
+                      {% endfor %} 
+                    {% else %}
+                	{% for variant in product_data.variants %}
+                		{% if variant.option1 == block.settings.variant %}
+                			<span class="cartSize" id="{{forloop.index}}">
+                              <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                            </span>
+                		{% endif %}
+                	{% endfor %}
+                	{% endif %}
+                  {% endif %}
+                </div>
+              <div class="CartRate sf_rate">                
+                <h2> {{ product_price }} </h2>
+              </div>
+              <div class="buttonContainerDesktop">
+                 <div class="learnMoreBtn">
+                     <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                 </div>
+                 <div class="learnMoreBtn">
+                     <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                 </div>
+              </div>
+              <div class="buttonContainerMobile">
+                <div class="learnMoreBtn">
+                   <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                </div>
+                <div class="learnMoreBtn">
+                   <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                </div>
+              </div> 
+            </div>
+    	 {% endif %}
+      {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Pet Products",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"image_picker","id":"addi_imgMob","label":"Banner Image[mobile]"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"}
+	],
+	"blocks" : [{
+        "type": "ProBanner",
+        "name": "ProBanner",
+        "settings": [
+	       {"type":"image_picker","id":"prodBanner","label":"Product Banner"},
+	       {"type":"text","id":"prodBannerHeading","label":"Product Name"}
+		]},
+		{
+        "type": "ProContent",
+        "name": "ProContent",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+	       {"type":"image_picker","id":"addi_img3","label":"Product Image"},
+	       {"type":"text","id":"head1","label":"Heading title (1)"},
+	       {"type":"text","id":"content1","label":"Heading Content (1)"},
+	       {"type":"text","id":"head2","label":"Heading title (2)"},
+	       {"type":"text","id":"content2","label":"Heading Content (2)"},
+	       {"type":"text","id":"head3","label":"Heading title (3)"},
+	       {"type":"text","id":"content3","label":"Heading Content (3)"}
+		]},
+		{
+        "type": "AddToCart",
+        "name": "AddToCart",
+        "settings": [
+		   {"type":"product","id":"content_product","label":"Choose Product"},
+		   {"type":"checkbox","id":"varientLine","label":"Cart Long Line","default":false},
+		   {"type":"checkbox","id":"list_variant","label":"Show variant","default":false},
+		   {"type":"text","id":"variant","label":"List custom vairant"},
+	       {"type":"text","id":"proname","label":"Product Name"},
+	       {"type":"url","id":"learnmoreProduct","label":"Learn More - Product Link"}
+		]}
+],
+	"presets":[{
+      "name": "Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}

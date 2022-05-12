@@ -1,0 +1,49 @@
+<div class="banner banner_section">
+  <div class="header_imges art_img_blog_data is_desktopActive_is">
+     {% if section.settings.banner_img %}
+    {{ section.settings.banner_img | img_url: 'master' | img_tag:'banner_img','img-responsive' }}
+    {% endif %}
+  </div>
+  <div class="header_imges art_img_blog_data is_mobActive_is">
+     {% if section.settings.banner_img_m %}
+    {{ section.settings.banner_img_m | img_url: 'master' | img_tag:'banner_img_m','img-responsive' }}
+    {% endif %}
+  </div>
+    {% if section.settings.banner_text %}
+      <div class="header_text">
+        <h1>{{ section.settings.banner_text }}</h1>
+  	  {% if current_tags %}
+        <span class="sub_tag">{{ current_tags.first }}</span>
+      {% endif %}
+	  </div>
+     {% endif %}
+</div>
+
+{% if section.settings.slider_below_content %}
+<div class="slider_below_content">
+   <div class="container">
+  <div class="below_content"><p>{{ section.settings.slider_below_content }}</p></div>
+  </div>
+</div>
+{% endif %}
+<style>
+  .banner.banner_section {
+    position: relative;
+}
+.header_text {
+    position: absolute;
+    top: 160px;
+    z-index: 999;
+    left: 200px;
+}
+ .header_text h1 {
+    font-size: 45px;text-transform: capitalize;
+    color: #fff;
+    font-weight: 600;
+}
+  .header_text h1 span {font-weight: 400;}
+.BlogListNav ul ul.__dropDown li:hover a {
+	background: none;
+	color: #06b3bd !important;
+}
+</style>

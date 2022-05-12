@@ -1,0 +1,30 @@
+<section class="OurMission">
+	<div class="container">
+		<div class="row ">
+			<div class="left-side">				
+               <h2>{{section.settings.OurMissionHeading}}</h2> 
+               </div>
+          <div class="middle-side">				
+               {{ section.settings.OurMissionImage | img_url:'master' | img_tag:'OurMissionImage','img-responsive' }} 
+               </div>
+          <div class="right-side">				
+            	<p>{{section.settings.OurMissionDes}}</p>
+               </div>
+			</div>
+		</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Our Mission",
+    "settings": [
+	{"type":"text","id":"OurMissionHeading","label":"Heading"},
+    {"type":"image_picker","id":"OurMissionImage","label":"Image"},
+    {"type":"html","id":"OurMissionDes","label":"Description"}
+	],
+	"presets": [{
+      "name": "Our Mission",
+      "category": "Home"
+    }]
+  }
+{% endschema %}

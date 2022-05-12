@@ -1,0 +1,20 @@
+<div class="__top_login">
+	<ul class="menu-top">
+		{% if shop.customer_accounts_enabled %}
+			<li class="site-nav__item site-nav__expanded-item site-nav__item--compressed">
+				<a class="site-nav__link site-nav__link--icon" href="/account">
+					<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ "user-icon.png" | asset_url }}">
+				</a>
+			</li>
+		{% endif %}
+		<li class="site-nav__item site-nav__item--compressed">
+			<a href="/cart" class="site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{- 'Cart_Icon_31x35px.svg' | file_url }}" alt="cart_logo" class="lazy2 cart_logo_icon">
+				<span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
+			</a>
+		</li>
+		<li id="toll_free">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aspca_logo | img_url:'master' }}" alt="aspca_logo" height="{{ image.height }}" width="{{ image.width }}" class="lazy2">
+		</li>
+	</ul>
+</div>

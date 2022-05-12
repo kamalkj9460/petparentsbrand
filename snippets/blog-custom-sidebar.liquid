@@ -1,0 +1,40 @@
+<div class="sidebar_data2">
+	<div class="white_space2 sidebar2" itemscope itemtype="http://schema.org/Article"> 
+  		{% render 'clear-div' %}      
+      	{% assign currTags 		= article.tags %}
+        {% assign currID 		= article.id %}
+        {% assign totalToShow 	= 15 %}
+      
+        {% paginate blogs[blog.title].articles by 2000 %}
+        <div class="white_space ___sidebar" id="relatedata" data-tag="{{current_tag}}">
+          <div class="__also_like_vertical "><a href="javascript:;">RELATED ARTICLES</a></div>
+          <div class="__Blog_More">            
+           <ul class="__relArticles_vertical" currTags="{{-currTags-}}" count="{{-currTags.size-}}">     
+             {% assign count = 0 %}
+             {% assign aTitle = '' %}
+             {% for article in blogs[blog.title].articles %}            
+             	 {% if count >= totalToShow %}{% break; %}{% endif %}             
+             	 {% for curTag in currTags %}
+             		{% unless curTag contains 'meta-product-' %} 
+             			{% if article.tags contains curTag and article.id != curArticle.id %}
+                         {% assign count = count | plus: 1 %}
+                         {% if count <= 15 %}
+             				{% if aTitle != article.title %}
+                           <li tag="{{curTag}}"><a href="{{ article.url }}">
+                              <div class="logo_sign_text"><span><span class="__blog_title_left">{{ article.title | escape }}</span></span></div>
+                              <div class="__Blog_More_img">{{ article.image | img_url: 'master' | img_tag: article.title | escape }}</div>
+                             </a>
+                           </li>
+             					{% assign aTitle = article.title | escape %}
+             				{% endif %}
+                          {% endif %}
+             			{% endif %}
+                    {% endunless %}
+             	 {% endfor %}  
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+       {% endpaginate %}
+	</div>
+</div>

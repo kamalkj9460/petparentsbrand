@@ -1,0 +1,35 @@
+<section class="OurMission sf_OurPromise">
+	<div class="container">
+		<div class="row ">
+			<div class="left-side deskTab">				
+               <h2>{{section.settings.OurPromiseHeading_r}} <span class="sf_green_part">{{section.settings.OurPromiseHeading_g}}<span></h2> 
+               </div>
+          <div class="middle-side sf_dog_img deskTab">	
+            <img class="space_img" src="https://cdn.shopify.com/s/files/1/1355/5443/files/space.png" />
+               {{ section.settings.OurPromiseImage | img_url:'master' | img_tag:'OurPromiseImage','img-responsive'}} 
+               </div>
+                 <div class="sf_dog_img1 mobBan">
+                   {{ section.settings.OurPromiseImageM | img_url:'master' | img_tag:'OurPromiseImageM','img-responsive'}} 
+                   </div>
+          <div class="right-side">				
+            	<p>{{section.settings.OurPromiseDes}}</p>
+               </div>
+			</div>
+		</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Our Promise",
+    "settings": [
+	{"type":"text","id":"OurPromiseHeading_r","label":"Heading (Red)"},
+    {"type":"text","id":"OurPromiseHeading_g","label":"Heading (Green)"},
+    {"type":"image_picker","id":"OurPromiseImage","label":"Image[Desktop]"},
+    {"type":"image_picker","id":"OurPromiseImageM","label":"Image[Mobile]"},
+    {"type":"html","id":"OurPromiseDes","label":"Description"}
+	],
+	"presets": [{
+      "name": "Our Promise"
+    }]
+  }
+{% endschema %}

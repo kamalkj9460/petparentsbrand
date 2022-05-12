@@ -1,0 +1,106 @@
+<section class="corevalue">
+  <div class="__main-header">
+  	{% if section.settings.addi_img1 %}
+    	  {{ section.settings.addi_img1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+    {% endif %}
+  </div>
+  
+  <div class="__section2-problem problem_blue wi_inc">
+    <p>{{section.settings.section2Content}}</p>
+  </div>
+  
+   <div class="__coreValueDetails">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'corContent' %}
+            <div class="__corecontent" style="background:{{block.settings.colorBack}}">
+            	{%if block.settings.align =="left"%}
+              		<div class="CoreIng">
+                      <span>
+                        {% if  block.settings.addi_img3 %}
+                            {{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+                        {% endif %}
+                      </span>
+              		</div>
+              		
+              	{% endif %}
+              	<div class="coreDetailsContent">
+                  <span>
+                  {% if block.settings.head1 != '' %}
+                    <div class="__coreContent para_style1">
+                      <h5 style=" color:{{block.settings.colorHead}}">{{block.settings.head1}}</h5>
+                      <p style=" color:{{block.settings.colorp}}">{{block.settings.content1}}</p>
+                    </div>
+                  {% endif %}
+                  </span>
+              	</div>
+            	{%if block.settings.align =="right"%}
+              		
+              		<div class="CoreIng ">
+                      <span>
+                        {% if  block.settings.addi_img3 %}
+                            {{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+                        {% endif %}
+                      </span>
+              		</div>
+              	{% endif %}
+            </div>
+       {% endif %}
+     {% endfor %}
+ 	  {% for block in section.blocks %}
+          {% if block.type == 'redButton' %}
+              <div class="bottom--buttons">
+                <h1 class="btn_bot_abt">
+                    <a href="{{block.settings.getLink}}" target="_self">{{block.settings.buttonText}}</a>
+                    <a href="{{block.settings.getLink2}}" target="_self">{{block.settings.buttonText2}}</a>
+                    <a href="{{block.settings.getLink3}}" target="_self">{{block.settings.buttonText3}}</a>
+
+                </h1>
+              </div>
+         {% endif %}
+     {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Core Value",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"}
+	],
+	"blocks" : [
+		{
+        "type": "corContent",
+        "name": "Core Content",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+	       {"type":"image_picker","id":"addi_img3","label":"Product Image"},
+	       {"type":"text","id":"head1","label":"Heading title (1)"},
+	       {"type":"html","id":"content1","label":"Heading Content (1)"},
+		   {"type":"color","id":"colorHead","label":"Color Heading (2)","default":"#fff"},
+		   {"type":"color","id":"colorBack","label":"Background Color","default":"#00b6bd"},
+		   {"type":"color","id":"colorp","label":"Background Color","default":"#939598"}
+		]},{
+        "type": "redButton",
+        "name": "Button",
+        "settings": [
+	       {"type":"url","id":"getLink","label":"Button Link"},
+	       {"type":"text","id":"buttonText","label":"Button text"},
+	       {"type":"url","id":"getLink2","label":"Button Link (2)"},
+	       {"type":"text","id":"buttonText2","label":"Button text (2)"},
+	       {"type":"url","id":"getLink3","label":"Button Link (3)"},
+	       {"type":"text","id":"buttonText3","label":"Button text (3)"}
+		]}
+],
+	"presets":[{
+      "name": "Core Value",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}

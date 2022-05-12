@@ -1,0 +1,67 @@
+<section class="dogLandingPage">
+  <div class="container">
+    <div class="row">
+      <div  class="pp-12 dogLandingpage"> 
+        <div class="dogLandingBanner adult_cat_dog">
+          <section class="homeBanner single_breed">
+              <div class="container">
+                  <div class="row">
+                      <div class="pp-12 petBanner "> 
+                       <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+                        <div class="BannerText">
+                               {% if section.settings.dogLanding_banner %}
+                                  {{ section.settings.dogLanding_text }}
+                              {% endif %} 
+                          {{ section.settings.dogLanding_banner | img_url: 'master' | img_tag:'home_banner','lazyloaded' }}
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </section>
+        </div>
+          <div class="dogPawcontent choose_adult ">
+            <div class="__dogContent ">
+              <h2>CHOOSE YOUR FUR-BABY</h2>
+            </div>
+          </div>
+        <div class="row __clsDogImgWrapper cat_dod_adult">
+          <div class="dogContainerImages">
+            <div class="leftImagecontainer"> 
+              <div class="leftDogLandingContent">
+                {% if section.settings.dogLanding_content %}
+                  <a href="{{section.settings.dogLanding_url1}}">
+                    <img src="{{section.settings.dogLanding_content | img_url: 'master' }}" />
+                     <h3>{{section.settings.dogPaw1}}</h3>
+                  </a>
+               
+                {% endif %}
+                
+              </div>
+            </div>
+            <div class="rightImagecontainer">
+              <div class="leftDogLandingContent">   
+                {% if section.settings.dogLanding_content2 %}
+                  <a href="{{section.settings.dogLanding_url2}}">
+                    <img src="{{section.settings.dogLanding_content2 | img_url: 'master' }}" />
+                    <h3>{{section.settings.dogPaw2}}</h3>
+                  </a>
+                {% endif %}
+                
+              </div>
+            </div>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .dogPawcontent{
+  	background:{{section.settings.dogLandingcontent_color}};
+  }
+</style>

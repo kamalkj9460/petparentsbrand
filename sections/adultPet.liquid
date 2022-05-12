@@ -1,0 +1,24 @@
+<div class="adultPet">
+{% include 'petPageStructure' %}
+</div>
+{% schema %}
+  {
+    "name" : "adult-Page Pet",
+    "settings" : [			
+			{"type":"image_picker","id":"dogLanding_banner","label":"Dog Banner Image"},
+			{"type":"html","id":"dogLanding_text","label":"Banner Headline"},		
+			{"type":"color","id":"dogLandingcontent_color","label":"Background Color","default":"#11b6bd"},
+			{"type":"text","id":"dogPaw1","label":"Dog title(1)"},
+			{"type":"url","id":"dogLanding_url1","label":"Dog Image Url (1)"},
+			{"type":"image_picker","id":"dogLanding_content","label":"Dog Image (1)"},
+			{"type":"text","id":"dogPaw2","label":"Dog title (2)"},
+			{"type":"url","id":"dogLanding_url2","label":"Dog Image Url (2)"},
+			{"type":"image_picker","id":"dogLanding_content2","label":"Dog Image (2)"}
+          ],
+	"presets": [{
+      "name": "adult-Page Pet",
+      "category": "Image"
+    }]
+  }
+{% endschema %}
+

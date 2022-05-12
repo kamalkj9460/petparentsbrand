@@ -1,0 +1,25 @@
+<!-- snippets/product-uses-snippet-2.liquid-->
+{% include 'product-uses-snippet-2' %}
+{% schema %}
+  {
+    "name": "Furniture Blanket Middle",
+	"max_blocks":5,
+    "settings": [
+      {"type": "image_picker", "id":"addi_img", "label":"Middle additional image"},
+      {"type": "html","id":"image_content","label":"Custom HTML"},
+      {"type": "checkbox", "id": "is_middle","label": "Enable Middle Section","default":true},	 
+	  {"type": "image_picker", "id":"middle_bg_img", "label":"Middle Section Bg Image"},
+	  {"type": "image_picker", "id":"middle_logo_img", "label":"Middle Section LOgo Image"},
+	  {"type":"color","id":"uses_bg","label":"Product Uses bg Color","default":"#11b6bd"},
+	  {"type":"color","id":"uses_txt_color","label":"Product Uses bg Color","default":"#ffffff"},
+	  {"type":"text","id":"extraCls","label":"class for section","default":"real-title-inr02"}
+    ],
+	"blocks" : [{
+        "type": "uses",
+        "name": "Uses",
+        "settings": [
+			{"type":"text","id":"uses_text","label":"Uses Text"}
+		]		
+	}]
+  }
+{% endschema %}

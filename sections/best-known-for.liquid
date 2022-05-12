@@ -1,0 +1,113 @@
+
+<section class="shopPetAge_wht jkjk">
+	<div class="container">
+		<div class="treatTitle">
+			<h2 class="findProductHeading petTitle" style="margin-bottom: 0;"><span class="red">We're best</span> <span class="skyblue">known for...</span></h2>
+		</div>
+			<div class="proKnownSliderHome" id="sliderKnownForHome">
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl1}}">
+					<span>
+					 {% if  section.settings.productImgForSlider1 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider1 | img_url:'master' }}" alt="Dog-Diaper" class="img-responsive lazy2">
+					 {% endif %}
+					</span>
+					<h6>{{section.settings.prductName1}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl2}}">
+					<span>
+					{% if  section.settings.productImgForSlider2 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider2 | img_url:'master' }}" alt="SoftSupps" class="img-responsive lazy2">
+					{% endif %}
+					</span>
+					<h6>{{section.settings.prductName2}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl3}}">
+					<span>
+					{% if  section.settings.productImgForSlider3 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider3 | img_url:'master' }}" alt="Pawtect Pad, Pee Pad" class="img-responsive lazy2">
+					{% endif %}
+					</span>
+					<h6>{{section.settings.prductName3}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl4}}">
+					<span>
+					 {% if  section.settings.productImgForSlider4 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider4 | img_url:'master' }}" alt="Belly Bands" class="img-responsive lazy2">
+					  {% endif %}
+					</span>
+					<h6>{{section.settings.prductName4}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl5}}">
+					<span>
+				   {% if  section.settings.productImgForSlider5 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider5 | img_url:'master' }}" alt="Gnawtlers®" class="img-responsive lazy2">
+				   {% endif %}
+					</span>
+					<h6>{{section.settings.prductName5}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl6}}">
+					<span>
+					{% if  section.settings.productImgForSlider6 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider6 | img_url:'master' }}" alt="Cat-Diapers" class="img-responsive lazy2">
+					{% endif %}
+					</span>
+					<h6>{{section.settings.prductName6}}</h6>
+				  </a>
+				</div>
+				<div class="proKnownSlider">
+				  <a href="{{section.settings.productSliderUrl7}}">
+					<span>
+					{% if  section.settings.productImgForSlider7 %}
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.productImgForSlider7 | img_url:'master' }}" alt="Pawtect-Blanket" class="img-responsive lazy2">
+					{% endif %}
+					</span>
+					<h6>{{section.settings.prductName7}}</h6>
+				  </a>
+				</div>
+			  </div>
+		 </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Shop-BestKnownFor",
+		"settings": [
+			{"type":"url","id":"productSliderUrl1","label":"Product Url [1]"},
+			{"type":"image_picker","id":"productImgForSlider1","label":"Product Image [1]"},
+			{"type":"text","id":"prductName1","label":"Product Name [1]"},
+			{"type":"url","id":"productSliderUrl2","label":"Product Url [2]"},
+			{"type":"image_picker","id":"productImgForSlider2","label":"Product Image [2]"},
+			{"type":"text","id":"prductName2","label":"Product Name [2]"},
+			{"type":"url","id":"productSliderUrl3","label":"Product Url [3]"},
+			{"type":"image_picker","id":"productImgForSlider3","label":"Product Image [3]"},
+			{"type":"text","id":"prductName3","label":"Product Name [3]"},
+			{"type":"url","id":"productSliderUrl4","label":"Product Url [4]"},
+			{"type":"image_picker","id":"productImgForSlider4","label":"Product Image [4]"},
+			{"type":"text","id":"prductName4","label":"Product Name [4]"},
+			{"type":"url","id":"productSliderUrl5","label":"Product Url [5]"},
+			{"type":"image_picker","id":"productImgForSlider5","label":"Product Image [5]"},
+			{"type":"text","id":"prductName5","label":"Product Name [5]"},
+			{"type":"url","id":"productSliderUrl6","label":"Product Url [6]"},
+			{"type":"image_picker","id":"productImgForSlider6","label":"Product Image [6]"},
+			{"type":"text","id":"prductName6","label":"Product Name [6]"},
+			{"type":"url","id":"productSliderUrl7","label":"Product Url [7]"},
+			{"type":"image_picker","id":"productImgForSlider7","label":"Product Image [7]"},
+			{"type":"text","id":"prductName7","label":"Product Name [7]"}
+		],
+		"presets": [{
+			"name": "Shop-BestKnownFor",
+			"category": "Image"
+		}]
+	}
+{% endschema %}

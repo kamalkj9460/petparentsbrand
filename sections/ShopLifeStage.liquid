@@ -1,0 +1,41 @@
+<section class="sf_ShopLifeStage">  
+	<h2 class="life_s">{{section.settings.sls_section_title}}</h2>		
+			<div class="sf_proKnownSliderHome deskTab">
+              <ul>
+              {% for block in section.blocks %} 
+				<li>									
+                       {{ block.settings.sls_productImg | img_url:'master' | img_tag:'sls_productImg','img-responsive' }}
+                  <span class="sf_imageTitle">{{ block.settings.sls_productTitle }}</span>
+				</li>
+				{% endfor %}
+              </ul>
+			  </div>
+  <div class="sf_proKnownSliderHome mobBan">
+           {% if section.settings.sls_section_img %}
+	{{ section.settings.sls_section_img | img_url:'master' | img_tag:'sls_section_img','img-responsive' }}
+	{% endif %}	
+			  </div>
+		  {% if section.settings.sls_productSliderUrl1 != blank %}<span class="btn_learmor"><a href="{{section.settings.sls_productSliderUrl1}}">Shop Now</a></span>
+					{% endif %}	
+</section>
+
+{% schema %}
+	{
+		"name": "Shop Life Stage",
+		"settings": [
+			{"type":"text","id":"sls_section_title","label":"Section Title"},
+			{"type":"image_picker","id":"sls_section_img","label":"Banner Image [Mobile]"},
+			{"type":"url","id":"sls_productSliderUrl1","label":"Product Url"}	
+		],
+		"blocks" : [{
+         "type": "Image",
+         "name": "New Item",
+         "settings": [
+			{"type":"image_picker","id":"sls_productImg","label":"Product Image"},
+			{"type":"text","id":"sls_productTitle","label":"Image Title"}            	
+            ]}],
+		"presets": [{
+			"name": "Shop Life Stage"
+		}]
+	}
+{% endschema %}

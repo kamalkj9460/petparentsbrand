@@ -1,0 +1,97 @@
+<!-- snippets /accessories-snippets -->
+{% comment %}
+  Collection template, used on collection.liquid and collection.image.liquid
+{% endcomment %}
+
+<!--adding top header section start here-->
+<div class="clear"></div>
+<div class="__title_banner">
+	<div class="container">
+		<div class="row">
+			<div class="__Inner_title">
+              <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+              {% if section.settings.col_banner_img %}
+                {{ section.settings.col_banner_img | img_url: 'master' | img_tag:'collection_img','img-responsive' }}
+              {% else %}
+              {% if collection.image %}
+                {{ collection.image | img_url: 'master' | img_tag:'collection_img','img-responsive' }}{% endif %}
+              {% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<!-- ends here-->
+<div class="white_space">	
+<div class="clear"></div>
+	<div class="products_show gr_prodf">
+      <div class="newGet grid-uniform2">
+        <div class="firstProduct">
+          <a href="{{section.settings.proUrl}}">
+            <div class="proFirstImg">
+            {% if section.settings.proOther %}
+               {{ section.settings.proOther | img_url: 'master' | img_tag:'Covrs For Dogs and cat','img-responsive' }}
+            {% endif %}
+            </div>
+          </a>
+          <div class="grid__item text-center">
+            <h3 class="product_name">Covrs<sup>®</sup></h3>
+          </div>
+            <div class="clic_join acessBuyNowBut">
+				<a href="{{section.settings.proUrl}}">Learn More</a>
+			</div>
+        </div>
+        <div class="firstProduct">
+          <a href="{{section.settings.proUrl2}}">
+            <div class="proFirstImg">
+            {% if section.settings.proOthe2r %}
+               {{ section.settings.proOthe2r | img_url: 'master' | img_tag:'Extends For Dogs and cat','img-responsive' }}
+            {% endif %}
+            </div>
+          </a>
+          <div class="grid__item text-center">
+            <h3 class="product_name">Extendrs<sup>®</sup></h3>
+          </div>
+            <div class="clic_join acessBuyNowBut">
+				<a href="{{section.settings.proUrl2}}">Learn More</a>
+			</div>
+        </div>
+         <div class="firstProduct sf-wash-bags">
+          <a href="{{section.settings.proUrl3}}">
+            <div class="proFirstImg">
+            {% if section.settings.proOthe3r %}
+               {{ section.settings.proOthe3r | img_url: 'master' | img_tag:'Wash Bags','img-responsive' }}
+            {% endif %}
+            </div>
+          </a>
+          <div class="grid__item text-center">
+            <h3 class="product_name">Wash Bags</h3>
+          </div>
+            <div class="clic_join acessBuyNowBut">
+				<a href="{{section.settings.proUrl3}}">Learn More</a>
+			</div>
+        </div>
+        <!--<div class="commingsoon1">
+              { % if section.settings.comsoon1 %}
+                { { section.settings.comsoon1 | img_url: 'master' | img_tag:'comsoon1','img-responsive' }}
+              { % endif %}
+        </div>-->
+        <!--div class="commingsoon2">
+              {% if section.settings.comsoon2 %}
+                {{ section.settings.comsoon2 | img_url: 'master' | img_tag:'comsoon2','img-responsive' }}
+              {% endif %}
+        </div-->
+      </div>
+  </div>
+</div>
+<div class="bottom_advert_banner">
+  <a href="{{section.settings.advtUrl}}" target="_self">
+  	 {% if section.settings.avertBanner %}
+        {{ section.settings.avertBanner | img_url: 'master' | img_tag:'avertBanner','img-responsive' }}
+     {% endif %}
+  </a>
+</div>

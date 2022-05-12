@@ -1,0 +1,56 @@
+<!-- Product Advertisement Section -->
+<section class="advertProduct">
+  <div class="container">
+    <div class="row banner_foot" >
+     
+        <div class="pp-5 leftContent">
+          <div class="advertLeftContent">
+        	{{ section.settings.left_dogadvert_content }}
+          </div>
+          <div class="advertLeftImage">
+        	<img src="{{ section.settings.advertdogImage | img_url: 'master' }}" />
+          </div>
+        </div> 
+      <div class="rightContant pp-7">
+          <div class="advertLeftImage">
+               <img src="{{ section.settings.advertdogProImage | img_url: 'master' }}" />
+          </div>
+          <div class="advertLeftContent">
+        	{{section.settings.advertProdog_content}}
+            <div class="dogLanButton">
+            	<a href="{{ section.settings.advertProdog_button_link }}" class="RedButton" style="background:{{section.settings.advertdog_color}}">{{section.settings.advertProdog_button_name}}</a>
+             	<!--<a href="{{ section.settings.advertProdog_button_link2 }}" class="RedButton" style="background:{{section.settings.advertdog_color2}}">{{section.settings.advertProdog_button_name2}}</a>-->
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .banner_foot{
+    background:{{section.settings.BG_dogadvert}};
+  }
+</style>
+
+<!-- Product Advertisement End -->
+{% schema %}
+  {
+    "name": "Dog Landing Advertisement",
+    "settings": [
+                {"type":"color","id":"BG_dogadvert","label":"Background Color","default":"#f9bcca"},
+				{"type":"html","id":"left_dogadvert_content","label":"Enter Left Side Content[HTML]"},
+				{"type":"image_picker","id":"advertdogImage","label":"Choose Pet Image"},
+				{"type":"image_picker","id":"advertdogProImage","label":"Choose Product Image"},
+				{"type":"html","id":"advertProdog_content","label":"Enter HTML content"},
+				{"type":"text","id":"advertProdog_button_name","label":"Button Name (1)"},
+				{"type":"text","id":"advertProdog_button_name2","label":"Button Name (2)"},
+			   	{"type":"url","id":"advertProdog_button_link","label":"Button Link (1)"},
+                {"type":"color","id":"advertdog_color","label":"Color for content","default":"#e81c76"}
+		],
+	"presets": [{
+      "name": "Dog Landing Advertisement",
+      "category": "Text"
+    }]
+  }
+{% endschema %}
+

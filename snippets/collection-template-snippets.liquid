@@ -1,0 +1,80 @@
+<!-- snippets.collection-others-template.liquid -->
+{% comment %}
+  Collection template, used on collection.liquid and collection.image.liquid
+{% endcomment %}
+
+{% paginate collection.products by 12 %}
+<!--adding top header section start here-->
+<div class="clear"></div>
+<div class="__title_banner">
+	<div class="container">
+		<div class="row">
+			<div class="__Inner_title">
+              <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+              {% if section.settings.col_banner_img %}
+                {{ section.settings.col_banner_img | img_url: 'master' | img_tag:'collection_img','img-responsive' }}
+              {% else %}
+              {% if collection.image %}
+                {{ collection.image | img_url: 'master' | img_tag:'collection_img','img-responsive' }}{% endif %}
+              {% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="redBoxText">
+  <p>{{section.settings.collection_title1}}</p>
+</div>
+<div class="clear"></div>
+
+<!-- ends here-->
+<div class="white_space">	
+<div class="clear"></div>
+	<div class="products_show gr_prodf">
+      <div class="newGet grid-uniform2 collectionTempSnip">
+        {% assign grid_item_width = 'medium--one-half large--one-quarter' %}
+        {% for product in collection.products %}
+        {% include 'product-grid-new-custom' %}          
+        {% else %}
+        {% if collection.handle == 'all' %}
+        {% comment %}
+        Add default products to help with onboarding for collections/all only
+        {% endcomment %}
+        {% include 'onboarding-featured-products' %}
+        {% else %}
+        {% comment %}
+        If collection exists but is empty, display message
+        {% endcomment %}
+        <div class="grid__item text-center">
+          <p>{{ 'collections.general.no_matches' | t }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="commingsoon1">
+              {% if section.settings.comsoon1 %}
+                {{ section.settings.comsoon1 | img_url: 'master' | img_tag:'comsoon1','img-responsive' }}
+              {% endif %}
+        </div>
+        <div class="commingsoon2">
+              {% if section.settings.comsoon2 %}
+                {{ section.settings.comsoon2 | img_url: 'master' | img_tag:'comsoon2','img-responsive' }}
+              {% endif %}
+        </div>
+      </div>
+  </div>
+  {% if paginate.pages > 1 %}
+  	{% include 'pagination' %}
+  {% endif %}
+</div>
+<div class="bottom_advert_banner">
+  <a href="{{section.settings.advtUrl}}" target="_self">
+  	 {% if section.settings.avertBanner %}
+        {{ section.settings.avertBanner | img_url: 'master' | img_tag:'avertBanner','img-responsive' }}
+     {% endif %}
+  </a>
+</div>
+{% endpaginate %}

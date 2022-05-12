@@ -1,0 +1,180 @@
+{% if section.settings.is_middle %}
+<div class="white_space">
+  {% if section.settings.addi_img1 %}
+    <div class ="product_dog_bannerd" >
+        <div class ="__product_Banner">
+        {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+        </div>
+      </div>
+    {% endif %}
+  <div class="additional_sec_helpIssue pro_points points_40_60" id="mini_flex" style="margin-top:0px;">
+    <div class="top_additional_sec_issue">
+      <div class="top_additional_sec_Img">
+      	{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}
+      </div>
+      <div class="top_additional_sec_content listing_pnts">
+         <h1 class="red" style="color:#00b7bc!important;">{{section.settings.topAddit_sec_head}}</h1>
+        <div class="top_additional_sec_subcontent">
+          <div class="top_add_sec_leftcontent">
+              {{section.settings.addit_leftcontent}}
+          </div>
+        </div>
+      </div>      
+    </div>
+    <p class="sub_cod">{{section.settings.addit_sec_paragraph}}</p>
+  </div>
+  <div class="withoutnDWithCovrs">
+    <div class="withCpvrs_heading">
+      <h3>{{section.settings.withCovrsHeading}}</h3>
+    </div>
+    <div class="withCovrs_belowImages">
+    	{% if section.settings.withCovrs1 %}
+            {{ section.settings.withCovrs1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        {% endif %}
+    	{% if section.settings.withCovrs2 %}
+            {{ section.settings.withCovrs2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        {% endif %}
+    	{% if section.settings.withCovrs3 %}
+            {{ section.settings.withCovrs3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        {% endif %}
+    	{% if section.settings.withCovrs4 %}
+            {{ section.settings.withCovrs4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        {% endif %}
+    </div>
+  </div>
+  <section class="specialFeature product_collage" id="dog_collage1">
+            <div class="container">
+              <div class="pp-12">
+                 <div class="useCases incontiProduct featureTitle">
+                    <h2 class="red">{{ section.settings.bellyHeadline }}</h2>
+                 </div>
+              </div>
+              <div class="row row_iconic">
+                    <div class="pp-12 arw_1">
+                        <div class="featureContent __Red">
+                            <div class="featureText featurepad" id="ik11">
+                              	{{ section.settings.bellyProText1}}
+                            </div>
+                            <div class="featureImg" id="ik19">
+                               {% if section.settings.bellyfeature1 %}
+                                    {{ section.settings.bellyfeature1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureImg" id="ik29">
+                                {% if section.settings.bellyfeature2 %}
+                                    {{ section.settings.bellyfeature2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureText" id="ik21">
+                              	{{ section.settings.bellyProText2}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pp-12 arw_2">
+                        <div class="featureContent __Red">
+                            <div class="featureText" id="ik31">
+                              	{{ section.settings.bellyProText3}}
+                            </div>
+                            <div class="featureImg fabricImg " id="ik39">
+                                {% if section.settings.bellyfeature3 %}
+                                    {{ section.settings.bellyfeature3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                          	<div class="featureImg fabricImg" id="ik69">
+                                {% if section.settings.bellyfeature6 %}
+                                    {{ section.settings.bellyfeature6 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureText elasticText" id="ik619">
+                              	{{ section.settings.bellyProText6}}
+                            </div>
+                        </div>
+                    </div><!--
+                    <div class="pp-12 arw_3">
+                        <div class="featureContent __Red">
+                            <div class="featureText" id="ik51">
+                              	{{ section.settings.bellyProText5}}
+                            </div>
+                            <div class="featureImg fabricImg" id="ik59">
+                                {% if section.settings.bellyfeature5 %}
+                                    {{ section.settings.bellyfeature5 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureImg fabricImg" id="ik69">
+                                {% if section.settings.bellyfeature6 %}
+                                    {{ section.settings.bellyfeature6 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureText elasticText" id="ik61">
+                              	{{ section.settings.bellyProText6}}
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="pp-12 arw_3 bot_feature">
+                        <div class="featureContent __Red">
+                            <div class="featureImg fabricImg" id="ik49">
+                                {% if section.settings.bellyfeature4 %}
+                                    {{ section.settings.bellyfeature4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                                {% endif %}
+                            </div>
+                            <div class="featureText elasticText" id="ik41">
+                              	{{ section.settings.bellyProText4}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>	
+  <section class="ProductRelatedAdvertisement last_banner_pro" id="foot_banner5">
+    <div class="container">
+      <div class="row">
+        <div class="pp-6">
+          <div class="leftRelatedAdvert">
+            <h4>{{section.settings.specialProdAdvet}}</h4>
+            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+          </div>
+        </div>
+        <div class="pp-6">
+          <div class="rightRelatedAdvert">
+            <h4>{{section.settings.specialProdAdvetHead}}</h4>
+            {% if section.settings.specialProdAdvetImg2 %}
+              {{ section.settings.specialProdAdvetImg2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            {% endif %}
+            {% comment %}adding Product_ids for inline cart{% endcomment %}
+            {% assign productIds  = "" | split: "," %}
+            {% if section.blocks.size > 0 %}
+            	{% for block in section.blocks %}
+                  {% if block.type == 'product' %}
+                  	{% assign pro_data 		= block.settings.inline_product %}
+                  	{% assign productt 		= all_products[pro_data] %}
+            		{% assign stickyprice 	= stickyprice | plus: productt.selected_or_first_available_variant.price %}
+                  	{% assign productId 	= productt.selected_or_first_available_variant.id | split: ',' %}
+            		{% assign productIds 	= productIds | concat:productId  %}
+                  {% endif %}
+                {% endfor %}
+            {% endif %}
+            <div class="learnMoreBtn" data-pro="{{-productIds | join: '|' -}}">     
+              	{% if section.settings.specialProdAdvetcheck %}
+              		<a href="{{section.settings.specialProdAdveturl}}" class="RedButton signUpBtn ashdajsl" style="background:#e3002b;">{{section.settings.specialProdAdvetBut}}</a>	
+              	{% else %}         
+					<a href="javascript:void(0);" class="RedButton signUpBtn redBack __productInline">{{section.settings.specialProdAdvetBut}}</a>
+				{% endif %}
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+	{%- for block in section.blocks -%}
+		{%- if block.type == 'productInnerBanner' -%}
+          <section class="productBannerInnerSection">
+            <a href="{{block.settings.contentUrl}}">
+              {% if block.settings.contentBanner %}
+                 {{ block.settings.contentBanner | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+              {% endif %}
+            </a>
+          </section>
+		{%- endif -%}
+	{%- endfor -%}
+</div>
+{% endif %}

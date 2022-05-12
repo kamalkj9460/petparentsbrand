@@ -1,0 +1,83 @@
+<section class="topOffersectionHome">
+	<div class="sf_container">
+		<div class="row ">        
+
+     		<div class="blueSubscription">
+			 <h6>{{section.settings.FreeShippingText}} <span>{{section.settings.FreeShippingPrice}}</span></h6>
+			</div>
+          <div class="__top_login RedblueSubscription">
+	<ul class="menu-top">
+		{% if section.settings.searchShipping == "box" %}
+		<li id="__search_icon" class="small--hide">
+			{% include 'search-bar', search_bar_location: 'search-bar--header' %}
+		</li>
+		{% endif %}
+		<!-- adding a search link for mobile devices -->
+		<li class="site-nav__item site-nav__item--compressed large--hide">
+			<a href="/search" class="site-nav__link site-nav__link--icon">
+				<span class="icon-fallback-text">
+					<span class="icon icon-search" aria-hidden="true"></span>
+					<span class="fallback-text">{{ 'general.search.title' | t }}</span>
+				</span>
+			</a>
+		</li>
+		{% if section.settings.searchShipping == 'page' or section.settings.search == 'modal' %}
+			{% assign search_modal = true %}
+			{% if section.settings.searchShipping == 'page' %}
+				{% assign search_modal = false %}
+			{% endif %}
+			<li class="site-nav__item site-nav__item--compressed">
+				<a href="/search" class="site-nav__link site-nav__link--icon{% if search_modal %} js-toggle-search-modal{% endif %}" data-mfp-src="#SearchModal">
+					<span class="icon-fallback-text">
+						<span class="icon icon-search" aria-hidden="true"></span>
+						<span class="fallback-text">{{ 'general.search.title' | t }}</span>
+					</span>
+				</a>
+			</li>
+		{% endif %}
+            </ul></div>
+          
+          
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Free Shipping & Search",
+    "settings": [
+	{"type":"text","id":"FreeShippingText","label":"Free Shipping Text"},
+	{"type":"color","id":"backGroundColor","label":"Free Shipping Text Background Color","default":"#ed1b3c"},
+	{"type":"text","id":"FreeShippingPrice","label":"Free Shipping Price"},
+	{"type":"color","id":"backGroundSearch","label":"Search Background Color","default":"#00b6bd"},
+	{"type": "select",
+        "id": "searchShipping",
+        "options": [
+           { "value": "page",
+             "label": "Page"
+           },
+           { "value": "box",
+             "label": "Box"
+           },
+           { "value": "none",
+             "label": "None"
+           }
+        ],
+        "label": "Search Type"
+      }],
+	"presets": [{
+      "name": "Free Shipping & Search",
+      "category": "Home"
+    }]
+  }
+{% endschema %}
+
+<style>
+  .blueSubscription{
+    background:{{section.settings.backGroundColor}};
+  }
+  .RedblueSubscription{
+    background:{{section.settings.backGroundSearch}};
+  }
+</style>

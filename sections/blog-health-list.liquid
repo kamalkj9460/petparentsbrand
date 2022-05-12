@@ -1,0 +1,63 @@
+{% assign count = section.settings.blog_per_page %}
+{% assign blog_name =  section.settings.blog_setting %}
+
+<!-- Dog Blog List -->
+<div class="DogBlogList">
+   {% paginate blogs[blog_name].articles by count %}
+  
+   {% for article in blogs[blog_name].articles %}
+  	<ul>   
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text">
+          
+            <div class="__dog-title">
+              <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+              <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+            </div>
+            <div class="_dog_cnt_">
+               {{  article.title }}
+               <p><span class="SeeMOre"> > read <strong>more</strong> </span></p>
+             
+             
+            </div>
+          </div>
+        </a>
+      </li>  
+     </ul>
+   {% endfor %}
+       
+  	
+<!--    <div class="pagination">
+       {{ paginate | default_pagination | previous: '&laquo; Previous', '&larr;' | next: 'Next &raquo;', '&rarr;' }}
+   </div> -->
+     
+    {% endpaginate %}
+</div>
+
+
+
+<!-- Blog Landing Section Ends -->
+{% schema %}
+  {
+    "name": "Blog List section",
+      "settings": [
+         {"type": "blog", "id":"blog_setting","label": "Blog"},
+         {"type": "number", "id": "blog_per_page","label": "Blog per page","default": 20}
+    ],
+	"presets":[{
+      "name": "Blog landing Page",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<script>
+  jQuery(".FilterButton").click(function(){
+   jQuery(".flist").toggle();
+    
+  });
+</script>

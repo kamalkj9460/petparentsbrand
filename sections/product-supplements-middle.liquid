@@ -1,0 +1,62 @@
+<!-- snippets/product-uses-snippet.liquid-->
+{% include 'supplement-landing-snippet.liquid' %}
+{% schema %}
+  {
+    "name": "Supplements Content",
+    "settings": [
+	  {"type":"header","content":"Banner Section"},	
+	  {"type":"color","id":"peePadHeaderColor","label":"Color of all the Heading colors"},
+      {"type": "image_picker", "id":"addi_img", "label":"Middle additional Background image"},
+      {"type": "image_picker", "id":"addi_img1", "label":"Middle additional Icon"},
+      {"type": "html","id":"image_content","label":"Custom HTML"},
+	  {"type":"url","id":"takeourquiz","label":"Button Url"},
+      {"type": "checkbox", "id": "is_middle","label": "Enable Middle Section","default":true},
+	  {"type":"header","content":"Product Special Features"},
+	  {"type":"color","id":"featureColor","label":"BGColor of Feature Icon"},
+			{"type":"html","id":"bellyHeadline","label":"Headline"},
+			{"type":"image_picker","id":"bellyfeature1","label":"Product Image (1)"},
+			{"type":"html","id":"bellyProText1","label":"Content on Product (1)"},
+			{"type":"image_picker","id":"bellyfeature2","label":"Product Image (2)"},
+			{"type":"html","id":"bellyProText2","label":"Content on Product (2)"},
+			{"type":"image_picker","id":"bellyfeature3","label":"Product Image (3)"},
+			{"type":"html","id":"bellyProText3","label":"Content on Product (3)"},
+			{"type":"image_picker","id":"bellyfeature4","label":"Product Image (4)"},
+			{"type":"html","id":"bellyProText4","label":"Content on Product (4)"},
+			{"type":"image_picker","id":"bellyfeature7","label":"Product Image (7)"},
+	  {"type":"header","content":"Safety content "},
+	  {"type":"color","id":"safetycolor","label":"Color BG"},
+	  {"type":"color","id":"saftyheadingcolor","label":"Heading Color"},
+	  {"type":"color","id":"saftysubheadingcolor","label":"Sub-Heading Color"},
+	  {"type":"image_picker","id":"safetyIcon","label":"Icon Image"},
+	  {"type":"text","id":"saftyheading","label":"Safety Heading"},
+	  {"type":"text","id":"saftysubheading","label":"Safety Sub Heading"},
+	  {"type":"html","id":"safcontent1","label":"Enter Content (1)"},
+	  {"type":"html","id":"safcontent2","label":"Enter Content (2)"},
+	  {"type":"html","id":"safcontent3","label":"Enter Content (3)"}
+    ], 
+	"blocks" : [{
+        "type": "uses",
+        "name": "Uses",
+        "settings": [
+			{"type":"text","id":"uses_text","label":"Uses Text"}
+		]		 
+	},
+	{
+        "type": "antler",
+        "name": "Antler Guide",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+			{"type":"color","id":"antlercolor","label":"Back-Ground Color"},
+			{"type":"image_picker","id":"antlerfirstImg","label":"Only first heading"},
+			{"type":"image_picker","id":"antlerImg","label":"Enter Image"},
+			{"type":"text","id":"antlerHeading","label":"Heading"},
+			{"type":"text","id":"antlerContent","label":"Content"}
+		]		 
+	}]
+  }
+{% endschema %}

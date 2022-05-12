@@ -1,0 +1,23 @@
+<section class="websiteBottomAdvertisment">
+  <div class="advertismentContent">
+	<a href="{{section.settings.webadverLink}}">
+	  <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.webadvertismentBottom | img_url:'master'}}">
+	</a>
+  </div>
+</section>
+
+{% schema %}
+  {
+	"name": "Gnawtler Advertisment ",
+	"settings": [
+	{"type":"header","content":"Settings"},
+	{"type":"image_picker","id":"webadvertismentBottom","label":"Website Avertisment Banner"},
+		{"type":"image_picker","id":"webadvertismentBottommobile","label":"Website Avertisment Banner[Mobile]"},
+	{"type":"url","id":"webadverLink","label":"Enter Page Link" }
+  ],
+  "presets": [{
+	  "name": "Gnawtler Advertisment  ",
+	  "category": "Image"
+	}]
+  }
+{% endschema %}

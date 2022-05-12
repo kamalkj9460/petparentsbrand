@@ -1,0 +1,207 @@
+<section class="philanthropy">
+  <div class="philanthropy-banner {% if section.settings.bannermob %} desktopSection {% endif %}">
+  	 {% if  section.settings.bannerOne %}
+          {{ section.settings.bannerOne | img_url:'master' |img_tag:'bannerOne','img-responsive' }}
+     {% endif %}
+  </div>
+  {% if section.settings.bannermob %}
+    <div class="philanthropy-banner mobileSection">
+       {% if  section.settings.bannermob %}
+            {{ section.settings.bannermob | img_url:'master' |img_tag:'bannerOne','img-responsive' }}
+       {% endif %}
+    </div>
+  {% endif %}
+  <div class="philanthropy-sectionTwo">
+    <p>{{section.settings.textbansection}}</p>
+  </div>
+  <div class="philanthropy-sectionthree">
+    <div class="philanthropy-sec3Text" style="color:{{section.settings.textsec3color}}">
+      {{section.settings.textsec3}}
+    </div>
+    <div class="philanthropy-sec3Img">
+    	{% if  section.settings.sec3Img %}
+          {{ section.settings.sec3Img | img_url:'master' |img_tag:'sec3Img','img-responsive' }}
+     	{% endif %}
+    </div>
+  </div>
+  <div class="bl_bord"></div>
+  <div class="philanthropy-sectionfour">
+    <span class="philanAboveBlue"></span>
+    {% for block in section.blocks %}
+    	{% if block.type == 'firstPhilanthropy' %}
+          <div class="__firstsectionPhilanthropy">
+            <span style="background:{{block.settings.leftColor}}"></span>
+            <div class="__above1sectionPhilanthropy">
+              <div class="Img-onesection">
+                  {% if  block.settings.sec1Img %}
+                    {{ block.settings.sec1Img | img_url:'master' |img_tag:'sec1Img','img-responsive' }}
+                  {% endif %}
+              </div>
+              <div class="__textPhilanthropy">
+                <p>{{block.settings.textphilanthropy1}}</p>
+              </div>
+            </div>
+          <!-- 1 Gallery -->
+            <div class="phly_1">
+              <div class="__firstsectionLeft">
+                  {% if  block.settings.sec1Img1 %}
+                    {{ block.settings.sec1Img1 | img_url:'master' |img_tag:'sec1Img1','img-responsive' }}
+                  {% endif %}
+              </div>
+              <div class="__firstsectionright">
+                <div class="__1sectionImgPhilanthropy">
+                  {% if  block.settings.sec1Img2 %}
+                    {{ block.settings.sec1Img2 | img_url:'master' |img_tag:'sec1Img2','img-responsive' }}
+                  {% endif %}
+                  {% if  block.settings.sec1Img4 %}
+                    {{ block.settings.sec1Img4 | img_url:'master' |img_tag:'sec1Img4','img-responsive' }}
+                  {% endif %}
+                </div>
+                <div class="__2sectionImgPhilanthropy">
+                  {% if  block.settings.sec1Img3 %}
+                    {{ block.settings.sec1Img3 | img_url:'master' |img_tag:'sec1Img3','img-responsive' }}
+                  {% endif %}
+                  {% if  block.settings.sec1Img5 %}
+                    {{ block.settings.sec1Img5 | img_url:'master' |img_tag:'sec1Img5','img-responsive' }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+    </div>
+    	{% endif %}
+    	{% if block.type == 'secondPhilanthropy' %}
+            <!-- 2 Gallery -->
+             <div class="__secondSectionPhilanthropy">
+              <span style="background:{{block.settings.leftColor1}}"></span>
+              <div class="__above1sectionPhilanthropy">
+                <div class="Img-onesection">
+                    {% if  block.settings.sec2Img %}
+                      {{ block.settings.sec2Img | img_url:'master' |img_tag:'sec2Img','img-responsive' }}
+                    {% endif %}
+                </div>
+                <div class="__textPhilanthropy">
+                  <p>{{block.settings.textphilanthropy2}}</p>
+                </div>
+              </div>
+              <div class="__secondSectionGallery">
+                <div class="__secondSectionLeft">
+                    {% if  block.settings.sec2Img1 %}
+                      {{ block.settings.sec2Img1 | img_url:'master' |img_tag:'sec2Img1','img-responsive' }}
+                    {% endif %}
+                </div>
+                <div class="__secondSectionright">
+                  <div class="__2sectionImgPhilanthropy">
+                    {% if  block.settings.sec2Img2 %}
+                      {{ block.settings.sec2Img2 | img_url:'master' |img_tag:'sec2Img2','img-responsive' }}
+                    {% endif %}
+                  </div>
+                  <div class="__3sectionImgPhilanthropy">
+                    {% if  block.settings.sec2Img3 %}
+                      {{ block.settings.sec2Img3 | img_url:'master' |img_tag:'sec2Img3','img-responsive' }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+          </div>
+    	{% endif %}
+    {% endfor %}
+  </div>
+  <!-- Featured Organizations Section -->
+  <h1 class="sf_h1_heading">{{page.title}}</h1>
+  <div class="treatTitle">
+        <h2 class="findProductHeading petTitle">
+          <span class="red">Featured </span> 
+          <span class="skyblue">Organizations</span>
+    	</h2>
+  </div>
+  <div class="featureOrganisation">
+    <h3>{{section.settings.featureOrganisation}}</h3>
+    <div class="fOrg--Img">
+    	{% if  section.settings.fOrganImg1 %}
+           {{ section.settings.fOrganImg1 | img_url:'master' |img_tag:'fOrganImg1','img-responsive' }}
+        {% endif %}
+      	{% if  section.settings.fOrganImg2 %}
+           {{ section.settings.fOrganImg2 | img_url:'master' |img_tag:'fOrganImg2','img-responsive' }}
+        {% endif %}
+      	{% if  section.settings.fOrganImg3 %}
+           {{ section.settings.fOrganImg3 | img_url:'master' |img_tag:'fOrganImg3','img-responsive' }}
+        {% endif %}
+    </div>
+  </div>
+  <!-- Bottom  Philanthropy-->
+  <div class="bott-Philanthropy">
+    <div class="bott-Img">
+    	{% if  section.settings.bottImg %}
+           {{ section.settings.bottImg | img_url:'master' |img_tag:'bottImg','img-responsive' }}
+        {% endif %}
+    </div>
+    <div class="bott-text">
+      <p>{{section.settings.bottText}}</p>
+      <div class="bott-butt-link">
+        <a href="{{section.settings.botturl1}}">RESCUE & SHELTER PROGRAM</a>
+        <a href="{{section.settings.botturl2}}">CONTACT US</a>
+        <a href="{{section.settings.botturl3}}">SCHOLARSHIPS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Philanthropy",
+    "settings": [
+	     {"type":"header","content":"Main -- Section"},
+		 {"type":"image_picker","id":"bannerOne","label":"Header Banner Image"},
+		 {"type":"image_picker","id":"bannermob","label":"Header Banner Image [mobile]"},
+		 {"type":"text","id":"textbansection","label":"Add Text"},
+
+	     {"type":"header","content":"Philanthropy -- Section"},
+		 {"type":"text","id":"textsec3","label":"Add Text"},
+		 {"type":"color","id":"textsec3color","label":"Text Color","default":"#00b7bc"},
+		 {"type":"image_picker","id":"sec3Img","label":"Select Image"},
+
+	     {"type":"header","content":"Feature Organisation -- Section"},
+		 {"type":"image_picker","id":"fOrganImg1","label":"Image (1)"},
+		 {"type":"image_picker","id":"fOrganImg2","label":"Image (2)"},
+		 {"type":"image_picker","id":"fOrganImg3","label":"Image (3)"},
+
+
+	     {"type":"header","content":"Bottom Philanthropy -- Section"},
+		 {"type":"image_picker","id":"bottImg","label":"Image"},
+		 {"type":"text","id":"bottText","label":"Add Text"},
+		 {"type":"url","id":"botturl1","label":"Link (1)"},
+		 {"type":"url","id":"botturl2","label":"Link (2)"},
+		 {"type":"url","id":"botturl3","label":"Link (3)"}
+	],
+	"blocks" : [{
+        "type": "firstPhilanthropy",
+        "name": "First Philanthropy",
+        "settings": [
+		 {"type":"color","id":"leftColor","label":"Text Color","default":"#00b7bc"},
+	     {"type":"image_picker","id":"sec1Img","label":"Select Image (1)"},
+		 {"type":"text","id":"textphilanthropy1","label":"Add Text"},
+	      {"type":"image_picker","id":"sec1Img1","label":"Select Image (1)"},
+	      {"type":"image_picker","id":"sec1Img2","label":"Select Image (2)"},
+	      {"type":"image_picker","id":"sec1Img3","label":"Select Image (3)"},
+	      {"type":"image_picker","id":"sec1Img4","label":"Select Image (4)"},
+	      {"type":"image_picker","id":"sec1Img5","label":"Select Image (5)"}
+		]},{
+        "type": "secondPhilanthropy",
+        "name": "Second Philanthropy",
+        "settings": [
+		 {"type":"color","id":"leftColor1","label":"Text Color","default":"#00b7bc"},
+	     {"type":"image_picker","id":"sec2Img","label":"Select Image (1)"},
+		 {"type":"text","id":"textphilanthropy2","label":"Add Text"},
+	      {"type":"image_picker","id":"sec2Img1","label":"Select Image (1)"},
+	      {"type":"image_picker","id":"sec2Img2","label":"Select Image (2)"},
+	      {"type":"image_picker","id":"sec2Img3","label":"Select Image (3)"}
+		]} ],
+	"presets":[{
+      "name": "Philanthropy",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+
+

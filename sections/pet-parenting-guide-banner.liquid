@@ -1,0 +1,17 @@
+<!-- Blog Landing Top Section -->
+{% render 'blog_col_header_snippet', section:section %}
+{% schema %}
+  {
+    "name": "Banner Section",
+    "settings": [
+         {"type":"image_picker","id":"banner_img","label":"Banner Image"},
+{"type":"image_picker","id":"banner_img_m","label":"Banner Image(Mobile)"},
+         {"type":"html","id":"banner_text","label":"Add text","default": "<p>Latido leathers is an online store which sells leathers products</p>"},
+         {"type":"html","id":"slider_below_content","label":"Text", "default": "<p>Latido leathers is an online store which sells leathers products</p>"}
+	 ]
+    
+	
+		
+  }
+{% endschema %}
+

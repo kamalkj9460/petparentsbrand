@@ -1,0 +1,273 @@
+<section class="WarrantyProgram">
+  <div class="container">
+    <h1><span>{{section.settings.wp_title}}</span></h1>
+    <p>{{section.settings.wp_stitle}}</p>
+  </div> 
+</section>
+<section class="Coverage_main">
+  <div class="container">
+    <h3><span>{{section.settings.cAge_title}}</span></h3>
+    <h4>{{section.settings.cAge_Q_1}}</h4>
+    <p>{{section.settings.cAge_A_1}}</p>
+    <h4>{{section.settings.cAge_Q_2}}</h4>
+    <p>{{section.settings.cAge_A_2}}</p>
+  </div> 
+</section>
+<section id="WorksPrograms">
+    <div class="container">
+        <div class="WorksPrograms">
+            <div class="workprogram wprograms_left">
+              <h3>{{section.settings.wks_title}}</h3>
+              <h4>{{section.settings.wks_Q_1}}</h4>
+               <div class="fContent">
+                    {{section.settings.wks_A_1}}
+                </div>               
+            </div>
+            <div class="workprogram wprograms_right">
+                <h3>{{section.settings.pgs_title}}</h3>
+              	<h4>{{section.settings.pgs_Q_1}}</h4>
+              	 <div class="fContent">
+                    {{section.settings.pgs_A_1}}
+                </div> 
+            </div>
+        </div>
+  	</div>
+</section>
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [ 
+		 {"type":"header", "content":"Warranty Program"},
+        {"type":"text","id":"wp_title","label":"Heading"},
+        {"type":"html","id":"wp_stitle","label":"Sub Heading"},
+        {"type":"header", "content":"Coverage"},
+        {"type":"text","id":"cAge_title","label":"Heading"},
+        {"type":"text","id":"cAge_Q_1","label":"Question (1)"},
+        {"type":"html","id":"cAge_A_1","label":"Answer (1)"},
+        {"type":"text","id":"cAge_Q_2","label":"Question (2)"},
+        {"type":"html","id":"cAge_A_2","label":"Answer (2)"},
+        {"type":"header", "content":"Works"},
+        {"type":"text","id":"wks_title","label":"Heading"},
+        {"type":"text","id":"wks_Q_1","label":"Title"},
+        {"type":"html","id":"wks_A_1","label":"Content"},
+        {"type":"header", "content":"Programs"},
+        {"type":"text","id":"pgs_title","label":"Heading"},
+        {"type":"text","id":"pgs_Q_1","label":"Title"},
+        {"type":"html","id":"pgs_A_1","label":"Content"}
+	],
+	"presets":[{
+      "name": "productWarrenty",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+
+<style>
+body {font-family: "Gentona book" !important;}
+.WarrantyProgram h1 {
+    font-size: 40px;
+    color: #9d9d9c;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Gentona book" !important;
+    margin: 75px 0 20px;
+    text-align: center;
+}
+.WarrantyProgram .container, .Coverage_main .container, #WorksPrograms .container {
+    max-width: 1180px;
+}
+.WarrantyProgram h1 span {
+    position: relative;
+}
+.WarrantyProgram h1 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #e3002b;
+    content: "";
+    left: 0;
+    top: -25px;
+    border-radius: 5px;
+}
+.WarrantyProgram p {
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    color: #9d9d9c;
+    padding-bottom: 50px;
+} 
+.Coverage_main h3 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+}
+.Coverage_main h3 span {
+    position: relative;
+}
+.Coverage_main h3 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #00b6bd;
+    content: "";
+    left: 0;
+    top: -20px;
+    border-radius: 5px;
+}  
+.Coverage_main h4 {
+    font-size: 20px;
+    line-height: 1.25;
+    color: #9d9d9c;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+      font-weight: 600;
+} 
+.Coverage_main p {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    margin: 0;
+    padding-bottom: 20px;
+}
+.WorksPrograms {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 35px 0 15px;
+}  
+.WorksPrograms>div {
+    width : 48.5%;
+    background: #f6f6f6;
+    padding: 50px 45px;
+}  
+.workprogram h3 {
+    font-size: 28px;
+    color: rgb(157, 157, 156);
+    line-height: 1.2;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+    font-family: "Gentona book";
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.workprogram h4 {
+    font-size: 18px;
+    line-height: 1.25;
+    color: #9d9d9c;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 4px;
+ 
+}  
+.fContent p {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    margin: 0;
+    padding-bottom: 20px;
+}  
+.fContent a {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1;
+    padding: 10px 10px;
+    text-align: center;
+    background: #e3002b;
+    font-weight: 500;
+    font-family: "Gentona book";
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: .15s;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 325px;
+    border: 1px solid #e3002b;
+} 
+.fContent a:hover {
+    color: #e3002b;
+    background: #fff;
+}
+.wprograms_left .fContent a {
+    width: 100%;
+    max-width: 290px;
+}
+.__Footer_sec_inner {
+    border-top: 0;
+}  
+
+  
+@media (max-width: 1023px) {
+    .WorksPrograms {
+        grid-gap: 25px;
+    }
+  	.WorksPrograms>div {
+        width: 100%;
+    }
+}
+  
+@media (max-width: 767px) {
+    .WarrantyProgram .container, .Coverage_main .container {
+        padding: 0 15px;
+    }
+    #WorksPrograms .container {
+        padding: 0px;
+    }
+    .WorksPrograms>div {
+        padding: 20px 15px;
+    }
+    .WarrantyProgram p {
+        font-size: 14px;
+        text-align: left;
+    }
+    .WorksPrograms {
+        margin: 20px 0 0px;
+    }
+    .fContent a {
+        font-size: 13px;
+        width: 100%;
+        max-width: 315px;
+    }
+    .WarrantyProgram h1 {
+        font-size: 36px;
+    }
+    .Coverage_main h4 {
+        font-size: 15px;
+    }
+    .Coverage_main h3 {
+        font-size: 24px;
+        padding-bottom: 10px;
+    }
+    .Coverage_main p {
+        font-size: 13px;
+        margin-top: 3px !important;
+    }
+    .workprogram h4 {
+        font-size: 15px;
+    }
+    .fContent p {
+        font-size: 13px;
+        margin: 0 !important;
+    }
+    .wprograms_left .fContent a {
+        max-width: 255px;
+    }
+}
+   
+  
+  
+  
+</style>
+
+

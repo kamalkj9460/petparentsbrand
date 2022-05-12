@@ -1,0 +1,37 @@
+<!-- Homepage Hero Image Section -->
+<!-- sections/homepage--heroimage.liquid-->
+  {% if section.settings.homeheroImg and section.settings.hero_text %}
+<style type="text/css">
+   .products_abv_clr_data {background-color: {{ section.settings.product_clr_abv}};}
+</style>
+  <div class="banner_main">
+    <div class="col-md-6 no-padding">
+      {{ section.settings.homeheroImg | img_url: 'master' | img_tag:'banner_img','lazyloaded' }}
+    </div>
+    <div class="col-md-6">
+      <div class="__banner_text">
+         {{ section.settings.hero_text }}
+      </div>
+    </div>
+    <div class="like_you_data">
+        <div class="col-md-12 no-padding">
+           <div class="products_abv_clr_data"></div>
+        </div> 
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name" : "Hero Image",
+    "settings" : [
+			{"type":"image_picker","id":"homeheroImg","label":"Header Hero Image"},
+			{"type":"html","id":"hero_text","label":"Right Side Text"},
+           {"type":"color","id":"product_clr_abv","label":"Products Above Stripe Color"}
+		],
+	"presets": [{
+      "name": "Home -- Hero Image",
+      "category": "Homepage"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,72 @@
+<script>
+$(function() {
+    $('a[href*="#"]').on('click', function() {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.substr(1) +']');
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+            return false;
+        }
+    });
+});
+</script>
+
+<section class="terms-policies">
+  <div class="uperBanner">
+  	{% if section.settings.termBanner %}
+		<img src="{{section.settings.termBanner | img_url:'master'}}" />
+	{% endif %}
+    <div class="cont_overlay">
+    <span>
+		<img src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/paw_46d0c1ab-8825-4477-ae3f-4a240efe4580.png?v=1585727165" />
+    </span>
+      <h1>Pet Parents<sup>®</sup> <span>Terms & Policies</span></h1>
+    </div>
+  </div>	
+  <div class="subMenucontent">
+    <ul class="subMenulist">
+            <li><a href="#SUBSCRIPTIONS">SUBSCRIPTIONS</a></li>
+            <li><a href="#PRIVACY">PRIVACY</a></li>
+            <li><a href="#RETURNS">RETURNS</a></li>
+            <li><a href="#SHIPPING">SHIPPING</a></li>
+            <li><a href="#WEBSITE">WEBSITE ACCESS</a></li>
+            <li><a href="#OTHERS">OTHERS</a></li>
+            <li><a href="#PROMISE">OUR PROMISE TO YOU</a></li>
+    </ul>
+  </div>
+  <div class="termContent">
+    <p>{{section.settings.firstsection}}</p>
+    <div class="allthetermsandpolicy">	
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'Button' %}
+      		<div class="headingTerms hd_bl" id="{{block.settings.buttonLink2}}">
+              <h4 style="background:{{block.settings.Color_Button}}" >{{block.settings.button}}</h4>
+      		</div>
+         {% endif %}
+      	 {% if block.type == 'Content' %}
+      		<div class="Terms_Content">
+              <span class="srno">{{block.settings.srbutton}}</span>
+              <div class="mainContent">
+                <h3>{{block.settings.head_red}} <span>{{block.settings.head_green}}</span></h3>
+                <p>{{block.settings.contentData}}</p>
+              </div>
+      		</div>
+         {% endif %}
+      {% endfor %}
+    </div>
+    <div class="bottomTermSection">
+      <div class="OurPromisetoU">
+        <p>{{section.settings.termsfooter}}</p>
+      </div>
+      <div class="contactUsTerms">
+        <p>If you have any questions about our policies, please 
+        <a href="{{section.settings.buttonLink}}" class=" ">CONTACT US</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+              

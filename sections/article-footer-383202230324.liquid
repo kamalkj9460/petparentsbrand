@@ -1,0 +1,33 @@
+{% for block in section.blocks %}
+<div class="auth_img_main snippet_auth_data">
+      <div class="auth_img">
+          <img src="//cdn.shopify.com/s/files/1/1355/5443/users/user_100x100_80eaf4de-cd34-4a76-ad96-d9fe7fa7fc2c.jpg?v=1551180225">
+      </div>
+      <div class="show_author_name">
+       <p> The Author:</p><span> {{ article.author }} </span>
+      </div>
+      <div class="author_cnt_data">
+         <p>{{ block.settings.author_cnt_data_snippet }}</p>
+        <p><a href="{{ block.settings.author_bio_url }}">{{ block.settings.read_title }}</a></p>
+       </div>  
+    </div>
+
+{% endfor %}
+{% schema %}
+  {
+    "name": "article-foot-3202230324",
+    "settings": [],
+	"blocks":[
+		{
+			"type":"artical_footer1",
+			"name":"author Details",
+			"settings":[
+                {"type":"html","id":"author_cnt_data_snippet","label":"Snippet Text"},
+                {"type": "text","id": "read_title", "label":"Read More Title"},
+                {"type": "url","id": "author_bio_url", "label":"Select URL"}
+			]
+		}
+	]
+  }
+{% endschema %}
+

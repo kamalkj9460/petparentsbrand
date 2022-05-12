@@ -1,0 +1,58 @@
+<div class="clear"></div>
+<div class="__title_banner">
+  <div class="container">
+    <div class="row">
+      <div class="__Inner_title">
+        <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="__title_banner">
+	<div class="container">
+		<div class="row">
+			<div class="white_space">
+              <div class="__banner_inner saledata" style="text-align: left;">
+            {{ section.settings.header_image | img_url:'master' | img_tag:'washing_header','img-responsive'}}
+ <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/icon.png?6348108467624227143" class="logodata" />
+          </div>
+          </div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="__banner_bottom">
+	<div class="container">
+		<div class="row">
+			<div class="white_space">
+				<div class="__Contact_Title_bottom">
+					{{ section.settings.header_bellow_text }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="dog_prd">
+	<div class="container">
+		<div class="row">
+			<ul>
+              {% for block in section.blocks %}
+				<li class="col-md-4">
+					<a href="{{ block.settings.url }}">
+                      {{ block.settings.image | img_url:'master' | img_tag:'block_img','img-responsive' }}                      
+					<div class="prod_dec">
+						<h1 class="hero__title">{{ block.settings.title }}</h1>
+					</div>
+                  	</a>
+				</li>
+			  {% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

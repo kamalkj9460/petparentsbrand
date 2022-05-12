@@ -1,0 +1,64 @@
+<!-- home newsletter section-->
+<!-- sections/homepage--newsletter.liquid -->
+<div class="__main_banner">
+  <div class="container">
+    <div class="row">
+      <div class="__white_SEC __Join_falimy_data">	
+        <div class="col-md-6 no-padding">
+          {{ section.settings.newsletter_img | img_url:'master' | img_tag:'newletter_img' }}
+        </div>
+        <div class="col-md-6">
+          <div class="__Join_falimy">
+            <span class="__Join">{{ section.settings.newsletter_title }}</span>
+            <div class="__Join_fellow">
+              {{ section.settings.newletter_subtitle }}              
+            </div>
+            <div class="__new_product">
+              {{ section.settings.newscontent }}              
+            </div>
+            <div class="__News_letter_form">
+              <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="">
+              		{% comment %}<input type="email" class="input-group-field" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="EMAIL" id="mail" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">{% endcomment %}
+                <a target="_blank" href="https://petparentsbrand.com/pages/signup-form" type="submit" class="sign_up_btn">Click Here</a>
+              </form>
+              {% comment %}
+              {% form 'customer' %}
+              {{ form.errors | default_errors }}
+              {% if form.posted_successfully? %}
+                <div class="newsletter--form">
+                  <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
+                </div>
+              {% else %}
+                <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="newsletter--form">
+                  <div class="">
+                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="contact[email]" id="Email" autocorrect="off" autocapitalize="off">
+                    <button type="submit" name="commit" id="Subscribe">ADD</button>
+                  </div>
+                </div>
+              {% endif %}
+            {% endform %}
+            {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Newletter",
+    "settings": [		
+		{"type":"image_picker","id":"newsletter_img","label":"Add Newletter Image"},		
+		{"type":"text","id":"newsletter_title","label":"Newsletter Title"},
+		{"type":"html","id":"newletter_subtitle","label":"Newsletter Subtitle"},	
+		{"type":"text","id":"newscontent","label":"Newsletter content"}
+	],
+	"presets":[{
+      "name": "Home -- Newletter",
+      "category": "Homepage"
+    }]
+  }
+{% endschema %}

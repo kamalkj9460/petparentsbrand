@@ -1,0 +1,64 @@
+{% include 'petAge-product-snippet' %}
+
+{% schema %}
+  {
+    "name": "Pet Products",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"image_picker","id":"addi_imgMob","label":"Banner Image[mobile]"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"}
+	],
+	"blocks" : [{
+        "type": "ProBanner",
+        "name": "ProBanner",
+        "settings": [
+	       {"type":"image_picker","id":"prodBanner","label":"Product Banner"},
+	       {"type":"text","id":"prodBannerHeading","label":"Product Name"}
+		]},
+		{
+        "type": "ProContent",
+        "name": "ProContent",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+	       {"type":"image_picker","id":"addi_img3","label":"Product Image"},
+	       {"type":"text","id":"head1","label":"Heading title (1)"},
+	       {"type":"text","id":"content1","label":"Heading Content (1)"},
+	       {"type":"text","id":"head2","label":"Heading title (2)"},
+	       {"type":"text","id":"content2","label":"Heading Content (2)"},
+	       {"type":"text","id":"head3","label":"Heading title (3)"},
+	       {"type":"text","id":"content3","label":"Heading Content (3)"},
+	       {"type":"text","id":"head4","label":"Heading title (4)"},
+	       {"type":"text","id":"content4","label":"Heading Content (4)"},
+	       {"type":"text","id":"head5","label":"Heading title (5)"},
+	       {"type":"text","id":"content5","label":"Heading Content (5)"},
+	       {"type":"text","id":"head6","label":"Heading title (6)"},
+	       {"type":"text","id":"content6","label":"Heading Content (6)"},
+	       {"type":"text","id":"head7","label":"Heading title (7)"},
+	       {"type":"text","id":"content7","label":"Heading Content (7)"},
+	       {"type":"text","id":"head8","label":"Heading title (8)"},
+	       {"type":"text","id":"content8","label":"Heading Content (8)"}
+		]},
+		{
+        "type": "AddToCart",
+        "name": "AddToCart",
+        "settings": [
+		   {"type":"product","id":"content_product","label":"Choose Product"}, 
+		   {"type":"checkbox","id":"varientLine","label":"Cart Long Line","default":false},
+		   {"type":"checkbox","id":"list_variant","label":"Show variant","default":false},
+		   {"type":"text","id":"variant","label":"List custom vairant"},
+	       {"type":"text","id":"proname","label":"Product Name"},
+	       {"type":"url","id":"learnmoreProduct","label":"Learn More - Product Link"}
+		]}
+],
+	"presets":[{
+      "name": "Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}

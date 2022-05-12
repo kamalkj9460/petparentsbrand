@@ -1,0 +1,33 @@
+<!-- Home About Us Section -->
+<!-- sections/homepage--aboutus.liquid-->
+<div class="__About_Us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 no-padding">
+        <div class="__Dog_Diapers">						
+          <div class="__Dog_Diapers_img">
+            {{ section.settings.about_banner | img_url:'master' | img_tag:'about_us_img' }}
+          </div>
+          <div class="__Pro_Title_about"><a>{{ section.settings.about_title }}</a></div>
+        </div>	
+      </div>				
+    </div>
+    <div class="row">   
+      <div class="__About_cnt_home">{{ section.settings.about_content }}</div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "About Us",
+    "settings": [		
+		{"type":"image_picker","id":"about_banner","label":"Add Abous Section Banner"},		
+		{"type":"text","id":"about_title","label":"Setion Title"},
+		{"type":"html","id":"about_content","label":"About Us Content"}
+	],
+	"presets":[{
+      "name": "Home -- About Us",
+      "category": "Homepage"
+    }]
+  }
+{% endschema %}

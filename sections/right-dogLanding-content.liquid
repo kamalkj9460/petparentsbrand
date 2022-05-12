@@ -1,0 +1,46 @@
+<div class="rightDogLandingContent">
+  <div class="leftImages">
+    {% if section.settings.dogLanding_content %}
+      <a href="{{section.settings.dogLanding_url1}}">
+        <img src="{{section.settings.dogLanding_content | img_url: 'master' }}" />
+      </a>
+    {% endif %}
+    {% if section.settings.dogLanding_content2 %}
+      <a href="{{section.settings.dogLanding_url2}}">
+        <img src="{{section.settings.dogLanding_content2 | img_url: 'master' }}" />
+      </a>
+    {% endif %}
+  </div>
+  <div class="rightImages">
+    {% if section.settings.dogLanding_content3 %}
+      <a href="{{section.settings.dogLanding_url3}}">
+        <img src="{{section.settings.dogLanding_content3 | img_url: 'master' }}" />
+      </a>
+    {% endif %}
+    {% if section.settings.dogLanding_content4 %}
+      <a href="{{section.settings.dogLanding_url4}}">
+        <img src="{{section.settings.dogLanding_content4 | img_url: 'master' }}" />
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name" : "Right Dog Landing Content",
+    "settings" : [			
+			{"type":"url","id":"dogLanding_url1","label":"Dog Image Url (1)"},
+			{"type":"image_picker","id":"dogLanding_content","label":"Dog Image (1)"},
+			{"type":"url","id":"dogLanding_url2","label":"Dog Image URl(2)"},
+			{"type":"image_picker","id":"dogLanding_content2","label":"Dog Image (2)"},
+			{"type":"url","id":"dogLanding_url3","label":"Dog Image URl(3)"},
+			{"type":"image_picker","id":"dogLanding_content3","label":"Dog Image (3)"},
+			{"type":"url","id":"dogLanding_url4","label":"Dog Image URl(4)"},
+			{"type":"image_picker","id":"dogLanding_content4","label":"Dog Image (4)"}
+          ],
+	"presets": [{
+      "name": "Right Dog Landing Content",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

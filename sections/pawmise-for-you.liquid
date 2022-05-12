@@ -1,0 +1,47 @@
+<!-- Treats Section -->
+<section class="pawmiseSection">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="treatTitle">
+					<h3 class="petTitle">{{ section.settings.pawmise_headline }}</h3>
+				</div>
+			</div>
+		</div>
+		<div class="pawmiseContent row">
+			<div class="pp-5">
+				<div class="pawmiseImg">
+					<img class="lazy2" data-src="{{ section.settings.PawmiseImage | img_url: 'master' }}">
+				</div>
+				<div class="treatBtn">
+					<div class="learnMoreBtn">
+						<a href="{{ section.settings.pawmise_button_link }}" class="RedButton">{{ section.settings.pawmise_button_name }}</a>
+					</div>
+				</div>
+			</div>
+			<div class="pp-7">
+				<div class="treatText text_full">
+					{{ section.settings.pawmise_content }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Treats  Section End -->
+
+{% schema %}
+{
+	"name": "Home -- Pawmise for you",
+	"settings": [
+		{"type":"image_picker","id":"PawmiseImage","label":"Choose Image"},
+		{"type":"html","id":"pawmise_headline","label":"Enter HTML headline"},
+		{"type":"html","id":"pawmise_content","label":"Enter HTML content"},
+		{"type":"text","id":"pawmise_button_name","label":"Button Name"},
+		{"type":"url","id":"pawmise_button_link","label":"Button Link"}
+	],
+	"presets": [{
+		"name": "Home -- Pawmise for you",
+		"category": "Text"
+	}]
+}
+{% endschema %}

@@ -1,0 +1,486 @@
+<section id="rescureshelter">  
+      <div  class="pp-12 rescueShelter">
+        <div class="container">
+        <div class="rescureShelterBanner{% if section.settings.rescueShelthermob %} desktopSection{% endif %}"{% if section.settings.rescueShelther != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{ section.settings.rescueShelther }});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+          <div class="row ">
+            <div class="half-empty">
+            </div>
+              <div class="BannerHome">
+                  <div class="BannerContent">
+                    <h2>{{-section.settings.rescueShelther_title-}}</h2>
+                    <p>{{-section.settings.rescueShelther_des-}}</p>                    
+                   </div>
+              </div>
+          </div>
+        </div>
+       </div>
+        <div class="rescureShelterBanner mobileSection"{% if section.settings.rescueShelthermob != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{ section.settings.rescueShelthermob }});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+          <div class="row">
+              <div class="BannerHome">
+                  <div class="BannerContent">
+                    <h2>{{-section.settings.rescueShelther_title-}}</h2>
+                    <p>{{-section.settings.rescueShelther_des-}}</p>                    
+                   </div>
+              </div>
+          </div>
+        </div> 	
+  </div>
+</section>
+<section id="featureOrganisation">  
+  <h2><span>{{-section.settings.fOrgan_title-}}</span></h2>
+          <div class="featureOrganisation desktopSection"> 
+            	<div class="FO_item FO_item_01">
+                   {% if  section.settings.fOrganImg1 %}
+                       {{ section.settings.fOrganImg1 | img_url:'master' |img_tag:'fOrganImg1','img-responsive' }}
+                   {% endif %}
+                </div>
+            	<div class="FO_item FO_item_02">
+                   {% if  section.settings.fOrganImg2 %}
+                       {{ section.settings.fOrganImg2 | img_url:'master' |img_tag:'fOrganImg2','img-responsive' }}
+                   {% endif %}
+                </div>
+            	<div class="FO_item FO_item_03">
+                   {% if  section.settings.fOrganImg3 %}
+                       {{ section.settings.fOrganImg3 | img_url:'master' |img_tag:'fOrganImg3','img-responsive' }}
+                   {% endif %}
+                </div>           
+            </div>
+            
+            <div class="Resc_brand_slider mobileSection">
+              <div class="Resc_Brand_Slider slider" id="slider_RescuE">
+                <div class="FO_item FO_item_01">
+                   {% if  section.settings.fOrganImg1 %}
+                       {{ section.settings.fOrganImg1 | img_url:'master' |img_tag:'fOrganImg1','img-responsive' }}
+                   {% endif %}
+                </div>
+                <div class="FO_item FO_item_02">
+                  {% if  section.settings.fOrganImg2 %}
+                   {{ section.settings.fOrganImg2 | img_url:'master' |img_tag:'fOrganImg2','img-responsive' }}
+                  {% endif %}
+                </div>
+                <div class="FO_item FO_item_03">
+                  {% if  section.settings.fOrganImg3 %}
+                   {{ section.settings.fOrganImg3 | img_url:'master' |img_tag:'fOrganImg3','img-responsive' }}
+                  {% endif %}
+                </div>                
+              </div>
+            </div>
+</section>
+<section id="RescueForm">
+  <div class="container">
+   	<div class="__rescueForm">
+          <div class="__Formrescue __FormrescueLeft">
+            <h3>{{- section.settings.rescueSForm_l_title -}}</h3>
+            <p>{{- section.settings.rescueSForm_l_des -}}</p>
+            <p class="Formre"><a class="FormrescueR">{{- section.settings.rSForm_l_text -}}</a></p>
+          </div>
+      		<div class="__Formrescue __FormrescueRight">
+            <h3>{{- section.settings.rescueSForm_r_title -}}</h3>
+            <p class="FormreB"><a href="{{- section.settings.rSForm_r_url -}}">Click Here</a></p>
+          </div>
+ 	 </div>
+  </div>
+ </section>
+
+<div class="__FormrescueRyt rescureShelterForm">
+          	<!-- Wufoo Form Starts -->           
+            <div class="klaviyo-form-WUHtBG">
+              <span class="sf_close_bTn"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/popup-close.jpg"></span>
+  </div>            
+          </div>
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [
+              {"type":"image_picker","id":"rescueShelther","label":"Banner Image (Desktop)"},
+              {"type":"image_picker","id":"rescueShelthermob","label":"Banner Image (Mobile)"},
+              {"type":"text","id":"rescueShelther_title","label":"Heading"},
+              {"type":"html","id":"rescueShelther_des","label":"Description"},
+              {"type":"header","content":"Feature Organisation"},
+              {"type":"text","id":"fOrgan_title","label":"Heading"},
+              {"type":"image_picker","id":"fOrganImg1","label":"Image (1)"},
+              {"type":"image_picker","id":"fOrganImg2","label":"Image (2)"},
+              {"type":"image_picker","id":"fOrganImg3","label":"Image (3)"},
+              {"type":"header","content":"Left Section"},
+              {"type":"text","id":"rescueSForm_l_title","label":"Heading"},
+              {"type":"html","id":"rescueSForm_l_des","label":"Description"},
+              {"type":"text","id":"rSForm_l_text","label":"Button Text"},
+              {"type":"header","content":"Right Section"},
+              {"type":"text","id":"rescueSForm_r_title","label":"Heading"},
+              {"type":"url","id":"rSForm_r_url","label":"Button Url"}
+			],
+	"presets":[{
+      "name": "Rescue Shelter",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<style>
+.rescureShelterForm{display:none;}
+.rescureShelterForm.is_form_active {display: block;}
+.rescureShelterForm.is_form_active input::placeholder{opacity:0}
+
+body {font-family: "Gentona book" !important;}  
+#rescureshelter .pp-12 {   
+	padding: 0;
+}  
+.rescureShelterBanner {
+    margin: 0;
+    margin-top: 7px;
+}
+.rescureShelterBanner .row {
+    min-height: 445px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.half-empty {
+    width: 56%;
+}  
+.BannerHome {
+	width: 44%;
+}  
+.BannerContent>h2 {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Gentona book";
+    padding-bottom: 20px;
+}
+.BannerContent>p {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.25;
+    margin: 0;
+    max-width: 475px;
+    font-weight: 300;
+    font-family: "Gentona book";
+}  
+#featureOrganisation>h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+    padding: 50px 0 25px;
+    margin: 0;
+}
+#featureOrganisation>h2 span {
+    position: relative;
+}
+#featureOrganisation>h2 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #00b6bd;
+    content: "";
+    left: 0;
+    top: -20px;
+    border-radius: 5px;
+}   
+.featureOrganisation.desktopSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 35px;
+}  
+#featureOrganisation {
+    background: #f6f6f6;
+    padding-bottom: 30px;
+}
+.__rescueForm {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 70px 0;
+    align-items: center;
+    background: linear-gradient(90deg, #e52a2b 50%, #e3e3e3 50% );
+    margin-bottom: 30px;
+} 
+.__rescueForm>div {
+    width: 50%;
+    max-width: 465px;
+    padding: 0 25px;
+    margin: 0px auto;
+    text-align: center;
+} 
+.__Formrescue h3 {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Gentona book";
+    padding-bottom: 10px;
+    text-transform: inherit;
+    letter-spacing: 0;
+}
+.__Formrescue p {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    font-family: "Gentona book";
+    padding-bottom: 10px;
+} 
+.__FormrescueRight h3 {
+    color: #706f6f;
+}  
+.Formre a {
+  font-size: 18px;
+    color: #00b6bd;
+    background: #fff;
+    padding: 10px 30px;
+    line-height: 1 !important;
+    text-decoration: none;
+    margin-top: 15px !important;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 25px;
+    transition: .2s;
+    cursor: pointer;
+} 
+.Formre a:hover {
+    color: #fff;
+    background: #00b6bd;
+}   
+.FormreB a {
+  font-size: 18px;
+    color: #fff;
+    background: #00b6bd;
+    padding: 10px 30px;
+    line-height: 1 !important;
+    text-decoration: none;
+    margin-top: 15px !important;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 25px;
+    transition: .2s;
+  cursor: pointer;
+} 
+.FormreB a:hover {
+    color: #00b6bd;
+    background: #fff;
+} 
+.__Footer_sec_inner {
+    border-top: none;
+}
+  
+.rescureShelterForm.is_form_active {
+    display: block;
+    position: fixed;
+    top: 0;
+    background: rgb(0 0 0 / 30%);
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rescureShelterForm form {
+    max-width: 100% !important;
+    margin: 0px auto;
+    padding: 0;
+}
+span.sf_close_bTn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 99;
+    cursor: pointer;
+} 
+.klaviyo-form-WUHtBG {
+    position: relative;
+    width: 100%;
+    max-width: 85%;
+    background: #fff;
+}
+.rescureShelterForm form {
+    max-width: 80% !important;
+    margin: 45px auto 15px;
+}  
+/* div[data-testid="form-row"]>div {
+    grid-gap: 50px;
+} */
+div[data-testid="form-component"]>div {
+    flex-direction: row !important;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+div[data-testid="form-row"] {
+    grid-gap: 50px;
+}  
+div[data-testid="form-component"]>div label {
+    width: 35%;
+    color: #b5b5b7 !important;
+    font-family: "Gentona book" !important;
+    font-weight: 500 !important;
+}  
+div[data-testid="form-component"]>div input {
+    width: 60% !important ;
+}
+div[data-testid="form-component"]>div label+div {
+    width: 60%;
+}
+button.needsclick:last-child {
+    padding: 10px 15px !important;
+    font-family: "Gentona book" !important;
+    letter-spacing: 1px !important;
+}
+.ql-snow.ql-container.ql-disabled {
+    display: none;
+}  
+div[data-testid="form-row"]:nth-child(06) div[data-testid="form-component"]:nth-child(02)>div>label {
+    width: 40%;
+}   
+div[data-testid="form-row"]:nth-child(06) div[data-testid="form-component"]:nth-child(02) div input {
+    width: 55% !important;
+}  
+ 
+  
+.ql-snow.ql-container.ql-disabled {
+        display: block !important;
+    }  
+  
+  
+  
+@media (max-width: 1023px) {
+	.rescureShelterForm form {
+        max-width: 95% !important;
+    } 
+    div[data-testid="form-row"] {
+        grid-gap: 10px;
+    }
+}
+  
+@media screen and (min-width : 100px) and (max-width : 767px){
+	.rescureShelterForm.is_form_active input::placeholder{opacity:1}	
+    .rescureShelterForm.is_form_active .needsclick{display:block !important}
+    .rescureShelterForm.is_form_active .needsclick label {display: none !important;}
+    .rescureShelterForm.is_form_active .needsclick input {width: 100% !important;}
+  
+  
+  	.rescureShelterBanner .row {
+        justify-content: center;
+        min-height: 335px;
+    }
+    .BannerHome {
+        width: 60%;
+    }
+    .BannerContent>p {
+        font-size: 14px;
+        line-height: 1.15;
+    }
+    .BannerContent>h2 {
+        font-size: 24px;
+        line-height: 1.2;
+        padding-bottom: 10px;
+    }
+    .container {
+        padding: 0;
+    }
+	.__rescueForm>div {
+        width: 100%;
+        max-width: 330px;
+    }
+    .__rescueForm {
+        background: linear-gradient(180deg, #e52a2b 50%, #e3e3e3 50% );
+        grid-gap: 80px;
+    }
+  
+    .slick-arrow {
+        background: #e7e7e7;
+        left: unset;
+        border-radius: 50%;
+        height: 22px;
+        width: 22px;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        top: -25px;
+    }
+    button.slick-next.slick-arrow {
+        right: 15px;
+    }
+    button.slick-prev.slick-arrow {
+        right: 50px;
+        left: unset;
+    }
+    .slick-arrow:hover {
+        background: #a4a5a5;
+    }
+    .slick-arrow:before {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    .slick-slide img {
+        max-width: 135px;
+        margin: 0px auto;
+    }
+    .slick-slider {
+        margin-bottom: 10px;
+        margin-top: 35px;
+    }
+    .mobileSection .slick-next::before {
+        border-left: none;
+    }
+    .mobileSection .slick-prev::before {
+        border-right: none;
+    }
+	#featureOrganisation>h2 {
+        font-size: 24px;
+    }
+  
+    div[data-testid="form-row"]:nth-child(06) div[data-testid="form-component"]:nth-child(02) div input {
+        width: 100% !important;
+    }
+    div[data-testid="form-row"]:nth-child(02) div[data-testid="form-component"]:nth-child(02) div label+div {
+         height: 30px  !important;
+    }
+     div[data-testid="form-row"]:nth-child(02) div[data-testid="form-component"]:nth-child(02) div label+div button {
+        display : none !important;
+    }
+    div[data-testid="form-component"]>div label+div {
+        width: 100%;
+    }
+    button.needsclick:last-child {
+        margin: 0px auto;
+    }
+    div[data-testid="form-component"] {
+        margin: 10px 0 10px !important;
+    }
+    div[data-testid="form-component"] input {
+         padding: 0px 0px 0px 10px  !important;
+        height: 30px  !important;
+    }
+    div[data-testid="form-component"] input::placeholder {
+        font-size: 14px !important;
+    }
+/* 	input[type="tel"]::placeholder {
+        visibility: hidden;
+    } */
+    button[aria-label="Search Countries"] {
+        vertical-align: top !important;
+    }
+    .rescureShelterForm form {
+        max-width: 100% !important;
+        margin: 30px auto 0px;
+    }
+    .__FormrescueRight h3 {
+        padding-top: 65px;
+    }
+    
+  
+
+
+}
+  
+</style>

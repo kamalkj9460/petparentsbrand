@@ -1,0 +1,34 @@
+{%- capture _vData -%}
+  {%- assign type1 = type | downcase | escape | handleize -%}
+  {%- assign val1 = val | downcase | escape | handleize -%}
+  {%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+      {%- assign col_val = block.settings.color | downcase | escape | handleize -%}
+      {%- assign size_val = block.settings.size | downcase | escape | handleize -%}
+	  {%- assign customSizeVal = block.settings.size_text -%}
+      {%- if block.type == type1 and col_val ==  val1 -%}
+          {%- if block.settings.color_img != blank -%}
+<span class="color_variant_bg">{{- block.settings.color_img | img_url:'150x' | img_tag -}}</span>
+			  {{- val -}}
+          {%- else -%}
+              {{- type -}}
+          {%- endif -%}
+      {%- elsif block.type == type1 and size_val ==  val1 -%}
+      	  {%- if block.settings.size_img != blank -%}
+              {{- block.settings.size_img | img_url:'86x' | img_tag -}}
+			  <span class="__roundCrl">
+                {%- if split -%}
+                	{{- val | split:'-' | first -}}
+                {%- else -%}
+                	{{- val-}}
+                {%- endif -%}
+			</span>
+			  {{-customSizeVal-}}
+          {%- else -%}
+              {{- type -}}
+          {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{{- _vData -}}

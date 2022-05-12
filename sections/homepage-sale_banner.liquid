@@ -1,0 +1,19 @@
+<!-- Homepage Banner Image Section -->
+<!-- sections/homepage-sale_banner.liquid-->
+  {% if section.settings.bannerimg %}
+  <div class="banner_main bannerimg_data">
+    <div class="col-md-12 no-padding">
+    
+     {{ section.settings.bannerimg | img_url: 'master' | img_tag:'sale_banner','lazyloaded' }}
+    
+    </div>    
+  </div>
+  {% endif %}
+{% schema %}
+  {
+    "name" : "Banner NO URL",
+    "settings" : [			
+    	{"type":"image_picker","id":"bannerimg","label":"Sale Banner Image"}
+    ]
+  }
+{% endschema %}

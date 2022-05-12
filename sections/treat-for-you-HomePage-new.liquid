@@ -1,0 +1,64 @@
+<!-- Treats Section -->
+<section class="treatSection">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="treatTitle">
+				   <h3 class="petTitle">{{ section.settings.Section_treat_headline }}</h3>
+				</div>
+			  <div class="treat_tilr">
+			  <div class="pp-6 treat_redd">
+				<div class="leftTreatForYou __bgTFY">
+					<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.treatIcon1 | img_url: 'master' }}">
+					<div class="treatBtn">
+						 <div class="learnMoreBtn">
+							  <a href="{{ section.settings.treat_button_link1 }}" class="RedButton signUpBtn">{{ section.settings.treat_button_name1 }}</a>
+						 </div>
+					</div>
+				</div>
+			  </div>
+			  <div class="pp-6 treatwt">
+				<div class="rytTreatForYou">
+					<div class="treatText">
+						<h4>{{ section.settings.treat_headline }}</h4>
+						<p>{{ section.settings.treat_subTitle }}</p>
+					</div>
+					<div class="treatImg">
+					   <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.treatIcon2 | img_url: 'master' }}" />
+					</div>
+					<div class="treatBtn">
+						<div class="learnMoreBtn">
+							<a href="{{ section.settings.treat_button_link2 }}" class="RedButton">{{ section.settings.treat_button_name2 }}</a>
+						</div>
+					</div>
+				</div>
+			  </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Treats  Section End -->
+
+{% schema %}
+  {
+	"name": "Treat For You [Home-new]",
+	"settings": [
+				{"type":"text","id":"Section_treat_headline","label":"Enter Section Headline"},
+				{"type":"header","content":"Left side"},	
+				{"type":"image_picker","id":"treatIcon1","label":"Choose Image"},
+				{"type":"text","id":"treat_button_name1","label":"Button Name"},
+				{"type":"url","id":"treat_button_link1","label":"Button Link"},
+				{"type":"header","content":"Right side"},
+				{"type":"image_picker","id":"treatIcon2","label":"Choose Image"},
+				{"type":"text","id":"treat_headline","label":"Enter Headline"},
+				{"type":"text","id":"treat_subTitle","label":"Enter Sub-Content"},
+				{"type":"text","id":"treat_button_name2","label":"Button Name"},
+				{"type":"url","id":"treat_button_link2","label":"Button Link"}
+	],
+	"presets": [{
+	  "name": "Treat For You [Home-new]",
+	  "category": "Text"
+	}]
+  }
+{% endschema %}

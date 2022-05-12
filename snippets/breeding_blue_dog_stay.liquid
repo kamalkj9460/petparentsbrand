@@ -1,0 +1,34 @@
+<div class="clear"></div>
+<div class="__title_banner">
+	<div class="container __banner_bottom">
+		<div class="row">
+			<div class="white_space">
+              <div class="add_img_data">
+              <div class="__banner_inner saledata sample" style="text-align: left;">
+                <div class="blog_temp_samp  breed_add_data">
+					{{ section.settings.header_bellow_text_samp }}
+				</div>
+            {{ section.settings.header_image_samp | img_url:'master' | img_tag:'washing_header_samp','img-responsive'}}
+<img src="https://cdn.shopify.com/s/files/1/1355/5443/files/lgs.png?17611824411949621951" class="logodata" />
+          </div>
+         </div>
+          </div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div> 
+
+
+{% comment %}
+<div class="auth_img_main">
+<div class="auth_img">
+ {% if article.user.image %}
+
+ <img src="  {{ article.user.image | img_url: '' }}">
+{% endif %}
+  </div>
+<div class="show_author_name">
+  <p> The Author:</p><span> {{ article.author }} </span>
+</div>
+</div>
+{% endcomment %}

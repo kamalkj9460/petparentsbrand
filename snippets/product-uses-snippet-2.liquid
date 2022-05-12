@@ -1,0 +1,33 @@
+{% if section.settings.is_middle %}
+<div class="white_space">
+  <div class ="additional_sec">
+  <div class ="dog_dia_cont">
+      <p>{{ section.settings.image_content }}</p>
+   
+  </div>
+    <div class ="dog_dia_img">
+    {{ section.settings.addi_img | img_url:'master' |img_tag:'addi_img','img-responsive' }}
+    </div>
+    </div>
+  <div class="case_studies_div _dmet_page">
+    <div class="real-title-inr {{ section.settings.extraCls }}">
+      {{ section.settings.middle_bg_img | img_url:'master' |img_tag:'middle_bg_img','img-responsive' }}
+    </div>
+    <div class="button_over_green">
+     {% if section.settings.middle_logo_img %}
+      <span>
+        {{ section.settings.middle_logo_img | img_url:'master' |img_tag:'middle_logo_img','img-responsive' }}
+      </span>
+      {% endif %}
+      {% for block in section.blocks %}
+      	<a href="javascript:void(0);" style="background-color:{{ section.settings.uses_bg }};color:{{ section.settings.uses_txt_color }}">{{ block.settings.uses_text }}</a>
+      {% endfor %}      
+    </div>
+  </div>
+</div>
+{% endif %}
+{% style  %}
+  ._dmet_page{ position:relative;}
+  ._dmet_page .real-title-inr02,._dmet_page{ margin: 0px;}
+  ._dmet_page .button_over_green {margin-top: -75px;}
+{% endstyle %}

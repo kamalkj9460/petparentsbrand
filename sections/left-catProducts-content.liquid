@@ -1,0 +1,21 @@
+
+  {% if section.settings.catLanding_content %}
+    <a href="{{section.settings.catLanding_url1}}">
+      <img src="{{section.settings.catLanding_content | img_url: 'master' }}" />
+    </a>
+  {% endif %}
+
+
+{% schema %}
+  {
+    "name" : "Left Cat Product Content",
+    "settings" : [			
+			{"type":"url","id":"catLanding_url1","label":"Dog Image Url (1)"},
+			{"type":"image_picker","id":"catLanding_content","label":"Dog Image (1)"}
+          ],
+	"presets": [{
+      "name": "Left Cat Product Content",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,32 @@
+{% layout 'themeX' %}
+<!-- /tempaltes/page.dogLandingPage.liquid -->
+<section class="dogLandingPage">
+  <div class="container">
+    <div class="row">
+      <div  class="pp-12 dogLandingpage">
+         <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+           {% endif %} - Pet Parents®</h1>
+        <div class="dogLandingBanner">
+          {% section 'dogLandingBanner' %}
+        </div>
+          {% section 'dogPawcontent' %}
+        <div class="row __clsDogImgWrapper">
+          <div class="dogContainerImages">
+            <div class="leftImagecontainer">
+                {% section 'left-dogLanding-content' %}
+            </div>
+            <div class="rightImagecontainer">
+                {% section 'right-dogLanding-content' %}
+            </div>
+          </div>
+       </div>
+        <div class="bottomProductAdvert">
+          {% section 'productAdvertismentNew' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

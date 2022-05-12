@@ -1,0 +1,303 @@
+{% layout 'themeX' %}
+<!-- /templates/page.full-width.liquid -->
+{% section 'main-dropsPuddles-section' %}
+
+
+<style>
+.sf_drop_banner {
+    margin-top: 7px;
+}
+.dropsProductMain h2 {
+    font-size: 38px;
+    font-family: "Gentona";
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 9px;
+    color: #fff;
+    margin: 35px 0;
+}
+.dropsProductMain p {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    font-family: "Gentona";
+    max-width: 1260px;
+    padding: 0 15px;
+    margin: 0px auto 45px;
+}
+img.home_Forage.home_Forage_mobile {
+    display: none;
+}
+.dropsProductImg img.home_Forage.home_Forage_desktab {
+    width: 100%;
+    margin: 0px auto;
+}
+.sf_drop_coll .sf_row h2 {
+    font-size: 26px;
+    margin: 70px 0;
+    font-family: "Gentona";
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    grid-gap: 15px;
+    color: #9d9d9c;
+}
+span.c_collection {
+    font-size: 40px;
+    font-weight: 600;
+    color: #00b7bc;
+}
+.dropsc_collectionM h3 {
+    font-size: 22px;
+    color: #9d9d9c;
+    letter-spacing: 0;
+    text-transform: inherit;
+    margin: 45px 0 20px;
+}
+.dropsc_collectionM {
+    text-align: center;
+}
+.dropsc_collectionM a {
+    font-size: 16px;
+    line-height: 1;
+    color: #fff;
+    display: inline-block;
+    background: #e3002b;
+    border: 1px solid #e3002b;
+    padding: 7px 22px;
+    border-radius: 50px;
+    transition: .25s;
+    text-decoration: none;
+}
+.dropsc_collectionM a:hover {
+    color: #e3002b;
+    background: #fff;
+}
+.sf_drop_need .sf_row h2 {
+  font-size: 30px;
+  font-family: "Gentona";
+  color: rgb(112, 111, 111);
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 500;
+  margin: 70px 0 10px;
+}
+.sf_drop_need .sf_row p {
+  font-size: 16px;
+  font-family: "Gentona";
+  color: rgb(112, 111, 111);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.dropsForNeed .slick-track {
+    display: inline-flex;
+    gap: 30px;
+}
+.dropsForNeed.slick-slider .slick-dots {
+    bottom: -35px !important;
+}
+.__Footer_sec_inner {
+    border-top: 0 ;
+}  
+.dropsForNeed.slick-slider {
+    margin-bottom: 90px;
+}
+.c_coll_is_mobile {
+    display : none;
+}
+
+.dropsForNeednM.slick-slide {
+    position: relative;
+    padding-top: 7%;
+}
+.dropsForNeednM img {
+    position: absolute;
+    top: 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+}
+.dropsCurrentCollection .slick-slide img {
+     height: 290px;
+     overflow: hidden;
+}
+.dropsCurrentCollection img {
+    margin: 0px auto;
+    object-fit: contain;
+}  
+  
+.slick-arrow {
+    position: absolute;
+    top: -5px;
+    background: #e7e7e7;
+    left: unset;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.slick-arrow:hover {
+    background: #a4a5a4!important;
+    opacity: 1!important;
+}  
+.slick-next {
+    right: 0px;
+}
+.slick-prev {
+    right: 34px;
+}
+.dropsCurrentCollection .slick-arrow {
+    top: -30px;
+}  
+.dropsForNeed .slick-arrow {
+    top: -30px;
+}  
+.dropsForNeed .slick-next {
+    right: 6px;
+}
+.dropsForNeed .slick-prev {
+    right: 40px;
+}  
+  
+.slick-slider .slick-dots li button:before {
+    background-color: #ececec !important;
+    border-color: #ececec !important;
+    opacity: 1 !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 4px 0 0 4px !important;
+}
+.slick-slider .slick-dots li.slick-active button:before {
+    background-color: #c6c6c6 !important;
+    border: 1px solid #c6c6c6 !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 4px 0 0 4px !important;
+}
+.slick-dots li button {
+    height: 10px;
+    width: 10px;
+    margin: 0px auto;
+    padding: 0px;
+}
+.dropsForNpopUp .dropspopUpHTML {
+    display: none;
+}
+.dropsForNeednM img,span.sf_close_bTn{cursor:pointer;}
+.dropspopUpHTML.is_active {
+    display: block;
+}
+
+.dropsForNpopUp .dropspopUpHTML.is_active {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 25px;
+    background: rgb(0 0 0 / 50%);
+    z-index: 888;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropspopUpHTML.is_active>div {
+    position: relative;
+}
+.dropspopUpHTML .sf_close_bTn {
+    position: absolute;
+    right: -23px;
+    top: -23px;
+}
+  
+ 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+      padding: 0 35px;
+  }  
+  .dropsc_collectionM.slick-slide {
+      display: block !important;
+  }  
+  
+}
+
+  
+@media screen and (max-width: 767px) {  
+  .c_coll_is_mobile {
+      display : block;
+  }
+  .c_coll_is_desktop {
+      display : none;
+  }
+  .container {
+      padding: 0 15px;
+  }
+  .dropsc_collectionM img {
+      margin: 0px auto;
+      width: 100%;
+      max-width: 300px;
+  } 
+  .dropsProductMain h2 {
+    font-size: 28px;
+    max-width: 355px;
+    line-height: 1.35;
+    margin: 70px auto 30px;
+  }
+  .dropsProductMain p {
+    font-size: 16px;
+    padding: 0 22px;
+    margin: 0px auto 60px !important;
+  }
+  img.home_Forage.home_Forage_mobile {
+    display: block;
+  }
+  img.home_Forage.home_Forage_desktab {
+    display: none;
+  }
+  .sf_drop_coll .sf_row h2 {
+    font-size: 24px;
+    margin: 25px 0 0px;
+    grid-gap: 15px;
+    flex-direction: column;
+    
+  }
+  .dropsForNeed.slick-slider {
+      margin-bottom: 50px;
+  }
+  .dropsc_collectionM img {
+    margin: 50px auto 0;
+  }
+  .dropsc_collectionM h3 {
+    font-size: 18px;
+    margin: 30px 0 14px;
+  }
+  .sf_drop_need .sf_row p {
+    margin-bottom: 20px !important;
+  }
+  .dropsCCollMob .slick-arrow {
+    top: -65px;
+  }  
+  .dropsForNeed .slick-arrow {
+      top: -20px;
+  } 
+  .dropsc_collectionM a {
+    font-size: 14px;
+    padding: 7px 22px;
+  }
+   
+}
+  
+@media screen and (orientation:landscape)
+and (min-device-width: 800px) 
+and (max-device-width: 900px) {
+   .dropspopUpHTML.is_active>div {
+        width: 50%;
+    }
+}  
+
+  
+</style>

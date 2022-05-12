@@ -1,0 +1,234 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+<div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.zoom_enable }}" data-enable-history-state="true" data-scroll-to-image="{% if section.settings.image_layout == "stacked" %}true{% else %}false{% endif %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">    
+    <div class="__title_banner">
+        <div class="container">
+            <div class="row">
+                <div class="__Inner_title">
+                  {% if section.settings.product_banner %}
+                  	<img class="product-single__thumb" src="{{ section.settings.product_banner | img_url: 'master' }}" alt="{{ section.settings.product_banner.alt | escape }}">
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-single white_space large--text-left suppAddtoCart">
+      <!-- snippets/product-supplement-header-part.liquid -->
+      {% include 'product-supplement-header-part' %}
+  	</div>
+  <div class="clear"></div>
+</div>
+{% unless product.empty == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+{% schema %}
+  {
+    "name": "Bladder Header",
+	"max_blocks":14,
+    "settings": [
+	  {"type": "header","content": "General"},
+      {"type": "checkbox", "id": "zoom_enable","label": "Enable image zoom","default":true},
+	  {"type": "checkbox", "id": "product_vendor_enable","label": "Show product vendor","default":true},
+	  {"type": "checkbox", "id": "review_show","label": "Show product reviews","default":true},
+	  {"type": "checkbox", "id": "show_sku","label": "Show product SKU","default":true},
+	  {"type": "checkbox", "id": "show_shiping_text","label": "Show shipping Text","default":true},	  
+	  {"type": "text",	"id": "sub_text_product","label": "Sub - Title","default": "Premium Male Dog Wraps"},
+      {"type": "header","content": "Product options"},
+      {"type": "checkbox", "id": "quantity_enabled","label": "Show quantity picker"},
+      {"type": "select", "id": "product_selector","label": "Product Options Picker type","options": [
+          {"value": "radio","label": "Button"},
+          {"value": "select","label": "Dropdown"}
+        ]},
+      {"type": "header","content": "Extra"},
+	  {"type": "checkbox", "id": "is_size","label": "Show Size","default":true},
+	  {"type": "text","id": "size","label":"Add Size","default":"Waist"},
+	  {"type": "checkbox", "id": "social_sharing_products","label": "Enable product sharing","default": false},
+      {"type": "header", "content": "Sizing Tips"},
+	  {"type": "image_picker", "id":"tips_img", "label":"tips Image"},
+	  {"type": "html","id":"tips_heading","label":"Tips Heading"},
+	  {"type": "html","id":"tips_html","label":"Tips content"}
+    ],
+	"blocks" : [
+		{
+            "type": "type",
+            "name": "Types Variant",
+            "settings": [
+                    {"type":"text","id":"type","label":"Type Variant","info":"add same that is into back-end otherwise it not working"},
+                    {"type":"image_picker","id":"type_img","label":"Type Variant Image"},
+                    {"type":"text","id":"type_text","label":"Type Variant custom Text"},
+					{"type":"checkbox","id":"use_custom_type","label":"Use custom text","default":false},
+					{"type":"product","id":"block_product","label":"choose Product"}
+            ]	 	
+        },
+        {
+            "type": "sizes",
+            "name": "Sizes Variant",
+            "settings": [
+                    {"type":"text","id":"size","label":"Size Variant","info":"add same that is into back-end otherwise it not working"},
+                    {"type":"image_picker","id":"size_img","label":"Size Variant Image"},
+                    {"type":"text","id":"size_text","label":"Size Variant custom Text"},
+					{"type":"checkbox","id":"use_custom_size","label":"Use custom text","default":false}
+            ]	 	
+        },
+		{
+	        "type": "flavor",
+	        "name": "Flavor Variant",
+	        "settings": [
+				{"type":"text","id":"flavor","label":"Flavor Variant","info":"add same that is into back-end otherwise it not working"},
+				{"type":"image_picker","id":"flavor_img","label":"Flavor Variant Image"},
+				{"type":"text","id":"flavor_text","label":"Flavor Variant custom Text"},
+				{"type":"checkbox","id":"use_custom_flavor","label":"Use custom text","default":false}
+			]
+		},
+		{
+	        "type": "feature",
+	        "name": "Feature",
+	        "settings": [
+				{"type":"text","id":"feature_txt","label":"feature Text"},
+				{"type":"color","id":"feature_bg","label":"Feature Background Color"},
+				{"type":"color","id":"feature_fr","label":"Feature Text Color","default":"#ffffff"},
+				{"type":"image_picker","id":"badge_Img","label":"Flavor Variant Image"}
+			]
+		}
+
+	]
+  }
+{% endschema %}
+
+<style>
+  .nofillter_left span {
+      background: #d35755;
+  }
+.sf_top_additional_right_sec .top_add_sec_leftcontent ul li:last-child:before {
+    visibility: visible!important;
+}
+
+ .logotext p {
+    font-size: 20px;
+    line-height: 28px;
+}
+.top_additional_sec_subcontent {
+    max-width: 180px;
+}
+  
+  /*  Combine CSS   */
+.border-top-bottom {
+    padding: 50px 75px;
+}
+.vs-text {
+    font-size: 30px;
+}
+.Vs {
+    font-weight: 500;
+}
+.no-border-top-bottom {
+    padding: 0 75px;
+}
+
+  .main_ss_Ingredient {
+    margin: 35px 0 0;
+}
+.naturl_a_Ingredients li {
+    padding: 45px 25px 25px 25px;
+}  
+    
+/*  Combine CSS   */
+
+@media (max-width: 1024px) {
+	
+  /* Strart Ingredients Comman Css */
+  .naturl_a_Ingredients {
+      grid-gap: 0px;
+      justify-content: space-between;
+      align-items: stretch;
+      grid-row-gap: 20px;
+    
+  }  
+  ul.naturl_a_Ingredients.is_fout_items li {
+      max-width: 49%;
+      width: 49%;
+  }
+  .naturl_a_Ingredients li {
+      padding: 55px 15px 25px 15px;
+  }
+  .aps_NaturalIngredients {
+      padding: 40px 15px 0px;
+  }
+  .naturl_a_Ingredients li p {
+      font-size: 12px;
+      line-height: 1.25;
+  }
+  .naturl_a_Ingredients li h3 {
+      font-size: 16px !important;
+      margin: 0;
+  }
+  /* End Ingredients Comman Css */  
+}  
+
+  
+  
+@media (max-width: 767px) {
+	
+.top_additional_sec_Img.sf_top_additional_left_sec>img {
+      max-width: 100% !important;
+      width: 100% !important;
+      transform: translateX(25px);
+      min-height: unset;
+      height: unset;
+      max-height: unset;
+  }
+  .additional_sec_helpIssue.pro_points .top_additional_sec_Img {
+      padding: 50px 20px;
+  }
+  .top_additional_sec_content.listing_pnts {
+      padding: 35px 20px!important;
+  }
+  .additional_sec_helpIssue.pro_points .top_additional_sec_Img img {
+      transform: translateX(50px);
+  }
+ 
+  .inner_ss_Ingredient.left_ss_Ingredient h3.forEveryNeed.sliderEveryNeed {
+      padding: 10px 0 15px !important;
+  }
+    #OurBaseIngredients {
+      padding: 0px 20px 20px;
+  }
+  .inner-right_ob_Ingred>.HeadingTitle {
+      margin: 0px !important;
+  }
+  .border-top-bottom {
+      padding: 0;
+  }
+  .sf_newformatingSizeSection p.sub_cod {
+      padding: 15px  !important;
+  }
+  .ss_content {
+        margin: 00px;
+  }
+  .logotext p {
+      font-size: 14px;
+      line-height: 18px;
+  }
+  .ss_content {
+      padding-top: 80px;
+  }
+	.main_ss_Ingredient {
+      margin: 0px;
+  }
+  .Vs {
+      font-weight: 600;
+      color: #e15653;
+  }
+  
+  
+}
+  
+  
+  
+  
+</style>

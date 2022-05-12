@@ -1,0 +1,24 @@
+{% include 'by-age-snippets' %}
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [
+		{"type":"link_list","id":"shop_menu_id","label":"Select Menu"},
+		{"type":"html","id":"bp_page_title","label":"Page Title"},
+		{"type":"text","id":"col_title","label":"Collection Title"},
+		{"type":"collection","id":"bp_collection","label":"Select Collection"},
+		{"type":"richtext", "id":"footer_text", "label":"Footer Text"}
+		],
+			"blocks" : [{	
+				"name":"Article",
+				"type":"selectArticles",
+				"settings": [
+				{"type":"article", "id":"for_article", "label":"Select Aticle"}
+				]
+				}]
+  }
+{% endschema %}
+<style>
+  ul.sf_age_tabs_list li.sf_age_tab.sf_age_item_6 a {background: #00b6bd}
+</style>
+

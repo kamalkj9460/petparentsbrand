@@ -1,0 +1,32 @@
+<div class="white_space">  
+  <div class="blogdata">
+    <h4 class="middle_sub">{{ section.settings.blog_like_text }}</h4>
+      <div class="thumb_slider">
+        <div id='you_may_like'>
+          {% for block in section.blocks %}
+            <div class="ymCls">          
+                <div class="ymClsContant">
+                 	<h3 class="slide_text">{{ block.settings.blog_slide_text }}</h3>             
+                </div>          
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</div>
+<style>
+  .blogdata .slide_text a:nth-child(2) {
+      display: block;
+      color:#fff;
+      line-height: 80px;
+  }
+  .blogdata a {
+      display: none;
+  }
+  .blogdata .ymCls a {
+      min-height: 105px;
+  }
+  .blogdata .ymClsContant .slide_text a {
+      font-size: 17px;
+  }
+</style>

@@ -1,0 +1,17 @@
+{% include 'wholesaleblog_look_a_like' %}
+{% schema %}
+  {
+    "name": "you may like",
+    "settings": [
+	  {"type":"text","id":"blog_wholesale_like_text","label":"Add Title","default":"You may also like"}
+	],
+	"blocks":[{
+			"type":"slide",
+			"name":"Slide",
+			"settings":[
+				{"type":"html","id":"blog_wholesale_slide_text","label":"Add Slide Title"}
+			]
+			
+		}]
+  }
+{% endschema %} 

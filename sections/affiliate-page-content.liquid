@@ -1,0 +1,83 @@
+{% if section.settings.affiliate_heading1 %}
+       <div class="sf_affiliate_heading">
+         <h1>{{ section.settings.affiliate_heading1 }}</h1>
+		</div>
+    {% endif %}
+{% for block in section.blocks %} 
+{% if block.type == 'Affiliate_Image_Text' %}
+        {% if block.settings.affiliateAlign =="left" %}
+            <section class="sf_affiliate_page_pp sf_left">
+        {% else %}
+            <section class="sf_affiliate_page_pp sf_right">
+        {% endif %}
+          {% if block.settings.affiliateAlign =="left" %}
+          <div class="sf_affiliate_heading2">
+         <h2>{{ section.settings.affiliate_heading2 }}</h2>
+		</div>
+          {% endif %}
+    <div class="sf-img-with-content">
+      <div class="productIng sf-img sf-left-sec">
+        {% if block.settings.affiliateImage %}
+        {{ block.settings.affiliateImage | img_url:'master' |img_tag:'affiliateImage','img-responsive' }}
+        {% endif %}
+      </div>
+      <div class="productIng sf-content sf-right-sec">
+        {% if block.settings.affiliateConent %}
+        <div class="sf_content__"><p>{{ block.settings.affiliateConent }}</p></div>
+        {% endif %}
+        {% if block.settings.affiliateURL %}
+        <div class="sf_join_now"><a href="{{ block.settings.affiliateURL }}">Join Now</a>
+          <hr class="sf_hR">
+        </div>
+     	 {% endif %}
+      </div></div>
+  </section>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Affiliate Page",
+    "settings": [
+		 {"type":"text","id":"affiliate_heading1","label":"Heading 1"},
+ 		 {"type":"text","id":"affiliate_heading2","label":"Heading 2"}
+	],
+	"blocks" : [{
+        "type": "Affiliate_Image_Text",
+        "name": "Affiliate Image Text",
+        "settings": [			
+			{"type":"image_picker","id":"affiliateImage","label":"Select Image"},
+            { "type": "select", "id": "affiliateAlign", "label": "Image Alignment", "options": 
+            [ { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" } ], "default": "left" },
+			{"type":"html","id":"affiliateConent","label":"Section Conent"},
+	        {"type":"url","id":"affiliateURL","label":"Button Link"}
+		]}]
+	}
+{% endschema %}
+
+<style>
+  @media only screen and (min-width:100px) and (max-width:768px){
+  	.sf_affiliate_page_pp .sf-img-with-content .productIng {
+	width: 100%;
+	position: relative;
+	order: 2;
+}
+.sf_affiliate_page_pp.sf_right .sf-img .img-responsive {
+	margin: 0 auto;
+}
+.sf_affiliate_page_pp.sf_right .sf-img {
+	margin-top: 30px;
+	text-align: right;
+}
+.sf_listingSec {grid-gap: 5px;}
+.sf_affiliate_page_pp .sf_content__ {padding: 0px 0 20px 0;}
+.sf_listingSec li .list_style_button {font-size: 18px; padding: 6px 15px 8px;}
+ul.sf_listingSec li {display: block;}
+.template-page-affiliate-page div#shopify-section-footer .white_space {display: none;}
+.sf_More_Question {margin: 50px 0 25px 0;}
+.sf_affiliate_heading h1 {text-align: center;padding: 25px 0;font-size: 35px;}
+ section.sf_affiliate_page_pp.sf_right .productIng.sf-img.sf-left-sec img {width: 100%;}
+.sf_affiliate_page_pp.sf_right .sf-img {margin-right:0px;}
+  }
+</style>

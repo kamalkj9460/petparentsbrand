@@ -1,0 +1,33 @@
+<section class="homeBanner">
+	<div class="container">
+		<div class="row">
+			<div class="pp-5">
+				<div class="BannerDog">
+					{% if section.settings.home_banner %}
+    				 	{{ section.settings.home_banner | img_url: 'master' | img_tag:'home_banner','lazyloaded' }}
+    				{% endif %}
+				</div>
+			</div>
+			<div class="pp-7">
+				<div class="BannerText">
+                  	{{ section.settings.home_banner_text }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+
+{% schema %}
+  {
+    "name" : "Home Bannner",
+    "settings" : [			
+			{"type":"image_picker","id":"home_banner","label":"Product Banner Image"},
+			{"type":"html","id":"home_banner_text","label":"product Banner headline"}
+          ],
+	"presets": [{
+      "name": "Home Bannner With Test",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

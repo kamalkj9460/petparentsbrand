@@ -1,0 +1,99 @@
+	<div class="__latest_blog_BloghomePage">
+      <h1>LATEST POST</h1>
+      {%- assign blog = blogs[section.settings.blog] -%}
+      {%- for article in blog.articles limit: section.settings.post_limit -%}
+      {% if forloop.index <=1 %}
+        <div class="__left_latest_blog">
+          <div class="__fist_blog_content">
+            <div class="__first_blog_img">
+              <a href="{{ article.url }}">
+                {%- if article.image -%}
+                  {{ article | img_url: '350x350', scale: 2 | img_tag: '' }}
+                {%- endif -%}
+                <a href="{{ article.url }}" aria-label="Learn more: {{ article.title }}">
+                  <h2>{{ article.title }}</h2>
+                </a>
+                <a href="{{ article.url }}" aria-label="Learn more: {{ article.title }}">
+                    LEARN MORE
+                </a>
+              </a>
+            </div>
+            <div class="__latest_postBlog">
+              <span class="__blog_date">{{ article.published_at | date: "%b %d" }}</span> | 
+              {%- if article.tags.size > 0 -%}
+                <span class="__blog_tag" aria-label="{{ 'blogs.article.tags' }}">
+                  {%- for tag in article.tags -%}
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                  {%- endfor -%}
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {% else %}
+      <div class="_right_blog_articles">
+          <a href="{{ article.url }}">
+            <h2>{{ article.title }}</h2>
+          </a>
+          <div class="__latest_postBlog">
+          {%- if section.settings.blog_show_date -%}
+            <span class="__blog_date">{{ article.published_at | date: "%b %d" }}</span>
+          {%- endif -%}  
+          | 
+            {%- if article.tags.size > 0 -%}
+              <span class="__blog_tag" aria-label="{{ 'blogs.article.tags' }}">
+                {%- for tag in article.tags -%}
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a><span class="__last_comma">, </span> 
+                {%- endfor -%}
+              </span>
+            {%- endif -%}
+          </div>
+      </div>
+      {% endif %}
+      {%- endfor -%}
+	</div>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": "Posts",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": 4
+      }
+    }
+  ]
+}
+{% endschema %}

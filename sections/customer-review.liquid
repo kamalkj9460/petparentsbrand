@@ -1,0 +1,56 @@
+{% include 'customer-Review-snippet' %}
+
+{% schema %}
+  {
+    "name": "Pet Products",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"}
+	],
+	"blocks" : [{
+        "type": "ProBanner",
+        "name": "ProBanner",
+        "settings": [
+	       {"type":"image_picker","id":"prodBanner","label":"Product Banner"},
+	       {"type":"text","id":"prodBannerHeading","label":"Product Name"}
+		]},
+		{
+        "type": "ProContent",
+        "name": "ProContent",
+        "settings": [
+		   {"type":"text","id":"sliderno","label":"slider Number"},
+		   {"type":"text","id":"supplemClass","label":"div Unqi Class"},
+	       {"type":"image_picker","id":"addi_img3","label":"Product Image (1)"},
+		   {"type":"color","id":"colorHead","label":"Color Heading (1)","default":"#00b6bd"},
+	       {"type":"text","id":"head2","label":"Heading title (1)"},
+		   {"type":"checkbox","id":"check1","label":"context width full","default":false},
+	       {"type":"html","id":"content2","label":"Heading Content (1)"},
+	       {"type":"image_picker","id":"addi_img4","label":"Product Image (2)"},
+		   {"type":"color","id":"colorHead1","label":"Color Heading (2)","default":"#00b6bd"},
+	       {"type":"text","id":"head3","label":"Heading title (2)"},
+		   {"type":"checkbox","id":"check2","label":"context width full","default":false},
+	       {"type":"html","id":"content3","label":"Heading Content (2)"},
+	       {"type":"image_picker","id":"addi_img5","label":"Product Image (3)"},
+		   {"type":"color","id":"colorHead2","label":"Color Heading (3)","default":"#00b6bd"},
+	       {"type":"text","id":"head4","label":"Heading title (3)"},
+		   {"type":"checkbox","id":"check3","label":"context width full","default":false},
+	       {"type":"html","id":"content4","label":"Heading Content (3)"},
+	       {"type":"image_picker","id":"addi_img6","label":"Product Image (4)"},
+		   {"type":"color","id":"colorHead4","label":"Color Heading (4)","default":"#00b6bd"},
+	       {"type":"text","id":"head5","label":"Heading title (4)"},
+		   {"type":"checkbox","id":"check4","label":"context width full","default":false},
+	       {"type":"html","id":"content5","label":"Heading Content (4)"},
+	       {"type":"image_picker","id":"addi_img7","label":"Product Image (5)"},
+		   {"type":"color","id":"colorHead5","label":"Color Heading (5)","default":"#00b6bd"},
+	       {"type":"text","id":"head6","label":"Heading title (5)"},
+		   {"type":"checkbox","id":"check5","label":"context width full","default":false},
+	       {"type":"html","id":"content6","label":"Heading Content (5)"}
+		]}
+],
+	"presets":[{
+      "name": "Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+{% layout 'themeX' %}
+<!-- /templates/page.cat-products.liquid -->
+<section class="catLandingPage">
+  <div class="container">
+    <div class="row">
+      <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+      <div  class="pp-12 catLandingpage">
+        <div class="catLandingBanner">
+          {% section 'catProductsBanner' %}
+        </div>
+          {% section 'catProductscontent' %}
+        <div class="__catCustomCls">
+          <div class="catContainerImages">
+            <div class="leftImagecontainer">
+                {% section 'left-catProducts-content' %}
+            </div>
+            <div class="rightImagecontainer">
+                {% section 'right-catLanding-content' %}
+            </div>
+          </div>
+        </div>
+          <div class="bottomProductAdvert">
+            {% section 'catProductsAdvertismentNew' %}
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>

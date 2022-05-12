@@ -1,0 +1,9 @@
+{% if section.settings.show_banner and section.settings.product_banner != blank %}
+  <div class="__title_banner">
+    <div class="container">
+      <div class="row">
+        <div class="__Inner_title">{{ section.settings.product_banner | img_url: 'master'| img_tag:'banner-img','product-single__thumb' }}</div>
+      </div>
+    </div>
+  </div>
+{% endif %}

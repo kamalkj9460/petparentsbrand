@@ -1,0 +1,66 @@
+<div class="_topBlogbanner">  
+ <div class="thumb_slider">
+    <div id='blog_custom_silder'> 
+      {% for block in section.blocks %}
+         {% case block.type %}
+        {% when 'slide' %}
+        <div class="ymCls" style="background-color:{{ block.settings.slide_bg }}">          
+            <div class="ymClsContant">
+               <div class="banner-slide-item">
+                 <a href="/blogs/{{- block.settings.slide_url -}}">
+                <div class="banner-slide-content">
+                  <p class="heightLight">{{- block.settings.slide_text -}}</p>
+                       <h2 class="__banner-heading"> {{- block.settings.slide_subtext -}}</h2>
+                  <span class="readMoreBtn">Read More</span>
+                  </div> </a>
+               </div>
+             {% if block.settings.image != null%} 
+             {{ block.settings.image | img_url: 'master' | img_tag:'banner_img','img-responsive deskTab_Img' }}
+               {% endif %}
+              {% if block.settings.image_m != null%} 
+             {{ block.settings.image_m | img_url: 'master' | img_tag:'image_m','img-responsive mobBan_Img' }}
+               {% else %}
+              {{ block.settings.image | img_url: 'master' | img_tag:'image_m','img-responsive mobBan_Img' }}
+              {% endif %}
+            </div>      	 
+      	</div>
+         {% endcase %}
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>
+<div class="slider_below_content">
+   {% if section.settings.slider_below_content %}
+  <div class="below_content"><p>{{ section.settings.slider_below_content }}</p></div>
+     {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Silder",
+    "settings": [
+         {"type":"html","id":"slider_below_content","label":"Text", "default": "<p>Latido leathers is an online store which sells leathers products</p>"}
+	 ],
+    
+	 "blocks":[{
+			"type":"slide",
+			"name":"Slide",
+			"settings":[
+				{"type":"text","id":"slide_text","label":"Add Slide Title"},
+				{"type":"html","id":"slide_subtext","label":"Add Slide sub Title"},
+				{"type":"article","id":"slide_url","label":"Article Url"},
+				{"type":"color","id":"slide_bg","label":"slide background color"},
+				{"type":"image_picker","id":"image","label":"Select Image (Desktop)"},
+				{"type":"image_picker","id":"image_m","label":"Select Image (Mobile)"}
+			]},
+           {
+           "type": "url",
+           "name": "subheader ",
+           "settings": [
+             {"type":"text","id":"subtitle","label":"Title text"},
+             {"type":"url","id":"subtitle_link","label":"link"}
+           ]} ]
+			
+		
+  }
+{% endschema %}

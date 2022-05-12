@@ -1,0 +1,34 @@
+{% if section.settings.subOffOn %}
+<section class="topOffersectionHome">
+	<div class="container">
+		<div class="row "> 
+     		<div class="blueSubscription">
+			 <h6>{{section.settings.beforeOffpert}} <span>{{section.settings.subOff}}</span> {{section.settings.afterOffpert}} <a href="{{section.settings.SubUrl}}">Learn More</a></h6>
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{% schema %}
+	{
+		"name": "Shop-SubscriptionOff",
+		"settings": [
+			{"type":"color","id":"backGroundColor","label":"Subscription Off Background Color","default":"#00b5bd"},
+			{"type":"text","id":"beforeOffpert","label":"Before Subscription Off Percentage label","default":"Save"},
+			{"type":"text","id":"subOff","label":"Subscription Off Label","default":"20% Off"},
+			{"type":"color","id":"labelBgColor","label":"Subscription Off Label Background Color","default":"#e4002b"},
+			{"type":"text","id":"afterOffpert","label":"After Subscription Off Percentage label","default":"select products with our <b>Subscription Pawgram<sup>™</sup></b>"},
+			{"type":"url","id":"SubUrl","label":"Page Url"},
+      		{"type":"checkbox","id":"subOffOn","label":"Visible to User","default":true}
+		]
+	}
+{% endschema %}
+<style>
+  .blueSubscription{
+    background:{{section.settings.backGroundColor}};
+  }
+  .blueSubscription h6 span{
+    background:{{section.settings.labelBgColor}};
+  }
+</style>
+

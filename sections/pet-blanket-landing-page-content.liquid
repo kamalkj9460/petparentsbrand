@@ -1,0 +1,131 @@
+{% for block in section.blocks %}
+  {% if block.type == 'Pet_Image_Text' %}
+  	{% if block.settings.pet-align_text =="left" %}
+  		<section class="sf_left"> 
+    <div class="sf-img-with-content">
+      <div class="productIng sf-img sf-left-sec">
+        {% if  block.settings.pet_section_Img %}
+        <a href="{{ block.settings.pet_BTN_Url }}">{{ block.settings.pet_section_Img | img_url:'master' |img_tag:'pet_section_Img','img-responsive' }}</a>
+        {% endif %}
+      </div>
+      <div class="productIng sf-content sf-right-sec">
+        {% if  block.settings.pet_banner_label %}
+       <div class="sf_title_igm"><a href="{{ block.settings.pet_BTN_Url }}"><h3>{{ block.settings.pet_banner_label }}</h3>  {% if  block.settings.pet_title_Img %}
+          <div class="sf_title_img__">{{ block.settings.pet_title_Img | img_url:'master' |img_tag:'pet_title_Img','img-responsive' }}</div>
+         {% endif %} </a></div>
+        {% endif %}
+
+        {% if  block.settings.pet_section_content %}
+         <div class="sf_content__">{{ block.settings.pet_section_content }}</div>
+        {% endif %}
+        <a class="sf_learn_more" href="{{ block.settings.pet_BTN_Url }}"> {{ block.settings.pet_BTN_Text }}</a>
+      </div></div><div class="sf_hr_left"></div>
+  </section>
+  	{% endif %}
+  	{% if block.settings.pet-align_text =="right" %}   
+  		<section class="sf_right">
+    <div class="sf-img-with-content">
+      <div class="productIng sf-content sf-left-sec">
+        {% if  block.settings.pet_banner_label %}
+        <div class="sf_title_igm"><a href="{{ block.settings.pet_BTN_Url }}"><h3> {{ block.settings.pet_banner_label }}</h3>  {% if  block.settings.pet_title_Img %}
+          <div class="sf_title_img__">{{ block.settings.pet_title_Img | img_url:'master' |img_tag:'pet_title_Img','img-responsive' }}</div>
+          {% endif %} </a></div>
+        {% endif %}
+
+        {% if  block.settings.pet_section_content %}
+        <div class="sf_content__">{{ block.settings.pet_section_content }}</div>
+        {% endif %}
+        <a class="sf_learn_more" href=" {{ block.settings.pet_BTN_Url }}"> {{ block.settings.pet_BTN_Text }}</a>
+      </div>
+      <div class="productIng sf-img sf-right-sec">
+        {% if  block.settings.pet_section_Img %}
+        <a href="{{ block.settings.pet_BTN_Url }}">{{ block.settings.pet_section_Img | img_url:'master' |img_tag:'pet_section_Img','img-responsive' }}</a>
+        {% endif %}
+      </div>
+    </div><div class="sf_hr_right"></div>
+  </section>
+  	{% endif %}
+  {% endif %}
+{% endfor %}
+<div class="clear"> </div>
+{% for block in section.blocks %}
+	{% if block.type == 'Compair_Image' %}
+      <div class="sf-single-image">
+        {{ block.settings.compair_Image_sec | img_url:'master' |img_tag:'compair_Image_sec','img-responsive' }}
+      </div>
+	{% endif %}
+	{% if block.type == 'Pet_Ultimate_Section' %}
+		<div class="white_space section_3 sf-leftImgR sf_hide_mobile">
+          <section class="ProductRelatedAdvertisement last_banner_pro mobileNewFormatingSection">
+            <div class="container">
+              <div class="row">
+                <div class="pp-6">
+                  <div class="leftRelatedAdvert">
+                    <a href="{{ block.settings.show_img_url }}">
+                    <h4>{{ block.settings.left_pus_text }}</h4>
+                    <img src="{{ block.settings.left_pus_img | img_url:'master'}}" alt="{{ block.settings.left_pus_img}}" />
+                    </a></div>
+                </div>
+                <div class="pp-6">
+                  <div class="rightRelatedAdvert cnt_78">
+                    <h4>{{ block.settings.right_pus_text }}</h4>
+                    {% if block.settings.right_pus_img %}
+                      {{ block.settings.right_pus_img | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                    {% endif %}
+                    <a href="{{ block.settings.btn_pus_url }}" class="RedButton signUpBtn __productInline">{{ block.settings.btn_pus_text }}</a>
+                  </div>
+                </div>
+              </div>
+             </div>
+          </section>
+		</div>
+		<div class="sf-single-image sf_show_mobile">
+          <a href="{{ block.settings.show_img_url }}">{{ block.settings.show_img_mobile | img_url:'master' |img_tag:'show_img_mobile','img-responsive' }}</a>
+      </div>
+    {% endif %}
+{% endfor %}
+   
+{% schema %}
+  {
+    "name": "Pet Blanket",
+    "class":"sf-pet-landing-page",
+    "settings": [
+    ],
+    "blocks":[
+       {
+          "type":"Pet_Image_Text",
+          "name":"Text and Image",
+          "settings":[
+           	{ "type": "text", "id": "pet_banner_label", "label": "Title" },
+			{ "type": "image_picker", "id": "pet_title_Img", "label": "Title Image" },
+			{ "type": "html", "id": "pet_section_content", "label": "Content" },
+			{ "type": "text", "id": "pet_BTN_Text", "label": "Button Text" },
+			{ "type": "url", "id": "pet_BTN_Url", "label": "Button URL" },
+            { "type": "image_picker", "id": "pet_section_Img", "label": "Product Image" },            
+            { "type": "select", "id": "pet-align_text", "label": "Image alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" }           
+          ]
+       },
+       {
+          "type":"Pet_Ultimate_Section",
+          "name":"Ultimate Section",
+          "settings":[
+			 { "type": "text", "id": "left_pus_text", "label": "Left Heading" },
+             { "type": "image_picker", "id": "left_pus_img", "label": "Left Image" },
+			 { "type": "text", "id": "right_pus_text", "label": "Right Heading" },
+             { "type": "image_picker", "id": "right_pus_img", "label": "Right Image" }, 
+			 { "type": "text", "id": "btn_pus_text", "label": "Button Text" },
+             { "type": "url", "id": "btn_pus_url", "label": "Button Url" },
+			{ "type": "image_picker", "id": "show_img_mobile", "label": "Image (Mobile)" },
+			{ "type": "url", "id": "show_img_url", "label": "Product URL (Mobile)" }
+          ]
+       },
+		{
+          "type":"Compair_Image",
+          "name":"Compair Image",
+          "settings":[			
+             { "type": "image_picker", "id": "compair_Image_sec", "label": "Image" }  
+          ]
+       }
+    ]
+  }
+{% endschema %}

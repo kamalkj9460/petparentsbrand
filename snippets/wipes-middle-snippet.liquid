@@ -1,0 +1,136 @@
+<div class="newformatingSizeSection sf_newformatingSizeSection">
+  <div class="product-blanket-regular-middle-content">
+  {%- for block in section.blocks -%}
+     {%- case block.type -%}
+        {% when 'content_with_imgBB' %}
+           {% if block.settings.show_block %}
+              <section {{block.shopify_attributes}} class="additional_sec_helpIssue pro_points block-{{block.id}} {% if block.settings.block_type == 'block_type' %}white_space{% endif %}" style="background-color:{{block.settings.block_bg}}!important;">
+                <div class="container"> 
+                  <div class="top_additional_sec_issue">
+                      <div class="top_additional_sec_Img sf_top_additional_left_sec" style="background:{{-block.settings.img__per_bg_clr-}}">
+                         {{ block.settings.topAddit_sec_Img  | img_url:'master' | img_tag:'block-img','img-responsive' }}
+                      </div>
+                      <div class="top_additional_sec_content listing_pnts sf_top_additional_right_sec">
+                         <h1 class="header-{{block.id}} text-{{block.settings.text_align}}">{{-block.settings.headerText-}}</h1>
+                         <div class="top_additional_sec_subcontent">
+                            <div class="top_add_sec_leftcontent">{{-block.settings.addit_leftcontent-}}</div>
+                            <div class="top_add_sec_rightcontent">{{-block.settings.addit_rightcontent-}}</div>
+                         </div>
+                      </div>      
+                   </div>
+                </div>
+                {% if block.settings.addit_sec_paragraph != blank %}
+                 <p class="sub_cod text-{{block.settings.add_txt_align}}">{{-block.settings.addit_sec_paragraph-}}</p>
+                {% endif %}
+              </section>
+              {% style %}        
+                 .additional_sec_helpIssue.block-{{block.id}}{ 
+                    margin:{{block.settings.margn-up}}px {{block.settings.margn-dwn}}px 0 {{block.settings.margn-dwn}}px !important; 
+                    {% if block.settings.block_type == 'boxed' %}
+                       width:{{ block.settings.width }}%;margin: 0 auto !important;
+                    {% endif %}
+                 }
+                 {% if block.settings.img_align == 'right' %}
+                    .block-{{block.id}} .top_additional_sec_Img{ order:1; }
+                 {% endif %}
+                 .header-{{block.id}}{
+                    color: {{block.settings.headerTextColor}} !important;
+                    font-size:{{block.settings.headerTextSize}}px !important;
+                    letter-spacing:{{block.settings.ltr-spacing}}px !important;            
+                 }         
+              {% endstyle %}
+           {% endif %}
+        {% when 'cont_videoBB' %}
+  					{% if block.settings.enable_sec_video !=blank %}
+                        <div class='embed-containerfg is_desktop_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{{-block.settings.video_poster-}}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+                        <div class='embed-containerfg is_mobile_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{% if block.settings.video_poster_m !=blank %}{{-block.settings.video_poster_m-}}{% else %}{{-block.settings.video_poster-}}{% endif %}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+              		{% endif %}  
+            {% if block.settings.addit_sec_paragraph !=blank %}
+              <div class="additional_sec_helpIssue pro_points never-secrifice" style="margin-top:0px; background-color:{{block.settings.addit_bg_color}} !important;">
+                <div class="container">
+                  <p class="sub_cod">{{block.settings.addit_sec_paragraph}}</p>
+                </div>
+              </div>
+              {% endif %}  
+        {% when 'sp_featureBB' %}
+           {% if block.settings.show_block %}  
+    <section class="sf_Special_Features_sec" style="background:{{ block.settings.block_bg_Spe}}">
+			<div class="container">
+               <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.spltextBB }}</h3>
+              <div class="Special_Features">
+	<div class="Special_Features_content">
+		<div class="inner_text first_inner_text_">
+		<h3 spf_id="spc_ftu_1">{{ block.settings.featureTitle1}}</h3>
+		<div id="spc_ftu_1" class="sf_c_content"><p>{{ block.settings.featureText1}}</p>		
+		</div>{% if block.settings.featurePlusText1 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText1}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_2">{{ block.settings.featureTitle2}}</h3>
+		<div id="spc_ftu_2" class="sf_c_content"><p>{{ block.settings.featureText2}}</p>
+		</div>{% if block.settings.featurePlusText2 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText2}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_3">{{ block.settings.featureTitle3}}</h3>
+		<div id="spc_ftu_3" class="sf_c_content"><p>{{ block.settings.featureText3}}</p>		
+		</div>{% if block.settings.featurePlusText3 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText3}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_4">{{ block.settings.featureTitle4}}</h3>
+		<div id="spc_ftu_4" class="sf_c_content"><p>{{ block.settings.featureText4}}</p>		
+		</div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
+      <div class="inner_text">
+		<h3 spf_id="spc_ftu_5">{{ block.settings.featureTitle5}}</h3>
+		<div id="spc_ftu_5" class="sf_c_content"><p>{{ block.settings.featureText5}}</p>		
+		</div>{% if block.settings.featurePlusText5 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText5}}</p>{% endif %}</div>
+	</div>
+	<div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
+		{{ block.settings.featureRightImg | img_url:'master' | img_tag:'featureRightImg','img-responsive' }}
+	</div>
+     
+</div>
+
+      </div>
+</section>   
+  			{% style %}
+  		.__PeePadUse.block-{{block.id}} .row.row_iconic{ margin:0 auto;}
+  			  {% endstyle %}
+           {% endif %}
+        {% when 'ProductImageTwoBB' %}
+      {% if block.settings.show_block %}
+    <section class="pb_slider_{{block.id}} sss_slider">
+      <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.slidertextBB }}</h3>
+              <div class="sf_PawtectBlanketSlider5 slider" id="PawtectBlanketSlider5">    
+                 {% if block.settings.prodBanner1 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner1 | img_url:'master' | img_tag:'prodBanner1','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner2 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner2 | img_url:'master' | img_tag:'prodBanner2','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner3 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner3 | img_url:'master' | img_tag:'prodBanner3','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner4 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner4 | img_url:'master' | img_tag:'prodBanner4','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner5 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner5 | img_url:'master' | img_tag:'prodBanner5','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner6 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner6 | img_url:'master' | img_tag:'prodBanner6','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner7 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner7 | img_url:'master' | img_tag:'prodBanner7','img-responsive' }}</div>
+                {% endif %}
+              </div>
+    </section>
+           {% endif %} 
+           
+     {%- endcase -%}
+  {%- endfor -%} 
+  </div>
+</div>

@@ -1,0 +1,98 @@
+{% assign count = section.settings.blog_per_page %}
+{% assign blog_name =  section.settings.blog_setting %}
+{% assign blog_name2 =  section.settings.blog_setting2 %}
+ 
+
+<!-- Dog Blog List -->
+<div class="DogBlogList slider">  
+  {% for article in blogs[blog_name].articles %}
+  	<ul class="gfhgjkertyu">   
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text">
+          
+            <div class="__dog-title">
+              <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+              <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg"  /> 
+            </div>
+            <div class="_dog_cnt_">
+               {{  article.title }}
+                <p><span class="SeeMOre"> > See More <span class="blog_tag omnkar">
+                  {% for tag in article.tags %} 
+                  	{% unless tag contains 'meta' %}
+                  		{{tag}}
+                  		{% break %}
+                  	{% endunless %}
+                  {% endfor %}
+                </span></span></p>            
+            </div>
+          </div>
+        </a>
+      </li>  
+     </ul>
+   {% endfor %}
+  {% for article in blogs[blog_name2].articles %}
+  	<ul class="asfdgfhgjhkjk">   
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text">
+          
+            <div class="__dog-title">
+              <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+            </div>
+            <div class="_dog_cnt_">
+               {{  article.title }}
+                <p><span class="SeeMOre"> > See More <span class="blog_tag omnkar">
+                  {% for tag in article.tags %} 
+                  	{% unless tag contains 'meta' %}
+                  		{{tag}}
+                  		{% break %}
+                  	{% endunless %}
+                  {% endfor %}
+                </span></span></p>  
+            </div>
+          </div>
+        </a>
+      </li>  
+     </ul>
+   {% endfor %}
+
+</div>
+<!-- Blog Landing Section Ends -->
+{% schema %}
+  {
+    "name": "Blog Page section",
+      "settings": [
+		{"type":"header", "content":"Blog Type 1"},	
+         {"type": "blog", "id":"blog_setting","label": "Blog"},
+         {"type": "number", "id": "blog_per_page","label": "Blog per page","default": 20},
+         {"type": "checkbox",  "id": "blog_show_tags", "label": "Show tags", "default": true },
+		{"type":"header", "content":"Blog Type 2"},	
+		{"type": "blog", "id":"blog_setting2","label": "Blog"},
+         {"type": "number", "id": "blog_per_page2","label": "Blog per page","default": 15},
+         {"type": "checkbox",  "id": "blog_show_tags2", "label": "Show tags", "default": true },
+		{"type":"header", "content":"Blog Type 3"},	
+        {"type": "blog", "id":"blog_setting3","label": "Blog"},
+         {"type": "number", "id": "blog_per_page3","label": "Blog per page","default": 15},
+         {"type": "checkbox",  "id": "blog_show_tags3", "label": "Show tags", "default": true }
+    	
+	],
+	"presets":[{
+      "name": "Blog landing Page",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<script>
+  jQuery(".FilterButton").click(function(){
+   jQuery(".flist").toggle();
+    
+  });
+</script>

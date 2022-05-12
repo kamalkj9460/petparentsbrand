@@ -1,0 +1,50 @@
+<section class="productRegistration">
+  <div class="container">
+    <div class="productBanner">
+       {% if  section.settings.bannerOne %}
+         {{ section.settings.bannerOne | img_url:'master' |img_tag:'bannerOne','img-responsive' }}
+       {% endif %}
+    </div>
+    <div class="proRegistration">
+      <p>{{section.settings.proRegistrationText}}</p>
+    </div>
+    <div class="proRegistration-MiddleSection">
+      <div class="redSideSupport">
+        <h2>{{section.settings.redSideText}}</h2>
+        <p>{{section.settings.redSideParagraphText}}</p>
+      </div>
+      <div class="blueSideSupport">
+        <h2>{{section.settings.redSideText2}}</h2>
+        <p>{{section.settings.redSideParagraphText2}}</p>
+      </div>
+    </div>
+    <div class="proRegistration-form">
+    	
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product Registration",
+    "settings": [
+	     {"type":"header","content":"Main -- Section"},
+		 {"type":"image_picker","id":"bannerOne","label":"Header Banner Image"},
+		 {"type":"text","id":"proRegistrationText","label":"Add Text"},
+
+	     {"type":"header","content":"Red -- Section"},
+		 {"type":"text","id":"redSideText","label":"Add Text(1)"},
+		 {"type":"text","id":"redSideParagraphText","label":"Add Text(2)"},
+
+	     {"type":"header","content":"Blue -- Section"},
+		 {"type":"text","id":"redSideText2","label":"Add Text(1)"},
+		 {"type":"text","id":"redSideParagraphText2","label":"Add Text(1)"}
+	],
+	"presets":[{
+      "name": "Product Registration",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+

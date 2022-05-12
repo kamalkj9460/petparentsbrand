@@ -1,0 +1,345 @@
+<section class="sf_new_washingDiaper_banner">
+  <div class="banner_section">
+    <h1>{{section.settings.sf_wash_ins_heading}}</h1>
+    <p>{{section.settings.sf_wash_ins_sub_heading}}</p>
+  </div>
+</section>
+<section class="washingDiaper sf_new_washingDiaper">
+  <div class="container">
+<div class="Sf_wi_tabs">
+  <ul class="Sf_wi_tabs-list">
+    <div>
+    {% assign wi_number = 10 %}
+    {% for block in section.blocks %}
+    	{% if forloop.first == true %}
+    <li class="Sf_wi_active"><a href="#wi_tab{% increment wi_number %}">{{block.settings.sf_item_title}}</a></li>
+    {% else %}
+    <li><span>|</span> <a href="#wi_tab{% increment wi_number %}">{{block.settings.sf_item_title}}</a></li>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </ul>
+  <div class="sf_wi_tab_content">
+    {% assign my_number = 10 %}
+  {% for block in section.blocks %}
+    	{% if forloop.first == true %}
+  <div id="wi_tab{% increment my_number %}" class="Sf_wi_tab Sf_wi_active">
+    <div class="sf_content_tab">
+<ul>
+{% if block.settings.sf_item_img1 != blank %}<li>{{ block.settings.sf_item_img1 | img_url:'master' | img_tag:'sf_item_img1','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption1 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img2 != blank %}<li>{{ block.settings.sf_item_img2 | img_url:'master' | img_tag:'sf_item_img2','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption2 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img3 != blank %}<li>{{ block.settings.sf_item_img3 | img_url:'master' | img_tag:'sf_item_img3','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption3 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img4 != blank %}<li>{{ block.settings.sf_item_img4 | img_url:'master' | img_tag:'sf_item_img4','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption4 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img5 != blank %}<li>{{ block.settings.sf_item_img5 | img_url:'master' | img_tag:'sf_item_img5','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption5 }}</span></li>{% endif %}
+</ul>
+     {% if block.settings.sf_item_description != blank %}<p><em>{{block.settings.sf_item_description}}</em></p>{% endif %}
+</div>
+     
+  </div>
+  {% else %}
+ <div id="wi_tab{% increment my_number %}" class="Sf_wi_tab">
+       <div class="sf_content_tab">
+<ul>
+{% if block.settings.sf_item_img1 != blank %}<li>{{ block.settings.sf_item_img1 | img_url:'master' | img_tag:'sf_item_img1','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption1 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img2 != blank %}<li>{{ block.settings.sf_item_img2 | img_url:'master' | img_tag:'sf_item_img2','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption2 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img3 != blank %}<li>{{ block.settings.sf_item_img3 | img_url:'master' | img_tag:'sf_item_img3','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption3 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img4 != blank %}<li>{{ block.settings.sf_item_img4 | img_url:'master' | img_tag:'sf_item_img4','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption4 }}</span></li>{% endif %}
+  {% if block.settings.sf_item_img5 != blank %}<li>{{ block.settings.sf_item_img5 | img_url:'master' | img_tag:'sf_item_img5','img-responsive' }}
+	<span class="image_caption">{{ block.settings.sf_item_img_caption5 }}</span></li>{% endif %}
+</ul>
+     {% if block.settings.sf_item_description != blank %}<p><em>{{block.settings.sf_item_description}}</em></p>{% endif %}
+</div>
+</div>
+
+  {% endif %}
+   {% endfor %}
+  </div>
+ </div>
+  </div>
+</section>
+<section class="sf_ExcessOdor">
+  <div class="sf_row_ExcessOdor">
+    <div class="container">
+        <div class="col-md-4">
+        <h3>{{section.settings.sf_wash_ins_ls_heading}}</h3>
+          <div class="sf_contentOdor">{{section.settings.sf_wash_ins_ls_content}}</div>
+        </div>
+        <div class="col-md-8">
+        <h3>{{section.settings.sf_wash_ins_eo_heading}}</h3>
+          <div class="sf_contentOdor">{{section.settings.sf_wash_ins_eo_content}}</div>
+        </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Washing Instructions",
+    "settings": [
+		 {"type":"text","id":"sf_wash_ins_heading","label":"Heading"},
+		 {"type":"text","id":"sf_wash_ins_sub_heading","label":"Sub Heading"},
+          {"type":"text","id":"sf_wash_ins_ls_heading","label":"Lingering Stains Title"},
+          {"type":"html","id":"sf_wash_ins_ls_content","label":"Lingering Stains Content"},
+          {"type":"text","id":"sf_wash_ins_eo_heading","label":"Excess odor Title"},
+          {"type":"html","id":"sf_wash_ins_eo_content","label":"Excess odor Content"}
+		],
+	"blocks" : [{
+        "name": "New Item",
+		"type": "washInst",
+        "settings": [
+            {"type":"text","id":"sf_item_title","label":"Title"},
+            {"type":"image_picker","id":"sf_item_img1","label":"Image[1]"},
+            {"type":"text","id":"sf_item_img_caption1","label":"Image Caption[1]"},
+            {"type":"image_picker","id":"sf_item_img2","label":"Image[2]"},
+            {"type":"text","id":"sf_item_img_caption2","label":"Image Caption[2]"},
+            {"type":"image_picker","id":"sf_item_img3","label":"Image[3]"},
+            {"type":"text","id":"sf_item_img_caption3","label":"Image Caption[3]"},
+            {"type":"image_picker","id":"sf_item_img4","label":"Image[4]"},
+            {"type":"text","id":"sf_item_img_caption4","label":"Image Caption[4]"},
+            {"type":"image_picker","id":"sf_item_img5","label":"Image[5]"},
+            {"type":"text","id":"sf_item_img_caption5","label":"Image Caption[5]"},
+            {"type":"text","id":"sf_item_description","label":"Description"}
+		]}],
+	"presets":[{
+      "name": "Washing Instructions"
+    }]
+
+}
+{% endschema %}
+
+<style>
+.Sf_wi_tab{display:none}
+.Sf_wi_tab.Sf_wi_active {display: block;}
+  .sf_new_washingDiaper ul.Sf_wi_tabs-list{list-style:none;border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 12px 0; margin : 0;  margin-top: 50px; }
+.sf_new_washingDiaper ul.Sf_wi_tabs-list>div { display: flex; justify-content: center;flex-wrap : wrap;}
+.sf_new_washingDiaper { display: flex; max-width: 100%; width: 100%;}
+.sf_wi_tab_content { display: flex; max-width: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;justify-content:center;}
+.sf_wi_tab_content ul { display: flex; justify-content: center; width: 100%; padding: 70px 0 50px; margin: 0; grid-gap: 64px; flex-wrap: wrap;}
+.sf_wi_tab_content ul li {
+  	width: 100%;
+    max-width: 110px;
+}
+section.sf_new_washingDiaper_banner { background: #f6f6f6; padding: 50px 0px 55px; text-align: center; margin-top: 10px; }
+.banner_section p { max-width: 595px; margin: 0 auto; font-size: 23px; line-height: 1.15; color: #706f6f; font-family: gentona;}
+.banner_section h1 { color: #ed1b3c; font-size: clamp(48px, 4.15vw, 70px); font-weight: 900; font-family: gentona; margin: 0;}
+ul.Sf_wi_tabs-list li a { 
+  padding: 0 12px; 
+  text-decoration: none; 
+  font-size: 18px; 
+  color: #9e9d9d  !important; 
+  transition : .25s;
+}
+ul.Sf_wi_tabs-list li.Sf_wi_active a { 
+    color: #000; 
+     text-shadow: 0 0 .75px #000, 0 0 .75px 
+}
+ul.Sf_wi_tabs-list li  span { font-size: 18px; color: #706f6f !important;}
+.sf_wi_tab_content {border-bottom: 1px solid #ddd;} 
+.Sf_wi_tabs-list li {margin-bottom: 0px;}
+.sf_row_ExcessOdor h3 { border-bottom: 1px solid #c6c6c6; margin: 0px; padding : 60px 0 18px; position: relative; text-transform: capitalize; color : #939598; letter-spacing: 0px; font-weight: 500; }
+.sf_row_ExcessOdor h3::after { position: absolute; content: " "; width: 10px; height: 10px; background: red; }
+.sf_row_ExcessOdor h3::after { position: absolute; content: " "; height: 7px; background: #00b7bc; bottom: -4px; left: 0; }
+.sf_row_ExcessOdor .col-md-4 h3::after { width: 100%; max-width: 165px; }
+.sf_row_ExcessOdor .col-md-8 h3::after { width: 100%; max-width: 250px;}
+.sf_contentOdor p { margin: 0px; }
+.sf_contentOdor p:nth-child(odd) { color: #939598; font-size: 17px; margin-top : 20px; font-family: 'Gentona book';}
+.sf_contentOdor p:nth-child(even) { color: #939598; font-size: 13px; font-family: 'Gentona book';}
+.sf_content_tab p { color :#939598;     font-family: 'Gentona book'; line-height: 1.15; }
+.sf_row_ExcessOdor .col-md-8 { margin-bottom: 75px; }
+.sf_content_tab img { width:100%; display: block; margin: 0px auto; }
+.sf_new_washingDiaper .sf_content_tab li span {
+  padding-top: 18px; 
+  font-size: 12px; 
+  color: #939598; 
+  max-width: 96px; 
+  display: block; 
+  margin : 0px auto; 
+  line-height: 1.33;
+}
+
+#shopify-section-washing-instruction-main .container {
+  	 max-width: 860px;
+     padding: 0 25px;
+}  
+
+.sf_row_ExcessOdor .container .col-md-4, .col-md-8 {
+  	padding-left: 0px;
+    padding-right: 0px;
+} 
+.sf_row_ExcessOdor .container {
+    display: flex;
+    justify-content: space-between;
+    grid-gap : 45px;
+}
+  
+#pet-parents-washing-instructions-diapers-bands-pee-pads-amp-more .__Footer_sec_inner {
+/*     border-top: none;
+    padding:  0px 15px 40px; */
+}
+.sf_content_tab>p {
+	margin-bottom: 5px; 
+  padding-bottom: 10px;
+}
+  
+  .__Footer_sec_inner {
+    border-top: none;
+    padding: 0px 38px 40px;
+}
+  
+@media (max-width: 991px) {
+  	ul.Sf_wi_tabs-list li a {
+        padding: 0 10px;
+        font-size: 16px;
+        color: #706f6f !important;
+    }
+}
+  
+@media (max-width: 767px) {
+    ul.Sf_wi_tabs-list li a { padding: 0 15px; font-size: 14px; }
+    .sf_wi_tab_content ul { padding: 0px; margin: 0px; flex-wrap: wrap; grid-gap: 30px;}
+    .sf_wi_tab_content ul li { max-width: 95px; }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list{padding:15px 0 10px 0;}
+/*     .sf_new_washingDiaper ul.Sf_wi_tabs-list li:nth-child(3)::after { 
+      content: ''; width: 90%; display: block; 
+      color: #ddd; height: 1px; background:#ddd;
+      margin-top: 15px; position: absolute; left: 17px; 
+    } */
+    .Sf_wi_tabs-list li { margin-bottom: 5px; }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list { margin: 0; margin-top: 10px; margin-bottom: 25px; }
+    .sf_contentOdor {padding-top: 10px}
+    .sf_new_washingDiaper .sf_content_tab li span {max-width: 100px;}
+    .Sf_wi_tabs ul.Sf_wi_tabs-list li:nth-child(4) span {display: none;}
+    section.sf_new_washingDiaper_banner p {max-width: 323px;margin: 0 auto !important;}
+    section.sf_new_washingDiaper_banner {padding: 85px 0px;}
+  	.banner_section h1 {
+        margin: 0 auto;
+        max-width: 425px;
+        padding-bottom: 20px;
+      
+    }
+    #shopify-section-washing-instruction-main .container {
+         max-width: 860px;
+         padding: 0 15px;
+    } 
+  	.sf_row_ExcessOdor .container {
+        display: block;
+    }
+    
+    .sf_content_tab p {
+        margin: 20px 30px 0px !important;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+  .sf_wi_tab_content {border-bottom:none;}  
+    .sf_row_ExcessOdor h3 {
+        padding: 40px 0 14px;
+    }
+    .sf_contentOdor p:nth-child(odd) {
+      	margin-bottom: 0 !important;
+      font-weight: 600;
+    }
+    .sf_contentOdor p:nth-child(even) {
+    	margin-top: 0 !important;
+      font-size: 14px;
+    }
+    .sf_row_ExcessOdor .col-md-8 {
+        margin-bottom: 75px;
+    }
+  	.sf_new_washingDiaper ul.Sf_wi_tabs-list {
+        position: relative;
+    }
+ 	.sf_new_washingDiaper ul.Sf_wi_tabs-list>div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        grid-row-gap: 25px;
+    } 
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list:after {
+        content: '';
+        width: 100%;
+        display: block;
+        color: #ddd;
+        height: 1px;
+        background: #ddd;
+        position: absolute;
+        left: 0;
+        top: calc(49% - 2px);
+    }
+/*     .sf_contentOdor p:nth-child(odd) {
+      font-weight: 300;
+    } */
+  
+  	.sf_row_ExcessOdor .col-md-8 h3 {
+        padding: 60px 0 14px;
+    }
+    .white_space {
+        display: none;
+    }
+    .sf_row_ExcessOdor .col-md-8 {
+        margin-bottom: 35px;
+    }
+
+}
+
+@media (max-width: 767px) {
+	ul.Sf_wi_tabs-list li a {
+       padding: 0 15px 0 10px;
+    }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list>div {
+        max-width: 350px;
+    }
+    section.sf_ExcessOdor {
+        padding: 0 30px !important;
+    }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+}
+  
+  
+ </style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".Sf_wi_tabs-list li a").click(function(e){
+     e.preventDefault();
+  });
+
+  $(".Sf_wi_tabs-list li").click(function(){
+     var tabid = $(this).find("a").attr("href");
+     $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+     $(".Sf_wi_tab").hide();  
+     $(tabid).show();  
+     $(this).addClass("Sf_wi_active"); 
+
+  });
+
+});
+</script>
+

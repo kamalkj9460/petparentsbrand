@@ -1,0 +1,30 @@
+{% include 'by-problem-snippets' %}
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [
+		{"type":"link_list","id":"shop_menu_id","label":"Select Menu"},
+		{"type":"html","id":"bp_page_title","label":"Page Title"},
+		{"type":"text","id":"col_title","label":"Collection Title"},
+		{"type":"collection","id":"bp_collection","label":"Select Collection"},
+		{"type":"richtext", "id":"footer_text", "label":"Footer Text"}
+		],
+			"blocks" : [{	
+				"name":"Article",
+				"type":"selectArticles",
+				"settings": [
+				{"type":"article", "id":"for_article", "label":"Select Aticle"}
+				]
+				}]
+  }
+{% endschema %}
+<style>
+  li.sbn_item.sbn_items_1 {
+    background: #00b6bd;
+}
+  ul.sbn_tab_listing li {
+    white-space: nowrap !important;
+}
+</style>
+
+

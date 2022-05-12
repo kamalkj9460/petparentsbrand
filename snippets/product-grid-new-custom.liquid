@@ -1,0 +1,104 @@
+<!-- /snippets/product-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+{% endunless %}
+
+{% unless width %}
+  {%- assign width = 310 -%}
+{% endunless %}
+{% unless height %}
+  {%- assign height = 415 -%}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% capture img_id_class %}ProductImage-{{ product.featured_image.id }}{% endcapture %}
+{% capture img_wrapper_id %}ProductImageWrapper-{{ product.featured_image.id }}{% endcapture %}
+{%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+<div class="NewTempGrid grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %}">
+  <div class="grid-product__wrapper">
+    <div class="search_imgs_data">
+    <div class="productImg">
+      <a class="grid-product__image-link" href="{{ product.url | within: collection }}">
+        {% if product.featured_image.src == blank %}
+          <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+        {% else %}
+          {% comment %}{% include 'image-style' with image: product.featured_image, small_style: true, width: width, height: height, wrapper_id: img_wrapper_id, img_id_class: img_id_class %}{% endcomment %}
+          <div id="{{ img_wrapper_id }}" class="product--wrapper">
+            <div {% comment %}style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%;"{% endcomment %}>
+              <img class="product--image lazyload {{ img_id_class }}"
+                   src="{{ product.featured_image | img_url: 'large' }}"
+                   alt="{{ product.featured_image.alt | escape }}">
+            </div>
+          </div>
+          <noscript>
+            <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+          </noscript>
+        {% endif %}
+      </a>
+      {% if sold_out %}
+        <div class="grid-product__sold-out">
+          <p>{{ 'products.product.sold_out_html' | t }}</p>
+        </div>
+      {% elsif on_sale %}
+        <div class="grid-product__on-sale">
+          {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
+          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
+        </div>
+      {% endif %}
+    </div>
+    </div>
+      <h3 class="product_name">{{ product.title }}</h3>
+        {% assign productId = product.id %}
+        	{% case productId %}
+  				{% when 625984307252 %}
+      				<p> For Dogs and Cats </p>	
+			{% endcase %}
+      {% if section.settings.product_vendor_enable %}
+        <p class="grid-product__vendor">{{ product.vendor }}</p>
+      {% endif %}
+      <div class="lrn_grd">
+        <a href="{{ product.url | within: collection }}" class="grid-product__meta">
+        Learn More
+        </a>
+      </div>
+    
+    {% if settings.cart_type == 'drawer' %}
+    <script type="text/javascript">
+      $('document').ready(function(){ 
+      ajaxCart.init({
+          formSelector: '#AddToCartForm--{{ product.id }}',
+          cartContainer: '#CartContainer',
+          addToCartSelector: '#AddToCart--{{ product.id }}',
+          enableQtySelectors: false,
+          moneyFormat: theme.strings.moneyFormat
+        });
+      }); 
+    </script>
+    {% endif %}
+  </div>
+</div>

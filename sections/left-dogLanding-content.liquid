@@ -1,0 +1,28 @@
+<div class="leftDogLandingContent">
+{% if section.settings.dogLanding_content %}
+  <a href="{{section.settings.dogLanding_url1}}">
+  	<img src="{{section.settings.dogLanding_content | img_url: 'master' }}" />
+  </a>
+{% endif %}
+{% if section.settings.dogLanding_content2 %}
+  <a href="{{section.settings.dogLanding_url2}}">
+  	<img src="{{section.settings.dogLanding_content2 | img_url: 'master' }}" />
+  </a>
+{% endif %}
+</div>
+
+{% schema %}
+  {
+    "name" : "Left Dog Landing Content",
+    "settings" : [			
+			{"type":"url","id":"dogLanding_url1","label":"Dog Image Url (1)"},
+			{"type":"image_picker","id":"dogLanding_content","label":"Dog Image (1)"},
+			{"type":"url","id":"dogLanding_url2","label":"Dog Image URl(2)"},
+			{"type":"image_picker","id":"dogLanding_content2","label":"Dog Image (2)"}
+          ],
+	"presets": [{
+      "name": "Left Dog Landing Content",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

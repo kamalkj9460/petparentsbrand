@@ -1,0 +1,25 @@
+<div class="dogPawcontent ">
+  <div class="__dogContent">
+    <p>{{section.settings.dogPaw_content}}</p>
+  </div>
+  <div class="__dogPawImg">
+    <img src="{{ section.settings.dogPawImg | img_url : 'master' }}" />
+  </div>
+</div>
+<style>
+  #shopify-section-dogPawcontent { background:{{section.settings.dogLandingcontent_color}}; }
+</style>
+{% schema %}
+  {
+    "name" : "Dog Content",
+    "settings" : [			
+			{"type":"color","id":"dogLandingcontent_color","label":"Background Color"},
+			{"type":"image_picker","id":"dogPawImg","label":"Paw Image"},
+			{"type":"text","id":"dogPaw_content","label":"Dog content"}
+          ],
+	"presets": [{
+      "name": "Dog Content",
+      "category": "text"
+    }]
+  }
+{% endschema %}

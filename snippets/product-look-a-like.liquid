@@ -1,0 +1,18 @@
+<div class="white_space">  
+  <h4 class="middle_sub">{{ section.settings.like_text }}</h4>
+  <div class="thumb_slider">
+    <div id='you_may_like'> 
+      {% for block in section.blocks %}
+        <div class="ymCls" style="background-color:{{ block.settings.slide_bg }}">
+          <a href="{{ block.settings.slide_porduct }}">
+            <div class="ymClsContant">
+             <h3 class="slide_text">{{ block.settings.slide_text }}</h3>
+             <h6 class="slide_subtext">{{ block.settings.slide_subtext }}</h6>
+            </div>
+      	  </a>
+      	</div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>

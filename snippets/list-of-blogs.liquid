@@ -1,0 +1,290 @@
+
+
+
+<!-- Blogs list -->
+<ul class='__linkUL' id="blog_updte_ul">
+ {% assign tags = blogs['petblog'].all_tags  | join: ',' | downcase %}
+
+   {% if tags contains 'dog antlers' %}
+    	
+	<!-- 	 <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Antlers.jpg?4015239840496914526' />-->
+	<li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-antlers" class="__catHref">
+           {{ '1_734de346-b678-490a-b112-cd7a7149f167.jpg' |  file_img_url:'grande' | img_tag:'_antlers','Antlers'}}
+             <span class="__catName"><i>Antlers</i></span>
+           </a>
+  		 </li> 
+  
+      {% endif %}
+	  
+	
+			{% if tags contains  'male dog wraps' %}
+<!-- 		 <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Belly_Bands.jpg?10917311630202962529' /> -->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/male-dog-wraps" class="__catHref">
+           {{ '2_50826607-a846-4ad2-831c-c871ad430a23.jpg' |  file_img_url:'grande' | img_tag:'_bellyBand','BellyBand'}}
+             <span class="__catName"><i>Belly Bands</i></span>
+           </a>
+  		 </li>
+	 {% endif %}   
+	 
+		{% if tags contains 'breeding dogs' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Breeding.jpg?2543833595369053210' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/breeding-dogs" class="__catHref">
+           {{ '3_e114311a-7fd3-4501-b971-4106a4c59d43.jpg' |  file_img_url:'grande' | img_tag:'_breeding','Breeding'}}
+             <span class="__catName"><i>Breeding</i></span>
+           </a>
+  		 </li>
+  	 {% endif %}
+        {% if tags contains 'cat diapers' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Cat_Spraying.jpg?3252449602004083351' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/cat-diapers" class="__catHref">
+           {{ '4_199019b4-4d42-4fb1-aed3-07fa3865a3f1.jpg' |  file_img_url:'grande' | img_tag:'_catdiapers','CatDiapers'}}
+             <span class="__catName"><i>Cat Diapers {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	  	 {% endif %}
+	   {% if tags contains 'cat spray' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Cat_Spraying.jpg?3252449602004083351' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/cat-spray" class="__catHref">
+            {{ '5_c1714dae-7586-4138-ad1c-7249fb9a5fd6.jpg' |  file_img_url:'grande' | img_tag:'_catSpraying','CatSpraying'}}
+             <span class="__catName"><i>Cat Spraying {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+  	 {% endif %}
+	   {% if tags contains 'dog crate' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Crate.jpg?6066177789082224113' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-crate" class="__catHref">
+           {{ '6_a2418c8c-c54d-4793-abd0-36c5919ff4e0.jpg' |  file_img_url:'grande' | img_tag:'_crate','Crate'}}
+             <span class="__catName"><i>Crate</i></span>
+           </a>
+  		 </li>
+	  	 {% endif %}
+  
+ {% if tags contains 'dog diapers' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Dog_Diapers.jpg?556714834932537865' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-diapers" class="__catHref">
+           {{ '7_8b4f74c8-baf3-46b2-a028-df516ba42e2a.jpg' |  file_img_url:'grande' | img_tag:'_dogDiapers','DogDiapers'}}
+             <span class="__catName"><i>Dog Diapers {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+  	 {% endif %}
+	 {% if tags contains 'female dogs' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Female_Dogs.jpg?17154488642507062982' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/female-dogs" class="__catHref">
+           {{ '8_9076437f-abd7-4dac-a30e-0567e8ef7b4c.jpg' |  file_img_url:'grande' | img_tag:'_femaleDogs','FemaleDogs'}}
+             <span class="__catName"><i>Female Dogs {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	 {% if tags contains 'feline postpartum' %}
+			<!--  <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Feline_Postpartum.jpg?6801432428168665009' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/feline-postpartum" class="__catHref">
+           {{ '9_573ff7ce-16a9-4710-9f17-91e3f6730d98.jpg' |  file_img_url:'grande' | img_tag:'_felinePostpartum','FelinePostpartum'}}
+             <span class="__catName"><i>Feline Postpartum {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	 {% if tags contains 'dog health' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Health.jpg?16293110848514896036' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-health" class="__catHref">
+           {{ '10_6c378dbb-7567-4136-8415-2d612f6efc04.jpg' |  file_img_url:'grande' | img_tag:'_health','Health'}}
+             <span class="__catName"><i>Health</i></span>
+           </a>
+  		 </li>
+		 {% endif %}
+	 {% if tags contains 'incontinence' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Incontinence.jpg?11528554226924315147' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/incontinence" class="__catHref">
+           {{ '11_f7e9bf37-e8e3-46fd-8c9a-eb593a3e9666.jpg' |  file_img_url:'grande' | img_tag:'_incontinence','Incontinence'}}
+             <span class="__catName"><i>Incontinence</i></span>
+           </a>
+  		 </li>
+			 {% endif %}
+	 {% if tags contains 'puppy newborn' %}  
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Newborn.jpg?5101970815651566992' />-->
+		<li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/puppy-newborn" class="__catHref">
+           {{ '12_89143929-e186-4b9e-9410-305d90c44043.jpg' |  file_img_url:'grande' | img_tag:'_newborn','Newborn'}}
+             <span class="__catName"><i>Newborn</i></span>
+           </a>
+  		 </li>
+ {% endif %}
+	 {% if tags contains 'neuter-spay' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Neuter_Spay.jpg?12301889441611453383' />-->
+		<li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/neuter-spay" class="__catHref">
+           {{ '13.jpg' |  file_img_url:'grande' | img_tag:'_neuterSpay','NeuterSpay'}}
+             <span class="__catName"><i>Neuter/Spay</i></span>
+           </a>
+  		 </li>
+ {% endif %}
+	{% if tags contains 'pee pads' %}  
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Pee_Pad_M_with_dog_0620.jpg?15886812826968561852' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/pee-pads" class="__catHref">
+           {{ '14.jpg' |  file_img_url:'grande' | img_tag:'_peePad','PeePad'}}
+             <span class="__catName"><i>Pee Pads {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+{% if tags contains 'senior dog' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Senior_Dogs.jpg?17135398172370114480' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/senior-dog" class="__catHref">
+           {{ '15.jpg' |  file_img_url:'grande' | img_tag:'_seniorDogs','SeniorDogs'}}
+             <span class="__catName"><i>Senior Dogs {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'seasons' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Seasonal.jpg?14756281834788095253' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/seasons" class="__catHref">
+           {{ '16.jpg' |  file_img_url:'grande' | img_tag:'_seasonal','Seasonal'}}
+             <span class="__catName"><i>Seasonal</i></span>
+           </a>
+  		 </li>  
+		 {% endif %}
+	{% if tags contains 'dog marking' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Spot_Marking.jpg?13204950263228115136' />-->
+		<li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-marking" class="__catHref">
+           {{ '17.jpg' |  file_img_url:'grande' | img_tag:'_spotMarking','SpotMarking'}}
+             <span class="__catName"><i>Spot Marking {% comment %} {{ tag }} {% endcomment %}</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+    {% if tags contains 'supplements' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/supplements" class="__catHref">
+           {{ '18.jpg' |  file_img_url:'grande' | img_tag:'_supplements','Supplements'}}
+             <span class="__catName"><i>Supplements</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+
+		{% if tags contains 'dog travel' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Travelling__2.jpg?7703683730946899781' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-travel" class="__catHref">
+           {{ '19.jpg' |  file_img_url:'grande' | img_tag:'_travelling','Travelling'}}
+             <span class="__catName"><i>Traveling</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'pet urine' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/pet-urine" class="__catHref">
+           {{ '20.jpg' |  file_img_url:'grande' | img_tag:'_urination','Urination'}}
+             <span class="__catName"><i>Urination</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'female dogs in heat' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/female-dogs-in-heat" class="__catHref">
+           {{ '21.jpg' |  file_img_url:'grande' | img_tag:'_female_dogs_in_heat','Female dogs in heat'}}
+             <span class="__catName"><i>Female Dogs in Heat</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+  
+	{% if tags contains 'separation anxiety' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/separation-anxiety" class="__catHref">
+           {{ '22.jpg' |  file_img_url:'grande' | img_tag:'_separation_anxiety','Separation anxiety'}}
+             <span class="__catName"><i>Separation Anxiety</i></span>
+           </a>
+  		 </li>
+	{% endif %}
+  
+	{% if tags contains 'hip & joint pain' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/hip-joint-pain" class="__catHref">
+           {{ '23.jpg' |  file_img_url:'grande' | img_tag:'_Hip_Joint_Issues','Hip & Joint Issues'}}
+             <span class="__catName"><i>Hip & Joint Issues</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+  
+	{% if tags contains 'aggressive chewers' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/aggressive-chewers" class="__catHref">
+           {{ '243.jpg' |  file_img_url:'grande' | img_tag:'_aggressive_chewers','Aggressive Chewers'}}
+             <span class="__catName"><i>Aggressive Chewers</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'bladder & uti issues' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/bladder-UTI-issues" class="__catHref">
+           {{ '25.jpg' |  file_img_url:'grande' | img_tag:'_bladder_UTI_issues','Bladder & UTI issues'}}
+             <span class="__catName"><i>Bladder & UTI Issues</i></span>
+           </a>
+  		 </li>
+	 {% endif %}  
+	{% if tags contains 'dog diarrhea' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/dog-diarrhea" class="__catHref">
+           {{ '27.jpg' |  file_img_url:'grande' | img_tag:'_dog_diarrhea','Dog Diarrhea'}}
+             <span class="__catName"><i>Dog Diarrhea</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'dog potty training' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/Dog-potty-training" class="__catHref">
+           {{ '28.jpg' |  file_img_url:'grande' | img_tag:'_dog_potty_training','Dog potty training'}}
+             <span class="__catName"><i>Dog Potty Training</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+	{% if tags contains 'dog allergy & itchy skin' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/Dog-allergy-itchy-skin" class="__catHref">
+           {{ '29.jpg' |  file_img_url:'grande' | img_tag:'_dog_allergy_itchy_skin','Dog allergy & itchy skin'}}
+             <span class="__catName"><i>Dog Allergy & Itchy Skin</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/pawtect-your-home" class="__catHref">
+           {{ '30_grande_3780e49a-34f3-48dd-9027-b05560d3af25.jpg' |  file_img_url:'grande' | img_tag:'Pawtect™_Your_Home'}}
+             <span class="__catName"><i>Pawtect® Your Home</i></span>
+           </a>
+  		 </li>
+	{% if tags contains 'dog allergy & itchy skin' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Urination.jpg?2502820978245420444' />-->
+		  <li class="__linkLi" style="display:none">
+           <a href="{{ shop.url }}/blogs/petblog/tagged/pawtect-your-home" class="__catHref">
+           {{ '29.jpg' |  file_img_url:'grande' | img_tag:'_dog_allergy_itchy_skin','Dog allergy & itchy skin'}}
+             <span class="__catName"><i>Dog Allergy & Itchy Skin</i></span>
+           </a>
+  		 </li>
+	 {% endif %}
+
+
+</ul>
+<!-- Blog list ends -->
+

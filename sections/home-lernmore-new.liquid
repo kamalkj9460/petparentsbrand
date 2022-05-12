@@ -1,0 +1,36 @@
+<section class="learnMorenew" style="background-color:{{section.settings.color_picer}}">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="learnMoreText">
+                  	{{ section.settings.learnMore_text1 }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+  {
+    "name" : "Banner background",
+    "settings" : [			
+			{"type":"image_picker","id":"learnMore_pet1","label":"Pet Image"},
+			{"type":"html","id":"learnMore_text1","label":"Content"},
+			{"type":"color","id":"color_picer","label":"Background Color"}
+          ],
+	"presets": [{
+      "name": "Banner background",
+      "category": "Image"
+    }]
+  }
+{% endschema %}
+<style>
+  .learnMorenew{
+    background-image:url("{{section.settings.learnMore_pet1 | img_url:'master'}}");
+    background-repeat: no-repeat;
+    background-size: inherit;
+    position: static;
+    background-position: center;
+  }
+</style>

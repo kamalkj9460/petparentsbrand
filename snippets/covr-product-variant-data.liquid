@@ -1,0 +1,41 @@
+{% comment %}{{type}}--{{val}}{% endcomment %}
+{%- capture _vData -%}
+  {%- assign type1 = type | downcase | escape | handleize -%}
+  {%- assign val1 = val | downcase | escape | handleize -%}
+  {%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+      {%- assign type_val = block.settings.type | downcase | escape | handleize -%}
+      {%- assign size_val = block.settings.size | downcase | escape | handleize -%}
+	  {%- assign customSizeVal 	= block.settings.size_text -%}
+	  {%- assign customtypeVal 	= block.settings.type_text -%}
+	  {%- assign customTypeImg 	= block.settings.type_extra_img -%}
+	  {%- assign customsizeText = block.settings.size_abv_text -%}
+      {%- if block.type == type1 and type_val ==  val1 -%}
+          {%- if block.settings.type_img != blank -%}			  
+			  <!-- image 1st -->
+              {{- block.settings.type_img | img_url:'110x' | img_tag:'var-img','covr-variant-img' -}}
+			  <span class="typeTxt">{% if customtypeVal != blank %}{{-customtypeVal-}}{% else %}{{- val -}}{% endif %}</span>
+			  {% if customTypeImg != blank %}
+				{{- customTypeImg | img_url:'master' | img_tag -}}
+			  {% endif %}
+          {%- else -%}
+              {{- type -}}
+          {%- endif -%}
+      {%- elsif block.type == type1 and size_val ==  val1 -%}
+      	  {%- if block.settings.size_img != blank -%}
+			  {%- if customsizeText != blank -%}
+				<span class="opt1">{{-customsizeText-}}</span>
+			  {%- endif -%}
+              {{- block.settings.size_img | img_url:'86x' | img_tag -}}
+			  <div class="optionWrapper">
+                <span class="__roundCrl" data-val="{{val1}}">{%- if val1 != 'one-size' -%}{{- val | split:'' | first -}}{%- else -%}1{%- endif -%}</span>			  
+                <span class="_clssize">{{-customSizeVal-}}</span>
+			  </div>
+          {%- else -%}
+              {{- type -}}
+          {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{{- _vData -}}

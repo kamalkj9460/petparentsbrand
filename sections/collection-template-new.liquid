@@ -1,0 +1,21 @@
+<!-- /sections/collection-others-template.liquid -->
+<div id="CollectionSection newCollection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
+  {% include 'collection-template-snippets' %}
+</div>
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+	  {"type":"header","content":"Header Content"},
+	  {"type":"image_picker","id":"col_banner_img","label":"collection banner image"},	
+      {"type":"textarea","id":"collection_title1","label":"Red Box Text"},
+	  {"type":"header","content":"Product Coming soon"},
+	  {"type":"image_picker","id":"comsoon1","label":"Comming  soon 1 Image"},
+	  {"type":"image_picker","id":"comsoon2","label":"Comming  soon 2 Image"},
+	  {"type":"header","content":"Advert. Bottom"},
+	  {"type":"image_picker","id":"avertBanner","label":"Advert. banner image"},
+	  {"type":"url","id":"advtUrl","label":"banner URL"}
+	]
+  }
+{% endschema %}

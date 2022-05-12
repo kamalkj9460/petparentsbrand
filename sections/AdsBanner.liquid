@@ -1,0 +1,31 @@
+{% if section.settings.ab_enable != blank %}
+<section id="AdsBanner">
+  <div class="AdsBanner-main">    
+    <div class="AdsBanner_item deskTab">
+      {% if section.settings.ab_image_des %}
+      <a href="{{section.settings.ab_url}}">{{ section.settings.ab_image_des | img_url:'master' | img_tag:'ab_image_des','img-responsive' }}</a>
+	{% endif %}
+    </div>
+    <div class="AdsBanner_item mobBan">
+      {% if section.settings.ab_image_mob %}
+      <a href="{{section.settings.ab_url}}">{{ section.settings.ab_image_mob | img_url:'master' | img_tag:'ab_image_mob','img-responsive' }}</a>
+	{% endif %}
+    </div>
+ </div>    
+  </section>
+    {% endif %}
+
+{% schema %}
+{
+"name" : "Ads Banner",
+"settings" : [
+    {"type":"checkbox","id":"ab_enable","label":"Enable","default":false},
+    {"type":"image_picker","id":"ab_image_des","label":"Image (Desktop)"},
+    {"type":"image_picker","id":"ab_image_mob","label":"Image (Mobile)"},
+    {"type":"url","id":"ab_url","label":"Button Url"}
+    ],
+    "presets": [{
+    "name": "Ads Banner"
+    }]
+}
+{% endschema %}

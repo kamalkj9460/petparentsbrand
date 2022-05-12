@@ -1,0 +1,37 @@
+{% include 'dropsPuddles-snippets' %}
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [
+		{"type":"header","content":"Banner Section"},
+		{"type":"color","id":"drops_banner_bg","label":"Background Color"},
+		{"type":"image_picker","id":"drops_banner_img","label":"Image (Desktop)"},
+        {"type":"image_picker","id":"drops_banner_img_m","label":"Image (Mobile)"},
+        {"type":"text","id":"drops_banner_h","label":"Banner Heading"},
+        {"type":"html","id":"drops_banner_c","label":"Banner Content"},
+        {"type":"header","content":"Current Collection"},
+        {"type":"text","id":"c_collection","label":"Title"},
+        {"type":"header","content":"For Every Need"},
+        {"type":"text","id":"fen_title","label":"Title"},
+        {"type":"text","id":"fen_title_s","label":"Sub Title"}
+		],
+			"blocks" : [
+				{	
+				"name":"Product",
+				"type":"dropsProducts",
+				"settings": [
+				{"type":"image_picker", "id":"dp_product_img", "label":"Product Image"},
+                {"type":"text", "id":"dp_product_title", "label":"Title"},
+                {"type":"url", "id":"dp_product_url", "label":"Product Link"}
+				]
+				},
+				{	
+				"name":"Slide",
+				"type":"dropsSlide",
+				"settings": [
+				{"type":"image_picker", "id":"ds_slide_img", "label":"Image"}
+				]
+				}
+			]
+  }
+{% endschema %}

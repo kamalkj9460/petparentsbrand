@@ -1,0 +1,82 @@
+<section class="shopPetAge_wht">
+	<div class="container">
+		<div class="treatTitle">
+			<h1 class="findProductHeading petTitle"><span class="red">Shop by</span> <span class="skyblue">your pet’s age</span></h1>
+		</div>
+		<div class="desktopSection">
+		  <div class="row">
+			  <div class="_sec_legend pg_red ">
+				  <a href="{{section.settings.youngpet}}">
+					  <span class="wht_title"><h3>Young</h3></span>
+					  {% if section.settings.shopPetAgeImage1 %}
+						  <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage1 | img_url:'master'}}" width="100" height="100">
+					  {% endif %}
+				  </a>
+			  </div>
+			  <div class="_sec_legend pg_blue">
+				  <a href="{{section.settings.adult}}">
+					  <span class="wht_title"> <h3>Adult</h3></span>
+					  {% if section.settings.shopPetAgeImage2 %}
+						  <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage2 | img_url:'master'}}" width="100" height="100">
+					  {% endif %}
+				  </a>
+			  </div>
+			  <div class="_sec_legend pg_red">
+				  <a href="{{section.settings.goldenyears}}">
+					  <span class="wht_title"> <h3>Senior</h3></span>
+					  {% if section.settings.shopPetAgeImage3 %}
+						  <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage3 | img_url:'master'}}" width="100" height="100">
+					  {% endif %}
+				  </a>
+			  </div>
+			</div>
+		</div>
+		
+		<div class="mobileSection">
+		<div class="row" id="sliderPetAgeShop">
+			<div class="_sec_legend pg_red ">
+				<a href="{{section.settings.youngpet}}">
+					<span class="wht_title"><h3>Young</h3></span>
+					{% if section.settings.shopPetAgeImage1 %}
+						<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage1 | img_url:'master'}}" width="100" height="100">
+					{% endif %}
+				</a>
+			</div>
+			<div class="_sec_legend pg_blue">
+				<a href="{{section.settings.adult}}">
+					<span class="wht_title"> <h3>Adult</h3></span>
+					{% if section.settings.shopPetAgeImage2 %}
+						<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage2 | img_url:'master'}}" width="100" height="100">
+					{% endif %}
+				</a>
+			</div>
+			<div class="_sec_legend pg_red">
+				<a href="{{section.settings.goldenyears}}">
+					<span class="wht_title"> <h3>Senior</h3></span>
+					{% if section.settings.shopPetAgeImage3 %}
+						<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{section.settings.shopPetAgeImage3 | img_url:'master'}}" width="100" height="100">
+					{% endif %}
+				</a>
+			</div>
+		  </div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+	{
+		"name": "Shop-PetAge",
+		"settings": [
+			{"type":"url","id":"youngpet","label":"Young Pet Link"},
+			{"type":"image_picker","id":"shopPetAgeImage1","label":"Young Pet Image"},
+			{"type":"url","id":"adult","label":"Adult Pet Link"},
+			{"type":"image_picker","id":"shopPetAgeImage2","label":"Adult Pet Image"},
+			{"type":"url","id":"goldenyears","label":"Golden Years Pet Link"},
+			{"type":"image_picker","id":"shopPetAgeImage3","label":"Golden Years Pet Image"}
+		],
+		"presets": [{
+			"name": "Shop-PetAge",
+			"category": "Image"
+		}]
+	}
+{% endschema %}

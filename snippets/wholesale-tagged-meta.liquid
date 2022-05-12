@@ -1,0 +1,48 @@
+{% if canonical_url contains 'customer-experience' %}
+<meta name="title" content="Customer Experience | Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:ac66>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="As a pet shop owner, it is important to focus on how to improve customer experience and to ensure that your customers are receiving the best service and experience. Learn different customer experience strategies in the blog articles provided to you by Pet Parents®.">{% endif -%}
+  {%- comment %}original: <meta name="description" content="As a pet shop owner, it is important to focus on how to improve customer experience and to ensure that your customers are receiving the best service and experience. Learn different customer experience strategies in the blog articles provided to you by Pet Parents®.">{%- endcomment %}
+{%- comment %}</locksmith:ac66>{% endcomment -%}
+{% elsif canonical_url contains 'education'%}
+<meta name="title" content="Education |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:4f74>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="There is a lot to know when it comes to owning your own pet store, especially when it comes to your different products. Pet Parents® has provided you with a variety of education related articles for wholesale stores.">{% endif -%}
+  {%- comment %}original: <meta name="description" content="There is a lot to know when it comes to owning your own pet store, especially when it comes to your different products. Pet Parents® has provided you with a variety of education related articles for wholesale stores.">{%- endcomment %}
+{%- comment %}</locksmith:4f74>{% endcomment -%}
+{% elsif canonical_url contains 'merchandising'%}
+<meta name="title" content="Merchandising |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:c411>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="There are so many different merchandising techniques to utilize in your pet store to ensure that your store is set up and organized in the best way possible. Learn different merchandising tips in the blog articles provided to you by Pet Parents®.">{% endif -%}
+  {%- comment %}original: <meta name="description" content="There are so many different merchandising techniques to utilize in your pet store to ensure that your store is set up and organized in the best way possible. Learn different merchandising tips in the blog articles provided to you by Pet Parents®.">{%- endcomment %}
+{%- comment %}</locksmith:c411>{% endcomment -%}
+{% elsif canonical_url contains 'sales'%}
+<meta name="title" content="Sales |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:138f>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="Sales are what matter most to pet shop owners. Without sales, you wouldn't have a store! Pet Parents® has provided you with different blog articles on how to increase sales in your store and increase your profit margin. ">{% endif -%}
+  {%- comment %}original: <meta name="description" content="Sales are what matter most to pet shop owners. Without sales, you wouldn't have a store! Pet Parents® has provided you with different blog articles on how to increase sales in your store and increase your profit margin. ">{%- endcomment %}
+{%- comment %}</locksmith:138f>{% endcomment -%}
+{% elsif canonical_url contains 'seasonal'%}
+<meta name="title" content="Different Holidays & Seasons  |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:f76c>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="During different times of the year, there are different ways to approach how you run your store. Check out these Pet Parents® articles that give you tips and insight on different approaches to take throughout the different seasons and holidays. ">{% endif -%}
+  {%- comment %}original: <meta name="description" content="During different times of the year, there are different ways to approach how you run your store. Check out these Pet Parents® articles that give you tips and insight on different approaches to take throughout the different seasons and holidays. ">{%- endcomment %}
+{%- comment %}</locksmith:f76c>{% endcomment -%}
+{% elsif canonical_url contains 'success'%}
+<meta name="title" content="Success |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:09a1>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="Do you want your pet store to be more successful? Pet Parents® has provided you with blog posts related to making your store more successful and ways to improve your pet shop.">{% endif -%}
+  {%- comment %}original: <meta name="description" content="Do you want your pet store to be more successful? Pet Parents® has provided you with blog posts related to making your store more successful and ways to improve your pet shop.">{%- endcomment %}
+{%- comment %}</locksmith:09a1>{% endcomment -%}
+{% elsif canonical_url contains 'trends'%}
+<meta name="title" content="Trends |  Wholesale Blog | Pet Parents®">
+{%- comment %}<locksmith:c5f1>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="One of the biggest ways to ensure your pet shop is staying up-to-date is knowing what is going on around you and what is trending within the pet industry. Learn about trends happening within the pet industry to make sure your pet shop doesn't fall behind in these blog posts provided to you by Pet Parents®.">{% endif -%}
+  {%- comment %}original: <meta name="description" content="One of the biggest ways to ensure your pet shop is staying up-to-date is knowing what is going on around you and what is trending within the pet industry. Learn about trends happening within the pet industry to make sure your pet shop doesn't fall behind in these blog posts provided to you by Pet Parents®.">{%- endcomment %}
+{%- comment %}</locksmith:c5f1>{% endcomment -%}
+
+
+{% elsif canonical_url contains ''%}
+
+{% else %}
+{% endif %}
