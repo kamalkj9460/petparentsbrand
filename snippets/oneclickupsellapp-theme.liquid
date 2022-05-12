@@ -1,5 +1,5 @@
 {% comment %}
-  Updated: 2022/05/05
+  Updated: 2022/05/04
 {% endcomment %}
 
 {% unless oneclickupsellapp %}
@@ -289,7 +289,7 @@
 {% endcapture %}
 
 <style>.ocu-hidden.ocu-hidden.ocu-hidden,.bold_hidden.bold_hidden.bold_hidden{display:none !important}</style>
-<script>
+<script type="lazyload2">
 !function(){
 if (window.performance) {
     const navEntries = window.performance.getEntriesByType && window.performance.getEntriesByType('navigation');
@@ -1235,7 +1235,7 @@ const cartDispatcher = new CartDispatcher();
 const open = window.XMLHttpRequest.prototype.open;
 const originSend = window.XMLHttpRequest.prototype.send;
 
-const openReplacement = function(method, url) {
+const openReplacement = function() {
     this.addEventListener('load', function () {
         if (cartDispatcher.shouldRequest(this._url)) {
             cart.get('?ocu')
@@ -1245,7 +1245,6 @@ const openReplacement = function(method, url) {
         }
     });
 
-    if (window.simplyInsurance) this._url = url; // integration with Simply Insurance
     return open.apply(this, arguments);
 }
 
@@ -1682,8 +1681,6 @@ Application.prototype = {
 
     init: function(event, target) {
         var self = this;
-
-        if (OCUApi.onCheckout && OCUApi.onCheckout()) return;
 
         if (lqd.template_name === 'cart' && utils.store.get('submitted')) {
             event.stopPropagation();
@@ -2632,7 +2629,7 @@ function Updater(res) {
         attributes: {}
     };
 
-    if (!window.klpixel /*integration with Klickly*/) this._restoreXMLHttp();
+    this._restoreXMLHttp();
 }
 Updater.prototype = {
     init: function() {
@@ -2959,7 +2956,7 @@ const UpdaterHelpers = {
         return this.currencyElement && this.currencyElement.value !== this.data.currency;
     },
     _isDawnTheme: function() {
-        return /^Dawn(\s*?\|?|$)/.test(window.Shopify.theme.name);
+        return window.Shopify.theme.name === 'Dawn';
       },
     _getThemeKey: function(item) {
         const link = item.closest('[id^="CartItem"]').querySelector('[id^="Remove"] a').href;

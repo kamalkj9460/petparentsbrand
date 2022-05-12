@@ -1,3 +1,6 @@
+
+{% render 'custom-pet-blog-css' %}
+
 <link rel="stylesheet" data-href="{{ 'custom-pet-blog.css' | asset_url }}">
 {% section 'Blog-subheader'%}
 {% if page.handle == 'pet-blog' %}
@@ -15,6 +18,8 @@
       <div class="mobActive_is">{% section 'Blog-search'%}</div>
 </div>
 {% endif %}
+{% comment %}
 {% section 'bottomeAdvertismentBlog'%}
+{% endcomment %}
 
      

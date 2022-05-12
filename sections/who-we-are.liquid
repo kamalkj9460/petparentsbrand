@@ -3,7 +3,8 @@
 <div class="main_div">
 <div class="wwa_Our_Mission _wwa_om_left">
 {% if section.settings.wea_om_img %}
-	{{ section.settings.wea_om_img | img_url:'master' | img_tag:'wea_om_img','img-responsive' }}
+	
+  	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wea_om_img | img_url:'master' }}" alt="wea_om_img">
 	{% endif %}
 </div>
 <div class="wwa_Our_Mission _wwa_om_right">
@@ -35,7 +36,8 @@
 </div>
 <div class="wwa_Our_Philanthropy _wwa_oph_right">
 {% if section.settings.wea_oph_img %}
-	{{ section.settings.wea_oph_img | img_url:'master' | img_tag:'wea_oph_img','img-responsive' }}
+	
+  	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wea_oph_img | img_url:'master' }}" alt="wea_oph_img">
 	{% endif %}
 </div>
 </div>
@@ -56,7 +58,8 @@
                 <span class="num_{{forloop.index}}">{{forloop.index}}</span>
                 
                 {% if block.settings.ps_img %}
-                  {{ block.settings.ps_img | img_url:'master' | img_tag:'ps_img','img-responsive' }}
+                  
+                	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.ps_img | img_url:'master' }}" alt="ps_img">
                   {% endif %}
               </div>
               <div class="opss_content">

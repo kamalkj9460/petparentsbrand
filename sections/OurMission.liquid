@@ -5,7 +5,8 @@
                <h2>{{section.settings.OurMissionHeading}}</h2> 
                </div>
           <div class="middle-side">				
-               {{ section.settings.OurMissionImage | img_url:'master' | img_tag:'OurMissionImage','img-responsive' }} 
+               <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.OurMissionImage | img_url: 'master' }}" alt="OurMissionImage">
+            	
                </div>
           <div class="right-side">				
             	<p>{{section.settings.OurMissionDes}}</p>

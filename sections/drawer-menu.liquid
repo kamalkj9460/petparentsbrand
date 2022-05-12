@@ -1,5 +1,6 @@
-{{ 'mmenu.css'  | asset_url | stylesheet_tag }}
-{{ 'nav-menu.css'  | asset_url | stylesheet_tag }}
+{% render 'menu-css' %}
+<link rel="stylesheet" data-href="{{ 'mmenu.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'nav-menu.css' | asset_url }}">
 <!-- div data-section-id="{{ section.id }}" data-section-type="drawer-menu-section">
   <div class="drawer__inner drawer-left__inner" id="is_mobile_menu">
     <ul class="mobile-nav">
@@ -171,10 +172,9 @@
     ]
   }
 {% endschema %}
-<script src="{{ 'mmenu.js' | asset_url }}"></script>
- <script>
-  document.addEventListener(
-                "DOMContentLoaded", () => {
+<script type="lazyload2" data-src="{{ 'mmenu.js' | asset_url }}"></script>
+ <script type="lazyload2">
+  setTimeout(function(){
                     new Mmenu( "#is_mobile_menu", 
     {"navbars": [
                           {

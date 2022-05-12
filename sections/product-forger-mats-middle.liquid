@@ -94,7 +94,8 @@
 		</div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
 	</div>
 	<div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
-		{{ block.settings.featureRightImg | img_url:'master' | img_tag:'featureRightImg','img-responsive' }}
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.featureRightImg | img_url: 'master' }}" alt="featureRightImg">
+		
 	</div>
      
 </div>
@@ -143,25 +144,25 @@
     <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.slidertextBB }}</h3>
               <div class="sf_PawtectBlanketSlider5" id="PawtectBlanketSlider5">    
                  {% if block.settings.prodBanner1 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner1 | img_url:'master' | img_tag:'prodBanner1','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner1 | img_url:'master' }}" alt="prodBanner1"></div>
                 {% endif %}
                 {% if block.settings.prodBanner2 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner2 | img_url:'master' | img_tag:'prodBanner2','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner2 | img_url:'master' }}" alt="prodBanner2"></div>
                 {% endif %}
                 {% if block.settings.prodBanner3 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner3 | img_url:'master' | img_tag:'prodBanner3','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner3 | img_url:'master' }}" alt="prodBanner3"></div>
                 {% endif %}
                 {% if block.settings.prodBanner4 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner4 | img_url:'master' | img_tag:'prodBanner4','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner4 | img_url:'master' }}" alt="prodBanner4"></div>
                 {% endif %}
                 {% if block.settings.prodBanner5 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner5 | img_url:'master' | img_tag:'prodBanner5','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner5 | img_url:'master' }}" alt="prodBanner5"></div>
                 {% endif %}
                 {% if block.settings.prodBanner6 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner6 | img_url:'master' | img_tag:'prodBanner6','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner6 | img_url:'master' }}" alt="prodBanner6"></div>
                 {% endif %}
                 {% if block.settings.prodBanner7 != blank %}
-                <div class="bc_slide">{{ block.settings.prodBanner7 | img_url:'master' | img_tag:'prodBanner7','img-responsive' }}</div>
+                <div class="bc_slide"><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner7 | img_url:'master' }}" alt="prodBanner7"></div>
                 {% endif %}
               </div>
     </section>

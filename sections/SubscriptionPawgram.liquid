@@ -10,7 +10,8 @@
                    </div>
               </div>
            	 <div class="img_right_sf">
-              {{ section.settings.sp_BannerMob | img_url:'master' | img_tag:'sp_BannerMob','img-responsive' }}
+              {
+               <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.sp_BannerMob | img_url: 'master' }}" alt="sp_BannerMob">
              </div> 
           </div>
 	</div>
@@ -23,7 +24,8 @@
                   <h2>{{section.settings.sp_home_banner_heading}}</h2>
                   <h3>{{section.settings.sp_home_banner_heading2}}</h3>
                   <p>{{section.settings.sp_home_banner_des}}</p>
-                 {{ section.settings.sp_BannerMob | img_url:'master' | img_tag:'sp_BannerMob','img-responsive' }}
+                 {
+                  <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.sp_BannerMob | img_url: 'master' }}" alt="sp_BannerMob">
                   <a href="{{section.settings.sp_home_banner_url}}">Learn More</a>
              	 </div>
 			</div>

@@ -20,8 +20,8 @@
     {% for product in collections[section.settings.bp_collection].products %}
     		{% capture slideHtml %}
                  <div>
-               <div class="product_img"><img src="https://cdn.shopify.com/s/files/1/1355/5443/{{ product.featured_image}}"/></div>
-               <div class="review-wrap"><img class="review_img" src="https://cdn.shopify.com/s/files/1/1355/5443/files/five-star.jpg" alt="star">
+               <div class="product_img"><img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/{{ product.featured_image}}"/></div>
+               <div class="review-wrap"><img class="review_img lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/five-star.jpg" alt="star">
                  {% if product.metafields.stamped.reviews_count !=blank %}
                  <span class="sFreview_count">({{ product.metafields.stamped.badge }})</span>
                  {% endif %}
@@ -35,8 +35,8 @@
      		{% capture popHtml %}
               <div class="sf_pPopUp_content" id="sbn_popup_{{forloop.index}}">
                 <div class="popup-warp">
-                  <span class="sf_close_bTn"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/popup-close.jpg" /></span>
-                  <div class="product_img"><img src="https://cdn.shopify.com/s/files/1/1355/5443/{{ product.featured_image}}"/></div>
+                  <span class="sf_close_bTn"><img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/popup-close.jpg" /></span>
+                  <div class="product_img"><img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/{{ product.featured_image}}"/></div>
                   <div class="popUp_content">
                     {{ product.description }}
                    {% comment %} {{ product.description | strip_html | truncate: 999 }}{% endcomment %}
@@ -65,7 +65,7 @@
                       <li>
                         <a href="{{ article.url }}">
                           <div class="_dog-img-list1">
-                              <img src="{{ article.image.src | image_url: width: 500 }}" >
+                              <img class="lazy2" data-src="{{ article.image.src | image_url: width: 500 }}" >
                           </div>
                           <div class="_dog-img-text1">          
                             <div class="__dog-title1">

@@ -4,10 +4,10 @@
 <div class="row"> 
 <div class="sf_Extendrs sf_Extendrs_left">
   {% if section.settings.ex_img %}
-	{{ section.settings.ex_img | img_url:'master' | img_tag:'ex_img','img-responsive ass_desk_img' }}
+	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.ex_img | img_url:'master' }}" alt="ex_img">
 	{% endif %}
   {% if section.settings.ex_img_m %}
-	{{ section.settings.ex_img_m | img_url:'master' | img_tag:'ex_img_m','img-responsive ass_mob_img' }}
+	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.ex_img_m | img_url:'master' }}" alt="ex_img_m">
 	{% endif %}
 </div>
 <div class="sf_Extendrs sf_Extendrs_right">
@@ -33,10 +33,12 @@
 <a href="{{section.settings.co_btn_url}}">Learn More</a>
   </div>
    {% if section.settings.co_img %}
-	{{ section.settings.co_img | img_url:'master' | img_tag:'co_img','img-responsive ass_desk_img' }}
+    	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.co_img | img_url:'master' }}" alt="co_img">
+	
 	{% endif %}
     {% if section.settings.co_img_m %}
-	{{ section.settings.co_img_m | img_url:'master' | img_tag:'co_img_m','img-responsive ass_mob_img' }}
+    	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.co_img_m | img_url:'master' }}" alt="co_img_m">
+	
 	{% endif %}
 </div>
   </div>
@@ -49,10 +51,12 @@
 <a href="{{section.settings.wb_btn_url}}">Learn More</a>
   </div>
    {% if section.settings.wb_img %}
-	{{ section.settings.wb_img | img_url:'master' | img_tag:'wb_img','img-responsive ass_desk_img' }}
+    	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wb_img | img_url:'master' }}" alt="wb_img">
+	
 	{% endif %}
     {% if section.settings.wb_img_m %}
-	{{ section.settings.wb_img_m | img_url:'master' | img_tag:'wb_img_m','img-responsive ass_mob_img' }}
+    	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wb_img_m | img_url:'master' }}" alt="wb_img_m">
+	
 	{% endif %}
 </div>
   </div>

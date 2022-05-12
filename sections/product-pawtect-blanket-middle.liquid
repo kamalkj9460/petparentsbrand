@@ -94,7 +94,8 @@
 		</div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
 	</div>
 	<div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
-		{{ block.settings.featureRightImg | img_url:'master' | img_tag:'featureRightImg','img-responsive' }}
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.featureRightImg | img_url: 'master' }}" alt="featureRightImg">
+		
 	</div>
      
 </div>

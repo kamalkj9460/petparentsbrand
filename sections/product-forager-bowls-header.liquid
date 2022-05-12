@@ -96,7 +96,7 @@
                                 {%- assign cusType = type1 | append: '_ver' -%}
                                 {%- if block.type == type1 and col_val ==  val1 -%}
                                     {%- if block.settings.icon_type != blank -%}
-                                        <span class="color_variant_bg" style="background:{%- if block.settings.icon_type == 'bgimg' -%}url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.color_img}}) {%- else-%}{{block.settings.icon_type_c}}{%- endif -%}"></span>
+                                        <span class="color_variant_bg lazybg" data-style="background:{%- if block.settings.icon_type == 'bgimg' -%}url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.color_img}}) {%- else-%}{{block.settings.icon_type_c}}{%- endif -%}"></span>
                           				{%- if block.settings.show_other_colr != blank -%}<ul class="otherColorVari"><li style="background:{{block.settings.color_type_1}}">&nbsp;</li><li style="background:{{block.settings.color_type_2}}">&nbsp;</li></ul>{%- endif -%}
                                         {{- val -}}
                                     {%- else -%}
@@ -111,7 +111,7 @@
                                     {%- endif -%}
                           		{%- elsif block.type == cusType and type_val ==  val1 -%}
                           			{%- if block.settings.type_ver_img != blank -%}
-                                        <span class="color_variant_bg" style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.type_ver_img}})"></span>                          				
+                                        <span class="color_variant_bg lazybg" data-style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.type_ver_img}})"></span>                          				
                                         {{- customTypeVal -}}
                                     {%- else -%}
                                         {{- customTypeVal -}}

@@ -8,7 +8,7 @@
       	{% for option in product.options_with_values %}
       		<div class="_stickyPetOptions sof_{{option.name}} stickyPeT_{{forloop.index}}">
               <label>{{option.name}}:</label>
-              <select autocomplete="off" class="single-option-selector__radio product-form__input" data-index="option{{ forloop.index }}" data-type="{{option.name}}">
+              <select id="sf_selECT__radio_0{{forloop.index}}" autocomplete="off" class="single-option-selector__radio product-form__input" data-index="option{{ forloop.index }}" data-type="{{option.name}}">
                 {% for value in option.values %}
                   <option value='{{ value | escape }}'{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | split:'-' | first }}</option>
                 {% endfor %}

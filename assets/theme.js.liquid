@@ -4709,7 +4709,7 @@ verticalSwiping:false,
             ]
         
       });
-  $("#sbn_tab_listing,#SoftS_sliderrr").slick({
+  $("#sbn_tab_listing").slick({
         dots: false,
         infinite: true,
         slidesToShow: 5,
@@ -4744,6 +4744,38 @@ verticalSwiping:false,
               settings: {
                 slidesToShow: 1,
                 dots: false
+              }
+            }
+            ]
+        
+      });
+  $("#SoftS_sliderrr").slick({
+        dots: false,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+   		arrows: true,
+    	accesibility: false,
+    	draggable: true,
+        swipe: true,
+        touchMove: false,
+		  responsive: [{
+              breakpoint: 1400,
+              settings: {
+                slidesToShow: 4                
+              }
+            },                        {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3
+              }
+            },
+              {
+              breakpoint: 600,
+              settings: {
+                rows:2,
+                slidesToShow: 2,
+                slidesToScroll: 1
               }
             }
             ]
@@ -5052,6 +5084,22 @@ $(document).on("click", dogDiaperOption0,function(){
   }
 });   
    
+/* BellyBand */
+let BellyBandOption0 = '.template-product-belly-bands div#ProductSelect-option-0 .__itemWraper';
+$(document).on("click", BellyBandOption0,function(){
+  $("div#ProductSelect-option-1 .__itemWraper input").attr("checked","");
+  var data_name = $(this).attr("data-name");
+  if(data_name == "Puddles Pack"){
+    $("div#ProductSelect-option-1 .__itemWraper").first().addClass("is_sf_disable");
+    $("div#ProductSelect-option-1 .__itemWraper input").eq(2).prop("checked","checked");
+    $("div#ProductSelect-option-1 .__itemWraper").last().addClass("is_sf_disable");
+  }else{
+    $("div#ProductSelect-option-1 .__itemWraper").first().removeClass("is_sf_disable");
+    $("div#ProductSelect-option-1 .__itemWraper").last().removeClass("is_sf_disable");
+    $("div#ProductSelect-option-1 .__itemWraper input").eq(0).prop("checked","checked");
+  }
+});
+   
    
    
 let GnawtlersOption1 = '.template-product-gnawtlers div#ProductSelect-option-1 .__itemWraper';
@@ -5236,7 +5284,18 @@ $(document).ready(function(){
     nextArrow: '<div class="slick-next"></div>'
   });
   
-     $(".dropsForNeed").slick({
+  $(".sf_wiPeeSlider,.sf_MoreWipeSlider").slick({
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    swipe: true,
+    slidesToScroll: 1,
+     arrows: true,
+    prevArrow: '<div class="slick-prev"></div>',
+    nextArrow: '<div class="slick-next"></div>'
+  });
+  
+  $(".dropsForNeed").slick({
     dots: true,
     infinite: true,
     slidesToShow: 2,

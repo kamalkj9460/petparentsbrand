@@ -3,14 +3,18 @@
   {% if section.settings.addi_img1 %}
    <div class ="product_dog_bannerd" >
       <div class ="__product_Banner">
-      {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+        	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      
       </div>
     </div>
   {% endif %}
    {% if section.settings.is_middle_video_sec %}  
      {% capture media_content %}
       {% if section.settings.mediaType == 'img' %}
-          <div class="top_additional_sec_Img individ_img">{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}</div>
+          	<div class="top_additional_sec_Img individ_img">
+              	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img  | img_url: 'master' }}" alt="topAddit_sec_Img">
+            	
+  			</div>
       {% else %}
           <div class="inline_video img" video="{{section.settings.sec_video.id}}" href="{{section.settings.sec_video }}">
             {% comment %}<div class="video_poster_img">{{ section.settings.video_poster | img_url:'master' | img_tag:'img-responsive' }}</div>{% endcomment %}
@@ -64,7 +68,7 @@
       <div class="additional_sec_helpIssue pro_points">
         <div class="top_additional_sec_issue">
           <div class="top_additional_sec_Img individ_img">
-            {{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
           </div>
           <div class="top_additional_sec_content listing_pnts">
              <h1>{{section.settings.topAddit_sec_head}}</h1>
@@ -97,12 +101,14 @@
                             </div>
                             <div class="featureImg">
                                {% if section.settings.bellyfeature1 %}
-                                    {{ section.settings.bellyfeature1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureImg dfykuli">
                                 {% if section.settings.bellyfeature2 %}
-                                    {{ section.settings.bellyfeature2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureText">
@@ -117,12 +123,14 @@
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature3 %}
-                                    {{ section.settings.bellyfeature3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature4 %}
-                                    {{ section.settings.bellyfeature4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureText elasticText">
@@ -158,7 +166,8 @@
                             </div>
                             <div class="featureImg fabricImg">
                                {% if section.settings.bellyfeature5 %}
-                                    {{ section.settings.bellyfeature5 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature5 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                         </div>
@@ -174,25 +183,25 @@
 <div class="pp-12 sf_perfect_for">
 <div class="sf_perfectText sf_one">
   <ul>
-<li><a href="{{ section.settings.perfectfeatureurl1}}"><img src="{{ section.settings.perfectfeature1 | img_url:'master'}}" alt="image 1" /><span class="li_title">{{ section.settings.perfect_content1}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl2}}"><img src="{{ section.settings.perfectfeature2 | img_url:'master'}}" alt="image 2" /><span class="li_title">{{ section.settings.perfect_content2}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl3}}"><img src="{{ section.settings.perfectfeature3 | img_url:'master'}}" alt="image 3" /><span class="li_title">{{ section.settings.perfect_content3}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl4}}"><img src="{{ section.settings.perfectfeature4 | img_url:'master'}}" alt="image 4" /><span class="li_title">{{ section.settings.perfect_content4}}</span></a></li>
+<li><a href="{{ section.settings.perfectfeatureurl1}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature1 | img_url:'master'}}" alt="image 1" /><span class="li_title">{{ section.settings.perfect_content1}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl2}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature2 | img_url:'master'}}" alt="image 2" /><span class="li_title">{{ section.settings.perfect_content2}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl3}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature3 | img_url:'master'}}" alt="image 3" /><span class="li_title">{{ section.settings.perfect_content3}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl4}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature4 | img_url:'master'}}" alt="image 4" /><span class="li_title">{{ section.settings.perfect_content4}}</span></a></li>
 </ul>
        </div>
   <div class="sf_perfectText sf_two">
         <ul>
-<li><a href="{{ section.settings.perfectfeatureurl5}}"><img src="{{ section.settings.perfectfeature5 | img_url:'master'}}" alt="image 5" /><span class="li_title">{{ section.settings.perfect_content5}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl6}}"><img src="{{ section.settings.perfectfeature6 | img_url:'master'}}" alt="image 6" /><span class="li_title">{{ section.settings.perfect_content6}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl7}}"><img src="{{ section.settings.perfectfeature7 | img_url:'master'}}" alt="image 7" /><span class="li_title">{{ section.settings.perfect_content7}}</span></a></li>
+<li><a href="{{ section.settings.perfectfeatureurl5}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature5 | img_url:'master'}}" alt="image 5" /><span class="li_title">{{ section.settings.perfect_content5}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl6}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature6 | img_url:'master'}}" alt="image 6" /><span class="li_title">{{ section.settings.perfect_content6}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl7}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature7 | img_url:'master'}}" alt="image 7" /><span class="li_title">{{ section.settings.perfect_content7}}</span></a></li>
    
 </ul>
        </div>
   <div class="sf_perfectText sf_three">
       <ul>
-<li><a href="{{ section.settings.perfectfeatureurl8}}"><img src="{{ section.settings.perfectfeature8 | img_url:'master'}}" alt="image 8" /><span class="li_title">{{ section.settings.perfect_content8}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl9}}"><img src="{{ section.settings.perfectfeature9 | img_url:'master'}}" alt="image 9" /><span class="li_title">{{ section.settings.perfect_content9}}</span></a></li>
-    <li><a href="{{ section.settings.perfectfeatureurl10}}"><img src="{{ section.settings.perfectfeature10 | img_url:'master'}}" alt="image 567" /><span class="li_title">{{ section.settings.perfect_content10}}</span></a></li>
+<li><a href="{{ section.settings.perfectfeatureurl8}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature8 | img_url:'master'}}" alt="image 8" /><span class="li_title">{{ section.settings.perfect_content8}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl9}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature9 | img_url:'master'}}" alt="image 9" /><span class="li_title">{{ section.settings.perfect_content9}}</span></a></li>
+    <li><a href="{{ section.settings.perfectfeatureurl10}}"><img class="lazy2" data-src="{{ section.settings.perfectfeature10 | img_url:'master'}}" alt="image 567" /><span class="li_title">{{ section.settings.perfect_content10}}</span></a></li>
   
 </ul>
        </div>
@@ -206,13 +215,13 @@
         <div class="pp-6">
           <div class="leftRelatedAdvert">
             <h4>{{section.settings.specialProdAdvet}}</h4>
-            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+            <img class="lazy2" data-src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
           </div>
         </div>
         <div class="pp-6">
           <div class="rightRelatedAdvert cnt_78">
         	<a href="{{section.settings.specialProdAdveturl}}">
-              <img src="{{ section.settings.specialProdAdvetImg2 | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg2}}" /></a>
+              <img class="lazy2" data-src="{{ section.settings.specialProdAdvetImg2 | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg2}}" /></a>
           </div>
         </div>
         <!--div class="pp-6">
@@ -253,13 +262,15 @@
       {% if section.settings.specialProdAdvetcheck %}
           <a href="{{section.settings.specialProdAdveturl}}">		
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
               {% endif %}
           </a>	
               {% else %}         
           <a href="javascript:void(0);">
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
               {% endif %}
           </a>
       {% endif %}

@@ -60,7 +60,8 @@ $(document).ready(function () {
             <li class="not-svg">
               <a href="{{ article.url }}">
                     <div class="logo_sign_text">
-                      {{ section.settings.blog_logo | img_url:'master' | img_tag: 'blogLogo','img-responsive' }}
+                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.blog_logo | img_url: 'master' }}" alt="blogLogo">
+                      
                       <span>
                         <span class="__blog_title_right">{{ article.title | escape }}</span>
                       </span>
@@ -75,7 +76,8 @@ $(document).ready(function () {
                         {% endif %}
                       </p>
                     </div>
-                    <div class="__Blog_More_img03">             
+                    <div class="__Blog_More_img03">  
+                      	
                         {{ article.image | img_url: 'master' | img_tag: article.title | escape }}              
                     </div>
               </a>

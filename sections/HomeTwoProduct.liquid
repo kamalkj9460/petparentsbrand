@@ -10,7 +10,8 @@
                       <a href="{{block.settings.product_url}}">Learn More</a>
                      </div>
                     <div class="shed_img">
-                     {{ block.settings.product_image | img_url:'master' | img_tag:'product_image','img-responsive' }} 
+                      <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.product_image | img_url: 'master' }}" alt="product_image">
+                     
                     </div>
 				</div>
               {% endif %}
@@ -30,7 +31,8 @@
                       <a href="{{block.settings.product_url}}">Learn More</a>
                      </div>
                     <div class="shed_img">
-                     {{ block.settings.product_image | img_url:'master' | img_tag:'product_image','img-responsive' }} 
+                      <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.product_image | img_url: 'master' }}" alt="product_image">
+                     
                     </div>
 				</div>
               {% endif %}

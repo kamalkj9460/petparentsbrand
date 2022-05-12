@@ -4,8 +4,9 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js"> <!--<![endif]-->
+  	<head>
 		<!-- PAGESPEED GURU OPTIMIZED /11/16/2018 11:51:00 AM -->
 		<meta name="google-site-verification" content="r-VsmXAVHA7fHtBssGdTo5_xx-e5mZXlY6EerSx6wXA">
       	<!-- Faceebook verification meta code -->
@@ -14,17 +15,20 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		{% if settings.favicon %}
-		<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+			<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
 		{% endif %}
 		<!-- Title and description-->
-		{% capture title %}<title>
-			{% if template contains 'index' %}
-				{{ shop.name }}
-			{% else %}
-				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| Pet Parents®{% endif %}
-			{% endif %} {% if template contains 'collection' %}| Pet Parents®{% endif %}
-      	{% if canonical_url contains 'account/login' %}| Pet Parents® - Healthy Pets. Happy Family.®{% endif %}
-		</title>{% endcapture %}
+		{% capture title %}
+      		<title>
+                {% if template contains 'index' %}
+                    {{ shop.name }}
+                {% else %}
+                    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| Pet Parents®{% endif %}
+                {% endif %}
+                {% if template contains 'collection' %}| Pet Parents®{% endif %}
+                {% if canonical_url contains 'account/login' %}| Pet Parents® - Healthy Pets. Happy Family.®{% endif %}
+			</title>
+      	{% endcapture %}
         {{ title }}
 		{% if page_description %}
 			{% if canonical_url contains 'tagged' %}
@@ -33,32 +37,34 @@
 				<meta name="description" content="{{ page_description | escape }}">
 			{% endif %}
 		{% endif %}
-
 		{% if canonical_url contains 'wholesale/tagged' %}
 			{% include 'wholesale-tagged-meta', c_url:canonical_url %}
 		{% endif %}
-
 		<!-- Google Tag Manager -->
-
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-
+		<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-
         })(window,document,'script','dataLayer','GTM-TQHPBWX');</script>
-
         <!-- End Google Tag Manager -->
       	<!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
-        <script>
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
+        <script type="lazyload2">
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'UA-63196059-2');
         </script>
+      <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-873066568');
+        </script>
+
 		<!-- Helpers -->
 		{% include 'social-meta-tags' %}
 		<link rel="canonical" href="{{ canonical_url }}">
@@ -67,36 +73,46 @@
 		{%- for noindexURL in List  -%}
 			{%- if canonical_url == noindexURL -%}<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">{%- endif -%}
 		{%- endfor -%}
-		{% include 'guru-font-awesome_min_css' %}
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 		<meta name="theme-color" content="{{ settings.color_primary }}">
 
 		<!-- CSS-->
+		{% comment %}
+		{% include 'guru-font-awesome_min_css' %}
 		{% include 'guru-timber_scss_css' %}
-		{{ 'theme.scss.css'  | asset_url | stylesheet_tag }}
-		<!-- theme css -->
-		{% include 'guru-petparents_css' %}
-		{{ 'custom.css'  | asset_url | stylesheet_tag }}
-		<link rel="stylesheet" href="{{ 'petparents.css' | asset_url }}">
-		{{ 'flexslider.css'  | asset_url | stylesheet_tag }}
-		{{ 'flexslider-rtl-min.css'  | asset_url | stylesheet_tag }}
-		{{ 'flexslider-rtl.css'  | asset_url | stylesheet_tag }}
-		{{ 'responsive.css'  | asset_url | stylesheet_tag }}
-		{{ 'slick.css'  | asset_url | stylesheet_tag }}
-		{{ 'slick-theme.css'  | asset_url | stylesheet_tag }}
+		{% include 'guru-petparents_css' %}  
+      	{% endcomment %}
+      	
+		{% render 'theme-all-css' %}
+      	{% render 'theme-all-css-2' %}
+      	{% render 'theme-all-css-3' %}
+      	{% if template contains 'product' %}
+			{% render 'product-css' %}
+		{% endif %}
+      	{% render 'header-footer-css' %}
+        <link rel="stylesheet" data-href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      	<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'timber.scss.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'theme.scss.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'petparents.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'flexslider.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'flexslider-rtl-min.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'flexslider-rtl.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'responsive.css' | asset_url }}">
+      	<link rel="stylesheet" data-href="{{ 'slick.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'slick-theme.css' | asset_url }}">
+      	
 		{% if template contains 'product' %}
-		{{ 'product.scss.css' | asset_url | stylesheet_tag }}
+      		<link rel="stylesheet" data-href="{{ 'product.scss.css' | asset_url }}">
 		{% endif %}
 		{% include 'guru-googlefont-ed2302c4-5c8d-4089-a46b-3e5c46177d1d' %}
-		{% comment %}{% include 'google-fonts' %}{% endcomment %}
 		<style>@media only screen and (min-width:100px) and (max-width:767px){.site-header .medium-down--one-half{width:100%}.site-nav,.site-nav--open{opacity:1 !important}.TopMenu{z-index:1;display:none;width:100%;position:absolute;top:90px;background:#00b6bd;left:0;right:0}#menu-top{border:1px solid #333;width:auto;display:block;padding:8px 15px;float:right}#menu-top i{color:#ec1d3d}.logo_div{display:flex;justify-content:space-around;align-items:center}.TopMenu ul li{padding:15px 30px;width:100%;border-bottom:1px solid #0d9ea2}.TopMenu ul li a{color:#fff;font-size:16px}.whole_logo{padding:20px 30px}.logo_div img{width:100%;max-width:160px}.top_header{padding:10px 0 0}.LoginText{margin-top:0}.BannerText{padding-left:0}h2.HeadingSize{font-size:32px}.RedButton{height:auto;line-height:40px;padding:0 15px;font-size:18px}.CommitmentSection .Commitment{padding:50px 20px 50px}.BlogSection{padding:70px 0 50px}.BlogSection .HeadingSize{line-height:45px}.blogpost img{width:100%;max-width:250px;margin:50px auto 0 auto}.BlogSection .BannerText{padding-top:0;text-align:center}.row{flex-direction:column}.pp-1,.pp-10,.pp-11,.pp-12,.pp-2,.pp-3,.pp-4,.pp-5,.pp-6,.pp-7,.pp-8,.pp-9{width:100%}section.joinUsBanner img{object-fit:cover;object-position:right}.quickLink{font-size:16px;line-height:1.5}ul.workList{list-style:none;padding-left:0}.workOffer{padding-left:0;text-align:center;display:block}.workOfferIcon img{margin:0 auto}.workOfferIcon{width:100%}.joinContactBtn{display:block}.joinContactBtn a{display:block;margin-bottom:15px}.bannerTitle h3{font-size:31px}section.contactUs{padding:0}.contactContent{display:block}.contactForm{padding-top:20px}.questionContent{display:block}.pawContent{top:27%;left:30px}.pawBannIcon img{max-width:40px}.pawBannText{padding-left:10px}.pawBannText h3{font-size:30px;margin:5px 0;line-height:1.1}.modal-content{width:90%!important;background-size:contain!important}.modal-body{max-width:45%!important;top:10px!important;right:31px!important}.modalLogo img{width:100%!important;max-width:80px!important}.modalText .contactField input{font-size:10px!important;margin-bottom:0!important;padding:10px 20px!important}.modalText p{font-size:13px!important;margin-bottom:5px!important}.logInBtn{font-size:10px!important;line-height:20px!important}.modal-header span{font-size:24px!important;width:40px!important;height:40px!important;line-height:40px!important}.modal-header{right:-6px!important;top:36px!important}}.mobile_seen_cont_container{display: none;}.site-header__logo img{width:auto;height:auto;float:left;position:relative;padding:0}</style>
-
 		<!-- Sections-->
-
-		<script src="https://www.googleoptimize.com/optimize.js?id=OPT-PFZ7DLZ"></script>
-      	<script src="https://www.googleoptimize.com/optimize.js?id=OPT-M29QJT6"></script>
-      	<script src="https://www.googleoptimize.com/optimize.js?id=OPT-MZS8ZJX"></script>
-      	<script src="https://www.googleoptimize.com/optimize.js?id=OPT-MBRDBG6"></script>
+		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-PFZ7DLZ"></script>
+      	<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-M29QJT6"></script>
+      	<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MZS8ZJX"></script>
+      	<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MBRDBG6"></script>
 		<script>
 			window.theme = window.theme || {};
 			theme.strings = {
@@ -129,23 +145,17 @@
           {% endif %}
 		</script>
 		{% include 'guru-script-jquery-2_2_3_min_js' %}
-<!--
-		<script src="{{ 'jquery.flexslider.js' | asset_url }}" defer></script>
--->
-		<script src="{{ 'jquery.flexslider-min.js' | asset_url }}" defer></script>
-		<!--[if (gt IE 9)|!(IE)]><!--><script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script><!--<![endif]-->
-		<!--[if lte IE 9]><script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
-
-		<!--[if (gt IE 9)|!(IE)]><!--><script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script><!--<![endif]-->
-		<!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}" defer></script><![endif]-->
-
+		<script type="lazyload2" data-src="{{ 'jquery.flexslider-min.js' | asset_url }}"></script>
+		<script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+		<script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script>
 		<!-- Header hook for plugins-->
-		{%- if request.host == "petparents.myshopify.com" or template contains 'cart' or template contains 'checkout' -%}
-			{{ content_for_header }}
-		{%- else -%}
-			{% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
-			{{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
-		{%- endif -%}
+        {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+            {{ content_for_header }}
+        {%- else -%}
+            {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+            {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
+            <script>var trekkie=[];trekkie.integrations=!0;</script>
+        {%- endif -%}
       
       	{% include 'oldIE-js' %}
 		{% include 'guru-script-modernizr_min_js' %}
@@ -153,7 +163,7 @@
 			{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
 		{% endif %}
 		<!-- PAGESPEED GURU THEME EDITOR CONVERSION -->
-		<script>
+		<script type="lazyload2">
 			function loadAsyncStyleSheets() {
 				var head = document.getElementsByTagName('head')[0];
 				var asyncStyleSheets = [
@@ -174,32 +184,32 @@
 			window.addEventListener('load', loadAsyncStyleSheets, false);
 		</script>
 		<style>.product--image.lazyload{opacity:1}</style>
-      <!-- Stamped - Begin Script-->
-<script async type="text/javascript" data-api-key="pubkey-1Ji05FR0ALc1UgGF7L447934XEH33B" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
-<!-- Stamped - End Script -->
-      <script>$(this).html().replace("Pawtect™","Pawtect<sup>®</sup>")</script>
-      <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134595017"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
-      {% if template contains 'product' %}
-      	<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
-      {% endif %}
+      	<!-- Stamped - Begin Script-->
+		<script type="lazyload2" data-api-key="pubkey-1Ji05FR0ALc1UgGF7L447934XEH33B" id="stamped-script-widget" data-src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+		<!-- Stamped - End Script -->
+      	<script>$(this).html().replace("Pawtect™","Pawtect<sup>®</sup>")</script>
+      	<script type="lazyload2">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134595017"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+      	{% if template contains 'product' %}
+      		<link data-href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+      	{% endif %}
+      	
 	</head>
-	{% assign c_id = 0 %}
-	{% if template contains 'product' %}
-		{% assign c_id = product.id %}
-	{% elsif template contains 'page' %}
-		{% assign c_id = page.id %}
-	{% elsif template contains 'article' %}
-		{% assign c_id = article.id %}
-	{% else %}
-		{% assign c_id = collection.id %}
-	{% endif %}
-       <link rel="stylesheet" href="{{ 'header-footer.css' | asset_url }}" />
-	<body data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}" date-tempName="{{template}}" data-layout="themeX" data-id="{{ c_id }}" id="{{ page_title | handle }}" class="loading {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">
-		
-	<!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQHPBWX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->	
-      <script type="lazyload2">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+        {% assign c_id = 0 %}
+        {% if template contains 'product' %}
+            {% assign c_id = product.id %}
+        {% elsif template contains 'page' %}
+            {% assign c_id = page.id %}
+        {% elsif template contains 'article' %}
+            {% assign c_id = article.id %}
+        {% else %}
+            {% assign c_id = collection.id %}
+        {% endif %}
+      	<link rel="stylesheet" data-href="{{ 'header-footer.css' | asset_url }}" />
+	<body data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}" date-tempName="{{template}}" data-layout="themeX" data-id="{{ c_id }}" id="{{ page_title | handle }}" class="loading {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">	
+		<!-- Google Tag Manager (noscript) -->
+      	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQHPBWX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->	
+      	<script type="lazyload2">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
 		<script type="lazyload2">window.Beacon('init', '1e408e71-d6e6-4bcd-ae7c-0d52eba424a8')</script>
 		<!-- main wrappper div -->
 		<div class="sf_wrapper">
@@ -420,8 +430,7 @@
 		{% if settings.sticky_cart and template contains 'product' %}
 			{% render 'pet-sticky-bar' %}
 		{%  endif %}
-		<script src="{{ 'wnw-optimization.js' | asset_url }}"></script>
-      {% if template contains 'product' %}
+		{% if template contains 'product' %}
         <style>
           #videoControl{
             width:100%;height: 550px !important;
@@ -433,13 +442,14 @@
             background-size: cover;
           }
         </style>
-        <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+        <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
         <script>
           window.addEventListener('load', function(){
             document.body.classList.remove('loading');
           });         
-           
-      </script>
-      {% endif %}
+
+        </script>
+        {% endif %}
+      	<script src="{{ 'wnw-optimization.js' | asset_url }}"></script>
 	</body>
 </html>

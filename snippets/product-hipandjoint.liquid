@@ -13,9 +13,10 @@
         <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb full-img">
           <div class="product-single__photo-wrapper" {% comment %}style="padding-top:{{ 1 | divided_by: featured_image.aspect_ratio | times: 100}}%;"{% endcomment %}>
             {% assign img_url = featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-            <img class="img-responsive product-single__photo lazyload {{ img_id_class }}"
-                 src="{{ featured_image | img_url: '720x' }}"
-                 data-src="{{ img_url }}"
+            <img class="img-responsive product-single__photo lazyloaded lazy2 {{ img_id_class }}"
+                 src="{{ featured_image | img_url: '300x' }}"
+                 data-src="{{ featured_image | img_url: 'master' }}"
+                 data-mobsrc="{{ featured_image | img_url: '540x' }}"
                  data-widths="[180, 360, 590, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                  data-aspectratio="{{ featured_image.aspect_ratio }}"
                  data-sizes="auto"
@@ -48,9 +49,10 @@
         <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb hide full-img">
           <div class="product-single__photo-wrapper" {% comment %}style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"{% endcomment %}>
             {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-            <img class="product-single__photo lazyload {{ img_id_class }}"
-                 src="{{ image | img_url: '300x' }}"
-                 data-src="{{ img_url }}"
+            <img class="product-single__photo lazyloaded lazy2 {{ img_id_class }}"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                 data-src="{{ image | img_url: 'master' }}"
+                 data-mobsrc="{{ image | img_url: '540x' }}"
                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                  data-aspectratio="{{ image.aspect_ratio }}"
                  data-sizes="auto"
@@ -80,7 +82,7 @@
       {% if product.images.size > 1 and  counter_img < 15 %}
         <li class="grid__item2 medium--one-third large--one-fifth product-single__photo-wrapper">
           <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: 'grande' }}" class="product-single__thumbnail {% if image contains featured_image %} active-thumb{% endif %}">
-            <img class="product-single__thumb" src="{{ image.src | img_url: '300X300' }}" alt="{{ image.alt | escape }}">
+            <img class="product-single__thumb lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ image.src | img_url: '300X300' }}" alt="{{ image.alt | escape }}">
           </a>
         </li>
       {% endif %}

@@ -18,7 +18,8 @@
                 <div class="container"> 
                   <div class="top_additional_sec_issue">
                       <div class="top_additional_sec_Img sf_top_additional_left_sec" style="background:{{-block.settings.img__per_bg_clr-}}">
-                         {{ block.settings.topAddit_sec_Img  | img_url:'master' | img_tag:'block-img','img-responsive' }}
+                        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.topAddit_sec_Img | img_url: 'master' }}" alt="block-img">
+                         
                       </div>
                       <div class="top_additional_sec_content listing_pnts sf_top_additional_right_sec">
                          <h1 class="header-{{block.id}} text-{{block.settings.text_align}}">{{-block.settings.headerText-}}</h1>
@@ -94,7 +95,7 @@
 		</div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
 	</div>
 	<div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
-		{{ block.settings.featureRightImg | img_url:'master' | img_tag:'featureRightImg','img-responsive' }}
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.featureRightImg | img_url: 'master' }}" alt="featureRightImg">
 	</div>
      
 </div>
@@ -111,28 +112,34 @@
               <ul class="naturl_a_Ingredients{% if block.settings.antlerImg_4 !=blank %} is_fout_items{% else %} is_three_items{% endif %}">
                {% if block.settings.antlerImg_1 %}
                 <li>                
-                  <span>{{ block.settings.antlerImg_1 | img_url:'master' | img_tag:'antlerImg_1','img-responsive' }}</span>				
+                  <span>
+                    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_1 | img_url: 'master' }}" alt="antlerImg_1">
+                    
+                  </span>				
                   <h3>{{ block.settings.antlerHeading_1 }}</h3>
                   <p>{{ block.settings.antlerContent_1 }}</p>
                 </li>
                 {% endif %}
                 {% if block.settings.antlerImg_2 %}
-                <li>                
-				{{ block.settings.antlerImg_2 | img_url:'master' | img_tag:'antlerImg_2','img-responsive' }}				
+                <li>           
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_2 | img_url: 'master' }}" alt="antlerImg_2">
+				
                   <h3>{{ block.settings.antlerHeading_2 }}</h3>
                   <p>{{ block.settings.antlerContent_2 }}</p>
                 </li>
                 {% endif %}
                 {% if block.settings.antlerImg_3 %}
-                <li>                
-				{{ block.settings.antlerImg_3 | img_url:'master' | img_tag:'antlerImg_3','img-responsive' }}				
+                <li>             
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_3 | img_url: 'master' }}" alt="antlerImg_3">
+				
                   <h3>{{ block.settings.antlerHeading_3 }}</h3>
                   <p>{{ block.settings.antlerContent_3 }}</p>
                 </li>
                 {% endif %}
                 {% if block.settings.antlerImg_4 %}
-                <li>                
-				{{ block.settings.antlerImg_4 | img_url:'master' | img_tag:'antlerImg_4','img-responsive' }}				
+                <li>            
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_4 | img_url: 'master' }}" alt="antlerImg_4">
+				
                   <h3>{{ block.settings.antlerHeading_4 }}</h3>
                   <p>{{ block.settings.antlerContent_4 }}</p>
                 </li>
@@ -148,13 +155,15 @@
         <div class="ss_content">
           <div class="logotext">
            <h3>{% if block.settings.si_title %}
-		{{ block.settings.si_title | img_url:'master' | img_tag:'si_title','img-responsive' }}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title | img_url: 'master' }}" alt="si_title">
+		
            {% endif %}</h3>
              <p>{{- block.settings.si_description -}}</p>             
           </div>
            <div class="logotext_img"> 
             {% if block.settings.si_image %}
-            {{ block.settings.si_image | img_url:'master' | img_tag:'si_image','img-responsive' }}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image | img_url: 'master' }}" alt="si_image">
+            
              {% endif %}
           </div>                  
         </div>
@@ -164,13 +173,15 @@
 			 <div class="ss_content">
           <div class="logotext">
            <h3>{% if block.settings.si_title_2 %}
-		{{ block.settings.si_title_2 | img_url:'master' | img_tag:'si_title_2','img-responsive' }}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title_2 | img_url: 'master' }}" alt="si_title_2">
+		
            {% endif %}</h3>
              <p>{{- block.settings.si_description_2 -}}</p>             
           </div>
            <div class="logotext_img"> 
             {% if block.settings.si_image_2 %}
-            {{ block.settings.si_image_2 | img_url:'master' | img_tag:'si_image_2','img-responsive' }}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image_2 | img_url: 'master' }}" alt="si_image_2">
+            
              {% endif %}
           </div>                  
         </div>
@@ -190,13 +201,15 @@
         <div class="ss_content">
           <div class="logotext">
            <h3>{% if block.settings.si_title %}
-		{{ block.settings.si_title | img_url:'master' | img_tag:'si_title','img-responsive' }}
+             <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title | img_url: 'master' }}" alt="si_title">
+		
            {% endif %}</h3>
              <p>{{- block.settings.si_description -}}</p>             
           </div>
            <div class="logotext_img"> 
             {% if block.settings.si_image %}
-            {{ block.settings.si_image | img_url:'master' | img_tag:'si_image','img-responsive' }}
+             <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image | img_url: 'master' }}" alt="si_image">
+            
              {% endif %}
           </div>                  
         </div>
@@ -206,14 +219,16 @@
         <ul class="naturl_a_Ingredients is_three_items is_2_items">
                {% if block.settings.antlerImg_1 %}
                 <li>                
-                  <span>{{ block.settings.antlerImg_1 | img_url:'master' | img_tag:'antlerImg_1','img-responsive' }}</span>				
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_1 | img_url: 'master' }}" alt="antlerImg_1"></span>				
                   <h3>{{ block.settings.antlerHeading_1 }}</h3>
                   <p>{{ block.settings.antlerContent_1 }}</p>
                 </li>
                 {% endif %}
           {% if block.settings.antlerImg_2 %}
                 <li>                
-                  <span>{{ block.settings.antlerImg_2 | img_url:'master' | img_tag:'antlerImg_2','img-responsive' }}</span>				
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_2 | img_url: 'master' }}" alt="antlerImg_2"></span>				
                   <h3>{{ block.settings.antlerHeading_2 }}</h3>
                   <p>{{ block.settings.antlerContent_2 }}</p>
                 </li>
@@ -224,21 +239,24 @@
         <ul class="naturl_a_Ingredients is_three_items">
                {% if block.settings.antlerImg_3 %}
                 <li>                
-                  <span>{{ block.settings.antlerImg_3 | img_url:'master' | img_tag:'antlerImg_3','img-responsive' }}</span>				
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_3 | img_url: 'master' }}" alt="antlerImg_3"></span>				
                   <h3>{{ block.settings.antlerHeading_3 }}</h3>
                   <p>{{ block.settings.antlerContent_3 }}</p>
                 </li>
                 {% endif %}
                 {% if block.settings.antlerImg_4 %}
                 <li>                
-				{{ block.settings.antlerImg_4 | img_url:'master' | img_tag:'antlerImg_4','img-responsive' }}				
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_4 | img_url: 'master' }}" alt="antlerImg_4">
+				
                   <h3>{{ block.settings.antlerHeading_4 }}</h3>
                   <p>{{ block.settings.antlerContent_4 }}</p>
                 </li>
                 {% endif %}
                 {% if block.settings.antlerImg_5 %}
                 <li class="last-li-ni">                
-				{{ block.settings.antlerImg_5 | img_url:'master' | img_tag:'antlerImg_5','img-responsive' }}				
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_5 | img_url: 'master' }}" alt="antlerImg_5">
+				
                   <h3>{{ block.settings.antlerHeading_5 }}</h3>
                   <p>{{ block.settings.antlerContent_5 }}</p>
                 </li>
@@ -260,7 +278,9 @@
               <div class="sub-in sub-in01">
                 <div class="sub-in_c">
                   {% if section.settings.obi_img1 %}
-                  <div class="PlushIocn">{{ section.settings.obi_img1 | img_url:'master' | img_tag:'obi_img1','img-responsive' }}<span>{{ section.settings.obi_txt1 }}</span></div>
+                  <div class="PlushIocn">
+                    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img1 | img_url: 'master' }}" alt="obi_img1">
+                    <span>{{ section.settings.obi_txt1 }}</span></div>
          			  {% endif %}
                   <span class="PlushSign"> + </span>
                 </div>
@@ -269,19 +289,22 @@
               <div class="sub-in sub-in02">
                  <div class="sub-in_c">
                   {% if section.settings.obi_img2 %}
-					{{ section.settings.obi_img2 | img_url:'master' | img_tag:'obi_img2','img-responsive' }}
+                   	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img2 | img_url: 'master' }}" alt="obi_img2">
+					
          			  {% endif %}
                   <span>{{ section.settings.obi_txt2 }}</span>
                 </div>
                 <div class="sub-in_c">
                   {% if section.settings.obi_img3 %}
-					{{ section.settings.obi_img3 | img_url:'master' | img_tag:'obi_img3','img-responsive' }}
+                  	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img3 | img_url: 'master' }}" alt="obi_img3">
+					
          			  {% endif %}
                   <span>{{ section.settings.obi_txt3 }}</span>
                 </div>
                 <div class="sub-in_c">
                   {% if section.settings.obi_img4 %}
-					{{ section.settings.obi_img4 | img_url:'master' | img_tag:'obi_img4','img-responsive' }}
+                  	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img4 | img_url: 'master' }}" alt="obi_img4">
+					
          			  {% endif %}
                   <span>{{ section.settings.obi_txt4 }}</span>
                 </div>
@@ -308,7 +331,8 @@
     </div>
     <div class="nofillter_right">
 		{% if section.settings.botimag %}
-              {{ section.settings.botimag | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+      			<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
     </div>
     </div>
@@ -329,7 +353,10 @@
         <div class="col_01 col_style">
           <div class="vs-text">{{- section.settings.aif_text_1 -}}            
           </div>
-          <div class="MoblieImg">{{ section.settings.aif_img_1 | img_url:'master' | img_tag:'aif_img_1','img-responsive' }}</div>
+          <div class="MoblieImg">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_1 | img_url: 'master' }}" alt="aif_img_1">
+            
+          </div>
         </div>
         <div class="col_02 col_style">
           <div class="Vs">VS</div>
@@ -337,13 +364,17 @@
         <div class="col_03 col_style">
           <div class="vs-text">{{- section.settings.aif_text_2 -}}            
           </div>
-			<div class="MoblieImg">{{ section.settings.aif_img_2 | img_url:'master' | img_tag:'aif_img_2','img-responsive' }}</div>
+			<div class="MoblieImg">
+              <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_2 | img_url: 'master' }}" alt="aif_img_2">
+              
+          </div>
         </div>
       </div>
       <div class="no-border-top-bottom">
         <div class="col_01 col_style">
           <div class="vs-text-img">
-            {{ section.settings.aif_img_1 | img_url:'master' | img_tag:'aif_img_1','img-responsive' }}
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_1 | img_url: 'master' }}" alt="aif_img_1">
+            
           </div>
         </div>
         <div class="col_02 col_style">
@@ -351,7 +382,8 @@
         </div>
         <div class="col_03 col_style">
           <div class="vs-text-img">
-          {{ section.settings.aif_img_2 | img_url:'master' | img_tag:'aif_img_2','img-responsive' }}
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_2 | img_url: 'master' }}" alt="aif_img_2">
+          
           </div>
         </div>
       </div>

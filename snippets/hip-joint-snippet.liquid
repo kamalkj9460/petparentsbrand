@@ -2,12 +2,14 @@
 <div class="white_space ">
   <div class="__SizeChartbanner">
   	{% if section.settings.proSizeChart %}
-       {{ section.settings.proSizeChart | img_url: 'master' | img_tag:'proSizeChart','img-responsive' }}
+    	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.proSizeChart | img_url: 'master' }}" alt="proSizeChart">
+       
     {% endif %}
   </div>
    <div class ="additional_sec _newsite banner_over_sing Chew_banners" >
       <div class ="dog_dia_img">
-      {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+        	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      
       </div>
       <div class ="dog_dia_cont chew_ban_content">
          {{ section.settings.image_content }}
@@ -16,7 +18,8 @@
   <div class="additional_sec_helpIssue chew_problems ">
     <div class="top_additional_sec_issue">
       <div class="top_additional_sec_Img">
-      	{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}
+        	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+      	
       </div>
       <div class="top_additional_sec_content listing_pnts bladder_p_list">
          <h4 class="red" style="color:{{section.settings.peePadHeaderColor}}!important ;">{{section.settings.topAddit_sec_head}}</h4>
@@ -42,7 +45,8 @@
                           <div class="GnawfeatureContent">
                             <div class="GnawfeatureImg" style="background:{{section.settings.peePadHeaderColor}}">
                                {% if section.settings.bellyfeature1 %}
-                                    {{ section.settings.bellyfeature1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw featureText featurepad">
@@ -52,7 +56,8 @@
                           <div class="GnawfeatureContent">
                             <div class="GnawfeatureImg" style="background:{{section.settings.peePadHeaderColor}}">
                                 {% if section.settings.bellyfeature2 %}
-                                    {{ section.settings.bellyfeature2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw featureText">
@@ -63,7 +68,8 @@
                     </div>
                 <div class="__mainCenterImageGnaw">
                 	{% if section.settings.bellyfeature7 %}
-                         {{ section.settings.bellyfeature7 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7 | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
                     <div class="pp-12 chw_box_2">
@@ -71,7 +77,8 @@
                           <div class="GnawfeatureContent">
                             <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.peePadHeaderColor}}">
                                 {% if section.settings.bellyfeature3 %}
-                                    {{ section.settings.bellyfeature3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw featureText">
@@ -81,7 +88,8 @@
                           <div class="GnawfeatureContent">
                             <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.peePadHeaderColor}}">
                                 {% if section.settings.bellyfeature4 %}
-                                    {{ section.settings.bellyfeature4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw featureText elasticText">
@@ -109,7 +117,8 @@
               <div class="leftGnawImage">
                 <div class="imageAntler">
                     {% if block.settings.antlerImg %}
-                         {{ block.settings.antlerImg | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
               </div>
@@ -121,7 +130,8 @@
                   {{block.settings.antlerHeading}}
                 {% endif %}
                 {% if block.settings.antlerfirstImg %}
-                       {{ block.settings.antlerfirstImg | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ .settings.antlerfirstImg | img_url: 'master' }}" alt="useCase">
+                       
                 {% endif %}
               </h5>
               <p style="color:{{block.settings.antlertextcolor}}">{{block.settings.antlerContent}}</p>
@@ -130,7 +140,8 @@
               <div class="rightGnawImage">
                 <div class="imageAntler">
                     {% if block.settings.antlerImg %}
-                         {{ block.settings.antlerImg | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
               </div>
@@ -152,26 +163,30 @@
       <div class="ing_plus_70">
       <div class="0bi--firstImage">
       	{% if section.settings.obiImg1 %}
-              {{ section.settings.obiImg1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg1 | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
         <p>{{section.settings.obiHeading2}}</p>
       </div>
       <span class="ad_calm">+</span>
       <div class="0bi--secImage">
       	{% if section.settings.obiImg2 %}
-              {{ section.settings.obiImg2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg2 | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
         <p>{{section.settings.obiHeading3}}</p>
       </div>
       <div class="0bi--thirdImage">
       	{% if section.settings.obiImg3 %}
-              {{ section.settings.obiImg3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg3 | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
         <p>{{section.settings.obiHeading4}}</p>
       </div>
       <div class="0bi--frthImage">
       	{% if section.settings.obiImg4 %}
-              {{ section.settings.obiImg4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+        		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg4 | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
         <p>{{section.settings.obiHeading5}}</p>
       </div>
@@ -180,7 +195,8 @@
   </section>
   <section class="sec--nofillter">
       	{% if section.settings.botimag %}
-              {{ section.settings.botimag | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+    		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
   </section>
   <section class="ingridents">
@@ -193,7 +209,8 @@
       <div class="bgColorSafter blader_bfore">
         <div class="safetyImg  ">
            {% if section.settings.safetyIcon %}
-              {{ section.settings.safetyIcon | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+          		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.safetyIcon | img_url: 'master' }}" alt="useCase">
+              
            {% endif %}
         </div>
       </div>
@@ -214,14 +231,15 @@
         <div class="pp-6">
           <div class="leftRelatedAdvert">
             <h4>{{section.settings.specialProdAdvet}}</h4>
-            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+            <img class="lazy2" data-src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
           </div>
         </div>
         <div class="pp-6">
           <div class="rightRelatedAdvert">
             <h4 class="red" style="color:{{section.settings.peePadHeaderColor}} !important">{{section.settings.specialProdAdvetHead}}</h4>
             {% if section.settings.specialProdAdvetImg2 %}
-              {{ section.settings.specialProdAdvetImg2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg2 | img_url: 'master' }}" alt="useCase">
+              
             {% endif %}
             <div class="learnMoreBtn">
 				<a href="{{section.settings.specialProdAdveturl}}" class="RedButton signUpBtn redBack" style="background:{{section.settings.peePadHeaderColor}}">{{section.settings.specialProdAdvetBut}}</a>

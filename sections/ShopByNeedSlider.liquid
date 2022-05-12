@@ -10,7 +10,7 @@
 				  <a href="{{block.settings.productSliderUrl}}">
 					<span class="sf_pro_img">
 					{% if block.settings.productImg %}
-                       {{ block.settings.productImg | img_url:'master' | img_tag:'productImg','img-responsive' }}
+                       	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.productImg | img_url: 'master' }}" alt="productImg">
                        {% endif %}
 					</span>					
 				  </a>

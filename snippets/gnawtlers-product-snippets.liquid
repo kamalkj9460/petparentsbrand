@@ -3,14 +3,18 @@
   {% if section.settings.addi_img1 %}
    <div class ="product_dog_bannerd" >
       <div class ="__product_Banner">
-      {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      
       </div>
     </div>
    {% endif %}
    {% if section.settings.is_middle_video_sec %}  
      {% capture media_content %}
       {% if section.settings.mediaType == 'img' %}
-          <div class="top_additional_sec_Img individ_img">{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}</div>
+          <div class="top_additional_sec_Img individ_img">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+            	
+  		</div>
       {% else %}
           <div class="inline_video img" video="{{section.settings.sec_video.id}}" href="{{section.settings.sec_video }}">
             {% comment %}<div class="video_poster_img">{{ section.settings.video_poster | img_url:'master' | img_tag:'img-responsive' }}</div>{% endcomment %}
@@ -64,7 +68,8 @@
   <div class="additional_sec_helpIssue pro_points gnawtler_points gnawtler_less_40_60">
     <div class="top_additional_sec_issue">
       <div class="top_additional_sec_Img">
-      	{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+      
       </div>
       <div class="top_additional_sec_content listing_pnts">
          <h1 class="Gnawtler_pnt_h" style="color:{{section.settings.peePadHeaderColor}} ;">{{section.settings.topAddit_sec_head}}</h1>
@@ -94,7 +99,8 @@
                           <div class="GnawfeatureContent gnawtler_n1">
                             <div class="GnawfeatureImg arrow_1 " style="background:{{section.settings.featureColor}}">
                                {% if section.settings.bellyfeature1 %}
-                                    {{ section.settings.bellyfeature1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw1 featureText featurepad">
@@ -104,7 +110,8 @@
                           <div class="GnawfeatureContent gnawtler_n2">
                             <div class="GnawfeatureImg arrow_2 " style="background:{{section.settings.featureColor}}">
                                 {% if section.settings.bellyfeature2 %}
-                                    {{ section.settings.bellyfeature2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw2 featureText">
@@ -115,7 +122,8 @@
                     </div>
                 <div class="__mainCenterImageGnaw gnawtler_new_img">
                 	{% if section.settings.bellyfeature7 %}
-                         {{ section.settings.bellyfeature7 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7 | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
                     <div class="pp-12">
@@ -123,7 +131,8 @@
                           <div class="GnawfeatureContent  gnawtler_n3">
                             <div class="GnawfeatureImg fabricImg arrow_3" style="background:{{section.settings.featureColor}}">
                                 {% if section.settings.bellyfeature3 %}
-                                    {{ section.settings.bellyfeature3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw3 featureText">
@@ -133,7 +142,8 @@
                           <div class="GnawfeatureContent gnawtler_n4">
                             <div class="GnawfeatureImg fabricImg arrow_4 " style="background:{{section.settings.featureColor}}">
                                 {% if section.settings.bellyfeature4 %}
-                                    {{ section.settings.bellyfeature4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw4 featureText elasticText">
@@ -147,7 +157,8 @@
                           <div class="GnawfeatureContent gnawtler_n5">
                             <div class="GnawfeatureImg fabricImg arrow_5 " style="background:{{section.settings.featureColor}}">
                                 {% if section.settings.bellyfeature5 %}
-                                    {{ section.settings.bellyfeature5 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature5 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw5 featureText">
@@ -157,7 +168,8 @@
                           <div class="GnawfeatureContent gnawtler_n6">
                             <div class="GnawfeatureImg fabricImg arrow_6 " style="background:{{section.settings.featureColor}}">
                                 {% if section.settings.bellyfeature6 %}
-                                    {{ section.settings.bellyfeature6 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature6 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="Gnaw6 featureText elasticText">
@@ -182,13 +194,15 @@
               <div class="leftGnawImage">
                 <div class="imageAntler {% if block.settings.antlerImgmob %} desktopSection {% endif %}">
                     {% if block.settings.antlerImg %}
-                         {{ block.settings.antlerImg | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
                 {% if block.settings.antlerImgmob %}
                   <div class="imageAntler mobileSection">
                       {% if block.settings.antlerImgmob %}
-                           {{ block.settings.antlerImgmob | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                    	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImgmob | img_url: 'master' }}" alt="useCase">
+                           
                       {% endif %}
                   </div>
                 {% endif %}
@@ -202,13 +216,15 @@
               <div class="rightGnawImage">
                 <div class="imageAntler {% if block.settings.antlerImgmob %} desktopSection {% endif %}">
                     {% if block.settings.antlerImg %}
-                         {{ block.settings.antlerImg | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg | img_url: 'master' }}" alt="useCase">
+                         
                     {% endif %}
                 </div>
                 {% if block.settings.antlerImgmob %}
                   <div class="imageAntler mobileSection">
                       {% if block.settings.antlerImgmob %}
-                           {{ block.settings.antlerImgmob | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                    	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImgmob | img_url: 'master' }}" alt="useCase">
+                           
                       {% endif %}
                   </div>
                 {% endif %}
@@ -222,7 +238,8 @@
   </section>
   <section class="chewPower Img">
   	{% if section.settings.bellyfeature8 %}
-     	 {{ section.settings.bellyfeature8 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+    	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature8 | img_url: 'master' }}" alt="useCase">
+     	 
     {% endif %}
   </section>
   <section class="classicSec">
@@ -235,13 +252,13 @@
        </div>
        <div class="pp-12">
            <div class="classicProduct gnawtElk">
-               <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/whole.png?v=1598419585" alt="gnawtlet_listing_banner" class="lazyloaded">
+               <img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/whole.png?v=1598419585" alt="gnawtlet_listing_banner" class="lazyloaded lazy2">
            </div>
        </div>
        <div class="pp-12 hide _mobileShow">
              <ul class="mobile_items">
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st1.jpg?v=1612254430" alt="list Image" class="_listItem"></li>
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st2.jpg?v=1612254431" alt="list Image" class="_listItem"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st1.jpg?v=1612254430" alt="list Image" class="_listItem lazy2"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st2.jpg?v=1612254431" alt="list Image" class="_listItem lazy2"></li>
              </ul>
         </div>
       </div>
@@ -253,13 +270,13 @@
             </div>
             <div class="pp-12">
                <div class="classicProduct gnawtElk">
-                  <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/split.png?v=1598419637" alt="gnawtlet_listing_banner" class="lazyloaded">
+                  <img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/split.png?v=1598419637" alt="gnawtlet_listing_banner" class="lazyloaded lazy2">
                 </div>
             </div>
            <div class="pp-12 hide _mobileShow">
              <ul class="mobile_items">
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st3.jpg?v=1612254430" alt="list Image" class="_listItem"></li>
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st4.jpg?v=1612254429" alt="list Image" class="_listItem"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st3.jpg?v=1612254430" alt="list Image" class="_listItem lazy2"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st4.jpg?v=1612254429" alt="list Image" class="_listItem lazy2"></li>
               </ul>
            </div>
          </div>
@@ -271,13 +288,13 @@
             </div>
             <div class="pp-12">
                <div class="classicProduct gnawtElk">
-                   <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/gnaw-whole-deer.png?v=1598419749" alt="gnawtlet_listing_banner" class="lazyloaded">
+                   <img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/gnaw-whole-deer.png?v=1598419749" alt="gnawtlet_listing_banner" class="lazyloaded lazy2">
                </div>
             </div>
            <div class="pp-12 hide _mobileShow">
              <ul class="mobile_items">
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st5.jpg?v=1612254430" alt="list Image" class="_listItem"></li>
-                 <li class="_liItems"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/st6.jpg?v=1612254429" alt="list Image" class="_listItem"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st5.jpg?v=1612254430" alt="list Image" class="_listItem lazy2"></li>
+                 <li class="_liItems"><img data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/st6.jpg?v=1612254429" alt="list Image" class="_listItem lazy2"></li>
               </ul>
            </div>
          </div>
@@ -289,14 +306,15 @@
         <div class="pp-6">
           <div class="leftRelatedAdvert more_pad_1">
             <h4>{{section.settings.specialProdAdvet}}</h4>
-            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+            <img class="lazy2" data-src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
           </div>
         </div>
         <div class="pp-6">
           <div class="rightRelatedAdvert padd_less_1 gnawtler_pad">
             <h4 class="red" style="color:#5c715f  !important;">{{section.settings.specialProdAdvetHead}}</h4>
             {% if section.settings.specialProdAdvetImg2 %}
-              {{ section.settings.specialProdAdvetImg2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg2 | img_url: 'master' }}" alt="">
+              
             {% endif %}
             
             {% comment %}adding Product_ids for inline cart{% endcomment %}
@@ -329,13 +347,15 @@
       {% if section.settings.specialProdAdvetcheck %}
           <a href="{{section.settings.specialProdAdveturl}}">		
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+
               {% endif %}
           </a>	
               {% else %}         
           <a href="javascript:void(0);">
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+
               {% endif %}
           </a>
       {% endif %}

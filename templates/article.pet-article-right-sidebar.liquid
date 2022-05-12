@@ -1,5 +1,9 @@
 {% layout 'themeX' %}
-{{ 'article.css' | asset_url | stylesheet_tag }}
+
+{% render 'article-css' %}
+
+<link rel="stylesheet" data-href="{{ 'article.css' | asset_url }}">
+
 {% assign number_of_comments = article.comments_count %}
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count | plus: 1 %}

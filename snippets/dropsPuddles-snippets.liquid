@@ -13,10 +13,12 @@
               </div>
               <div class="dropsProductImg">
                 {% if section.settings.drops_banner_img %}
-                {{ section.settings.drops_banner_img | img_url:'master' | img_tag:'drops_banner_img','home_Forage home_Forage_desktab' }}
+                <img class="home_Forage home_Forage_desktab lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.drops_banner_img | img_url: 'master' }}" alt="drops_banner_img">
+                
                 {% endif %}
                 {% if section.settings.drops_banner_img_m %}
-                {{ section.settings.drops_banner_img_m | img_url:'master' | img_tag:'drops_banner_img_m','home_Forage home_Forage_mobile' }}
+                <img class="home_Forage home_Forage_mobile lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.drops_banner_img_m | img_url: 'master' }}" alt="drops_banner_img_m">
+                
                 {% endif %} 
               </div>
           </div>
@@ -35,7 +37,8 @@
                 		{% capture rHtml %}
 							<div class="dropsc_collectionM">
                               {% if block.settings.dp_product_img %}
-                				{{ block.settings.dp_product_img | img_url:'master' | img_tag:'dp_product_img','img-responsive' }}
+                              	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.dp_product_img | img_url: 'master' }}" alt="dp_product_img">
+                				
                   			{% endif %}
                               <h3>{{ block.settings.dp_product_title }}</h3>
                               <a href="{{ block.settings.dp_product_url }}">Shop Now</a>
@@ -71,15 +74,15 @@
             				{% capture slidHTML %}
 							<div class="dropsForNeednM">
                               {% if block.settings.ds_slide_img %}
-                              <img img_id="dfn_img_{{forloop.index}}" src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive">           
+                              <img img_id="dfn_img_{{forloop.index}}" data-src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive lazy2">           
                   			{% endif %}                             
                			 	</div>
             				{% endcapture %}
             				{% capture poHTML %}
 							<div class="dropspopUpHTML" id="dfn_img_{{forloop.index}}">
-                            <div>    <span class="sf_close_bTn"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/white1.png"></span>
+                            <div>    <span class="sf_close_bTn"><img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/white1.png"></span>
                                 {% if block.settings.ds_slide_img %}
-                                <img src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive">           
+                                <img data-src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive lazy2">           
                               {% endif %} 
                               </div>
                			 	</div>

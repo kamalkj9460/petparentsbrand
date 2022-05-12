@@ -11,10 +11,12 @@
               </div>
               <div class="ForageHomeImg">
                 {% if section.settings.home_banner1 %}
-                {{ section.settings.home_banner1 | img_url:'master' | img_tag:'home_banner1','home_Forage home_Forage_desktab' }}
+                <img class="home_Forage home_Forage_desktab lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.home_banner1 | img_url:'master' }}" alt="home_banner1">
+                
                 {% endif %}
                 {% if section.settings.home_banner2 %}
-                {{ section.settings.home_banner2 | img_url:'master' | img_tag:'home_banner2','home_Forage home_Forage_mobile' }}
+                <img class="home_Forage home_Forage_mobile lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.home_banner2 | img_url:'master' }}" alt="home_banner2">
+                
                 {% endif %} 
               </div>
           </div> 

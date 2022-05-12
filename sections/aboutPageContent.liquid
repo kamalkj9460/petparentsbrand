@@ -3,7 +3,7 @@
 <div class="container">
 <div class="sf_col_6 sf_left_area">
 {% if section.settings.ab_img %}
-	{{ section.settings.ab_img | img_url:'master' | img_tag:'ab_img','img-responsive' }}
+	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.ab_img | img_url:'master' }}" alt="ab_img">
 	{% endif %}
 </div>
 <div class="sf_col_6 sf_right_area">
@@ -23,7 +23,7 @@
               </div>
               <div class="sf_text_imageAndContent sf_col_6">
               {% if block.settings.ab_block_image %}
-                  {{ block.settings.ab_block_image | img_url:'master' | img_tag:'ab_block_image','img-responsive' }}
+                	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.ab_block_image | img_url:'master' }}" alt="ab_block_image">
                   {% endif %}
               </div>
               
@@ -43,14 +43,14 @@
 <div class="container">
   <div class="sf_col_6 sf_left_our_mission mob_mission_img">   
 {% if section.settings.om_img %}
-	{{ section.settings.om_img | img_url:'master' | img_tag:'om_img','img-responsive' }}
+    	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.om_img | img_url:'master' }}" alt="om_img">
 	{% endif %}
 </div>
   <h1 class="lg_heading">{{- section.settings.om_title -}}</h1>
   <div class="sf_l_our_mission">  
 <div class="sf_col_6 sf_left_our_mission des_mission_img">   
 {% if section.settings.om_img %}
-	{{ section.settings.om_img | img_url:'master' | img_tag:'om_img','img-responsive' }}
+  	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.om_img | img_url:'master' }}" alt="om_img">
 	{% endif %}
 </div>
 <div class="sf_col_6 sf_right_our_mission">

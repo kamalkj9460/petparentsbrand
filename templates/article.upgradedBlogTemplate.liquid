@@ -1,6 +1,7 @@
 {% layout 'themeX' %}
-{{ 'article.css' | asset_url | stylesheet_tag }}
-<!-- /templates/article.liquid -->
+{% render 'article-css' %}
+{% render 'custom-pet-blog-css' %}
+<link rel="stylesheet" data-href="{{ 'article.css' | asset_url }}">
 <link rel="stylesheet" data-href="{{ 'custom-pet-blog.css' | asset_url }}">
 <div class="article_id_{{article.id}}">
 {% section 'Blog-subheader'%}

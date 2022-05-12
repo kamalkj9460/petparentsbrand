@@ -52,7 +52,7 @@
          <div class="sf_menu sf_menu_left menu-{{menuCount}}">
            {{menu1}}{{menu2}}
           </div>
-          <div class="sf_menu sf_menu_right" {% if block.settings.m_menu_bg_img != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.m_menu_bg_img}});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+          <div class="lazybg sf_menu sf_menu_right" {% if block.settings.m_menu_bg_img != blank %} data-style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.m_menu_bg_img}});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
             <div class="_sf_left_sf">
               {% if block.settings.m_menu_sec_title != blank %}
               <h3>{{ block.settings.m_menu_sec_title }}</h3>

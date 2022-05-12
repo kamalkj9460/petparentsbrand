@@ -3,14 +3,18 @@
   {% if section.settings.addi_img1 %}
    <div class ="product_dog_bannerd" >
       <div class ="__product_Banner">
-      {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      
       </div>
     </div>
   {% endif %}
    {% if section.settings.is_middle_video_sec %}  
      {% capture media_content %}
       {% if section.settings.mediaType == 'img' %}
-          <div class="top_additional_sec_Img individ_img">{{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}</div>
+          <div class="top_additional_sec_Img individ_img">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img  | img_url: 'master' }}" alt="topAddit_sec_Img">
+            	
+  			</div>
       {% else %}
           <div class="inline_video img" video="{{section.settings.sec_video.id}}" href="{{section.settings.sec_video }}">
             {% comment %}<div class="video_poster_img">{{ section.settings.video_poster | img_url:'master' | img_tag:'img-responsive' }}</div>{% endcomment %}
@@ -65,7 +69,8 @@
       <div class="additional_sec_helpIssue pro_points">
         <div class="top_additional_sec_issue">
           <div class="top_additional_sec_Img individ_img">
-            {{ section.settings.topAddit_sec_Img  | img_url:'master' |img_tag:'topAddit_sec_Img','img-responsive' }}
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+            
           </div>
           <div class="top_additional_sec_content listing_pnts">
              <h1>{{section.settings.topAddit_sec_head}}</h1>
@@ -98,12 +103,14 @@
                             </div>
                             <div class="featureImg">
                                {% if section.settings.bellyfeature1 %}
-                                    {{ section.settings.bellyfeature1 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1  | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureImg">
                                 {% if section.settings.bellyfeature2 %}
-                                    {{ section.settings.bellyfeature2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2  | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureText">
@@ -118,12 +125,14 @@
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature3 %}
-                                    {{ section.settings.bellyfeature3 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3  | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature4 %}
-                                    {{ section.settings.bellyfeature4 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4  | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureText elasticText">
@@ -138,12 +147,14 @@
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature5 %}
-                                    {{ section.settings.bellyfeature5 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature5 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureImg fabricImg">
                                 {% if section.settings.bellyfeature6 %}
-                                    {{ section.settings.bellyfeature6 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature6 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                             <div class="featureText elasticText">
@@ -158,7 +169,8 @@
                             </div>
                             <div class="featureImg fabricImg">
                                {% if section.settings.bellyfeature7 %}
-                                    {{ section.settings.bellyfeature7 | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7 | img_url: 'master' }}" alt="useCase">
+                                    
                                 {% endif %}
                             </div>
                         </div>
@@ -172,7 +184,10 @@
         <div class="pp-6">
           <div class="leftRelatedAdvert">
             <h4>{{section.settings.specialProdAdvet}}</h4>
-            <a href="{{section.settings.rightsideproduct}}"> {{ section.settings.specialProdAdvetImg | img_url:'master' |img_tag:'useCase','lazyloaded' }}  </a>
+            <a href="{{section.settings.rightsideproduct}}">
+              <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg | img_url: 'master' }}" alt="useCase">
+              
+            </a>
           </div>
         </div>
         <div class="pp-6">
@@ -180,7 +195,10 @@
             <h4>{{section.settings.specialProdAdvetHead}}</h4>
             {% if section.settings.specialProdAdvetImg2 %}
             
-         <a href="{{section.settings.specialProdAdveturl}}"> {{ section.settings.specialProdAdvetImg2 | img_url: 'master' | img_tag:'useCase','lazyloaded' }} </a>
+         <a href="{{section.settings.specialProdAdveturl}}">
+           <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg2 | img_url: 'master' }}" alt="useCase">
+           
+            </a>
             {% endif %}
             
             {% comment %}adding Product_ids for inline cart{% endcomment %}
@@ -213,13 +231,15 @@
       {% if section.settings.specialProdAdvetcheck %}
           <a href="{{section.settings.specialProdAdveturl}}">		
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
               {% endif %}
           </a>	
               {% else %}         
           <a href="javascript:void(0);">
               {% if section.settings.specialProdAdvetImgmobile %}
-                {{ section.settings.specialProdAdvetImgmobile | img_url: 'master' | img_tag:'useCase','lazyloaded' }}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
               {% endif %}
           </a>
       {% endif %}

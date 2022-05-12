@@ -62,11 +62,11 @@
             <!-- mobile aria menu start here -->
              <div class="no-padding grid__item large--hide large--one-sixth one-quarter">
               <!-- adding cart icon-->
-              <span class="sf_search_i"> <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/search.png" >
+              <span class="sf_search_i"> <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/search.png" >
                </span>
               <a href="/cart" class="__mobile_cart site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
                 {% comment %} <img src="{{ "basket-icon.png" | asset_url }}">   {% endcomment %} 
-  				<img src="https://cdn.shopify.com/s/files/1/1355/5443/files/Cart_Icon_31x35px.svg?17648960249336167474"> 
+  				<img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/Cart_Icon_31x35px.svg?17648960249336167474"> 
                 <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
               </a>
               <!-- ends here -->

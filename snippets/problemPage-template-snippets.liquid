@@ -1,13 +1,15 @@
 <div class="__problem_pageContainer">
   <div class="__probContent__PetAge {% if section.settings.addi_imgMob %}desktopSection{% endif %}">
     {% if  section.settings.addi_img1 %}
-    {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+    
     {% endif %}
   </div>
   {% if section.settings.addi_imgMob %}
   <div class="__probContent__PetAge mobileSection">
     {% if  section.settings.addi_imgMob %}
-    {{ section.settings.addi_imgMob | img_url:'master' |img_tag:'addi_imgMob','img-responsive' }}
+    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_imgMob | img_url: 'master' }}" alt="addi_imgMob">
+    
     {% endif %}
   </div>
   {% endif %}
@@ -58,7 +60,8 @@
       	 {% if block.type == 'ProBanner' %}
             <div class="__problemProductBanner {{block.settings.prodBannerHeading}}" {{block.shopify_attributes}}>
               	{% if  block.settings.prodBanner %}
-              		{{ block.settings.prodBanner | img_url:'master' |img_tag:'prodBanner','img-responsive' }}
+              		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner | img_url: 'master' }}" alt="prodBanner">
+              		
               	{% endif %}
               <h2>{{block.settings.prodBannerHeading}}</h2>
             </div>
@@ -70,7 +73,8 @@
                       <a href="{{block.settings.imgProducturl}}">
                       	<span>
                           {% if  block.settings.addi_img3 %}
-                              {{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img3 | img_url: 'master' }}" alt="addi_img3">
+                              
                           {% endif %}
                         </span>
 					  </a>
@@ -101,7 +105,8 @@
                       <a href="{{block.settings.imgProducturl}}">
                       <span>
           			{% if  block.settings.addi_img3 %}
-              			{{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+                        		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img3 | img_url: 'master' }}" alt="addi_img3">
+              			
               		{% endif %}
                       </span>
                       </a>
@@ -198,7 +203,8 @@
                 <div class="_problemrightContent">
                   <h4>{{ block.settings.headlineTwoProduct2 }}</h4>
                   {% if  block.settings.twoproImg %}
-              			{{ block.settings.twoproImg | img_url:'master' |img_tag:'twoproImg','img-responsive' }}
+                  		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.twoproImg | img_url: 'master' }}" alt="twoproImg">
+              			
               	  {% endif %}
                 </div>
               </div>
@@ -250,14 +256,16 @@
                       <a href="{{block.settings.sf_url_compar1}}">
                       	<span>
                           {% if  block.settings.sf_img_compar1 %}
-                              {{ block.settings.sf_img_compar1 | img_url:'master' |img_tag:'sf_img_compar1','img-responsive' }}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar1 | img_url: 'master' }}" alt="sf_img_compar1">
+                              
                           {% endif %}
                         </span>
 					  </a>
                       <a href="{{block.settings.sf_url_compar2}}">
                       	<span>
                           {% if  block.settings.sf_img_compar2 %}
-                              {{ block.settings.sf_img_compar2 | img_url:'master' |img_tag:'sf_img_compar2','img-responsive' }}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar2 | img_url: 'master' }}" alt="sf_img_compar2">
+                              
                           {% endif %}
                         </span>
 					  </a>
@@ -296,14 +304,16 @@
                      <a href="{{block.settings.sf_url_compar1}}">
                       	<span>
                           {% if  block.settings.sf_img_compar1 %}
-                              {{ block.settings.sf_img_compar1 | img_url:'master' |img_tag:'sf_img_compar1','img-responsive' }}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar1 | img_url: 'master' }}" alt="sf_img_compar1">
+                              
                           {% endif %}
                         </span>
 					  </a>
                       <a href="{{block.settings.sf_url_compar2}}">
                       	<span>
                           {% if  block.settings.sf_img_compar2 %}
-                              {{ block.settings.sf_img_compar2 | img_url:'master' |img_tag:'sf_img_compar2','img-responsive' }}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar2 | img_url: 'master' }}" alt="sf_img_compar2">
+                              
                           {% endif %}
                         </span>
 					  </a>
@@ -325,7 +335,8 @@
     <div class="__problem-container">
        <div class="__problemProductBanner">
          {% if  section.settings.prosuppimg1 %}
-            {{ section.settings.prosuppimg1 | img_url:'master' |img_tag:'prosuppimg1','img-responsive' }}
+         	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.prosuppimg1 | img_url: 'master' }}" alt="prosuppimg1">
+            
          {% endif %}
        </div>
     </div>
@@ -337,7 +348,8 @@
 <div class="__needMoreInfo">
     <a href="{{section.settings.needMoreInfourl}}">
       {% if  section.settings.needMoreInfo %}
-        {{ section.settings.needMoreInfo | img_url:'master' |img_tag:'needMoreInfo','img-responsive' }}
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.needMoreInfo | img_url: 'master' }}" alt="needMoreInfo">
+        
       {% endif %}
     </a>
 </div>

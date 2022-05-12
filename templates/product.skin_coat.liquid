@@ -1,6 +1,8 @@
 <!-- /templates/product.skin_coat.liquid -->
-<link rel="stylesheet" href="{{ 'PawtectBlanket.css' | asset_url }}" />
-<link rel="stylesheet" href="{{ 'all-supplement.css' | asset_url }}" />
+{% render 'PawtectBlanket-css' %}
+{% render 'all-supplement-css' %}
+<link rel="stylesheet" data-href="{{ 'PawtectBlanket.css' | asset_url }}" />
+<link rel="stylesheet" data-href="{{ 'all-supplement.css' | asset_url }}" />
 <div class="pawtectBlanketProductContainer">
   <div class="peePad-header-content">
     <div class="container">

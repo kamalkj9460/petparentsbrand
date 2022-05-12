@@ -4,37 +4,29 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js"> <!--<![endif]-->
 	<head>
-		{% include "custom-css" %}
-		{% include "timber-css2" %}
-		{% include "theme-css" %}
-		{% include "petparents-css" %}
-		{% include "responsive-css" %}
-     
 		<meta name="google-site-verification" content="r-VsmXAVHA7fHtBssGdTo5_xx-e5mZXlY6EerSx6wXA">
 		<meta name="facebook-domain-verification" content="gvfpiow6qtnrqcpwldlmefyetvbh8s" />
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        
 		{% if settings.favicon %}
-		<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+			<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
 		{% endif %}
 		{% if canonical_url contains 'apps/product-registration' %}
-		<title>Pet Parents® | Healthy Pets. Happy Family ®</title>
+			<title>Pet Parents® | Healthy Pets. Happy Family ®</title>
 		{% else if canonical_url contains 'account/register' %}
-		<title>{{ page_title }}</title>
+			<title>{{ page_title }}</title>
 		{% else %}
-		<title>
-			{% if template contains 'index' %}
-				{{ shop.name }}
-			{% else %}
-				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %}{% endunless %}
-			{% endif %}
-		</title>
+            <title>
+                {% if template contains 'index' %}
+                    {{ shop.name }}
+                {% else %}
+                    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %}{% endunless %}
+                {% endif %}
+            </title>
 		{% endif %}
 		{% if page_description %}
 			{% if canonical_url contains 'tagged' %}
@@ -67,8 +59,16 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-63196059-2');
 		</script>
-
-		<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
+      	
+        {% render 'all-css' %}
+      	{% render 'all-css-2' %}
+      	{% render 'all-css-3' %}
+      	{% if template contains 'product' %}
+			{% render 'product-css' %}
+		{% endif %}
+      	<link rel="stylesheet" data-href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      	<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
 		<link rel="stylesheet" data-href="{{ 'timber.scss.css' | asset_url }}">
 		<link rel="stylesheet" data-href="{{ 'theme.scss.css' | asset_url }}">
 		<link rel="stylesheet" data-href="{{ 'petparents.css' | asset_url }}">
@@ -77,7 +77,7 @@
 		<link rel="stylesheet" data-href="{{ 'slick-theme.css'  | asset_url }}">
 
 		{% if template contains 'product' %}
-		<link rel="stylesheet" href="{{ 'product.scss.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'product.scss.css' | asset_url }}">
 		{% endif %}
 		<script >
 			window.theme = window.theme || {};
@@ -110,38 +110,29 @@
             };
           {% endif %}
 		</script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      	{% render 'jquery-min' %}
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-PFZ7DLZ"></script>
 		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-M29QJT6"></script>
 		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MZS8ZJX"></script>
 		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MBRDBG6"></script>
 		<script type="lazyload2" data-src="{{ 'jquery-2.2.3.min.js' | asset_url }}"></script>
-		<!--
-		<script src="{{ 'jquery.flexslider.js' | asset_url }}" defer></script>
-		<script src="{{ 'jquery.flexslider-min.js' | asset_url }}" defer></script>
-		-->
-		<!--[if (gt IE 9)|!(IE)]><!--><script class="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script><!--<![endif]-->
-		<!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
-
-		<!--[if (gt IE 9)|!(IE)]><!--><script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script><!--<![endif]-->
-		<!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}" defer></script><![endif]-->
-
+		<script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+		<script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script>
+		
 		<!-- Header hook for plugins-->
-
-		{%- if request.host == "petparents.myshopify.com" or template contains 'cart' or template contains 'checkout' -%}
-			{{ content_for_header }}
-		{%- else -%}
-			{% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
-			{{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
-		{%- endif -%}
-
+        {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+            {{ content_for_header }}
+        {%- else -%}
+            {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+            {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
+            <script>var trekkie=[];trekkie.integrations=!0;</script>
+        {%- endif -%}
 		{% include 'oldIE-js' %}
-
 		<script type="lazyload2" data-src="{{ 'modernizr.min.js' | asset_url }}"></script>
-
 		{% comment %}If you store has customer accounts disabled, you can remove the following JS file{% endcomment %}
 		{% if template.directory == 'customers' %}
-		{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+			{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
 		{% endif %}
 		{% include 'shogun-head' %}
 		{% include 'judgeme_core' %}
@@ -151,15 +142,39 @@
 		<!-- Stamped - End Script -->
 		{% render 'gsf-conversion-pixels' %}
 		<style>@font-face{font-family:'OpenSans Light';src:url("https://cdn.shopify.com/s/files/1/1355/5443/t/15/assets/OpenSans-Light.ttf") format('truetype')}.petTitle{font-family:"OpenSans Light",sans-serif}@media (max-width:600px){.BannerHome.mobBan{min-height:300px!important;display:block!important}}@media (min-width:600px){.BannerHome.deskTab{min-height:356px!important;display:block!important}}</style>
-		
       	<script>$(this).html().replace("Pawtect™","Pawtect<sup>®</sup>")</script>
-      <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134595017"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
-      {% if template contains 'product' %}
-      	<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
-      {% endif %}
-      </head>
-	{% comment %}Add the page template as a class for easy page or template specific styling.{% endcomment %}
-      <link rel="stylesheet" href="{{ 'header-footer.css' | asset_url }}" />
+      	<script type="lazyload2">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134595017"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+      	{% if template contains 'product' %}
+      		<link data-href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+      	{% endif %}
+      	<style class="cls_css">@media only screen and (min-width:1200px){.template-index .AdsBanner-main .AdsBanner_item.deskTab img{min-height:23vw}}.site-header__logo img{min-height:56.6167px}@media only screen and (max-width:500px){#shopify-section-header{min-height:131.617px}.template-index .AdsBanner-main .AdsBanner_item.mobBan img{min-height:80vw}}</style>
+      	<!-- Google Tag Manager -->
+		<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TQHPBWX');</script>
+        <!-- End Google Tag Manager -->
+      	<!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
+        <script type="lazyload2">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-63196059-2');
+        </script>
+      <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-873066568');
+        </script>
+	</head>
+		{% comment %}Add the page template as a class for easy page or template specific styling.{% endcomment %}
+      	<link rel="stylesheet" href="{{ 'header-footer.css' | asset_url }}" />
 	<body data-layout="theme" data-pid="{{product.id}}" id="{{ page_title | handle }}" class="supports-fontface {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">
 		<!-- Google Tag Manager (noscript) -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQHPBWX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -188,8 +203,9 @@
               
 				{% if template.name == "index" %}
 					{% section 'slideshow' %}
-              {{ 'newstyle.css'  | asset_url | stylesheet_tag }}
-				{% endif %}
+              		{% render 'newstyle-css' %}
+              		<link rel="stylesheet" data-href="{{ 'newstyle.css' | asset_url }}">
+              	{% endif %}
 				<main class="main-content" role="main">
 					{% if template contains 'product' %}
 						<h1 class="sf_h1_heading">Product</h1>
@@ -398,9 +414,9 @@
             background-size: cover;
           }
         </style>
-        <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-      	<script type="text/javascript">
-          jQuery(document).ready(function(){
+        <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+      	<script type="lazyload2">
+          setTimeout(function(){
             if( jQuery(window).width() > 767 ){
               let counter = 1;
               let imgURL = 'https://cdn.shopify.com/s/files/1/1355/5443/files/';
@@ -492,10 +508,21 @@
             }
           });   
         </script>
-      {% endif %}
+      	{% endif %}
 	
-{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
-{% assign oneclickupsellapp = true %}
-</body>
+		{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
+		{% assign oneclickupsellapp = true %}
+        <script>
+          var site_nav_link_burger = true;
+          jQuery(document).ready(function() {
+            jQuery(".is_mobil_manu").click(function() {
+              if(site_nav_link_burger) {
+                event.preventDefault();
+                site_nav_link_burger = false;
+              }
+            });
+          })
+        </script>
+	</body>
 </html>
 {{ 'wnw-optimization.js' | asset_url | script_tag }}

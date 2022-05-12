@@ -1,6 +1,6 @@
 <div class="newformatingSizeSection sf_newformatingSizeSection">
   <div class="product-blanket-regular-middle-content">
-    <section id="softsupps_bnr">
+    <section id="softsupps_bnr" class="sf_petWipes sf_petWipes_{{section.id}}">
  <div class="softsupps_bnr" style="background:{{section.settings.ts_bg_color}}">
 	<div class="container">
       <div class="softsupps_inn">
@@ -17,18 +17,8 @@
     </section>  
   {%- for block in section.blocks -%}
      {%- case block.type -%}
-        {%- when 'titleBB' -%}
-           {%- if block.settings.show_block and block.settings.text != blank  -%}
-              <div class="Spec_Features_txt block-{{block.id}} text-{{block.settings.text_align}}" {{block.shopify_attributes}}>
-                 {{- block.settings.text -}}
-              </div>
-              {%- style -%}
-                 .block-{{block.id}}{ background-color:{{block.settings.bg_color}}; }
-                 .block-{{block.id}} p{font-size:{{ block.settings.font_size }}px; padding:{{block.settings.specingUp}}px {{block.settings.specingDown}}px; color:{{block.settings.font_color}};letter-spacing:{{block.settings.letter-spacing}}px;margin: 0;} 
-              {%- endstyle -%}
-           {% endif -%}
         {% when 'SoftSuppsproductList' %}
-              <section id="SoftSuppsproductList">
+              <section id="SoftSuppsproductList" class="sf_petWipes sf_petWipes_{{block.id}}">
               <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.ssp_heading }}</h3>  
                 <div class="pick-wrapper-main" style="background:{{ block.settings.ssp_bg_color }}">
                     <div class="container">
@@ -119,7 +109,7 @@
                 </section>    
         {% when 'ProductImageTwoBB' %}
     		{% if block.settings.show_block %}
-     <section class="pb_slider_{{block.id}} sss_slider">
+     <section class="pb_slider_{{block.id}} sss_slider sf_petWipes" id="sf_petWipes_{{block.id}}">
     <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.slidertextBB }}</h3>
               <div class="sf_PawtectBlanketSlider5" id="PawtectBlanketSlider5">    
                  {% if block.settings.prodBanner1 != blank %}
@@ -148,12 +138,12 @@
            {% endif %} 
   			
         {% when 'SafetyFirst' %}
-    <section id="safety_sf">      
+    <section id="safety_sf" class="sf_petWipes sf_petWipes_{{block.id}}">      
       <div class="container">
       <div class="safety-txt">
-	<h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.saf_heading }}</h3>
-	<div class="safety_wrap">
+	<h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.saf_heading }}</h3>	
       {% if block.settings.saf_img_1 %}
+      {% capture items1 %}
 		<div class="safety_items">
 			{{ block.settings.saf_img_1 | img_url:'master' | img_tag:'saf_img_1','img-responsive' }}
 			<div>
@@ -161,8 +151,10 @@
 				<p>{{- block.settings.saf_des_1 -}}</p>
 			</div>
 		</div>
+      {% endcapture %}
       {% endif %}
       {% if block.settings.saf_img_2 %}
+      {% capture items2 %}
 		<div class="safety_items">
 			{{ block.settings.saf_img_2 | img_url:'master' | img_tag:'saf_img_2','img-responsive' }}
 			<div>
@@ -170,8 +162,10 @@
 				<p>{{- block.settings.saf_des_2 -}}</p>
 			</div>
 		</div>
+      {% endcapture %}
       {% endif %}
       {% if block.settings.saf_img_3 %}
+      {% capture items3 %}
 		<div class="safety_items">
 			{{ block.settings.saf_img_3 | img_url:'master' | img_tag:'saf_img_3','img-responsive' }}
 			<div>
@@ -179,19 +173,25 @@
 				<p>{{- block.settings.saf_des_3 -}}</p>
 			</div>
 		</div>
+      {% endcapture %}
       {% endif %}
-    </div>
+        <div class="is_desktop_enble">
+         	  <div class="safety_wrap"> 
+                {{items1}}{{items2}}{{items3}}
+         	 </div>
+     	 </div>
+        <div class="is_mobile_enble">
+        	<div class="safety_wrap sf_MoreWipeSlider">   
+              {{items1}}{{items2}}{{items3}}
+   			 </div>
+       </div>
 </div>
   </div>    
     </section>
               
         {% when 'SoftChewSupps' %}
-    <section id="SoftChewSupps">
-      <div class="what_section">
-        <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.scs_heading }}</h3>
-        <div class="container">
-          <div class="what-wrap-third">  
-            <div class="what_wrapper what_wrapper_01">
+    {% capture firstPart %}
+    <div class="what_wrapper what_wrapper_01">
             <div class="what_items01">
                 <h2>{{- block.settings.scs_title_1 -}}</h2>
                 <p>{{- block.settings.scs_des_1 -}}</p>
@@ -201,10 +201,9 @@
                 <p>{{- block.settings.scs_des_2 -}}</p>
             </div>
         </div>
-            <div class="what_wrapper what_wrapper_02">		
-        {{ block.settings.scs_img | img_url:'master' | img_tag:'scs_img','img-responsive' }}	
-        </div>
-            <div class="what_wrapper what_wrapper_03">
+    {% endcapture %}
+    {% capture secondPart %}
+     <div class="what_wrapper what_wrapper_03">
               <div class="what_items01">
                   <h2>{{- block.settings.scs_title_3 -}}</h2>
                   <p>{{- block.settings.scs_des_3 -}}</p>
@@ -214,9 +213,33 @@
                   <p>{{- block.settings.scs_des_4 -}}</p>
               </div>
           </div>
+    {% endcapture %}    
+    <section id="SoftChewSupps" class="sf_petWipes sf_petWipes_{{block.id}}">
+      <div class="what_section">
+        <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.scs_heading }}</h3>
+        <div class="container">
+          <div class="is_desktop_enble"> 
+          <div class="what-wrap-third">  
+            {{firstPart}}
+            <div class="what_wrapper what_wrapper_02">		
+        {{ block.settings.scs_img | img_url:'master' | img_tag:'scs_img','img-responsive' }}	
+        </div>
+           {{secondPart}}
+          </div>
+            </div>
+          <div class="is_mobile_enble">
+          <div class="what-wrap-thir">
+            <div class="what_wrapper what_wrapper_02">		
+        {{ block.settings.scs_img | img_url:'master' | img_tag:'scs_img','img-responsive' }}	
+        </div>
+            <div class="sf_wiPeeSlider slider">
+            {{firstPart}}            
+           {{secondPart}}
+            </div>
+            </div>
           </div>
         </div>
-      
+      </div>
     </section>
            
      {%- endcase -%}
@@ -346,13 +369,16 @@ body {
 .softsupps_inn {
     display: flex;
     align-items: center;
-    padding: 20px 0 5px;
+    justify-content: center;
+    overflow: hidden;
+}
+.softsupps_inn img {
+    margin: -105px 0 -170px;
 }
 .softsupps_txt {
-    max-width: 215px;
+    max-width: 245px;
     color: #f6f6f6;
     text-align: right;
-    margin: 0 8% 0 13%;
 }
 .softsupps_txt p {
     font-size: 26px;
@@ -371,7 +397,7 @@ h3.forEveryNeed {
     margin: 35px 0;
     font-family: "Gentona";
     font-size: 30px;
-    text-transform: capitalize;
+    text-transform: inherit;
     letter-spacing: 0;
     font-weight: 500;
 }
@@ -380,7 +406,7 @@ h3.forEveryNeed {
     text-align: center;
     margin: 20px 0 0;
     font-family: "Gentona";
-    font-size: 30px;
+    font-size: 24px;
     text-transform: capitalize;
     letter-spacing: 0;
     font-weight: 500;
@@ -389,8 +415,12 @@ h3.forEveryNeed {
     display: block;
     margin: 0px auto;
 }
+#SoftS_sliderrr .slick-track {
+    display: inline-flex ;
+    align-items: flex-end;
+}
 .pick-supli_items {
-    padding: 0 45px !important;
+    padding: 0 15px;
 }
 .pick-wrapper-main {
     padding: 70px 0 20px;
@@ -398,7 +428,7 @@ h3.forEveryNeed {
 }
 .pick-supli_wrap a {text-decoration: none;}
 .bc_slide img {
-    height: 485px;
+    height: 485px;width:100%;
     object-fit: cover;
 }
 .slick-slider .slick-dots li.slick-active button:before {
@@ -430,24 +460,21 @@ h3.forEveryNeed {
 }
 .safety_items {
     background: #f6f6f6;
-    padding: 35px 30px 30px;
+    padding: 45px;
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: end;
+    justify-content: start;
     width: 31.35%;
     grid-gap: 30px;
 }
-.safety_items>div {
-    max-width: 255px;
-}  
 .safety_items>div>p {
     font-size: 20px;
     color: #706f6f;
 }  
 .safety_items>div>h2 {
     margin: 0;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     font-size: 30px;
     color: #706f6f;
     font-family: "Gentona";
@@ -455,13 +482,10 @@ h3.forEveryNeed {
 }  
 .safety_items>img {
     display: block;
-    margin-left: auto;
-}
-.safety_items:nth-child(2) img {
-    transform: translate(-25px, -25px);
+    margin: 20px auto;
 }
 .what_section h3.forEveryNeed {
-    margin: 100px 0 ;
+    margin: 80px 0 100px;
 }  
 .what-wrap-third {
     display: flex;
@@ -469,9 +493,12 @@ h3.forEveryNeed {
     justify-content: center;
     flex-wrap: wrap;
 }  
-.what_wrapper_01 {width: 23%; margin-top: 35px;} 
-.what_wrapper_02 {width: 40%;} 
-.what_wrapper_03 {width: 23%; margin-top: 25px;} 
+.what_wrapper_01 {width: 21%;} 
+.what_wrapper_02 {width: 35%;} 
+.what_wrapper_03 {width: 19%;} 
+.what_wrapper_02 img {
+    transform: translate(-20px, -45px);
+}
 .what_wrapper h2 {
     margin: 0;
     font-family: "Gentona";
@@ -480,7 +507,7 @@ h3.forEveryNeed {
     line-height: 1.25;
 }
 .what_wrapper p {
-    margin: 5px 0 50px;
+    margin: 5px 0 55px;
     font-family: "Gentona";
     font-size: 12px;
     font-weight: 500;
@@ -489,41 +516,9 @@ h3.forEveryNeed {
 .what_wrapper_01 .what_items02 {
     padding-right: 35px;
 }
-.faqproductpagesf_faq>h2 {
-    color: #706f6f;
-    font-family: "Gentona";
-    font-size: 30px;
-    text-align: center;
-    font-weight: 500;
-    margin: 0;
-    padding: 18px 0;
-    margin-top: 70px;
-} 
-#sf_ProductFaq .row {
-    background: #ffffff;
-} 
-#sf_accordion_id {
-    border-top: 1px solid rgba(0,0,0,.1);
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    padding: 15px 0 20px;
-    margin: 0 15px 40px;
+.what_section {
+    padding-bottom: 30px;
 }
-.faqConent h3 {
-    margin: 0;
-    font-size: 14px;
-    line-height: 18px;
-    color: #706f6f;
-    font-weight: 600;
-    letter-spacing: -.3px;
-    padding-bottom: 5px;
-    text-transform: capitalize;
-    font-family: "Gentona";
-}  
-.faqConent p {
-    line-height: 1.3;
-    padding-bottom: 5px;
-    font-family: "Gentona";
-}  
 .__Footer_sec_inner {
     border-top: none;
     padding: 0px 38px 40px;
@@ -585,36 +580,70 @@ h3.forEveryNeed {
 .slide_prev {
     right: 7.5%;
 }
+.is_mobile_enble {
+    display: none;
+}
   
-@media (max-width: 1023px) {
-  .container {
-      padding: 0 35px;
-  }
+@media (max-width: 1200px) {
+    .what_wrapper_01 {width: 25%;} 
+    .what_wrapper_02 {width: 45%;} 
+    .what_wrapper_03 {width: 25%;} 
 } 
+ 
   
-  
-  
-@media (max-width: 767px) {
+@media (max-width:1023px) {
   .container {
       padding: 0 15px;
   }
-  .softsupps_bnr {
-      padding-bottom: 20px;
-      margin-top: 8px;
+  .safety_items {
+      padding: 25px;
+  }
+  .what-wrap-third {
+      flex-direction: column;
+  }
+  .what_wrapper {
+  	   width: 750px;
+      padding : 0 15px;
+      margin: 0 auto;
+  }
+  .what_wrapper_02 {
+  	  order: -1;
+  }
+  .what_wrapper_02 img {
+      transform: translate(0px);
+      margin: 0px auto;
+  }
+  .what_wrapper p {
+      margin: 5px 0 25px;
+  }
+  .safety_wrap {
+      grid-column-gap: 10px;
+  }
+  
+} 
+  
+  
+
+@media (max-width:767px) {
+  .container {
+      padding: 0 15px;
   }
   .softsupps_inn {
+      align-items: start;
       flex-direction: column;
   }
   .softsupps_txt {
-      max-width: 272px;
+      max-width: 240px;
       color: #f6f6f6;
-      text-align: center;
-      margin: 80px  0 60px;
+      text-align: left;
+      margin: 60px  0 50px;
   }
   .softsupps_txt+img {
-      transform: translateX(50px);
+      margin-left: auto;
+      transform: translate(60px, -25px);
+      margin-bottom: -140px;
   }
-  #safety_sf .container, .pick-wrapper-main .container  {
+  .pick-wrapper-main .container  {
       padding: 0px;
   }
   .safety_items {
@@ -623,24 +652,20 @@ h3.forEveryNeed {
   .safety_items {
       flex-direction: row-reverse;
       grid-gap: 25px;
-      padding: 55px 15px;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 15px;
   }
   .safety_items>img {
       max-width: 135px;
   }
   .safety_items>div>h2 {
-      margin-bottom: 0px;
       font-size: 18px;
-      margin-top: 0px;
   }
   .safety_items>div>p {
       font-size: 14px;
   }
   .safety_items:nth-child(2) img {
       transform: translate(0px, 0px);
-      max-width: 110px;
   }
   #SoftS_slider .pick-supli_wrap {
       width: 50%;
@@ -650,7 +675,7 @@ h3.forEveryNeed {
       font-size: 18px;
   }
   .pick-supli_items {
-      padding: 0px !important;
+      padding: 0px 0  25px;
   }
   .pick-supli_items img {
       max-width: 150px;
@@ -659,6 +684,9 @@ h3.forEveryNeed {
       background: #f6f6f6;
       margin: 0;
       padding: 35px 0;
+  }
+  h3.forEveryNeed {
+      margin: 15px 0 55px;
   }
   .pick-wrapper-main {
       padding: 0;
@@ -671,26 +699,18 @@ h3.forEveryNeed {
       padding-right: 0px;
   }
   .what_wrapper_01 {order: 2;} 
-  .what_wrapper_02 img {max-width: 80%; margin: 0px auto;} 
+  .what_wrapper_02 img {
+      max-width: 80%; 
+      margin: 0px auto 50px;
+  } 
   .what_wrapper_03 {order: 3;} 
   .what_section h3.forEveryNeed {
-      margin: 35px 0;
+      margin: 35px auto;
+      max-width: 265px;
   }
   .what_wrapper_03 {
       margin-top: 0px;
   }
-  .faqproductpagesf_faq>h2 {
-      margin-top: 35px;
-  }
-  #sf_accordion_id {
-      margin: 0px;
-      border-bottom: 0px;
-  }
-/*   div#SoftS_slider:after {
-    content: "";
-    display: block;
-    clear: both;
-  } */
   div#SoftS_slider {
       padding-bottom: 35px;
       display: inline-flex;
@@ -699,7 +719,7 @@ h3.forEveryNeed {
       justify-content: center;
   }
   span.slide_prev.slick-arrow {
-      right: 52px;
+      right: 55px;
   }
   .safety_items>div {
       max-width: 100%;
@@ -711,18 +731,79 @@ h3.forEveryNeed {
       background-color: #f0f0f0 !important;
       border-color: #f0f0f0 !important;
   }
-  .sss_slider {
-      display: none;
-  }
   .__Footer_sec_inner {
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       padding: 25px 38px 40px;
   }
   .safety-txt h3.forEveryNeed {
-      margin: 75px 0 35px;
+      margin: 75px 0 55px;
+  }
+  .is_desktop_enble {
+    display: none;
+  }
+    .is_mobile_enble {
+      display: block !important;
+  }
+  #SoftS_sliderrr .slick-track {
+    align-items: start;
+  }
+  .safety_wrap .slick-track {
+    background: #f6f6f6;
+  } 
+  .safety_items>img {
+      margin: 15px auto 35px;
+  }
+  .what_section {
+      padding-bottom: 0px;
+  }
+  .softsupps_bnr .container {
+      padding: 0 15px;
+      padding-right: 0;
+  }
+  .pick-wrapper-main {
+      background: #fff !important;
+  }
+  
+  .sf_wiPeeSlider .slick-prev, .sf_wiPeeSlider .slick-next {
+      position: absolute;
+      top: -20px;
+      background: #e7e7e7;
+      left: unset;
+      border-radius: 50%;
+      height: 22px;
+      width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px !important;
+  }
+  .safety_wrap .slick-next, .safety_wrap .slick-prev {
+      position: absolute;
+      top: -20px;
+      background: #e7e7e7;
+      left: unset;
+      border-radius: 50%;
+      height: 22px;
+      width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px !important;
+  }
+  .safety_wrap .slick-next {
+      right: 0px;
+  }
+  .safety_wrap .slick-prev {
+      right: 35px;
+  }
+  .sf_wiPeeSlider .slick-next {
+      right: 0px !important;
+  }
+  .sf_wiPeeSlider .slick-prev {
+      right: 35px !important;
   }
 
-} 
+}  
   
   
 </style>

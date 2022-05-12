@@ -1341,6 +1341,7 @@ table.sf_table_con th {
 .articleStikcyCart .ArticlestickyATC.art-red-bg a:hover{background:#06babf}
 .articleStikcyCart .title.art-gray {color: #8e8e8d;}
 .articleStikcyCart ul._listProducts li.item img{object-fit: contain;}
+section#middle_conetne_area .middle_conetne_area img {margin: 0 auto;}
 
 
 @media (max-width:1024px) {

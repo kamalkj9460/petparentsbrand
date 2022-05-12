@@ -1,6 +1,8 @@
 {% layout 'themeX' %}
 <!-- /templates/product.wash-bags.liquid -->
-<link rel="stylesheet" href="{{ 'PawtectBlanket.css' | asset_url }}" />
+{% render 'PawtectBlanket-css' %}
+
+<link rel="stylesheet" data-href="{{ 'PawtectBlanket.css' | asset_url }}" />
 <div class="pawtectBlanketProductContainer">
   <div class="peePad-header-content">
     <div class="container">
