@@ -1,0 +1,29 @@
+<!-- /sections/collection-others-template.liquid -->
+<div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
+  {% include 'collection-others-template' %}
+</div>
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+	  {"type": "image_picker","id":"col_banner_img","label":"collection banner image"},	
+      {"type": "textarea","id":"collection_title1","label":"Add Banner Text"},
+	  {"type": "textarea","id":"collection_title2","label":"Add Banner Text"},
+	  {"type": "textarea","id":"collection_title3","label":"Add Banner Text"},
+      {"type": "checkbox","id": "is_col_review","label": "Show Collection reviews","default":false},
+	  {"type": "text","id": "review_title","label": "Show Collection Title","default":"OTHER PRODUCT REVIEWS"},
+	  {"type": "color","id":"re_head_color","label":"Title Bg Color","default":"#5e8886"}
+	],
+	"blocks":[{
+        "type": "Review",
+        "name": "Review",
+        "settings": [
+			{"type": "text","id":"review_title","label":"Review Title"},
+			{"type":"range","id":"rating","min":1,"max":7,"step":1,"label":"Rating","default":7},
+			{"type": "html","id":"review_c","label":"Review Text"},
+			{"type": "text","id":"reviewer_id","label":"Reviewer Name"}
+		]		
+	}]
+  }
+{% endschema %}

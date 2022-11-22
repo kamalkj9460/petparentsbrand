@@ -1,0 +1,203 @@
+<!-- /templates/customers/login.liquid -->
+{% layout 'themeX' %}
+<div class="sf_login_n_layout">
+<div class="sf_login_new">
+    <header class="section-header">
+   <h1>{{ 'customer.login.title' | t }}</h1>     
+	</header>
+    </div>
+<div class="grid">
+  <div class="grid__item large--one-third push--large--one-third text-center">    
+   {% comment %}
+      If a user has successfully requested a new password, the form.posted_successfully? variable
+      is set to true within the 'recover_customer_password' form only. Within that form you'll see
+      the variable 'resetPassword' set to true, which is used to initialize timber.resetPasswordSuccess().
+    {% endcomment %}
+    <div class="note form-success" id="ResetSuccess" style="display:none;">
+      {{ 'customer.recover_password.success' | t }}
+    </div>
+
+    <div id="CustomerLoginForm" class="form-vertical">
+      {% form 'customer_login' %}
+
+        {{ form.errors | default_errors }}
+
+        <label for="CustomerEmail" class="hidden-label">{{ 'customer.login.email' | t }}</label>
+        <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="E-mail" autocorrect="off" autocapitalize="off" autofocus>
+
+        {% if form.password_needed %}
+          <label for="CustomerPassword" class="hidden-label">{{ 'customer.login.password' | t }}</label>
+          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+        {% endif %}
+
+        <p>
+          <input type="submit" class="btn btn--full" value="{{ 'customer.login.sign_in' | t }}">
+        </p>
+        <p class="Sf_create_account sf_link">{{ 'layout.customer.create_account' | t | customer_register_link }}</p>
+        <p class="Sf_return_store sf_link"><a href="{{ shop.url }}">{{ 'customer.login.cancel' | t }}</a></p>
+        {% if form.password_needed %}
+          <p class="Sf_RecoverPassword sf_link"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+        {% endif %}
+
+      {% endform %}
+<!-- Begin ReCharge code -->
+{% include 'subscription-account-login' %}
+<!-- End ReCharge code -->
+
+    </div>
+
+    {% comment %}
+      JS shows/hides this form in timber.loginForms()
+    {% endcomment %}
+    <div id="RecoverPasswordForm" style="display: none;">
+
+      <h2>{{ 'customer.recover_password.title' | t }}</h2>
+      <p>{{ 'customer.recover_password.subtext' | t }}</p>
+      <hr class="hr--small">
+
+      <div class="form-vertical">
+        {% form 'recover_customer_password' %}
+
+          {{ form.errors | default_errors }}
+
+          {% comment %}
+            Assign variable to be used after timber.init() is run in theme.liquid
+          {% endcomment %}
+          {% if form.posted_successfully? %}
+            {% assign resetPassword = true %}
+          {% endif %}
+
+          <label for="RecoverEmail" class="hidden-label">{{ 'customer.recover_password.email' | t }}</label>
+          <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+
+          <p>
+            <input type="submit" class="btn btn--full" value="{{ 'customer.recover_password.submit' | t }}">
+          </p>
+          <button type="button" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</button>
+        {% endform %}
+      </div>
+
+    </div>
+
+    {% comment %}
+      If accounts are set as optional, the following will be shown as an option
+      during checkout, not on the default /login page.
+    {% endcomment %}
+    {% if shop.checkout.guest_login %}
+      <hr class="hr--clear">
+
+      <h1>{{ 'customer.login.guest_title' | t }}</h1>
+      <hr class="hr--small">
+      {% form 'guest_login' %}
+        <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+      {% endform %}
+    {% endif %}
+
+  </div>
+</div>
+</div>
+<style>
+.sf_login_new { background: #f6f6f6; padding: 36px 0 1px 0; text-align: center; margin-bottom: 70px; margin-top: 10px; }
+.sf_login_new h1 { color: #ed1b3c; font-size: 62.5px; font-weight: 900; font-family: gentona; text-transform: uppercase; margin: 0;}
+.sf_login_n_layout p.Sf_create_account { margin-top: 30px; }
+.sf_login_n_layout .grid { margin-bottom: 40px;}
+p.sf_link a{color:#11b6bd}
+p.sf_link a:hover{text-decoration:none;}
+  
+
+/* Updated CSS   */
+.wrapper {
+    max-width: 100%;
+}
+.section-header {
+    margin-bottom: 35px;
+}
+  .grid__item.large--one-third.push--large--one-third.text-center {
+    width: 100%;
+    max-width: 350px !important;
+    padding: 0;
+    position: unset;
+}
+ #account .form-vertical {
+    margin-left: 0px!important; 
+}
+#customer_login  input[type="email"], input[type="password"]  {
+    max-width: 100%;
+    padding: 6px 14px;
+    font-size: 17px !important;
+    line-height: 1;
+    margin-bottom: 25px;
+   font-family: 'Gentona Book';
+}
+ #customer_login  input[type="email"]::placeholder, input[type="password"]::placeholder  {
+    color: #706f6f !important;
+   font-family: 'Gentona Book';
+}
+.sf_login_n_layout .grid {
+    margin-bottom: 40px;
+    text-align: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+#customer_login input.btn.btn--full {
+    padding: 9px !important;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+#customer_login p {
+	margin: 0;
+  margin-bottom: 25px;
+}
+div#rc_login {
+    margin-bottom: 75px;
+}
+.template-customers-login .__Footer_sec_inner {
+    border-top:none;
+    padding: 0px 15px 40px;
+}
+p.sf_link a {
+    color: #11b6bd;
+    font-size: 17px;
+  font-family: "Gentona book" !important;
+}
+ div#rc_login p {
+    font-size: 17px;
+   margin-bottom: 0;
+}
+ div#rc_login p {
+    display: none;
+}
+  
+
+@media screen and (min-width : 100px) and (max-width : 667px) {
+  div#shopify-section-footer .white_space{display:none;}
+  	.sf_login_new {padding-top: 80px; margin-bottom: 50px;}
+    .sf_login_new {
+        margin-top: 3px;
+     }
+    .section-header {
+        margin-bottom:80px;
+    }
+    .grid__item.large--one-third.push--large--one-third.text-center {
+        max-width: 325px !important;
+        padding: 0 15px;
+    }
+    #customer_login input.btn.btn--full {
+      margin-bottom: 40px;
+    }
+    .sf_link {
+        margin-bottom: 15px !important;
+    }
+
+  
+  
+}
+  
+  
+  
+</style>

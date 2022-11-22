@@ -1,0 +1,28 @@
+{% include 'product-footer-snippet' %}
+{% schema %}
+  {
+    "name": "Soft Supps Footer",
+    "settings": [	  
+	  {"type":"text","id":"cusreviewheadline","label":"FAQ Heading"}		
+    ],
+	"blocks" : [{
+			"type":"faq",
+			"name":"FAQ Left",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data","label":"Faq Content"}
+				]
+			},
+			{
+			"type":"faq_right",
+			"name":"FAQ Right",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title_r","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data_r","label":"Faq Content"}
+				]
+			}]
+  }
+
+{% endschema %}

@@ -1,0 +1,11 @@
+{% if section.settings.show_banner and section.settings.product_banner != blank %}
+  <div class="__title_banner">
+    <div class="container">
+      <div class="row">
+        <div class="__Inner_title">
+          <img class="product-single__thumb lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.product_banner | img_url: 'master' }}" alt="banner-img">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

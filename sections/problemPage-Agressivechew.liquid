@@ -1,0 +1,333 @@
+<div class="__problem_pageContainer">
+  <div class="__probContent__PetAge {% if section.settings.addi_imgMob %}desktopSection{% endif %}">
+    {% if  section.settings.addi_img1 %}
+    {{ section.settings.addi_img1 | img_url:'master' |img_tag:'addi_img1','img-responsive' }}
+    {% endif %}
+  </div>
+  {% if section.settings.addi_imgMob %}
+  <div class="__probContent__PetAge mobileSection">
+    {% if  section.settings.addi_imgMob %}
+    {{ section.settings.addi_imgMob | img_url:'master' |img_tag:'addi_imgMob','img-responsive' }}
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="__section2-problem problem_blue">
+    <p>{{section.settings.section2Content}}</p>
+    <div class="learnMoreBtn btn_vast" style="display:none;">
+		<a href="{{section.settings.section2url}}" class="RedButton">READ OUR BLOG POST</a>
+	</div>
+  </div>
+    {% if section.settings.proPagefaq %}
+  <!-- FAQ section starts -->  	
+  	<script>
+      $(function () {
+      $("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
+      });
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <section class="ProductFaq">
+        <div class="container">
+          <div class="row">
+            <div class="pp-12">
+              <h1 class="sf_h1_heading">{{ page.title }}</h1>
+              <div class="faqproductpage custom_sf_h2">
+                <h2 style="color:#e3002b">Frequently Asked Questions</h2>
+                <div id="accordion">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'faq' %}
+                        <h3>{{block.settings.faq_title}}</h3>
+                        <div>
+                          <p>{{block.settings.faq_data}}</p>
+                        </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="citiation">
+                <h6 style="text-transform: none;">{{section.settings.faqText}} <a href="{{section.settings.faqGotFromUrl}}" >{{section.settings.faqGotFrom}}</a> </h6>
+              </div>
+            </div>
+          </div>
+        </div> 
+    </section>
+  
+  <!-- FAQ section ends -->
+  {% endif %}
+  <div class="__prductDetailsPro">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'ProBanner' %}
+            <div class="__problemProductBanner {{block.settings.prodBannerHeading}}">
+              	{% if  block.settings.prodBanner %}
+              		{{ block.settings.prodBanner | img_url:'master' |img_tag:'prodBanner','img-responsive' }}
+              	{% endif %}
+              <h2>{{block.settings.prodBannerHeading}}</h2>
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'ProContent' %}
+            <div class="__problemProductContent prob_30_70 pnt_p">
+            	{%if block.settings.align =="left"%}
+              		<div class="productIng">
+                      <a href="{{block.settings.imgProducturl}}">
+                        <span>
+                          {% if  block.settings.addi_img3 %}
+                              {{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+                          {% endif %}
+                        </span>
+                      </a>
+                      <div class="prodpawline"></div>
+              		</div>
+              		
+              	{% endif %}
+              	<div class="productDetailsContent">
+                  <span>
+                  {% if block.settings.head1 != '' %}
+                    <div class="problemProduct para_style1">
+                      <h5>{{block.settings.head1}}</h5>
+                      <p>{{block.settings.content1}}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.head2 != '' %}
+                    <div class="problemProduct para_style2">
+                      <h5 style="color:{{block.settings.colorHead}}">{{block.settings.head2}}</h5>
+                      <p>{{block.settings.content2}}</p>
+                    </div>
+                  {% endif %}
+                  </span>
+              	</div>
+            	{%if block.settings.align =="right"%}
+              		
+              		<div class="productIng righ_Img">
+                      <div class="prodpawline"></div>
+                      <a href="{{block.settings.imgProducturl}}">
+                      <span>
+          			{% if  block.settings.addi_img3 %}
+              			{{ block.settings.addi_img3 | img_url:'master' |img_tag:'addi_img3','img-responsive' }}
+              		{% endif %}
+                      </span>
+                      </a>
+              		</div>
+              	{% endif %}
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'AddToCart' %}
+    		{% assign = product_id 		= block.settings.content_product %}
+    		{% assign = product_data	= all_products[product_id] %}
+    		{% assign product_price 	= product_data.price | money %}
+    
+    		{% unless block.settings.list_variant  %}
+                {% assign product_price = product_data.selected_or_first_available_variant.price | money %}                	
+            {% endunless %}
+    		{% assign selected = product_data.selected_or_first_available_variant.id %}
+            {% if block.settings.variant != blank %}
+            	{% for variant in product_data.variants %}
+                	{% if variant.option1 == block.settings.variant %}
+    					{% assign selected = variant.id %}
+                        {% assign  product_price = variant.price | money %}
+    					{% break %}
+                	{% endif %}
+                {% endfor %}
+            {% endif %}
+    
+    		{% capture prodictTitle %}{% if block.settings.proname %}{{block.settings.proname}}{% else %}{{product_data.title}}{% endif %}{% endcapture %}
+    		
+            <div class="AddToCartInPages {{ prodictTitle }}">
+              <div class="problemPageCartTopSec">
+                <div class="cartContent">
+                  <h2 data-id="{{selected}}">{{ prodictTitle }}</h2>
+                </div> 
+                <div class="buttonContainerMobile">
+                <div class="learnMoreBtn">
+                   <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                </div>
+                <div class="learnMoreBtn">
+                   <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                </div>
+              </div> 
+              </div>
+              <div class="chooseCartSize {% if block.settings.varientLine %} cartLine {% endif %}">
+                  {% if block.settings.list_variant %}
+                    <p>CHOOSE <br> THE SIZE</p>
+                       {% if block.settings.variant == blank %}
+                		  <div class="problemCartVar">	
+                            {% for product_option in product_data.options_with_values %}
+                              {% if product_option.name == 'Size' %}
+                                {% assign sizes = product_option.values.size %}
+                                {% for variant in product_data.variants %}
+                                  {% if forloop.index <=  sizes %}
+                                    <span class="cartSize" id="{{forloop.index}}">
+                                      <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                                    </span>
+                                  {% endif %}
+                                {% endfor %}
+                              {% endif%}
+                            {% endfor %} 
+                		  </div>
+                          {% else %}
+                		<div class="problemCartVar">
+                            {% for variant in product_data.variants %}
+                                {% if variant.option1 == block.settings.variant %}
+                                    <span class="cartSize" id="{{forloop.index}}">
+                                      <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                                    </span>
+                                {% endif %}
+                            {% endfor %}
+                		</div>
+                            {% endif %}
+                      {% endif %}
+                </div>
+              <div class="CartRate sf_rate">                
+                <h2> {{ product_price }} </h2>
+              </div>
+              <div class="buttonContainerDesktop">
+                <div class="learnMoreBtn">
+                   <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                </div>
+                <div class="learnMoreBtn">
+                   <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                </div>
+              </div>
+            </div>
+    	 {% endif %}
+    	 {% if block.type == 'twoproduct' %}
+    		<div class="__redboxContent">
+              <div class="problemContentInredBox">
+                <div class="_problemleftContent">
+                  <h5>{{ block.settings.headlineTwoProduct }}</h5>
+                  <p>{{ block.settings.pargph }}</p>
+                </div>
+                <div class="_problemrightContent">
+                  <h4>{{ block.settings.headlineTwoProduct2 }}</h4>
+                  {% if  block.settings.twoproImg %}
+              			{{ block.settings.twoproImg | img_url:'master' |img_tag:'twoproImg','img-responsive' }}
+              	  {% endif %}
+                </div>
+              </div>
+    		</div>	
+    	 {% endif %}
+    	 {% if block.type == 'bottomproducts' %}
+            <div class="__problem-bottom single_product_ex">
+              <div class="dogSupplement-heading ProHead">
+                <div class="treatTitle cust_dg_p">
+                <h3 class=" findProductHeading petTitle">{{block.settings.proHedName}}</h3>
+                </div>
+              </div>
+              <div class="__problem-midContent">
+                <div class="__problem-container">
+                   <div class="__problemProductBanner">
+                     {% if  block.settings.prosuppimg1 %}
+                        {{ block.settings.prosuppimg1 | img_url:'master' |img_tag:'prosuppimg1','img-responsive' }}
+                     {% endif %}
+                   </div>
+                </div>
+              </div>
+              <div class="dogSuppBottom-Section">
+                <p>{{block.settings.proBottCont}}</p>
+              </div>
+            </div>
+          <style>
+            .dogSupplement-heading.ProHead h3 span{
+              color:{{block.settings.proHedcolor}};
+            }
+          </style>
+    	 {% endif %}
+      {% endfor %}
+  </div>
+  <div class="__needMoreInfo">
+    <a href="{{section.settings.needMoreInfourl}}">
+      {% if  section.settings.needMoreInfo %}
+        {{ section.settings.needMoreInfo | img_url:'master' |img_tag:'needMoreInfo','img-responsive' }}
+      {% endif %}
+    </a>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Pet Products",
+    "settings": [
+		 {"type":"image_picker","id":"addi_img1","label":"Banner Image"},
+		 {"type":"image_picker","id":"addi_imgMob","label":"Banner Image[mobile]"},
+		 {"type":"html","id":"section2Content","label":"Section 2 - Text"},
+		 {"type":"url","id":"section2url","label":"Section 2 - Button url"},
+      	   {"type": "header","content": "Need More Info"},
+		 {"type":"image_picker","id":"needMoreInfo","label":"Need More Info Image"},
+		 {"type":"url","id":"needMoreInfourl","label":"Url"},
+      	 {"type": "header","content": "FAQ Data"},
+		 {"type":"checkbox","id":"proPagefaq","label":"Show FAQ","default":false},
+	     {"type":"text","id":"faqText","label":"FAQ Text (1)","default":"Information retrieved from"},
+	     {"type":"text","id":"faqGotFrom","label":"FAQ Text (2)"},
+		 {"type":"url","id":"faqGotFromUrl","label":" FAQ URL"}
+	],
+	"blocks" : [{
+        "type": "ProBanner",
+        "name": "ProBanner",
+        "settings": [
+	       {"type":"image_picker","id":"prodBanner","label":"Product Banner"},
+	       {"type":"text","id":"prodBannerHeading","label":"Product Name"}
+		]},
+		{
+        "type": "ProContent",
+        "name": "ProContent",
+        "settings": [
+		{"type": "select","id": "align",
+       	"options": [
+          { "value": "left", "label": "Left"},
+          { "value": "right", "label": "Right"}
+       	],
+   		"label": "Image Align "},
+	       {"type":"image_picker","id":"addi_img3","label":"Product Image"},
+		   {"type":"url","id":"imgProducturl","label":" Product URL"},
+	       {"type":"text","id":"head1","label":"Heading title (1)"},
+	       {"type":"html","id":"content1","label":"Heading Content (1)"},
+		   {"type":"color","id":"colorHead","label":"Color Heading (2)","default":"#00b6bd"},
+	       {"type":"text","id":"head2","label":"Heading title (2)"},
+	       {"type":"html","id":"content2","label":"Heading Content (2)"}
+		]},
+		{
+        "type": "AddToCart",
+        "name": "AddToCart",
+        "settings": [
+		   {"type":"product","id":"content_product","label":"Choose Product"}, 
+		   {"type":"checkbox","id":"varientLine","label":"Cart Long Line","default":false},
+		   {"type":"checkbox","id":"list_variant","label":"Show variant","default":false},
+		   {"type":"text","id":"variant","label":"List custom vairant"},
+	       {"type":"text","id":"proname","label":"Product Name"},
+	       {"type":"url","id":"learnmoreProduct","label":"Learn More - Product Link"}
+		]},
+		{
+        "type": "twoproduct",
+        "name": "Two Product",
+        "settings": [
+		   {"type":"text","id":"headlineTwoProduct","label":"Headline - Left"},
+	       {"type":"text","id":"pargph","label": "Paragraph Text"},
+	       {"type":"text","id":"headlineTwoProduct2","label":"Headline - Right"},
+	       {"type":"image_picker","id":"twoproImg","label": "bottom banner"}
+		]},
+		{
+        "type": "bottomproducts",
+        "name": "Bottom Container options",
+        "settings": [
+		   {"type": "header","content": "Bottom Container options"},
+	       {"type":"color","id":"proHedcolor","label":"Heading Color"},
+	       {"type":"text","id":"proHedName","label":"Heading Name"},
+	       {"type":"image_picker","id":"prosuppimg1","label":"Supplement Image"},
+	       {"type":"text","id":"proBottCont","label":"Bottom Content"}
+		]},
+		{
+			"type":"faq",
+			"name":"faq content",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data","label":"Faq Content"}
+			   ]
+		}
+],
+	"presets":[{
+      "name": "Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+
+      	   

@@ -1,0 +1,58 @@
+
+<section class="BannerHome  sfBannerHome sf_Premium_Fashion sf_shrink_mob" {% if section.settings.home_bg_ps != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{section.settings.home_bg_ps}});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+  
+  <div class="container">
+		<div class="row ">
+			<div class="BannerHome">
+              <div class="shed_img">
+            	 {{ section.settings.home_banner_ps | img_url:'master' | img_tag:'home_banner_ps','img-responsive' }} 
+			</div>
+				<div class="BannerContent">
+                  <h2>{{section.settings.home_banner_heading_ps}}</h2>
+                  <p>{{section.settings.home_banner_des_ps}}</p>
+                  <a href="{{section.settings.home_banner_url_ps}}">Learn More</a>
+             	 </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="BannerHome  sfBannerHome sf_Premium_Fashion sf_shrink sf_desktab" {% if section.settings.home_bg_ps != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{section.settings.home_bg_ps}});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+  <div class="Sf_shrink_img">
+  	{{ 'premium-sf.png' | asset_url | img_tag: 'Sf_banners', 'sf_shrink_img_inn' }}
+  </div>
+  <div class="container">
+		<div class="row ">
+			<div class="BannerHome">
+              <div class="shed_img">
+            	 {{ section.settings.home_banner_ps | img_url:'master' | img_tag:'home_banner_ps','img-responsive' }} 
+			</div>
+				<div class="BannerContent">
+                  <h2>{{section.settings.home_banner_heading_ps}}</h2>
+                  <p>{{section.settings.home_banner_des_ps}}</p>
+                  <a href="{{section.settings.home_banner_url_ps}}">Learn More</a>
+             	 </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% schema %}
+{
+"name" : "Premium and Fashion",
+"settings" : [			
+{"type":"image_picker","id":"home_bg_ps","label":"Background Image"},
+{"type":"image_picker","id":"home_banner_ps","label":"Image"},
+{"type":"text","id":"home_banner_heading_ps","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des_ps","label":"Banner Description"},
+{"type":"url","id":"home_banner_url_ps","label":"Button Url"}
+],
+"presets": [{
+"name": "Premium and Fashion"
+}]
+}
+{% endschema %}

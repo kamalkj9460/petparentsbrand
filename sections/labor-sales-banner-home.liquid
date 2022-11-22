@@ -1,0 +1,218 @@
+<section id="section_id_{{section.id}}" class="LaborDayBanner">
+  {% if section.settings.LaborDayBanner_Link != blank %}<a href="{{- section.settings.LaborDayBanner_Link -}}">{% endif %}
+<div class="laborMain_part"> 
+  {% if section.settings.LaborDayBanner %}
+  <img class="banner_common_class home_Forage_desktab" src="{{ section.settings.LaborDayBanner | img_url:'master'}}" />
+    {% endif %}
+    {% if section.settings.LaborDayBanner_m %}
+  <img class="banner_common_class home_Forage_mobile" src="{{ section.settings.LaborDayBanner_m | img_url:'master'}}" />
+    {% endif %}
+  <div class="container"> 
+    <div class="LaborDay_main">
+      <div class="LabDay_main LabDay_main_lft">
+        {% if section.settings.LaborDay_lft_txt != blank %}
+         <h2>{{- section.settings.LaborDay_lft_txt -}}</h2>
+          {% endif %}
+          {% if section.settings.LaborDay_lft_s_txt != blank %}
+         <h4>{{- section.settings.LaborDay_lft_s_txt -}}</h4>
+          {% endif %}
+          {% if section.settings.LaborDay_lft_e_txt != blank %}
+         <p>{{- section.settings.LaborDay_lft_e_txt -}}</p>
+          {% endif %}
+      </div>
+      <div class="LabDay_main LabDay_main_rgt">
+        {% if section.settings.LaborDay_rgt_txt != blank %}
+         <div class="PercentagE">{{- section.settings.LaborDay_rgt_txt -}}</div>
+          {% endif %}
+          {% if section.settings.LaborDay_rgt__s_txt != blank %}
+         <h3>{{- section.settings.LaborDay_rgt__s_txt -}}</h3>
+          {% endif %}
+          {% if section.settings.LaborDayBanner_code != blank %}
+         <p><span>code</span>{{ section.settings.LaborDayBanner_code }}</p>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+  {% if section.settings.LaborDayBanner_Link != blank %}</a>{% endif %}
+</section>
+{% schema %}
+{
+"name" : "Labor Day Banner",
+"settings" : [			
+    {"type":"image_picker","id":"LaborDayBanner","label":"Background Image (Desktop)"},
+    {"type":"image_picker","id":"LaborDayBanner_m","label":"Background Image (Mobile)"},
+    {"type":"url","id":"LaborDayBanner_Link","label":"Banner Link"},
+    {"type":"header", "content":"Left Part"},
+    {"type":"text","id":"LaborDay_lft_txt","label":"Labor Text","default":"LABOR DAY"},
+    {"type":"text","id":"LaborDay_lft_s_txt","label":"Sale Text","default":"LIGHTNING SALE"},
+    {"type":"text","id":"LaborDay_lft_e_txt","label":"Discount Text","default":"EXCLUSIVE DISCOUNT CODES - THRU MONDAY 9/5"},    
+    {"type":"header", "content":"Right Part"},
+    {"type":"html","id":"LaborDay_rgt_txt","label":"Percent Text"},
+    {"type":"text","id":"LaborDay_rgt__s_txt","label":"Saving Text","default":"SITEWIDE SAVINGS"},
+    {"type":"text","id":"LaborDayBanner_code","label":"Code","default":"LABOR15"}
+  ],
+"presets": [{
+"name": "Labor Day Banner"
+}]
+}
+{% endschema %}
+<style>
+
+.laborMain_part {
+    position: relative;
+    padding: 10px 0 35px;
+}
+.laborMain_part .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.LaborDay_main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 5%;
+}
+img.banner_common_class {
+    width: 100%;
+}
+.LabDay_main_lft h2 {
+    margin: 0;
+    color: #00b7bc;
+    font-size: clamp(55px, 6vw, 90px);
+    letter-spacing: -7px;
+    font-weight: 800;
+    line-height: 0.85;
+}
+.LabDay_main_lft h4 {
+    margin: 0;
+    font-size: 24px;
+    color: #706f6f;
+    letter-spacing: 16px;
+    font-weight: 800;
+    margin: 8px 0 12px;
+}
+.LabDay_main_lft  p {
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
+.PercentagE {
+    margin: 0;
+    color: #00b7bc;
+    font-size: clamp(75px, 9vw, 130px);
+    letter-spacing: -7px;
+    font-weight: 400;
+    margin-top: 36px;
+    
+}
+.PercentagE .number {
+    font-family: "Gentona";
+  }
+.PercentagE sup {
+    top: -0.6em;
+    font-size: 50%;
+    left: 10px;
+}
+span.off {
+    font-size: clamp(45px, 4.2vw, 60px);
+    letter-spacing: .5px;
+}
+span.slash {
+    transform: rotate(15deg) translateX(4px);
+    display: inline-block;
+}
+.LabDay_main_rgt h3 {
+    margin: 22px 0 10px 0;
+    color: #c6c6c6;
+    font-size: 30px;
+    font-weight: 400;
+}
+.LabDay_main_rgt p {
+    max-width: 320px;
+    border: 1px dashed #c6c6c6;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px 5px;
+    color: #e62a32;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 20px;
+    font-style: italic;
+     letter-spacing: 2px;
+}
+.LabDay_main_rgt p span {
+    color: #c6c6c6;
+    font-size: 14px;
+    text-transform: uppercase;
+   font-style: normal;
+}
+  
+  
+@media(max-width: 991px) {
+  .LaborDayBanner .home_Forage_mobile {
+    display: block !important;
+  }
+  .LaborDayBanner .home_Forage_desktab {
+    display: none !important;
+  }
+  .LabDay_main_lft h2 {
+    text-align: center;
+    margin-top: 35px;
+}
+  .LaborDay_main {
+      flex-direction: column;
+      grid-gap: 5px;
+  }
+  .LabDay_main_lft p {
+      font-size: clamp(9px, 1.2vw, 18px);
+      text-align: center;
+      letter-spacing: 0;
+      margin: 0 !important;
+  }
+    .LabDay_main_lft h4 {
+      letter-spacing: 7px;
+      font-weight: 900;
+      font-size: clamp(18px, 3vw, 55px);
+      text-align: center;
+      margin: 5px 0;
+      
+  }
+    .PercentagE {
+      margin-top: 20px;
+      text-align: center;
+  }
+  span.off {
+      font-size: clamp(36px, 4.5vw, 75px);
+  }
+  .LabDay_main_rgt h3 {
+      margin: 10px 0 6px 0;
+      font-size: 16px;
+      text-align: center;
+  }
+    .LabDay_main_rgt p {
+        border-radius: 25px;
+        padding: 5px 5px;
+        font-size: 20px;
+        grid-gap: 10px;
+      border-radius: 10px;
+        
+    }
+    .LabDay_main_rgt p span {
+        font-size: 10px;
+    }
+    .laborMain_part {
+        padding: 10px 0 0px;
+    }
+   span.slash {
+      padding: 0 3px 0 6px;
+  }
+    
+}
+  
+</style>

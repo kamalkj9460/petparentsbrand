@@ -1,0 +1,22 @@
+<!-- Homepage Banner Image Section -->
+<!-- sections/homepage-sale_bannerwith_url.liquid-->
+  {% if section.settings.bannerimg1 and section.settings.banner_url1 %}
+  <div class="banner_main bannerimg_data">
+    <div class="col-md-12 no-padding">
+      <a href="{{section.settings.banner_url1}}">{{ section.settings.bannerimg1 | img_url: 'master' | img_tag:'sale_banner','lazyloaded' }}</a>
+    </div>    
+  </div>
+  {% endif %}
+{% schema %}
+  {
+    "name" : "Banner With URL",
+    "settings" : [			
+			{"type":"image_picker","id":"bannerimg1","label":"Sale Banner Image"},
+            {"type":"url","id":"banner_url1","label":"Url of the Banner Image"}
+		],
+	"presets": [{
+      "name": "Sale Banner URL",
+      "category": "Homepage"
+    }]
+  }
+{% endschema %}

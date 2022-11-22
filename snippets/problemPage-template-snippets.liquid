@@ -1,0 +1,355 @@
+<div class="__problem_pageContainer">
+  <div class="__probContent__PetAge {% if section.settings.addi_imgMob %}desktopSection{% endif %}">
+    {% if  section.settings.addi_img1 %}
+    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+    
+    {% endif %}
+  </div>
+  {% if section.settings.addi_imgMob %}
+  <div class="__probContent__PetAge mobileSection">
+    {% if  section.settings.addi_imgMob %}
+    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_imgMob | img_url: 'master' }}" alt="addi_imgMob">
+    
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="__section2-problem problem_blue">
+    <p>{{section.settings.section2Content}}</p>
+    <div class="learnMoreBtn btn_vast" style="display:none;">
+		<a href="{{section.settings.section2url}}" class="RedButton">READ OUR BLOG POST</a>
+	</div>
+  </div>
+  {% if section.settings.proPagefaq %}
+  <!-- FAQ section starts -->  	
+  	<script>
+      $(function () {
+      $("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
+      });
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <section class="ProductFaq">
+        <div class="container">
+          <div class="row">
+            <div class="pp-12">
+              <h1 class="sf_h1_heading">{{page.title}}</h1>
+              <div class="faqproductpage custom_sf_h2">
+                <h2 style="color:#e3002b">Frequently Asked Questions</h2>
+                <div id="accordion">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'faq' %}
+                        <h3>{{block.settings.faq_title}}</h3>
+                        <div>
+                          <p>{{block.settings.faq_data}}</p>
+                        </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="citiation">
+                <h6 style="text-transform: none;">{{section.settings.faqText}} <a href="{{section.settings.faqGotFromUrl}}" >{{section.settings.faqGotFrom}}</a> </h6>
+              </div>
+            </div>
+          </div>
+        </div> 
+    </section>
+  
+  <!-- FAQ section ends -->
+  {% endif %}
+  <div class="__prductDetailsPro">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'ProBanner' %}
+            <div class="__problemProductBanner {{block.settings.prodBannerHeading}}" {{block.shopify_attributes}}>
+              	{% if  block.settings.prodBanner %}
+              		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner | img_url: 'master' }}" alt="prodBanner">
+              		
+              	{% endif %}
+              <h2>{{block.settings.prodBannerHeading}}</h2>
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'ProContent' %}
+            <div class="__problemProductContent prob_30_70 pnt_p" {{block.shopify_attributes}}>
+            	{%if block.settings.align =="left"%}
+              		<div class="productIng">
+                      <a href="{{block.settings.imgProducturl}}">
+                      	<span>
+                          {% if  block.settings.addi_img3 %}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img3 | img_url: 'master' }}" alt="addi_img3">
+                              
+                          {% endif %}
+                        </span>
+					  </a>
+                      <div class="prodpawline"></div>
+              		</div>
+              		
+              	{% endif %}
+              	<div class="productDetailsContent">
+                  <span>
+                  {% if block.settings.head1 != '' %}
+                    <div class="problemProduct para_style1">
+                      <h5>{{block.settings.head1}}</h5>
+                      <p>{{block.settings.content1}}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.head2 != '' %}
+                    <div class="problemProduct para_style2">
+                      <h5 style="color:{{block.settings.colorHead}}">{{block.settings.head2}}</h5>
+                      <p>{{block.settings.content2}}</p>
+                    </div>
+                  {% endif %}
+                  </span>
+              	</div>
+            	{%if block.settings.align =="right"%}
+              		
+              		<div class="productIng righ_Img">
+                      <div class="prodpawline"></div>
+                      <a href="{{block.settings.imgProducturl}}">
+                      <span>
+          			{% if  block.settings.addi_img3 %}
+                        		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img3 | img_url: 'master' }}" alt="addi_img3">
+              			
+              		{% endif %}
+                      </span>
+                      </a>
+              		</div>
+              	{% endif %}
+            </div>
+    	 {% endif %}
+      	 {% if block.type == 'AddToCart' %}
+    		{% assign = product_id 		= block.settings.content_product %}
+    		{% assign = product_data	= all_products[product_id] %}
+    		{% assign product_price 	= product_data.price | money %}
+    
+    		{% unless block.settings.list_variant  %}
+                {% assign product_price = product_data.selected_or_first_available_variant.price | money %}                	
+            {% endunless %}
+    		{% assign selected = product_data.selected_or_first_available_variant.id %}
+            {% if block.settings.variant != blank %}
+            	{% for variant in product_data.variants %}
+                	{% if variant.option1 == block.settings.variant %}
+    					{% assign selected = variant.id %}
+                        {% assign  product_price = variant.price | money %}
+    					{% break %}
+                	{% endif %}
+                {% endfor %}
+            {% endif %}
+    
+    		{% capture prodictTitle %}{% if block.settings.proname %}{{block.settings.proname}}{% else %}{{product_data.title}}{% endif %}{% endcapture %}
+    		
+            <div class="AddToCartInPages {{ prodictTitle }} AddSuppToCart1" {{block.shopify_attributes}}>
+              <div class="problemPageCartTopSec">
+                <div class="cartContent">
+                  <h2 data-id="{{selected}}">{{ prodictTitle }}</h2>
+                </div> 
+                <div class="buttonContainerMobile">
+                <div class="learnMoreBtn">
+                   <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                </div>
+                <div class="learnMoreBtn">
+                   <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                </div>
+              </div>  
+              </div>
+              <div class="chooseCartSize {% if block.settings.varientLine %} cartLine {% endif %}">
+                  {% if block.settings.list_variant %}
+                    <p>CHOOSE <br> THE SIZE</p>
+                	{% if block.settings.variant == blank %}
+                	  <div class="problemCartVar">
+                        {% for product_option in product_data.options_with_values %}
+                          {% if product_option.name == 'Size' %}
+                            {% assign sizes = product_option.values.size %}
+                            {% for variant in product_data.variants %}
+                              {% if forloop.index <=  sizes %}
+                                <span class="cartSize" id="{{forloop.index}}">
+                                  <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                                </span>
+                              {% endif %}
+                            {% endfor %}
+                          {% endif%}
+                        {% endfor %} 
+               		 </div>
+                    {% else %}
+                      <div class="problemCartVar">
+                        {% for variant in product_data.variants %}
+                            {% if variant.option1 == block.settings.variant %}
+                                <span class="cartSize" id="{{forloop.index}}">
+                                  <h6 id="{{ variant.id }}" price="{{ variant.price | money}}">{{ variant.option2 | split:'-' | first }}</h6>
+                                </span>
+                            {% endif %}
+                        {% endfor %}
+                     </div>
+                	{% endif %}
+                  {% endif %}
+                </div>
+              <div class="CartRate sf_rate">                
+                <h2> {{ product_price }} </h2>
+              </div>
+              <div class="buttonContainerDesktop">
+                <div class="learnMoreBtn">
+                   <a href="javascript:void(0);" addToCart="" class="RedButton">{{- settings.atc_button -}}</a>
+                </div>
+                <div class="learnMoreBtn">
+                   <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+                </div>
+              </div>
+            </div>
+    	 {% endif %}
+    	 {% if block.type == 'twoproduct' %}
+    		<div class="__redboxContent" {{block.shopify_attributes}}>
+              <div class="problemContentInredBox">
+                <div class="_problemleftContent">
+                  <h5>{{ block.settings.headlineTwoProduct }}</h5>
+                  <p>{{ block.settings.pargph }}</p>
+                </div>
+                <div class="_problemrightContent">
+                  <h4>{{ block.settings.headlineTwoProduct2 }}</h4>
+                  {% if  block.settings.twoproImg %}
+                  		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.twoproImg | img_url: 'master' }}" alt="twoproImg">
+              			
+              	  {% endif %}
+                </div>
+              </div>
+    		</div>	
+    	 {% endif %}
+    	 {% if block.type == 'multicart' %}
+    		{% assign p_title 	= '' %}    		
+    		{% assign p_ids 	= '' %}
+    		{% assign _price	= 0 %}
+    		{% for i in (1..5) %}
+    			{% capture product_title %}pro_{{i}}_text{% endcapture %}
+    			{% capture product_ids %}pro_{{i}}{% endcapture %}
+    			{% if block.settings[product_title] != blank %}    				
+    				{% assign p_title = p_title | append:' + ' | append: block.settings[product_title]  %}
+    			{% endif %}
+    			{% if block.settings[product_ids] != blank %}
+    				{% assign p_data 		= block.settings[product_ids] %}
+    				{% assign product_data 	= all_products[p_data] %}
+    				{% assign p_id 			= product_data.selected_or_first_available_variant.id %}
+    				{% assign p_ids 		= p_ids | append:'|' | append: p_id %}
+    				{% assign p_price		= product_data.selected_or_first_available_variant.price %}
+    				{% assign _price = _price | plus: p_price%}
+    			{% endif %}
+    		{% endfor %}
+    		{% assign p_title = p_title | remove_first: " + " %}
+    		{% assign p_ids   = p_ids | remove_first: "|" %}
+            <div class="AddToCartInPages _multiCart" {{block.shopify_attributes}}>
+              <div class="cartContent">
+                <h2 data-id="{{p_ids}}">{{ p_title }}</h2>
+              </div>              
+              <div class="chooseCartSize {% if block.settings.varientLine %} cartLine {% endif %}">                  
+              </div>
+              <div class="CartRate sf_rate">                
+                <h2> {{ _price | money }} </h2>
+              </div>
+              <div class="learnMoreBtn">
+                 <a href="javascript:void(0);" addToCart="" class="RedButton">BUY NOW</a>
+              </div>
+<!--               <div class="learnMoreBtn">
+                 <a href="{{block.settings.learnmoreProduct}}" class="_learnMoreClass">Learn More</a> 
+              </div> -->
+            </div>
+    	 {% endif %}
+    {% if block.type == 'ProContentCompair' %}
+            <div class="__problemProductContent prob_30_70 pnt_p sf_campair_section_pb" {{block.shopify_attributes}}>
+            	{%if block.settings.alignCompair =="left"%}
+              		<div class="productIng">
+                      <div class="sf_image_combint">
+                      <a href="{{block.settings.sf_url_compar1}}">
+                      	<span>
+                          {% if  block.settings.sf_img_compar1 %}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar1 | img_url: 'master' }}" alt="sf_img_compar1">
+                              
+                          {% endif %}
+                        </span>
+					  </a>
+                      <a href="{{block.settings.sf_url_compar2}}">
+                      	<span>
+                          {% if  block.settings.sf_img_compar2 %}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar2 | img_url: 'master' }}" alt="sf_img_compar2">
+                              
+                          {% endif %}
+                        </span>
+					  </a>
+                      </div>
+                      <div class="prodpawline"></div>
+              		</div>
+              		
+              	{% endif %}
+              	<div class="productDetailsContent">
+                  <span>
+                  {% if block.settings.sf_title_compar1 != '' %}
+                    <div class="problemProduct para_style1">
+                      <h5 style="color:{{block.settings.sf_color_compar1}}">{{block.settings.sf_title_compar1}}</h5>
+                      <p>{{block.settings.sf_content_compar1}}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.sf_title_compar2 != '' %}
+                    <div class="problemProduct para_style1">
+                      <h5 style="color:{{block.settings.sf_color_compar2}}">{{block.settings.sf_title_compar2}}</h5>
+                      <p>{{block.settings.sf_content_compar2}}</p>
+                    </div>
+                  {% endif %}
+                     {% if block.settings.sf_title_compar3 != '' %}
+                    <div class="problemProduct para_style2">
+                      <h5 style="color:{{block.settings.sf_color_compar3}}">{{block.settings.sf_title_compar3}}</h5>
+                      <p>{{block.settings.sf_content_compar3}}</p>
+                    </div>
+                  {% endif %}
+                  </span>
+              	</div>
+            	{%if block.settings.alignCompair =="right"%}
+              		
+              		<div class="productIng righ_Img">
+                      <div class="prodpawline"></div>
+                      <div class="sf_image_combint">
+                     <a href="{{block.settings.sf_url_compar1}}">
+                      	<span>
+                          {% if  block.settings.sf_img_compar1 %}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar1 | img_url: 'master' }}" alt="sf_img_compar1">
+                              
+                          {% endif %}
+                        </span>
+					  </a>
+                      <a href="{{block.settings.sf_url_compar2}}">
+                      	<span>
+                          {% if  block.settings.sf_img_compar2 %}
+                          		<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.sf_img_compar2 | img_url: 'master' }}" alt="sf_img_compar2">
+                              
+                          {% endif %}
+                        </span>
+					  </a>
+                      </div>
+              		</div>
+              	{% endif %}
+            </div>
+    	 {% endif %}
+      {% endfor %}
+  </div>
+</div>
+<div class="__problem-bottom single_product_ex">
+  <div class="dogSupplement-heading ProHead">
+    <div class="treatTitle cust_dg_p">
+    <h3 class=" findProductHeading petTitle">{{section.settings.proHedName}}</h3>
+    </div>
+  </div>
+  <div class="__problem-midContent">
+    <div class="__problem-container">
+       <div class="__problemProductBanner">
+         {% if  section.settings.prosuppimg1 %}
+         	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.prosuppimg1 | img_url: 'master' }}" alt="prosuppimg1">
+            
+         {% endif %}
+       </div>
+    </div>
+  </div>
+  <div class="dogSuppBottom-Section">
+    <p>{{section.settings.proBottCont}}</p>
+  </div>
+</div>
+<div class="__needMoreInfo">
+    <a href="{{section.settings.needMoreInfourl}}">
+      {% if  section.settings.needMoreInfo %}
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.needMoreInfo | img_url: 'master' }}" alt="needMoreInfo">
+        
+      {% endif %}
+    </a>
+</div>

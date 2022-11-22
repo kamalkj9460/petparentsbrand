@@ -1,0 +1,53 @@
+<section class="washingEssentials">
+  <div class="container">
+  <div class="heading">
+    <h1>{{section.settings.sf_we_heading}}</h1>
+  </div>
+</div>
+</section>
+<section class="washingEssentials_main">
+  <div class="container">
+    <div class="washingEss_lf_rgt">
+    <div class="washingEss_main washingEss_main_left">
+      <h3>{{- section.settings.sf_we_title -}}</h3>
+      <p>{{- section.settings.sf_we_content -}}</p>
+      <a class="we_shop_now" href="{{- section.settings.sf_we_url -}}">Shop Now</a>
+      {% if section.settings.sf_we_img %}
+	{{ section.settings.sf_we_img | img_url:'master' | img_tag:'sf_we_img','img-responsive' }}
+	{% endif %}
+ {% if section.settings.sf_we_img1 %}
+	{{ section.settings.sf_we_img1 | img_url:'master' | img_tag:'sf_we_img1','img-responsive' }}
+	{% endif %}
+  </div>
+     <div class="washingEss_main washingEss_main_right">
+       {% if section.settings.sf_we_img2 %}
+	{{ section.settings.sf_we_img2 | img_url:'master' | img_tag:'sf_we_img','img-responsive' }}
+	{% endif %}
+      <h3>{{- section.settings.sf_we_title2 -}}</h3>
+      <p>{{- section.settings.sf_we_content2 -}}</p>
+      <a class="we_shop_now" href="{{- section.settings.sf_we_url2 -}}">Shop Now</a>      
+  </div>
+</div>
+</div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Washing Essentials",
+    "settings": [
+          {"type":"text","id":"sf_we_heading","label":"Heading"},
+          {"type":"header", "content":"Left Part"},
+          {"type":"text","id":"sf_we_title","label":"Title"},
+          {"type":"html","id":"sf_we_content","label":"Content"},
+          {"type":"url","id":"sf_we_url","label":"Button Url"},
+          {"type":"image_picker","id":"sf_we_img","label":"Image 1"},
+          {"type":"image_picker","id":"sf_we_img1","label":"Image 2"},
+          {"type":"header", "content":"Right Part"},
+          {"type":"text","id":"sf_we_title2","label":"Title"},
+          {"type":"html","id":"sf_we_content2","label":"Content"},
+          {"type":"url","id":"sf_we_url2","label":"Button Url"},
+        {"type":"image_picker","id":"sf_we_img2","label":"Image"}
+    ]
+  }
+{% endschema %}

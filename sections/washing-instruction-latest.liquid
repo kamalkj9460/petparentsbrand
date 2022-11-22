@@ -1,0 +1,20 @@
+<section class="sf_n_WashingInstruction">
+  <div class="sectionTitle">
+    <h1>{{ section.settings.wi_banner_title }}</h1>
+    <p>{{ section.settings.wi_banner_sub_title }}</p>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Washing Instruction Title",
+    "settings": [
+	{"type":"text","id":"wi_banner_title","label":"Heading"},
+	{"type":"html","id":"wi_banner_sub_title","label":"Sub Heading"}
+	],
+	"presets": [{
+			"name": "Washing Instruction Title"
+		}]
+  }
+{% endschema %}

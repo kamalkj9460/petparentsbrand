@@ -1,0 +1,85 @@
+{% layout 'themeX' %}
+{% render 'article-css' %}
+{% render 'custom-pet-blog-css' %}
+<link rel="stylesheet" data-href="{{ 'article.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'custom-pet-blog.css' | asset_url }}">
+<div class="article_id_{{article.id}}">
+{% section 'Blog-subheader'%}
+<section id="blog_header">
+  <div class="blog-main-header" style="background:{% if article.image.src %}url({{ article.image.src | image_url: width: 100% }}){% else %}#04b3bf{% endif %};">
+ {% comment %}<img src="{{ article.image.src | image_url: width: 100% }}" >{% endcomment %}
+    <div class="container"><h1>{{- article.title -}}</h1></div>
+  </div>
+</section>
+{% capture blogRightSide %}
+  <div class="__blogRightNew _arttemplate">
+      {% include "blog-custom-sidebar" , curArticle:article %}
+  </div>
+{% endcapture %}
+
+<section id="middle_conetne_area">
+  <div class="middle_conetne_area">
+    <div class="container">
+<div class="dp_trade_logo"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/logo-mark12.png" alt=""></div>
+</div>
+  <div class="container">
+  {{-article.content-}}
+  </div>
+  </div>
+</section>
+{% comment %}
+<div class="related_Articles">
+  <div class="container">
+  {{- blogRightSide -}} 
+  </div>
+</div>
+{% endcomment %}
+<div class="blog_footer_A">
+      <div class="container">
+    		<div class="desktopActive_is"> {% section 'Blogcategory-search'%}</div>
+          <div class="mobActive_is">{% section 'Blog-search'%}</div> 
+  		</div>
+
+      <div class="container">
+          {% section 'single-post-setting' %}
+      </div>
+</div>
+{% comment %}capturing the products from tags{% endcomment %}
+{% capture product-popup-bar %}
+	{% assign product_ids = "" | split: "," %}
+	{% for tag in article.tags %}
+		{% if tag contains 'meta-product-' %}
+			{% assign productid = tag | split:'meta-product-' | last | split: ',' %}
+			{% assign product_ids = product_ids | concat: productid  %}
+		{% endif %}
+	{% endfor %}
+
+	{% if product_ids.size > 0 %}
+      {% paginate collections['all'].products by 500 %}
+          {% assign by_now = 'Learn More' %}
+          <ul class="articleStikcyCart articleStikcyCartoff" style="opacity:0;">            
+              <li class="featuredProducts"><span class="strong">Featured</span> Products</li>          	
+              <ul class="_listProducts" data-id="{{product_ids| json}}">
+                {% for product in collections['all'].products %}
+                    {% for productID in product_ids %}
+                        {% assign pro1  = productID | plus: 0 %}
+                        {% assign pro2 = product.id | plus:0 %}
+                        {% if pro1 ==  pro2 %}
+                            {% render 'article-product-data', product: product, by_now:by_now %}						
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+              </ul>
+          </ul>
+      {% endpaginate %}
+	{% endif %}
+{% endcapture %}
+{% comment %}
+<div class="container">
+<div class="see_more_articles breed"><a href="/pages/pet-blog" class="">BLOG HOME PAGE</a></div>
+</div>
+{% endcomment %}
+<!-- product banner popup-->
+{{- product-popup-bar -}}
+</div>
+

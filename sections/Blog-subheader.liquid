@@ -1,0 +1,57 @@
+<!-- Blog Landing Top Section -->
+<div class="header-petblog">
+  <div class="header_imges">   
+    {% comment %}{% if section.settings.header_img !=blank %}    
+    {{ section.settings.header_img | img_url:'master' | img_tag:'header_img','img-responsive' }}
+    {% else %}
+    {% if section.settings.header_text %}
+    <h2>{{ section.settings.header_text }}</h2>    
+    {% endif %}
+    {% if section.settings.banner_text %}
+      <p class="header_text">{{ section.settings.banner_text }}</p>
+     {% endif %}
+    {% endif %} {% endcomment %}
+   <img src="{{ 'logo_9.svg' | asset_url }}" alt="loggo"/>
+    </div>
+</div>
+<div class="BlogListNav">
+  <!-- begin site-nav -->
+  <ul class="nav">
+    {% for link in linklists[section.settings.drawer_top_link].links %}
+    {% if link.links != blank %}
+      {% assign parent_index = forloop.index %}
+      <li class="{{ link.title | handleize | escape }} _if">
+        <a href="{{ link.url }}" class="{% if link.active %}active{% endif%}">{{ link.title | escape }}</a>
+        {% if link.url contains section.settings.mega_menu_item %}
+          {% render 'sub-mega-menu' %}
+        {% else %}
+          {% render 'nav-sub-child-items', link:link %}    
+        {% endif %}
+      </li>
+    {% else %}
+      <li class="{{ link.title | handleize | escape }} _else">
+        <a href="{{ link.url }}" class="{% if link.active %}active{% endif%}" data-meganav-type="child"
+           {% unless template.name == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
+           {{ link.title | escape }}        
+        </a>
+        {% if link.url contains section.settings.mega_menu_item %}
+            {% render 'sub-mega-menu' %}
+          {% endif %}
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <!-- //site-nav -->
+</div>            
+
+{% schema %}
+  {
+    "name": "Health Top Section",
+    "settings": [
+		 {"type":"image_picker","id":"header_img","label":"Header Image"},
+         {"type":"html","id":"header_text","label":"Header Text"},
+         {"type":"text","id":"banner_text","label":"Sub Heading text"},
+         { "type": "link_list",  "id": "drawer_top_link", "label": "Primary menu","default": "main-menu" }
+       ]		
+  }
+{% endschema %}

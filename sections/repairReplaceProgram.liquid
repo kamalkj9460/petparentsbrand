@@ -1,0 +1,459 @@
+<section id="RepairReplaceProgram">
+  <div class="RepairReplaceProgram RepairReplaceProgram_01" style="background:{{-section.settings.blc_banner_bg-}}">
+  <div class="home-shrinkss">  
+    
+ {%comment%}   {% if section.settings.blc_banner_m %}
+		{{ section.settings.blc_banner_m | img_url:'master' | img_tag:'blc_banner_m','home-blaket is_mobile_enble img-responsive' }}
+	{% endif %}{%endcomment%}
+      <div class="container">
+          <div class="row ">
+            <div class="half-empty">
+              
+                  {{ section.settings.blc_banner | img_url:'master' | img_tag:'blc_banner','img-responsive' }}
+             
+            </div>
+              <div class="BannerHome">
+                  <div class="BannerContent">
+                    <h2>{{section.settings.blc_banner_heading}}</h2>
+                    <p>{{section.settings.blc_banner_des}}</p>                    
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</section>
+<section id="banner_bottom">
+  <div class="container">
+    <p>{{section.settings.blc_banner_b_content}}</p>
+  </div>
+</section>
+<section id="MakeAclameProgram">
+  <div class="container">    
+ 		<h2><span>{{section.settings.mc_heading}}</span></h2>
+          <div class="repairBanner">
+          {% for block in section.blocks %}
+              {% if block.type == 'repairReplaceProgram' %}
+          <p class="lster lster_0{{forloop.index}}"><span class="listNumber">{{block.settings.repairRytNo}}</span>{{block.settings.repairRyttext}}</p>
+              {% endif %}
+          {% endfor %}
+          </div>
+            <p class="btttn"><a href="{{section.settings.urlClaim}}">Make a Claim</a></p>
+        </div>
+</section>
+<section id="repairReplaceSlider">
+  <div class="container">
+    <h2><span>{{section.settings.rr_heading}}</span></h2>
+    <div class="RepairRSlider sf_PawtectBlanketSlider5 slider">
+      {% for block in section.blocks %}
+              {% if block.type == 'repairReplaceSlider' %}
+          <div class="repairRSlide repairRSlide_0{{forloop.index}}">
+            <div class="repairRSlide_items">
+            {{ block.settings.rrs_pro_img | img_url:'master' | img_tag:'rrs_pro_img','img-responsive rrs_pro_img' }}
+            {{ block.settings.rrs_chart_img | img_url:'master' | img_tag:'rrs_chart_img','img-responsive rrs_chart_img' }}
+            </div>
+      		</div>
+              {% endif %}
+          {% endfor %}
+    </div>    
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Repair Replace Program",
+    "settings": [
+	     {"type":"header", "content":"Banner"},
+            {"type":"color","id":"blc_banner_bg","label":"Background","default":"#7facc4"},
+            {"type":"image_picker","id":"blc_banner","label":"Image"},
+            {"type":"image_picker","id":"blc_banner_m","label":"Image [Mobile]"},
+            {"type":"text","id":"blc_banner_heading","label":"Banner Heading"},
+            {"type":"html","id":"blc_banner_des","label":"Banner Description"},
+			{"type":"html","id":"blc_banner_b_content","label":"Banner Bottom Content"},
+	     {"type":"header","content":"Make a Claim"},
+		 {"type":"text","id":"mc_heading","label":"Heading"},
+		 {"type":"url","id":"urlClaim","label":"Link Make Claim"},
+		{"type":"header","content":"Repair and Replacement"},
+		 {"type":"text","id":"rr_heading","label":"Heading"}
+	],
+	"blocks" : [{
+        "type": "repairReplaceProgram",
+        "name": "Claim List",
+        "settings": [
+		 {"type":"text","id":"repairRytNo","label":"List Number"},
+		 {"type":"text","id":"repairRyttext","label":"Add Text"}
+		]},
+		{
+        "type": "repairReplaceSlider",
+        "name": "Repair Replace Slide",
+        "settings": [
+		 {"type":"image_picker","id":"rrs_pro_img","label":"Product Image"},
+		 {"type":"image_picker","id":"rrs_chart_img","label":"Chart Image"}
+		]}],
+	"presets":[{
+      "name": "Repair Replace Program",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+
+<style>
+  body {font-family: "Gentona book" !important;}
+/* .is_mobile_enble{display:none !important} */
+ 
+section#BlanketComparison {
+    margin-top: 7px;
+}  
+.home-shrink {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}  
+.home-shrink img {
+    max-width: 55%;
+    width: 100%;
+}
+.home-shrink-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    height: 100%;
+    top: 0;
+    width: 100%;
+}  
+.home-shrink-content .row {
+    height: 100%;
+    align-items: center;
+}  
+.half-empty {
+    width: 60%;
+}  
+.BannerHome {
+    width: 40%;
+}  
+.BannerContent h2 {
+  font-size: 42px;
+  font-family: "Gentona book" !important;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 10px;
+  padding-bottom: 25px;
+}
+.BannerContent p {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 440px;
+    font-weight: 300;
+}
+#MakeAclameProgram h2,#repairReplaceSlider h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    padding: 80px 0 70px; 
+}
+#MakeAclameProgram h2 span,#repairReplaceSlider h2 span {
+    position: relative;
+}
+#MakeAclameProgram h2 span::after,#repairReplaceSlider h2 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #00b6bd;
+    content: "";
+    left: 0;
+    top: -20px;
+    border-radius: 5px;
+}
+  
+/* Updated css 08 March  */
+.RepairReplaceProgram.RepairReplaceProgram_01 {
+    background: #00b7bc !important;
+    margin-top: 10px;
+    padding-top: 50px;
+} 
+.BannerContent h2 {
+    font-size: 40px;
+    font-family: "Gentona book" !important;
+    color: #fff;
+    font-weight: 500;
+    text-transform: inherit;
+    margin: 0;
+    letter-spacing: 0;
+    padding-bottom: 20px;
+}
+.BannerContent p {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 30px;
+}  
+.home-shrinkss .row {
+    align-items: center;
+    margin: 0 15PX;
+    grid-gap: 40px;
+}  
+ 
+#banner_bottom p {
+    color: #706f6f;
+    font-size: 20px;
+    line-height: 1.25;
+    text-align: center;
+    max-width: 1265px;
+    padding: 0 15px;
+    font-family: "Gentona book" !important;
+    margin: 40px auto;
+}
+section#MakeAclameProgram {
+    padding: 65px 0 30px;
+    background: #f6f6f6;
+}
+#MakeAclameProgram h2 {
+    padding: 0 0 25px;
+}  
+.repairBanner p {
+    font-size: 20px;
+    color: #706f6f;
+    margin-bottom: 25px;
+}  
+.lster span {
+    min-width: 22px;
+    height: 22px;
+    background: #00b6bd;
+    font-size: 16px;
+    font-weight: 400;
+}  
+.lster {
+    align-items: start;
+}  
+.repairBanner p:last-child {
+    margin-left: 42px;
+    font-size: 16px;
+    margin-bottom: 42px;
+    font-style: italic;
+}  
+.btttn a {
+    font-size: 17px;
+    background: #00b6bd;
+    padding: 8px 16px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    display: block;
+    width: max-content;
+    margin: 0px auto;
+    line-height: 1;
+    transition: .25s;
+    height: 36px;
+} 
+.btttn a:hover {
+    background: #ed1b3c;
+} 
+.repairRSlide_items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 75px;
+}
+.repairRSlide_items .rrs_pro_img {
+    margin-left: auto;
+}  
+ul.slick-dots {
+    display: none !important;
+}  
+.RepairRSlider {
+    margin: 110px  0 15px !important;
+}  
+
+.slick-arrow {
+    position: absolute;
+    top: -120px;
+    background: #e7e7e7 !important;
+    left: unset;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px !important;
+}
+.slick-arrow:hover {
+    background: #a4a5a5 !important;
+}
+.slick-next {
+  	right: 5px;
+}
+.slide_prev {
+  	right: 35px;
+}
+.slick-arrow:before {
+    content: "";
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat !important;
+    z-index: 9999;
+    position: absolute;
+    background-position: center center !important;
+    width: 22px;
+    height: 22px;
+}  
+.slide_prev:before {
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_left.png);
+}   
+.slide_next:before {
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_right.png);
+}
+.__Footer_sec_inner {
+    border-top: 0;
+}
+#repairReplaceSlider h2 span::after {
+    background: #ed1b3c;
+    height: 15px !important;
+    border-radius: 30px;
+}  
+#MakeAclameProgram h2 span::after {
+    height: 15px  !important;
+    border-radius: 30px;
+}  
+ 
+  
+@media (max-width: 1100px) {
+	.container {
+        padding: 0 15px;
+    } 
+  	.repairRSlide_items {
+        grid-gap: 25px;
+    }
+    .RepairRSlider {
+        margin: 50px  0 0px !important;
+    }
+  	.slick-arrow {
+        top: -70px;
+    }
+}  
+
+@media (max-width: 991px) {
+	.home-shrinkss .row {
+        flex-direction: column-reverse;
+    } 
+    .BannerHome {
+        width: 80%;
+        margin: 0px auto;
+    }
+    .half-empty {
+        width: 100%;
+    }
+    .half-empty img {
+        width: 100%;
+    }
+    .BannerContent p {
+        max-width: 470px;
+    }
+}  
+  
+  
+  
+  
+@media screen and (min-width : 100px) and (max-width : 767px){
+/*     .is_desktop_enble{display:none}
+    .is_mobile_enble{display:block !important} */
+  .BannerContent p {
+      max-width: 360px;
+  }
+  .BannerContent p {
+      font-size: 14px;
+  }
+  .BannerContent h2 {
+      padding-bottom: 10px;
+  }
+  .home-shrinkss .row {
+      margin: 0;
+      grid-gap: 20px;
+  }
+  .BannerHome {
+      width: 85%;
+  }
+  #banner_bottom p {
+      font-size: 16px;
+      padding: 50px 0;
+      text-align: left;
+      width: 85%;
+      margin: 0px auto !important;
+  }
+  .repairBanner p {
+      line-height: 1.3;
+      margin-bottom: 25px !important;
+      font-size: 18px;
+  }
+  .repairBanner p:last-child {
+      font-style: italic;
+      padding-left: 38px;
+      line-height: 1.25;
+      font-size: 14px;
+  }
+  .repairRSlide_items {
+      grid-template-columns: 1fr;
+      grid-gap: 65px;
+      padding: 0 20px
+  }
+  .repairRSlide_items img {
+      margin: 0 auto !important;
+  }
+  .RepairRSlider {
+      border-bottom: 1px solid #d3ced0;
+      padding-bottom: 30px;
+  }
+  #shopify-section-footer .white_space02, .white_space {
+      display: none !important;
+  }
+  #repairReplaceSlider h2 {
+      padding: 80px 0 35px;
+  }
+  #MakeAclameProgram h2, #repairReplaceSlider h2 {
+      padding: 80px 0 35px;
+  }
+  .slick-arrow {
+      top: -50px;
+  }
+  .lster span {
+      font-size: 15px;
+      margin-right: 14px;
+      margin-top: 2px;
+  }
+  .btttn a {
+      font-size: 15px;
+      padding: 8px 12px;
+  }
+  #MakeAclameProgram h2 {
+      padding: 0px 0 35px;
+  }
+  #MakeAclameProgram h2, #repairReplaceSlider h2 {
+      font-size: 26px;
+  }
+  .rrs_pro_img {
+      height: 220px;
+      object-fit: contain;
+  }
+    
+} 
+  
+@media screen and (min-width : 100px) and (max-width : 390px){
+  	#MakeAclameProgram h2 span, #repairReplaceSlider h2 span {
+        display : block;
+    }
+}
+  
+  
+  
+</style>

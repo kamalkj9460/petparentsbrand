@@ -1,0 +1,38 @@
+{% render 'custom-pet-blog-css' %}
+<link rel="stylesheet" data-href="{{ 'custom-pet-blog.css' | asset_url }}">
+{% section 'Blog-subheader'%}
+
+{% if page.handle == 'pet-blog' %}
+  {% section 'blog-slider'%}
+  {% section 'Blog-search'%}
+  {% section 'blog-landing-section'%}
+{% endif %}
+
+{% if page.handle == 'vet-program' %}
+  {% section 'veterinary-program-section' %}	
+  <div class="container" id="vet-program_cat_sf">
+    {% section 'veterinary-recent-post-slider' %}
+    <div class="desktopActive_is">
+      {% section 'Blogcategory-search'%}
+    </div>
+    <div class="mobActive_is">
+      {% section 'Blog-search'%}
+    </div>
+  </div>
+{% endif %}
+
+ {% if page.handle == 'author-bio' %}
+      {% section 'author_bio_marksection' %}
+      <div class="container" id="author_bio_sf">
+        <div class="author_bio_search">
+          {% section 'author_bio_signup'%}
+        </div>  
+        <h4 class="sliderHeadinG">Browse Author Favorites</h4>
+          {% section 'veterinary-recent-post-slider' %}              
+      </div>
+  {% endif %}
+{% comment %}
+{% section 'bottomeAdvertismentBlog'%}
+{% endcomment %}
+
+     

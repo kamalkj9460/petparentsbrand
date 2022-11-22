@@ -1,0 +1,14 @@
+<div class="ban_blog catgeory-blog">
+    <div class="blog-search catgeory">
+      <p>{{section.settings.s_redboxText}} <a class="signUpBtn" href="{{section.settings.s_redboxUrl}}">Sign Up</a></p>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Sign Up Section",
+      "settings": [
+         {"type":"html","id":"s_redboxText","label":"Add Text"},
+		 {"type":"url","id":"s_redboxUrl","label":"Button Link"}
+ 	]
+}
+{% endschema %}

@@ -1,0 +1,330 @@
+<!-- /templates/search.liquid -->
+{% comment %}
+  To return only products or pages in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product or type=page to the search URL as a parameter
+{% endcomment %}
+
+{% comment %}
+  Check to enforce respond.js
+{% endcomment %}
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+{% comment %}
+  Avoid accessing search.results before the opening paginate tag.
+  If you do, the pagination of results will be broken.
+{% endcomment %}
+{% paginate search.results by 100 %}
+<div class="__title_banner">
+  <div class="container">
+    <div class="row">
+      <div class="__Inner_title"><span class="search_arrow"><img src="https://cdn.shopify.com/s/files/1/1355/5443/files/arrowimgmgmg.jpg"></span><h1>Search Results</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+  <div class="grid1 white_space">
+    <div class="grid__item">
+      <header class="section-header text-center search_sf">
+        {% if search.performed %}
+          {% if search.results_count == 0 %}            
+            <h2 class="text-center">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h2>
+          {% else %}
+            {% comment %}<h1 class="text-center">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h2>{% endcomment %}
+        	{% assign count = 0 %}
+            {% assign productsHtml = '' %}
+            {% assign articleHtml = '' %}
+            {% assign pageHtml = '' %}
+        	{% for item in search.results %}
+        		{% comment %}capturing products HTML {% endcomment %}
+            	{% if item.object_type == 'product' %}
+        			{% assign count = count | plus: 1 %}
+        			{% assign product = item %}              		
+        			{% capture html %}{% include 'product-grid-item-custom' %}{% endcapture %}
+        			{% assign productsHtml = productsHtml | append: html %}
+        		{% endif %}
+        		{% comment %}capturing articles HTML {% endcomment %}
+        		{% if item.object_type == 'article' %}
+        			{% capture aHtml %}
+                         {% if item.image %}
+                           <li>
+                              <div class="_dog-img-list1">{{- item | image_url: width: 500 | image_tag -}}</div>
+                                <div class="_dog-img-text1">          
+                                    <div class="__dog-title1">
+                                        <span class="img-title1 sf_date">{{- item.published_at | date: "%b %d " -}}</span>                                   
+                                      {% if item.tags.size > 0 and item.tags contains 'vet reviewed' %}
+                						<img class="vetReview" src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+               							 {% endif %}
+                                    </div>
+                                    <div class="_dog_cnt_1">{{ item.title | escape }}
+                                      <p>
+                                        <a href="{{ item.url }}">
+                                            <span class="SeeMOre1"> &gt; read <span>more</span></span>
+                                        </a>
+                                      </p>
+                                    </div>
+                               </div> 
+                          </li>       
+                         {% endif %}
+                    {% endcapture %}
+        			{% assign articleHtml = articleHtml | append: aHtml %}
+        		{% endif %}
+              {% comment %}capturing pages HTML {% endcomment %}
+        		{% if item.object_type == 'page' %}
+        			{% capture pHtml %}                         
+                           <li>
+                             <a href="{{ item.url | split: "?" | first }}">
+                                <div class="_dog-img-text11">          
+                                    <div class="_dog_cnt_11">{{ item.title }}
+                                      <p>                                       
+                                        <span class="SeeMOre11"> &gt; read <span>more</span></span>                                        
+                                      </p>
+                                    </div>
+                               </div>
+                             </a>
+                          </li> 
+                    {% endcapture %}
+        			{% assign pageHtml = pageHtml | append: pHtml %}
+        		{% endif %}
+        	{% endfor %}
+         	{% unless canonical_url contains 'type=article' %}<h2 class="text-center">{{ search.terms | escape }} ({{ count }} Results)</h2>{% endunless %}
+          {% endif %}
+        {% else %}
+          <h2 class="text-center">{{ 'general.search.title' | t }}</h2>
+        {% endif %}        
+      </header>
+      {% if search.performed %}
+      {% unless canonical_url contains 'type=article' %}
+        {% if productsHtml != blank %}
+        <h3 class="sf_search_article productsSearch">Helpful products based on your search</h3>
+          {% endif %}
+          <div class="grid-uniform1">         
+          	<ul class="__linkUL items_serch">
+              {{-productsHtml-}}
+            </ul>
+          </div>
+      {% endunless %}
+      {% if search.results_count > 0 %}
+        {% if articleHtml != blank %}
+          <div class="grid-uniform2">            
+            <h3 class="sf_search_article">Helpful Content</h3>
+              <h4 class="sf_search_art_text">({{ search.terms | escape }})</h4>
+            <ul class="__linkULitems_serch slider" id="__linkULitems_serch2">
+              {{-articleHtml-}}
+          </ul></div>
+        {% endif %}
+  {% if pageHtml != blank %}
+      <div class="grid-uniform22">            
+            <h3 class="sf_search_article">Helpful Pages</h3>
+              <h4 class="sf_search_art_text">({{ search.terms | escape }})</h4>
+            <ul class="__linkULitems_serch2" id="__linkULitems_serch22">
+              {{-pageHtml-}}
+          </ul>
+    </div>
+   {% endif %}
+      {% endif %}
+      {% else %}
+      no result
+      {% endif %}
+    </div>
+  </div>
+{% endpaginate %}
+{% else %}
+  {% include 'respond' %}
+  {% layout none %}
+{% endunless %}
+<style>
+  .template-search .__dog-title1 img.vetReview {max-width: 150px;}
+.section-header.search_sf {visibility: visible; margin-bottom: 25px; !important}
+.__title_banner .__Inner_title h1 {text-align: center; font-size: 25px;}
+h2.text-center {text-transform: capitalize; font-size: 15px;}
+ .template-search span.stamped-badge-caption span {padding-right: 0 !important;} 
+.grid-product__image-wrapper.product_thumb {border: 0;}
+h3.product_name {font-size: 24px; text-decoration: none; line-height: 30px; letter-spacing: 0; color: #706f6f !important;}
+.grid-product__meta {text-decoration: none !important;}
+.grid-product__price.product_price {font-size: 20px;letter-spacing: 0;padding: 10px 0;}
+.grid__item  form {position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;}
+.grid-product__wrapper {position: relative;min-height: 560px;}
+a.grid-product__meta {position: unset !important;}
+.grid__item form input {border-radius: 30px; padding: 5px 10px; font-weight: 900 !important; letter-spacing: 0;}
+.review-wrap {display: flex; align-items: center; margin-top: 20px; justify-content: center; grid-gap: 5px; }
+.stamped-starrating.stamped-badge-starrating {display: none; }
+.review-wrap img {width: 100%; max-width: 126px; }
+.sFreview_count {display: flex; justify-content: center; }
+.product_title {letter-spacing: 0; font-size: 22px; line-height: 30px; }
+a.sf_more_opTion {background: #00b7bc; color: #fff; font-weight: bold; padding: 5px 10px; border-radius: 30px; text-decoration: none; text-transform: uppercase; font-size: 12px; }
+h3.sf_search_article.productsSearch {margin-top: 0;padding-bottom: 15px;}
+.search_imgs_data {clear: both; min-height: 240px;}
+.grid-product__image-wrapper.product_thumb {border: 0; min-height: 100%;}
+ul.__linkUL.items_serch .product--wrapper div > img {
+	width: 100%;
+	min-height: 100%;
+	object-fit: contain;
+	height: 230px;
+}
+  ul.__linkUL.items_serch p {
+	color: #706f6f;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	font-style: normal;
+	width: 100%;
+	float: left;
+	font-family: unset;
+	margin: 10px 0 10px 0;
+}
+  .__linkUL.items_serch .large--one-quarter {
+	width: 25%;
+	min-height: 500px;
+}
+.__linkUL.items_serch a.sf_more_opTion {
+	background: #00b7bc;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 10px;
+	border-radius: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.__linkUL.items_serch .product_title {
+	min-height: 90px;
+}
+  
+/* Slider  */
+  #__linkULitems_serch2 {margin-top: 50px;}
+._dog-img-list1 {position: relative;}
+._dog-img-list1::before {content: ""; background: rgba(0,0,0,0.2); position: absolute; height: 100%; width: 100%; left: 0; right: 0; top: 0;}
+._dog-img-list1 img {height: 350px; width: 100%; object-fit: cover;}
+._dog-img-text1 {position: absolute; top: 0; width: 100%; height: 100%; padding: 20px 30px; color: #fff;}
+.__dog-title1 {display: flex; justify-content: space-between; color: #fff; font-size: 16px;}
+._dog_cnt_1 {font-size: 28px; line-height: 1.3; position: absolute; bottom: 0; left: 30px; right: 30px;}
+#__linkULitems_serch2 li {position: relative;border-right: 10px solid #fff;}
+span.SeeMOre1 {font-size: 15px !important;}
+._dog_cnt_1 a {text-decoration: none !important;}
+span.SeeMOre1 span {font-weight: 600;}
+.sf_search_article {font-size: 36px; letter-spacing: 0; font-weight: 300;color: #706f6f;}
+.sf_search_art_text {font-size: 20px; letter-spacing: 0; font-weight: 400; font-style: italic;text-transform:capitalize}
+ul.__linkUL {padding-bottom: 0;}
+.grid-product__wrapper {min-height: 100%;margin-bottom: 0px;}
+#__linkULitems_serch2 .slick-arrow:hover, #veterinary_program_slider .slick-arrow:hover {
+	background: #a4a5a5 !important;}
+#__linkULitems_serch2 .slick-next {right: 0;}
+#__linkULitems_serch2 .slick-prev {right: 36px !important;}
+#__linkULitems_serch2 .slick-arrow {background: #e7e7e7 !important; left: unset; border-radius: 50%; height: 25px; width: 25px; display: flex !important; align-items: center; justify-content: center; top: -25px !important;}
+.slick-prev.slick-arrow::before {content: ""; background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_left.png); background-position: center; width: 15px; height: 15px; background-repeat: no-repeat; }
+.slick-next.slick-arrow::before {content: ""; background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_right.png); background-position: center; width: 15px; height: 15px; background-repeat: no-repeat; background-size: 7px; background-position: center center !important;}
+
+.__Inner_title {text-align: left;max-width: 1210px;margin: 50px auto 0; display: flex; align-items: center;}
+.__title_banner .__Inner_title h1 {text-align: left;font-size: 20px; font-weight: 400; margin: 0;}
+.section-header h2 {text-align: left !important;font-size: 16px;border-bottom: 1px solid #9d9d9c; padding: 0 0 20px 30px; margin: 10px 0px;font-weight: 300;font-style: italic;}
+.search_arrow {padding-right: 15px;}
+.search_arrow img {width: 100%;max-width: 16px;}
+.__linkUL.items_serch span.stamped-badge-caption {text-decoration: none;}
+  
+.wrapper {
+    max-width: 1380px !important;
+    margin: 0px auto;
+}
+.__Inner_title {
+    max-width: 1270px;
+}
+.__Footer_sec_inner {
+    padding: 0px 38px 40px;
+    border: none;
+}  
+
+
+  ul#__linkULitems_serch22 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 35px 0;
+    grid-gap: 25px;
+}
+
+  ul#__linkULitems_serch22>li a {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 25px 15px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00b6bd;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+  ul#__linkULitems_serch22>li p {
+    font-size: 16px;
+    margin-top: 14px;
+    text-decoration: none;
+}
+  
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+.grid__item {width: 100%;padding: 0 5px;}
+.__linkUL.items_serch .large--one-quarter {
+	width: 48%;
+	min-height: 100%;
+}
+  .grid-product__image-wrapper.product_thumb {
+	border: 0;
+	min-height: 150px;
+}
+  ul#__linkULitems_serch22 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  ul.__linkUL {
+	padding-bottom: 0;
+	grid-gap: 10px;
+	justify-content: space-between;
+}
+  ul.__linkUL.items_serch p {
+	font-weight: 500;
+	font-size: 14px;
+}
+  .product--wrapper {
+	margin: 0 auto 0px !important;
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+}
+  .sFreview_count {
+	font-size: 10px;
+	white-space: nowrap;
+}
+.product_title {font-size: 18px; line-height: 26px;}
+.__linkUL.items_serch a.sf_more_opTion {font-size: 9px;}
+.grid-product__wrapper {margin-bottom: 0;}
+.sf_search_article {font-size: 32px;}
+.grid-uniform2 {margin-top: 50px;display: block;}
+.search_imgs_data {min-height: 100%;}
+  ul.__linkUL.items_serch .product--wrapper div > img {min-height: 100%;height: auto;background: none;}
+
+  
+  .__title_banner .__Inner_title {
+      margin-left: 30px !important;
+  }
+  ul.__linkUL.items_serch img {
+      width: 70%;
+  }
+  #__linkULitems_serch2 .slick-arrow {
+      top: -30px !important;
+  }
+  #__linkULitems_serch2 {
+      margin-top: 30px;
+  }
+  #__linkULitems_serch2 li {
+      border-right: 0px solid #fff;
+  }
+  .container {
+      padding: 0 15px;
+  }
+
+  
+}
+  
+</style>

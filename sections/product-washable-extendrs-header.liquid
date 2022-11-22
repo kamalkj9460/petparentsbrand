@@ -1,0 +1,267 @@
+<div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.zoom_enable }}" data-enable-history-state="true">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ featured_image }}">
+	{% render 'clear-div' %}
+  	{% render 'product-page-header-banner' %}    
+    {% render 'clear-div' %}
+  
+    <div class="product-single white_space large--text-left peePadVarientsSC">
+      {%- include 'belly_head_judgeme' -%}
+      {% assign current_variant = product.selected_or_first_available_variant %}
+      {% assign featured_image  = current_variant.featured_image | default: product.featured_image %}
+      <!-- product image and thumbnails code: Left Side-->
+      	{% render 'product-main-image-part',current_variant:current_variant, featured_image:featured_image %}
+      <!-- product content: Right Side -->
+      {% render 'Product-right-content-part',current_variant:current_variant, product:product %}
+  	</div>
+  	
+    {% render 'clear-div' %}
+</div>
+{% unless product.empty == empty %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+   {{ product | json }}
+</script>
+<script type="text/javascript">
+$(()=>{
+  $('div#ProductSelect-option-1 div[index="2"] label').css('opacity', 1);
+  $('div#ProductSelect-option-1 div[index="2"]').find('img').css('opacity', .2);
+  $('div#ProductSelect-option-1 div[index="2"]').find('.optionWrapper').css('opacity', .2);
+  
+  $('div#ProductSelect-option-0 .__itemWraper label').unbind('click').on('click',function(e){
+    e.stopPropagation();
+    if($(this).parent().attr('data-available') == '37586935873726'){
+      $('div#ProductSelect-option-1 [index="1"]').find('input[name="Size"]').trigger('click');
+      $('div#ProductSelect-option-1 .__itemWraper').not(':first').removeClass('hide');
+      $('div#ProductSelect-option-1 .__itemWraper:first').addClass('hide');
+      switch_brand_lable(this);
+    }else{
+      $('div#ProductSelect-option-1 [index="0"]').find('input[name="Size"]').trigger('click');
+      hide_seconds();      
+    }
+  });
+  $('div#ProductSelect-option-1 .__itemWraper label').unbind('click').on('click',function(e){
+    e.stopPropagation();
+    switch_brand_lable(this);
+  });
+  function hide_seconds(){
+    $('div#ProductSelect-option-1 .__itemWraper').toggleClass('hide');
+  }
+  function switch_brand_lable(thiss){
+    if($(thiss).parent().attr('index') != '2' ){
+      $('div[index="2"] label').css('opacity', 1);
+      $('div[index="2"]').find('img').css('opacity', .2);
+      $('div[index="2"]').find('.optionWrapper').css('opacity', .2);
+    }else{
+      $('div[index="2"]').find('img').css('opacity', 1);
+      $('div[index="2"]').find('.optionWrapper').css('opacity', 1);
+    }	
+  }
+});
+</script>
+{% endunless %}
+{% schema %}
+  {
+    "name": "Product Header Content",
+    "settings": [
+	  	{"type": "header","content": "General"},
+	    { "type": "checkbox", "id": "show_banner", "label": "Show Banner", "default": true },
+	  	{ "type": "image_picker", "id": "product_banner","label": "Product Banner"},
+	  	{ "type": "text", "id": "custom_title", "label": "Product Custom Title" },
+	  	{ "type": "text",	"id": "sub_text_product","label": "Sub - Title"},
+{"type": "html","id": "sf_product_des","label": "Description","default": "Content here..."},
+        { "type": "checkbox", "id": "product_vendor_enable","label": "Show product vendor","default":true},
+        { "type": "checkbox", "id": "zoom_enable","label": "Enable image zoom","default":true},
+        { "type": "checkbox", "id": "review_show","label": "Show product reviews","default":true},
+        { "type": "checkbox", "id": "show_sku","label": "Show product SKU","default":true},
+
+        { "type": "header","content": "Product options"},
+        { "type": "checkbox", "id": "quantity_enabled","label": "Show quantity picker"},
+        { "type": "select", "id": "product_selector","label": "Product Options Picker type","options": [ {"value": "radio","label": "Button"} ]},
+
+		{ "type": "header","content": "Extra"},
+		{ "type": "checkbox", "id": "online_exclusive", "label": "Show Online Exclusive Badge", "default": false },
+        { "type": "image_picker", "id": "exe_image", "label": "Exclusive Badge" }, 
+		{ "type": "image_picker", "id": "exe_image_m", "label": "Exclusive Badge(Mobile)" }, 
+		{ "type": "header", "content": "Offer Code Settings" }, 
+        { "type": "checkbox", "id": "show_offer", "label": "Show Offer Text", "default": true }, 
+        { "type": "richtext", "id": "offerText", "label": "Offer Text" }, 
+        { "type": "color", "id": "offer_txt_color", "label": "Offer Text Color", "default":"#000000" }, 
+        { "type": "range", "id": "text_size", "min": 15, "max": 100, "step": 1, "unit": "px", "label": "Font Size", "default": 25 }, 
+        { "type": "range", "id": "spacingTop", "min": 0, "max": 50, "step": 1, "unit": "px", "label": "Text Spacing - Top & Bottom", "default": 10 }, 
+        { "type": "range", "id": "spacingBottom", "min": 0, "max": 50, "step": 1, "unit": "px", "label": "Text Spacing - Left & Right", "default": 10 }, 
+        { "type": "checkbox", "id": "sow_border", "label": "Show Border", "default": true }, 
+        { "type": "range", "id": "border_width", "min": 1, "max": 5, "step": 1, "unit": "px", "label": "Border Width", "default": 2 }, 
+        { "type": "color", "id": "border_color", "label": "Border color", "default": "#000000" },
+
+        { "type": "header", "content": "Launch Date Settings" },
+        { "type": "checkbox", "id": "show_launch_date", "label": "Show Launch Date", "default": true }, 
+        { "type": "text", "id": "launch_text", "label": "Launch Date Text", "default": "Official Launch Date: February 2021" },
+        { "type": "color", "id": "text_color", "label": "Text Color", "default": "#000000" }, 
+        { "type": "range", "id": "text_fontsize", "min": 1, "max": 50, "step": 1, "unit": "px", "label": "Font Size", "default": 25 },
+		{ "type": "header", "content": "Patents Pending" },		
+		{ "type": "checkbox", "id": "pp_text_enable", "label": "Enable","default":false },
+		{ "type": "text", "id": "pp_text", "label": "Text","default":"Patents Pending" }
+    ],
+	"blocks" : [
+		{
+	        "type": "size",
+	        "name": "Size Variant",
+	        "settings": [
+				{ "type": "text", "id": "size_abv_text", "label": "Custom Text [ Above ]" },
+				{ "type":"text","id":"size","label":"Size Variant","info":"add same that is into back-end otherwise it not working"},
+				{ "type":"image_picker","id":"size_img","label":"Size Variant Image"},
+				{ "type":"text","id":"size_text","label":"Size Variant custom Text"},
+				{ "type": "image_picker", "id": "size_extra_img", "label": "Size Extra Image" }
+			]
+		},
+		{
+	        "type": "type",
+	        "name": "Type Variant",
+	        "settings": [				
+				{ "type": "text","id":"type","label":"Type Variant","info":"add same that is into back-end otherwise it not working" },
+				{ "type": "image_picker","id":"type_img","label":"Type Variant Image" },
+				{ "type": "text","id":"type_text","label":"Type Variant custom Text" },
+				{ "type": "image_picker", "id": "type_extra_img", "label": "Type Extra Image" }
+			]
+		},
+		{
+	        "type": "feature",
+	        "name": "Feature",
+	        "settings": [
+				{ "type":"text","id":"feature_txt","label":"feature Text" },
+				{ "type":"color","id":"feature_bg","label":"Feature Background Color" },
+				{ "type":"color","id":"feature_fr","label":"Feature Text Color","default":"#ffffff" }
+			]
+		}
+	]
+  }
+{% endschema %}
+<style>
+  .single-option-radio.size-6093218185406 .__itemWraper.hide {display: block !important;opacity: 0.2;}
+  .template-product-washable_extendrs div#ProductSelect-option-1 .__itemWraper.hide {pointer-events: none;}
+  .inner_text.first_inner_text_ {width: 100%;}
+  .Special_Features_content .inner_text:nth-child(3) {background: #f2f1f0;}
+  .Special_Features_content .inner_text:nth-child(4) {background: #f6f6f6;}
+  .Special_Features_content .inner_text:last-child {background: #ededed;}
+  .online_exe_badge {display: inline; max-width: 75px; float: right;}
+  ._pet_sticky_cart .product-form__input .is_sf_disable {
+    display: none !important;
+}
+  
+#AntlerGuide_sl {margin-top: 30px;}
+  
+ button#SI_trigger.btn {
+	font-size: 13px;
+	letter-spacing: 0;
+	text-transform: none;
+	height: 50px !important;
+	line-height: 50px !important;
+	padding: 0;
+}
+  body.template-product.template-product-washable_extendrs .radio-wrapper.js.product-form__item.__frm_2 div#ProductSelect-option-1 .__itemWraper:not(.hide) {
+    max-width: unset !important; width: auto;}
+   .__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6093218185406#ProductSelect-option-1 > label + .__itemWraper span.__roundCrl {
+   width: 40px !important; height: 40px !important;}
+  .single-option-radio.size-6093218185406 .__itemWraper.hide {opacity: 1;}
+  .__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6093218185406#ProductSelect-option-1 span.__roundCrl {
+  width: 40px !important; height: 40px !important; font-size: 20px !important;}
+  
+  .sf_PB_banner_right #ProductSelect-option-0 .__itemWraper input[type="radio"]:checked + label span::before {display: none;}
+  .radio-wrapper.product-form__item .single-option-radio .__itemWraper {width: auto;max-width: unset;}
+  #ProductSelect-option-1 .__itemWraper label img {display: none;}
+  .peePadVarientsSC .product-form__item.__frm_2 div#ProductSelect-option-1 .__itemWraper > label {min-height: 100% !important;}
+  .__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6050696691902#ProductSelect-option-1, .__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6093218185406#ProductSelect-option-1 {
+	padding-top: 0px !important;}
+
+.__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6093218185406#ProductSelect-option-1 > label + .__itemWraper {
+  max-width: unset !important; width: unset !important; margin-right: 20px;} 
+  .__price_button .radio-wrapper.js.product-form__item.__frm_2 .single-option-radio.size-6093218185406#ProductSelect-option-1 > .__itemWraper label span.opt1 {
+  font-size: 10px;}
+  div#ProductSelect-option-1 .__itemWraper input + label span {font-weight: 400;text-transform: none;}
+  
+  
+  .opt1 {white-space: nowrap;}
+  .optionWrapper {margin-top: 30px;}
+
+.PatentsPendingTag {border: 1px solid #e3002b; color: #e3002b; padding: 2px 10px; text-transform: uppercase; font-weight: 600;font-size: 16px;}
+.sf_top_additional_right_sec .top_add_sec_leftcontent ul li:last-child:before {
+    visibility: visible !important;
+}
+  h5.subH5 {
+    font-weight: 500;
+    font-family: "Gentona";
+}
+.product-blanket-regular-middle-content .additional_sec_helpIssue.pro_points {
+    margin: 0px 0px 0 0px !important;
+}
+.sf_newformatingSizeSection p.sub_cod {
+    padding: 20px 0 15px;
+}
+.is_mobile_ex {display : none;}
+
+.SizeingChart_mob.mobBan {
+    display: none;
+}
+.SizeingChart_d {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+  
+@media (max-width: 767px) {
+    .product-single.white_space.large--text-left {
+        padding: 8px 0 20px!important;
+    }
+    .is_mobile_ex {display : block;}
+    .is_desktop_ex >img  {display : none;}
+   span.PatentsPendingTag.is_desktop_ex {
+        display: none;
+    }
+        span.PatentsPendingTag.is_mobile_ex {
+        width: 100% !important;
+        max-width: 154px !important;
+        display: block;
+        margin: 16px auto -32px;
+    }
+    .is_mobile_ex img {
+        width: 100%;
+        max-width: 207px;
+        display: block;
+        margin: 0 auto 8px;
+    }
+
+    .SizeingChart_desktop.deskTab {
+        display: none;
+    }
+    .SizeingChart_mob.mobBan {
+        display: block;
+    }
+    .SizeingChart_mob {
+        text-align: center;
+    }
+    .SizeingChart_mob img {
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    #shopify-section-product-washable-extendrs-middle .Spec_Features_txt p {
+        padding: 60px 0 45px !important;
+    }
+    .SizeingChart_mob h3 {
+        margin: 30px 0 25px;
+        text-transform: capitalize;
+    }
+    .SizeingChart_mob.mobBan h4 {
+        color: #03b2bc;
+        text-transform: capitalize;
+        font-size: 18px;
+        margin: 20px 0 45px;
+    }
+    .SizeingChart_mob .SizeingChart_mob:nth-child(02) h4 {
+        color: #e3002b;
+    }
+
+  
+}
+ 
+  
+</style>

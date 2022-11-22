@@ -1,0 +1,128 @@
+<section class="washingDiaper sf_washing_pet_parents_content">
+  <div class="aboutBanner">
+     <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+  	{% if  section.settings.ab_img %}
+   	 {{ section.settings.ab_img | img_url:'master' |img_tag:'ab_img','img-responsive' }}
+    {% endif %}
+  </div>
+  <div class="washingInstractuion WIpawtectPad last_cover">
+    <div class="washingcontainer">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'washInst' %}
+          <div class="washingcontainer--Image">
+            <span>{{block.settings.washno}}</span>
+             {% if  block.settings.titlewashImg %}
+                {{ block.settings.titlewashImg | img_url:'master' |img_tag:'titlewashImg','img-responsive' }}
+             {% endif %}
+            <h4>{{block.settings.titlewash}}</h4>
+          </div>
+      	 {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="washingInstractuon--banner banner_singleint blanketWash">
+      {% if  section.settings.blodiesImg1 %}
+          {{ section.settings.blodiesImg1 | img_url:'master' |img_tag:'blodiesImg1','img-responsive' }}
+      {% endif %}
+    	  </div>
+  <div class="middle-red-section">
+    <h5>{{section.settings.redsecText}}</h5>
+  </div>
+  <div class="middle-remove-linger">
+    <div class="remove-linger-Img">
+    	{% if  section.settings.lingerImg %}
+            {{ section.settings.lingerImg | img_url:'master' |img_tag:'lingerImg','img-responsive' }}
+        {% endif %}
+    </div>
+    <div class="remove-linger-rytText">
+      <h4>{{section.settings.lingerHeadtext}}</h4>
+      {{section.settings.lingertext1}}
+      {{section.settings.lingertext2}}
+      {{section.settings.lingertext3}}
+    </div>
+  </div>
+  <div class="bottom--lastHeading">
+    <h3>{{section.settings.lastHeadingBottom}}</h3>
+  </div>
+  <div class="bottom--3Images">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'bottImg' %}
+        <a href="{{block.settings.bottlink}}" target="_self">
+      		{% if  block.settings.bottImg %}
+                {{ block.settings.bottImg | img_url:'master' |img_tag:'bottImg','img-responsive' }}
+             {% endif %}
+      	</a>
+      	 {% endif %}
+      {% endfor %}
+  </div>
+  <div class="bott--advertisment">
+  	<a href="{{section.settings.bottlink}}" target="_self">
+      {% if  section.settings.bottadvert %}
+         {{ section.settings.bottadvert | img_url:'master' |img_tag:'bottadvert','img-responsive' }}
+      {% endif %}
+     </a>
+  </div>
+  {% if section.settings.stikcy %}
+              <div id="myScrollBar" class="sticky_washinstruction">
+                <div class="_stickyWrapper">
+                  <div class="_stickylm_right">
+                    <div class="_stickylmPrice">{{ section.settings.stickyText }}</div>
+                    <div class="_stickylm"><a href="{{section.settings.learnMore}}">Learn More</a></div>
+                  </div>
+                </div>
+              </div>
+   {% endif %}
+</section>
+{% schema %}
+  {
+    "name": "Washing Blanket",
+    "settings": [
+		 {"type":"image_picker","id":"ab_img","label":"Header Banner Image"},
+		 {"type":"image_picker","id":"blodiesImg1","label":"washingInstractuon Image"},
+		 {"type":"html","id":"lastHeadingBottom","label":"Heading"},
+		 {"type":"image_picker","id":"bottadvert","label":"Advertisment Image"},
+	      {"type":"url","id":"bottlink","label":"Button Link"},
+	     {"type":"header","content":"Washing Red background Section"},
+		 {"type":"html","id":"redsecText","label":"Red text"},
+	     {"type":"header","content":"Washing linger Section"},
+		 {"type":"image_picker","id":"lingerImg","label":"Image"},
+		 {"type":"html","id":"lingerHeadtext","label":"Heading"},
+		 {"type":"html","id":"lingertext1","label":"Text section (1)"},
+		 {"type":"html","id":"lingertext2","label":"Heading (1)"},
+		 {"type":"html","id":"lingertext3","label":"Heading (1)"},
+	     {"type":"header","content":"Washing Instruction -- Sticky Product"},
+		 {"type":"checkbox","id":"stikcy","label":"Sticky Div Show","default":true},
+		 {"type":"text","id":"stickyText","label":"Add Text"},
+		 {"type":"url","id":"learnMore","label":"Link for Product"}
+	],
+	"blocks" : [{
+        "type": "bottImg",
+        "name": "Bottom Images",
+        "settings": [
+	       {"type":"url","id":"bottlink","label":"Button Link"},
+	       {"type":"image_picker","id":"bottImg","label":"Select Image"}
+		]},{
+        "type": "washInst",
+        "name": "Washing Instruction ",
+        "settings": [
+	       {"type":"image_picker","id":"titlewashImg","label":"Select Image"},
+	       {"type":"text","id":"titlewash","label":"Title text"},
+	       {"type":"text","id":"washno","label":"Text"}
+		]} ],
+	"presets":[{
+      "name": "Washing bellyBand",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+
+<style>
+  .banner_singleint.blanketWash img{
+		margin: auto;
+  }
+</style>

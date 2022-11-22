@@ -1,0 +1,356 @@
+.wufoo input.text, .wufoo textarea.textarea {	
+	border: 1px solid #6d6960;
+	width: 80% !important;
+	padding-left: 10px;
+	outline: none;
+	font-size: 18px;
+	font-weight: 100;
+	min-width: 98%;
+}
+.wufoo input.text{height: 45px !important;}
+.wufoo textarea.textarea{height: 100px !important;}
+.info h2{display:none;}
+.wufoo .submit{
+	background: #ec1d3d;
+	border: 0;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 18px;
+	padding: 10px 30px;
+	float: right;
+}
+.wufoo .info{display:none;}
+form.wufoo {width: 100%;}
+.wufoo li div{width: 80%;float: left;}
+.wufoo label.desc, .wufoo legend.desc {
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	color: #6d6e71;
+	float: left;
+	width: 20%;
+}
+.buttons > div{text-align: right;width: 101% !important;}
+form#form2 header h2 {display: none;}
+#form6 ul li label {
+    font-size: 16px !important;
+    line-height: 18px !important;
+}
+#form6 input#saveForm {
+    margin-right: 525px;
+    background: #00b6bc !important;
+    font-size: 19px;
+    color: #fff;
+    position: relative;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+#form6.wufoo input.text {
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form6.wufoo textarea.textarea {
+    height: 100px !important;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form4 .info h2 {display: none;}
+#form4.wufoo label.desc, #form4.wufoo legend.desc {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #6d6e71;
+    float: left;
+    width: 50%;
+    line-height: 18px;
+}
+#form4 input#saveForm {
+    margin-right: 525px;
+    background: #ec1d3d !important;
+    font-size: 19px;
+    color: #fff;
+    position: relative;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+#form4.wufoo input.text {
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form4.wufoo textarea.textarea {
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form3.wufoo input.text{
+     margin-bottom: 15px;
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form3.wufoo select.select {
+     margin-bottom: 15px;
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form3.wufoo textarea.textarea {
+    height: 140px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form3.wufoo label.desc, #form3.wufoo legend.desc {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #6d6e71;
+    float: left;
+    width: 20%;
+	}
+#form3 li#fo3li18 {
+    padding-top: 47px;
+}
+#form3 input#saveForm {
+    margin-right: 525px;
+    background: #00b6bc !important;
+    font-size: 19px;
+    color: #fff;
+    position: relative;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+#form2.wufoo label.desc, .wufoo legend.desc {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #6d6e71;
+    float: left;
+    width: 50%;
+	}
+#form2.iframe#wufooFormm18l6wb115ogbrc {
+    height: 700px;
+}
+#form2.wufoo input.text, #form2.wufoo textarea.textarea {
+    width: 80% !important;
+    margin-bottom: 15px;
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+#form2.wufoo select.select{
+    margin-bottom: 15px;
+    height: 45px;
+    border: 1px solid #ccc;
+    width: 64%;
+    font-size: 16px;
+    color: #6d6e71;
+}
+
+#form2.wufoo li span label{font-size: 16px;}
+	
+#form2.wufoo input.btTxt {
+    margin-right: 525px;
+    background: #00b6bc !important;
+    font-size: 19px;
+    color: #fff;
+    position: relative;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.choice__text{color: #6d6e71 !important;padding: 2px 0px 0 0;}
+legend#title23 {display: none;}
+#form3 .instruct {
+    width: 53%;
+    margin: 0 auto;
+    border: 1px solid #aaa !important;
+    border-radius: 15px;
+    padding: 4px 18px;
+}
+
+p#instruct18:before {
+    content: '';
+    position: absolute;
+    top: 98px;
+    border-top: 15px solid #aaa;
+    border-bottom: 15px solid transparent;
+    border-right: 12px solid transparent;
+    margin-left: -3px;
+    margin-top: 0px;
+    border-left: 12px solid transparent;
+}
+
+
+/* added on dated 29-mar-2018 */
+#form2 #fo2li18{width: 75% !important;}
+#form2 #fo2li121{width: 56% !important;}
+#form2 #Field121{min-width: 83%;}
+
+/* added on dated 6-Dec-2018 */
+#form7 select#Field3 {
+    height: 47px;
+    border: 1px solid #6d6960;
+    width: 100% !important;
+    padding-left: 10px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 100;
+    min-width: 98%;
+}
+
+span.symbol {
+    font-size: 120%;
+    line-height: 135%;
+    padding-left: 11px;
+}   
+#form9 #title116, #form9 #title216, #form9 #title316 {
+	position: absolute !important;
+}
+#fo9li116 div, #fo9li216 div, #fo9li316 div {
+	padding-left: 15px !important;
+    position: relative;
+    z-index: 1000;
+}  
+#form9 #title1 {
+float: left;
+width: 20%;
+}
+
+/* date 05 june */
+
+form li.leftHalf, form li.rightHalf {	width: 100% !important; padding-top:0px !important}
+
+/* media quaries for form style */
+@media screen and (max-width: 660px) {
+  .wufoo ul{margin-left: 5%;} 
+  .wufoo label.desc, .wufoo legend.desc{float:none;width:100%;}
+  .buttons > div { width: 83% !important;}
+  
+  form li.rightHalf{float:none;}
+  form li.leftHalf, form li.rightHalf {	width: 100% !important; padding-top:0px !important}
+  #form2.wufoo label.desc{width:100%;}
+  #form2.wufoo input.btTxt {margin-right: 122px;}
+  #form6 input#saveForm {margin-right: 90px;}
+  #form3.wufoo label.desc, #form3.wufoo legend.desc{float:none;width:100%;}
+  #form3 input#saveForm {margin-right: 60px;}
+  #form4 input#saveForm { margin-right: 102px;}
+  
+  
+  /* added on 2-4-2018 */
+  p#instruct18:before { top: 186px;}
+  #form3 .instruct {width: 74%;margin: 0;}
+  .wufoo input.text, .wufoo .select {
+	height: 30px !important;
+     } 
+  
+    #fo7li6 textarea {
+	height: 50px !important;
+       }
+  .wufoo .submit{float: left;}
+  #wufoo-k126mk6913a7t3t iframe {
+	height: 1100px;
+}
+#form6 > ul > li {
+clear: both !important;
+}
+  #form6 ul li div {
+width: 100%;
+}
+#form6 .left.city {
+min-height: 75px;
+}
+#form6 ul {
+margin: 0;
+max-width: 96%;
+}
+#form3 ul li {
+	clear: both !important;
+}  
+p#instruct18:before {
+	display: none;
+}
+   
+}
+/* contact us form phone fiels css */
+form#form1 #fo1li8 span:not(.symbol) {
+	width: 23.2% !important;
+}
+form#form1 #fo1li8 span:not(.symbol) label {
+	display: none !important;
+}
+form#form1 #fo1li8 span:not(.symbol) input {
+  text-align:left;
+}
+form#form1 li.buttons {
+	float: right;
+	margin-right: -8px;
+}
+form#form1 ul li label.desc {
+	flex: 0 0 22%;
+	color: #939598 !important;
+	font-size: 14px !important;
+}
+form#form1 ul li {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+form#form1 textarea#Field6{
+	width: 98.5% !important;border-color:#939598 !important;
+}
+
+form#form1 ul li input {border-color:#939598 !important;}
+
+/* form 4 CSS */
+form#form4 ul{margin:0 !important; }
+form#form4 ul li { display: flex; align-items: center;}
+form#form4 ul li label { flex: 0 0 25%;}
+form#form4 ul li div{ flex: 0 0 70% !important;}
+form#form4 ul li textarea{ height:80px !important;}
+form#form4 ul li.buttons div{ position: relative; left: 25%; }
+
+/* Wholesale form css */
+
+.wufoo label.desc, .wufoo legend.desc, .likert caption
+{
+
+    font-size: 115% !important;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bold !important;
+    color: #444444 !important;
+}

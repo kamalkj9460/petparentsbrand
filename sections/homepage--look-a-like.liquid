@@ -1,0 +1,20 @@
+{% include 'product-look-a-like' %}
+{% schema %}
+  {
+    "name": "you may like",
+    "settings": [
+	  {"type":"text","id":"like_text","label":"Add Title","default":"You may also like"}
+	],
+	"blocks":[{
+			"type":"slide",
+			"name":"Slide",
+			"settings":[
+				{"type":"html","id":"slide_text","label":"Add Slide Title"},
+				{"type":"html","id":"slide_subtext","label":"Add Slide sub Title"},
+				{"type":"color","id":"slide_bg","label":"slide background color"},
+				{"type":"product","id":"slide_porduct","label":"Select Slide Product"}
+			]
+			
+		}]
+  }
+{% endschema %}

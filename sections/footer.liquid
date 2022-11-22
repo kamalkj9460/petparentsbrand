@@ -1,0 +1,351 @@
+<!-- Fotter Section -->
+<div class="container">
+	<div class="row">
+		<div class="white_space">
+			<div class="__fotter_border02"></div>
+		</div>
+	</div>
+</div>
+<div class="__Footer_sec sf_footerSection">    
+  <div class="container">     
+	<div class="row">       
+	  <div class="__Footer_sec_inner">
+		<div class="col-md-4 foot_col_1">
+		  <div class="footer01">
+			<div class="footer_title">{{ section.settings.menu_title_1 | default:'PRODUCTS' }}</div>
+			<ul class="footer_nav">
+			  {% for link in linklists[section.settings.footer_link_list1].links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+			  {% endfor %}
+			</ul>
+		  </div>
+		</div>
+        	<div class="col-md-5 foot_col_2">
+		<div class="col-md-6">
+		  <div class="footer01 footer01_f_child">
+			<div class="footer_title">{{ section.settings.menu_title_2 | default:'COMPANY' }}</div>
+			<ul class="footer_nav">
+			  {% for link in linklists[section.settings.footer_link_list2].links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+			  {% endfor %}
+			</ul>
+		  </div>  
+		</div>
+		<div class="col-md-6">
+		  <div class="footer01 footer01_l_child">
+			<div class="footer_title">{{ section.settings.menu_title_3 | default:'LEARN MORE' }}</div>
+			<ul class="footer_nav">
+			  {% for link in linklists[section.settings.footer_link_list3].links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+			  {% endfor %}
+			</ul>
+		  </div>  
+		</div>
+        </div>
+		<div class="col-md-3 foot_col_3">
+		  <div class="footer02">         
+			<div class="_paymentMethods">
+<!-- 				<img class="lazy2" src="https://cdn.shopify.com/s/files/1/1355/5443/files/paw.png"> -->
+                
+              
+              <img class="lazy2 paw_logo lazy3" data-src="{{ 'paw.svg' | asset_url }}" alt="The Soap Store">
+			</div>
+			<div class="new_icon_add_data">
+				   <div class="join_new"> 					
+                     <div class="clic_join">
+						   <a href="https://petparentsbrand.com/pages/signup-form">Click for our email list</a>
+						</div>
+                     {% comment %}
+					  <div class="clic_join blu_but">
+						   <!-- a href="https://petparents.refersion.com/affiliate/registration">JOIN OUR AFFILIATE PROGRAM</a -->
+                        	<a href="/pages/affiliate/">JOIN OUR AFFILIATE PROGRAM</a>
+						</div>
+                  {% endcomment %}
+				   </div>
+
+				   <div class="__social_icon icon_data_add">
+					 {% if settings.social_facebook_link != blank %}
+					 <a href="{{ settings.social_facebook_link }}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/facebook.png?v=1584530778">
+					 </a>
+					 {% endif %}
+					 {% if settings.social_instagram_link != blank %}
+					 <a href="{{ settings.social_instagram_link }}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/instagram.png?v=1584530778">
+					 </a>
+					 {% endif %}
+					 {% if settings.social_youtube_link != blank %}
+					 <a href="{{ settings.social_youtube_link }}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/youtube.png?v=1584530779">
+					 </a>
+					 {% endif %}
+					 {% if section.settings.social_linkedin_link != blank %}
+					 <a href="{{section.settings.social_linkedin_link}}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/linkdin.png?v=1584530778">
+					 </a>
+					 {% endif %}
+                     {% if section.settings.social_tiktok_link != blank %}
+					 <a href="{{section.settings.social_tiktok_link}}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/TikTokIcon-Grey.png?v=1645703047">
+					 </a>
+					 {% endif %}
+                     {% if section.settings.social_pinterst_link != blank %}
+					 <a href="{{section.settings.social_pinterst_link}}" target="_blank">
+					   <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/PinterestIcon-Grey.png?v=1645703047">
+					 </a>
+					 {% endif %}
+				   </div>
+				 </div>
+			<ul class="footer_nav">
+				  <li class="copy_right">
+					{% if section.settings.footer_mail != blank %}
+					<a class="__footerMail" href="mailto:{{ section.settings.footer_mail }}">{{ section.settings.footer_mail }}</a><br/>
+					{% endif %}
+					&copy; {{ 'now' | date: '%Y' }} {{ section.settings.footer_cmpy_name }}<br>
+					{{ section.settings.footer_all_right }}<br>
+					{{ section.settings.owner_rights }}
+				  </li>
+				</ul>     
+            
+		  </div>  
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="__payment_title_img">
+		<span>Payment Methods We Accept</span><img class="lazy2" data-src="{{ "payment_card.png" | asset_url }}" alt="Img" />
+	  </div>
+	</div>
+  </div>
+</div>
+{% schema %}
+{
+	"name": "Footer",
+	"settings": [
+		{"type":"header","content":"Menu 1 Settings"},
+		{"type":"text","id":"menu_title_1","label":"Menu Title","default":"Products"},
+		{"type":"link_list","id":"footer_link_list1","label":"Choose menu"},
+
+		{"type":"header","content":"Menu 2 Settings"},
+		{"type":"text","id":"menu_title_2","label":"Menu Title","default":"Company"},
+		{"type":"link_list","id":"footer_link_list2","label":"Choose menu"},
+
+		{"type":"header","content":"Menu 3 Settings"},
+		{"type":"text","id":"menu_title_3","label":"Menu Title","default":"Learn More"},
+		{"type":"link_list","id":"footer_link_list3","label":"Choose menu"},
+
+		{"type":"header","content":"Extra Settings"},
+		{"type":"text","id":"menu_title_4","label":"Title","default":"GET CONNECTED"},
+		{"type":"url","id":"social_linkedin_link","label":"LinkedIn Url"},
+		{"type":"url","id":"social_tiktok_link","label":"TikTok Url"},
+		{"type":"url","id":"social_pinterst_link","label":"Pinterest Url"},
+		{"type":"text","id":"footer_cmpy_name","label":"Add company name","default":"Pet Parents LLC"},
+		{"type":"text","id":"footer_all_right","label":"Footer All rights Text","default":"All Right Reserved."},
+		{"type":"text","id":"footer_mail","label":"Footer Email_id"},
+		{"type":"text","id":"owner_rights","label":"Add owner Right Text","default":"All Logos and Trademarks belong to their respective owners."}
+	]
+}
+{% endschema %}
+<script>
+   document.body.innerHTML = document.body.innerHTML.replace(/<sup>/g,"");
+  document.body.innerHTML = document.body.innerHTML.replace(/<\/sup>/g,"");
+  document.body.innerHTML = document.body.innerHTML.replace(/®/g, "<sup>®</sup>");
+  
+   jQuery(document).ready(function(){
+    // jQuery(".single-option-selector__radio").prop('checked', false);
+     
+	/* window.setInterval(function(){
+  jQuery("ul.articleStikcyCart.articleStikcyCarton ul._listProducts .title.art-purple").html('<img src="//cdn.shopify.com/s/files/1/1355/5443/files/art-paw-04_50x.png?v=13192266922675894234">Covrs<sup>®</sup>');
+}, 3000); */
+	});
+  /*
+jQuery(document).ready(function(){
+    jQuery(".template-product-dummy-product-review div#ProductSelect-option-0 .__itemWraper,.template-product-belly-bands div#ProductSelect-option-0 .__itemWraper").last().addClass('is_sf_aloha');
+      jQuery(document).on("click","div#ProductSelect-option-0 .__itemWraper",function(){
+      jQuery("div#ProductSelect-option-1 .__itemWraper").first().removeClass('is_sf_disable');
+      jQuery("div#ProductSelect-option-1 .__itemWraper").last().removeClass('is_sf_disable');
+      jQuery(document).on("click",".__itemWraper.is_sf_aloha",function(){
+        jQuery("div#ProductSelect-option-1 .__itemWraper").first().addClass('is_sf_disable');
+        jQuery("div#ProductSelect-option-1 .__itemWraper").last().addClass('is_sf_disable');
+      });
+    });
+});
+
+  
+jQuery(document).ready(function(){
+    jQuery(".template-product.template-product-dogdiapers div#ProductSelect-option-0 .__itemWraper,.template-product-dogdiapers div#ProductSelect-option-0 .__itemWraper").last().addClass('is_sf_aloha');
+      jQuery(document).on("click","div#ProductSelect-option-0 .__itemWraper",function(){
+      jQuery("div#ProductSelect-option-1 .__itemWraper").first().removeClass('is_sf_disable');
+      jQuery("div#ProductSelect-option-1 .__itemWraper").last().removeClass('is_sf_disable');
+      jQuery(document).on("click",".__itemWraper.is_sf_aloha",function(){
+        jQuery("div#ProductSelect-option-1 .__itemWraper").first().addClass('is_sf_disable');
+        jQuery("div#ProductSelect-option-1 .__itemWraper").last().addClass('is_sf_disable');
+      });
+    });
+});
+*/
+ 
+  
+jQuery(document).on('change','._stickyPetOptions select.single-option-selector__radio.product-form__input', function() {
+
+ var attrVal = jQuery(this).val();
+ if(attrVal == 'Lodge'){
+    jQuery("._stickyPetOptions").first().addClass('is_color_disable');
+    jQuery("._stickyPetOptions").last().addClass('is_size_disable');
+ }
+ var colorVal = jQuery("._stickyPetOptions.is_color_disable select option:selected").val();
+ if(colorVal == 'Lodge'){
+    jQuery("._stickyPetOptions.is_size_disable select option:eq(1)").attr('selected',"selected");
+    jQuery("._stickyPetOptions.is_size_disable select option").first().css('display','none');
+    jQuery("._stickyPetOptions.is_size_disable select option").last().css('display','none');
+  }else{
+    jQuery("._stickyPetOptions.is_size_disable select option").first().css('display','block');
+    jQuery("._stickyPetOptions.is_size_disable select option").last().css('display','block');
+    jQuery("._stickyPetOptions.is_size_disable select option:eq(1)").attr('selected',"");
+  }
+}); 
+  
+jQuery(document).on("click",".__itemWraper.is_sf_aloha",function(){
+   jQuery("div#ProductSelect-option-1 input#ProductSelect-option-Size-S + label").trigger('click');
+});
+
+jQuery("form#AddToCartForm--product-wash-bags-header .__frm_1 label").html('<img src="https://cdn.shopify.com/s/files/1/1355/5443/files/washbags_pack5_2_250x.png" />');
+jQuery(document).ready(function(){
+ // jQuery(".__itemWraper input").removeAttr("checked");
+});
+  
+var textDisabled = jQuery(".product-single__add-to-cart .add-to-cart").attr('disabled');
+if(textDisabled == 'disabled'){
+jQuery(".product-single__add-to-cart .add-to-cart").html('Coming Soon');
+}
+  
+jQuery(document).scroll(function () {
+	var topScroll = jQuery(document).scrollTop();
+	if (topScroll >= 200) {
+	    var outOFstock = jQuery("._pet_sticky_cart._pet_sticky_cart_visible span._petStikcyPrice").text();
+		var outOFstockText = outOFstock.trim();
+		  if(outOFstockText == 'OUT OF STOCK'){
+		    jQuery("._pet_sticky_cart._pet_sticky_cart_visible span._petStikcyPrice").html('Coming Soon');
+		   }
+     }
+});
+  
+jQuery( window ).load(function(){
+//jQuery(".template-product-pee-pads input#ProductSelect-option-Size-XS-c").trigger('click');
+});
+  
+jQuery(document).ready(function(){  
+ function showpanelreview() { 
+   var review_count = jQuery("span.stamped-badge .stamped-badge-caption").attr('data-reviews');
+    if(review_count == 0){
+    jQuery("span.stamped-badge .stamped-badge-caption").html('0<span style="display:none;"> reviews</span>');
+    }
+   }
+   setTimeout(showpanelreview, 1000);
+});
+  
+
+
+jQuery(document).ready(function(){
+  if( jQuery(window).width() > 767 ){
+    let counter = 1;
+    let imgURL = 'https://cdn.shopify.com/s/files/1/1355/5443/files/';
+    let acImg = jQuery('.Special_Features_img img').attr('src');
+    jQuery('.Special_Features .inner_text,.Special_Features_row .inner_text').each(function(id, ele){
+
+      let fname = '{{ product.handle }}-'+counter+'.png';
+      jQuery(ele).attr({'data-src': fname ,'data-id': counter});
+
+      if( 
+        document.body.dataset.id == 6050703999166 
+        || document.body.dataset.id == 626011668532 
+        || document.body.dataset.id  == 625932894260 ){
+        jQuery('.Special_Features_row .inner_text').last().addClass('dis');
+      } 
+      if( document.body.dataset.id == 626011668532 ){
+        let height = jQuery('.Special_Features.Special_Featuresss').height();
+        let count = jQuery('.Special_Features_content .inner_text').length;
+        let cusHeight = height / count;
+        jQuery('.Special_Features_content .inner_text').css('height', cusHeight+'px');
+      }
+      // create image and append to image div
+      let image = imgURL+''+jQuery(ele).data('src');
+      let img   = document.createElement('img');
+      img.setAttribute('src', image);
+      img.classList.add('hide');
+      img.classList.add('img-'+counter);
+      img.dataset.i = counter;
+      jQuery('.Special_Features_img').append(img);
+
+
+      jQuery(ele).on('mouseenter', function(){
+        if( !jQuery(this).hasClass('dis') ){
+          let ids = jQuery(ele).data('id');
+          jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').addClass('black');
+          jQuery(ele).addClass('white').removeClass('black');
+          let img = imgURL+''+jQuery(ele).data('src');
+          jQuery('.Special_Features_img').addClass('up_div');
+          jQuery('.Special_Features_img img').addClass('hide');
+          jQuery('.Special_Features_img .img-'+ids).removeClass('hide').addClass('updated');
+
+        }else{
+          jQuery('.Special_Features_img').removeClass('up_div');
+          if( document.body.dataset.id == 626011668532){
+            jQuery('.Special_Features_img img').addClass('hide');
+            jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+            jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+            jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white black');
+          }else{
+            jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+            jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white black');
+          }
+
+
+        }
+      });
+
+      jQuery(ele).on('mouseleave', function(){
+        if( !jQuery(this).hasClass('dis') ){
+          jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
+          jQuery('.Special_Features_img img').addClass('hide');   
+          jQuery('.Special_Features_img').removeClass('up_div');
+          if( document.body.dataset.id == 626011668532){            
+            jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+            jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+          }else{
+            jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+          }
+        }
+      });
+      counter++;
+    });
+    jQuery('.Special_Features_img').on('mouseenter', function(){
+      jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('black');
+      jQuery('.Special_Features_img').removeClass('up_div');
+      jQuery('.Special_Features_img img').addClass('hide');
+      if( document.body.dataset.id == 626011668532){      	
+        jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+        jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+      }else{
+        jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+      }
+    });
+
+    jQuery('.Special_Features, .Special_Features_row').on('mouseleave', function(){
+      jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('black white');
+      jQuery('.Special_Features_img').removeClass('up_div');
+      jQuery('.Special_Features_img img').addClass('hide');
+      if( document.body.dataset.id == 626011668532){      	
+        jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+        jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+      }else{
+        jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+      }
+    });
+  }
+});  
+
+</script>
+
+<script data-cfasync="false" type="lazyload2">window.ju_num="02C872BE-0B0B-4159-A6A2-FC65279F49A0";window.asset_host='//cdn.jst.ai/';(function(i,s,o,g,r,a,m){i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script',asset_host+'vck.js','juapp');
+</script>

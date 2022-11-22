@@ -1,0 +1,230 @@
+<section id="section_id_{{section.id}}"  class="FlashSalesBanner-wrap">
+  {% comment %}<a href="{{section.settings.home_banner_url}}">{% endcomment %}
+  <div class="container">        
+              <div class="FlashSalesBanner">
+                <div class="FSB_main FSB_main_01">
+                 {% if section.settings.home_banner1 %}
+                	{{ section.settings.home_banner1 | img_url:'master' | img_tag:'home_banner1','img-responsive' }}
+            	 {% endif %}
+              </div>
+              <div class="FSB_main FSB_main_02">
+                    {% if section.settings.FlashSales_date_i %}
+                      <img class="forth_July" src="{{ section.settings.FlashSales_date_i | img_url:'master' }}" alt="FlashSales_date_i" />
+                    {% endif %}                
+                  <h2><span>{{section.settings.FlashSales_ls}}</span></h2>
+                  <h3><span>{{section.settings.FlashSales_ss}}</span></h3>
+                  <h4>{{section.settings.FlashSales_se}}</h4>
+              </div>
+                <div class="FSB_main FSB_main_03">
+                <div class="flash_sales_percent"><span class="num_percent">{{section.settings.flash_sales_percent}}</span><span class="n_percent">%</span><span class="n_petext">off</span></div>
+                <div class="flash_sales_code"><span>{{section.settings.flash_sales_code}}</span></div>
+              </div>
+          </div> 
+      </div>
+  {% comment %}</a>{% endcomment %}
+</section>
+{% schema %}
+{
+"name" : "Flash Sales Banner",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Flag Image"},
+{"type":"image_picker","id":"FlashSales_date_i","label":"Banner Date"},
+{"type":"text","id":"FlashSales_ls","label":"Lighting Sale","default":"Lighting Sale"},
+{"type":"text","id":"FlashSales_ss","label":"Sitewide Savings","default":"Sitewide Savings"},
+{"type":"text","id":"FlashSales_se","label":"Sale Ends","default":"Sale Ends July 4th"},
+{"type":"number","id":"flash_sales_percent","label":"Percent Text","default":15},
+{"type":"text","id":"flash_sales_code","label":"Percent Code","default":"FIREWORKS15"}
+],
+"presets": [{
+"name": "Flash Sales Banner"
+}]
+}
+{% endschema %}
+<style>
+.FlashSalesBanner-wrap a {
+    text-decoration: none;
+}
+.FlashSalesBanner {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    align-items: center;
+    justify-content: space-between;
+    padding : 100px 0 90px;
+}
+.FSB_main_02 {
+    text-align: center;
+}
+.FSB_main img {
+    margin: 0 auto;
+}
+.FSB_main_01 img {
+    max-width:175px;
+}
+.FSB_main_02 img {
+    width: 100%;
+    max-width: 475px;
+}
+.FSB_main_03 img {
+    max-width: 250px;
+}
+.FSB_main_02 h2 span {
+    font-size: 27px;
+    text-transform: uppercase;
+    color: #706f6f;
+    letter-spacing: 24px;
+    margin: 0;
+    padding: 20px 0;
+    font-weight: 900;
+    font-family: "Gentona";
+    transform: translateX(13px);
+    display: inline-block;
+    position: relative;
+}
+.FSB_main_02 h2 span::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 22px);
+    height: 3px;
+    background: #a9a9a9;
+    left: 0;
+    bottom: 0;
+}
+.FSB_main_02 h3 {
+    font-size: 27px;
+    text-transform: uppercase;
+    color: #706f6f;
+    letter-spacing: 6px;
+    margin: 55px 0 30px;
+}
+.FSB_main_02 h3 span::after, .FSB_main_02 h3 span::before {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    content: "";
+    background: #706f6f;
+    border-radius: 50%;
+    top: 18px;
+} 
+.FSB_main_02 h3 span {
+    position: relative;
+}
+.FSB_main_02 h3 span::before {
+    left: -20px;
+}
+.FSB_main_02 h3 span::after {
+    right: -20px;
+}
+.FSB_main_02 h4 {
+    background: #e4002b;
+    padding: 10px;
+    max-width: 390px;
+    margin: 0 auto;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: 600;
+    font-family: "Gentona";
+}
+.flash_sales_percent {
+    position: relative;margin:0 auto;text-align: center;
+    color: #e4002b;font-style: italic;
+}
+span.n_petext {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 26px;
+}
+span.num_percent {
+    font-weight: 900;
+    margin-right: 17px;
+font-size: 120px; letter-spacing: -5px;
+}
+span.n_percent {
+    font-size: 50px;
+    position: absolute;
+    top: -17px;
+    font-weight: 900;
+}
+.flash_sales_code span {
+    background: #00b7be;letter-spacing: 1px;
+    color: #fff;
+    padding: 6px 15px 10px;
+    display: block;
+    max-width: max-content;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: italic;
+    border: 2px dotted;
+    margin: 0 auto;
+    font-family: 'Gentona';
+    line-height: 33px;
+}
+.flash_sales_code {
+    margin-top: 15px;
+}
+.flash_sales_percent span {
+    font-family: 'Gentona';
+}
+  
+@media only screen and (max-width: 991px){
+    .FlashSalesBanner {
+        grid-template-columns: 100%;
+        grid-gap: 35px;
+       padding: 35px 0 25px;
+    }  
+
+
+@media only screen and (max-width: 500px){
+    .FSB_main_02 h2 span {
+        font-size: 20px;
+        letter-spacing: 10px;
+    }
+    .FSB_main_02 h3 {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+    .FSB_main_02 h3 span::after, .FSB_main_02 h3 span::before {
+        width: 6px;
+        height: 6px;
+        top: 8px;
+    }
+    .FSB_main_02 h4 {
+        padding: 8px;
+        font-size: 14px;
+        max-width: 230px;
+        letter-spacing: 3px;
+    }
+    .FSB_main_02 img {
+        max-width: 275px;
+    }
+    .FSB_main_02 h2 span::after {
+        width: calc(100% - 10px);
+    }
+    .FSB_main_02 h2 span {
+        transform: translateX(5px);
+    }
+    .FSB_main_02 h3 {
+        margin: 30px 0 25px;
+    }
+}
+
+
+
+@media only screen and (min-width: 100px) and (max-width: 980px){
+.flash_sales_code span {padding: 3px 15px; font-size: 22px;}
+.FSB_main.FSB_main_03 { grid-template-columns: 40% 50%; justify-content: center; display: grid; align-items: center;     max-width: 400px;
+    margin: 0 auto; width: 100%;}
+.flash_sales_code {margin-top: -7px !important;}
+span.num_percent {font-size: 68px;}
+span.n_percent {font-size: 25px; top: -10px; display: inline-block; transform: translateX(5px);}
+span.n_petext {font-size: 28px; }
+.FSB_main.FSB_main_03 {
+    margin-top: 20px;
+}
+span.num_percent {
+    margin-right: 10px;
+}
+}
+  
+</style>

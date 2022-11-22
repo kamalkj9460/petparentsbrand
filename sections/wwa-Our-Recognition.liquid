@@ -1,0 +1,148 @@
+<section id="wwa_Our_Recognition">
+  <div class="container">
+    <h2 class="wwa_heading wwa_heading_red">{{ section.settings.wea_or_title }}</h2>
+<div class="_wwa_Our_Recognition">
+  <ul class="wwa_Or_tab">
+    <li tab_class="tab_2017">2017</li> |
+    <li tab_class="tab_2018">2018</li> |
+    <li tab_class="tab_2019">2019</li> |
+    <li tab_class="tab_2020">2020</li> |
+    <li tab_class="tab_2021" class="is_item_active">2021</li>
+  </ul>
+  <ul class="wwa_Or_all_logos wwa_desktop_dev">
+    {%- for block in section.blocks -%}
+    {%- case block.type -%}
+   	{%- when '2017' -%}
+    <li class="tab_2017">
+      {% if block.settings.or_2017_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2017_img | img_url:'master' }}" alt="or_2017_img">
+			{% endif %}
+      {% if block.settings.or_2017_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2017_content -}}</span>{% endif %}
+    </li>    
+  	{%- when '2018' -%}
+    <li class="tab_2018">
+      {% if block.settings.or_2018_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2018_img | img_url:'master' }}" alt="or_2018_img">
+			{% endif %}
+      {% if block.settings.or_2018_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2018_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2019' -%}
+    <li class="tab_2019">
+      {% if block.settings.or_2019_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2019_img | img_url:'master' }}" alt="or_2019_img">
+			{% endif %}
+      {% if block.settings.or_2019_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2019_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2020' -%}
+    <li class="tab_2020">
+      {% if block.settings.or_2020_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2020_img | img_url:'master' }}" alt="or_2020_img">
+			{% endif %}
+      {% if block.settings.or_2020_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2020_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2021' -%}
+    <li class="tab_2021 is_tab_active">
+      {% if block.settings.or_2021_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2021_img | img_url:'master' }}" alt="or_2021_img">
+			{% endif %}
+      {% if block.settings.or_2021_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2021_content -}}</span>{% endif %}
+    </li> 
+    {%- endcase -%}
+    {% endfor %}
+  </ul>
+  <ul class="wwa_Or_all_logos wwa_mobile_dev" id="wwa_Or_all_logoss">
+    {%- for block in section.blocks -%}
+    {%- case block.type -%}
+   	{%- when '2017' -%}
+    <li class="tab_2017">
+      {% if block.settings.or_2017_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2017_img | img_url:'master' }}" alt="or_2017_img">
+			{% endif %}
+      {% if block.settings.or_2017_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2017_content -}}</span>{% endif %}
+    </li>    
+  	{%- when '2018' -%}
+    <li class="tab_2018">
+      {% if block.settings.or_2018_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2018_img | img_url:'master' }}" alt="or_2018_img">
+			{% endif %}
+      {% if block.settings.or_2018_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2018_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2019' -%}
+    <li class="tab_2019">
+      {% if block.settings.or_2019_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2019_img | img_url:'master' }}" alt="or_2019_img">
+			{% endif %}
+      {% if block.settings.or_2019_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2019_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2020' -%}
+    <li class="tab_2020">
+      {% if block.settings.or_2020_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2020_img | img_url:'master' }}" alt="or_2020_img">
+			{% endif %}
+      {% if block.settings.or_2020_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2020_content -}}</span>{% endif %}
+    </li> 
+    {%- when '2021' -%}
+    <li class="tab_2021 is_tab_active">
+      {% if block.settings.or_2021_img %}
+			<img class="img-responsive lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.or_2021_img | img_url:'master' }}" alt="or_2021_img">
+			{% endif %}
+      {% if block.settings.or_2021_content != blank %}<span class="wwa_tab_description">{{- block.settings.or_2021_content -}}</span>{% endif %}
+    </li> 
+    {%- endcase -%}
+    {% endfor %}
+  </ul>
+    </div>
+    </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Our Recognition",
+    "settings": [
+{"type":"text","id":"wea_or_title","label":"Title"}
+	],
+	"blocks" : [{	
+				"name":"2017",
+				"type":"2017",
+				"settings": [
+				{"type":"image_picker","id":"or_2017_img","label":"Select Image"},
+                {"type":"html","id":"or_2017_content","label":"Description"}
+					]
+				},
+				{	
+				"name":"2018",
+				"type":"2018",
+				"settings": [
+				{"type":"image_picker","id":"or_2018_img","label":"Select Image"},
+                {"type":"html","id":"or_2018_content","label":"Description"}
+					]
+				},
+				{	
+				"name":"2019",
+				"type":"2019",
+				"settings": [
+				{"type":"image_picker","id":"or_2019_img","label":"Select Image"},
+                {"type":"html","id":"or_2019_content","label":"Description"}
+					]
+				},
+				{	
+				"name":"2020",
+				"type":"2020",
+				"settings": [
+				{"type":"image_picker","id":"or_2020_img","label":"Select Image"},
+                {"type":"html","id":"or_2020_content","label":"Description"}
+					]
+				},
+				{	
+				"name":"2021",
+				"type":"2021",
+				"settings": [
+				{"type":"image_picker","id":"or_2021_img","label":"Select Image"},
+                {"type":"html","id":"or_2021_content","label":"Description"}
+					]
+				}]
+  }
+{% endschema %}
+

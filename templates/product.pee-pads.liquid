@@ -1,0 +1,82 @@
+{% layout 'themeX' %}
+<!-- /templates/product.pee-pads.liquid -->
+{% render 'PawtectBlanket-css' %}
+
+<link rel="stylesheet" data-href="{{ 'PawtectBlanket.css' | asset_url }}" />
+<div class="pawtectBlanketProductContainer">
+  <div class="peePad-header-content">
+    <div class="container">
+  	{% section 'product-pee-pads-header' %}
+    </div>
+  </div>
+  <div class="blanketContent">
+    {% section 'product-pee-pads-middle' %}
+  </div>
+    <div class="blanketContent">
+      <div class="container">
+    {% section 'product-pee-pads-footer' %}
+      </div>
+  </div>
+</div>
+{% style %}
+ div[name="Color"] {justify-content: center !important;}
+{% endstyle %}
+
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+<script type="text/javascript">
+	var _learnq = _learnq || [];
+	document.getElementById("AddToCart--product-pee-pads-header").addEventListener('click',function (){
+ 		_learnq.push(['track', 'Added to Cart', item]);
+	});
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  /* JS code for inline play */
+  let buttons = document.querySelectorAll('.inline_video.img');
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      console.log(e.target);
+      let videoId = button.getAttribute('video');
+      if (!videoId) return;
+      let videoPath = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+      let ifrm = document.createElement("iframe");
+      ifrm.setAttribute('src', videoPath);
+      ifrm.setAttribute('allow', 'autoplay')
+      ifrm.style.width = '100%';
+      ifrm.style.height = '350px';
+      ifrm.style.border = 'none';
+      button.classList.remove('img');
+      button.classList.add('playing');
+      button.children[0].innerHTML = '';
+      button.children[0].appendChild(ifrm);
+    },{once:true});
+  });
+});
+</script>

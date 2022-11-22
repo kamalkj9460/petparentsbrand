@@ -1,0 +1,164 @@
+<!-- snippets/product-uses-snippet.liquid-->
+<div class="allergyMiddleContain">
+{% include 'allergy-product-snippets' %}
+</div>
+{% schema %}
+  {
+    "name": "Supplements Content",
+    "settings": [
+        {"type":"header","content":"Our Base Ingredients"},
+		{"type": "text", "id":"obi_title_1", "label":"Heading"},
+        {"type": "image_picker", "id":"obi_img1", "label":"Image [1]"},
+        {"type": "text", "id":"obi_txt1", "label":"Text [1]"},
+        {"type": "image_picker", "id":"obi_img2", "label":"Image [2]"},
+        {"type": "text", "id":"obi_txt2", "label":"Text [2]"},
+        {"type": "image_picker", "id":"obi_img3", "label":"Image [3]"},
+        {"type": "text", "id":"obi_txt3", "label":"Text [3]"},
+        {"type": "image_picker", "id":"obi_img4", "label":"Image [4]"},
+        {"type": "text", "id":"obi_txt4", "label":"Text [4]"},
+        {"type":"header","content":"Ingredients Content"},
+		{"type": "text", "id":"obi_title_2", "label":"Heading"},
+        {"type": "html", "id":"ic_content", "label":"Content"},
+        {"type": "html", "id":"ic_content_b", "label":"Bottom Content"},
+
+        {"type":"header","content":"Fillers"},		
+        {"type":"color","id":"nofiller","label":"Font Color","default":"#ed2e80"},
+        {"type":"text","id":"leftNofillHeading","label":"Heading"},
+        {"type":"image_picker","id":"botimag","label":"Select Image"},
+        {"type":"color","id":"nofillercolor","label":"Font Color","default":"#f68385"},
+		{"type":"header","content":"Active Ingredients + Filter"},
+		 {"type":"color","id":"aif_bg_color","label":"background Color"}, 
+        {"type":"text","id":"aif_heading","label":"Heading"}, 
+ 		{"type":"html","id":"aif_text_1","label":"Left Text"},
+		{"type":"image_picker","id":"aif_img_1","label":"Left Image"},
+        {"type":"html","id":"aif_text_2","label":"Right Text"},        
+        {"type":"image_picker","id":"aif_img_2","label":"Right Image"}	
+    ], 
+	"blocks" : [{
+          "type": "product",
+          "name": "product",
+          "settings": [
+        {"type":"product","id":"inline_product","label":"Add Inline Product"}
+      ]    
+    },
+	{
+        "type": "antler",
+        "name": "Active Ingredients",
+        "settings": [
+        {"type":"image_picker","id":"antlerImg_1","label":"Image [1]"},
+        {"type":"text","id":"antlerHeading_1","label":"Heading [1]"},
+        {"type":"html","id":"antlerContent_1","label":"Content [1]"},
+		{"type":"image_picker","id":"antlerImg_2","label":"Image [2]"},
+        {"type":"text","id":"antlerHeading_2","label":"Heading [2]"},
+        {"type":"html","id":"antlerContent_2","label":"Content [2]"},
+		{"type":"image_picker","id":"antlerImg_3","label":"Image [3]"},
+        {"type":"text","id":"antlerHeading_3","label":"Heading [3]"},
+        {"type":"html","id":"antlerContent_3","label":"Content [3]"},
+		{"type":"image_picker","id":"antlerImg_4","label":"Image [4]"},
+        {"type":"text","id":"antlerHeading_4","label":"Heading [4]"},
+        {"type":"html","id":"antlerContent_4","label":"Content [4]"}
+		]		 
+	},
+	{
+           "type":"titleBB",
+           "name":"Title",
+           "settings":[
+              { "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+              { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Default Title</p>" }, 
+              { "type": "select", "id": "text_align", "label": "Text Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" },
+              { "type": "range", "id": "font_size", "min": 1, "max": 75, "step": 1, "unit": "px", "label": "Font Size", "default": 35 }, 
+              { "type": "color", "id": "font_color", "label": "Font Color", "default": "#000000" }, 
+              { "type": "color", "id": "bg_color", "label": "Block Background Color", "default": "#ffffff" },
+              { "type": "range", "id": "specingUp", "min": 1, "max": 75, "step": 1, "unit": "px", "label": "Padding -  Top & Bottom", "default": 35 },
+              { "type": "range", "id": "specingDown", "min": 1, "max": 75, "step": 1, "unit": "px", "label": "Padding -  Lfet & Right", "default": 35 },
+      		  { "type": "range", "id": "letter-spacing", "min": 1, "max": 35, "step": 1, "unit": "px", "label": "letter spacing", "default": 15 }
+           ]
+        },
+		{
+           "type":"content_with_imgBB",
+           "name":"Content with Image",
+           "settings":[
+              { "type": "header", "content": "Block settings" },
+              { "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+              { "type": "select", "id": "block_type", "label": "Block Type", "options": [ { "value": "full", "label": "Full" }, { "value": "boxed", "label": "Boxed" } ], "default": "full" },
+              { "type": "range", "id": "margn-up", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Top", "default": 15 },
+              { "type": "range", "id": "margn-dwn", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Bottom", "default": 25 },
+              { "type": "range", "id": "width", "min": 1, "max": 100, "step": 1, "unit": "%", "label": "Block Width", "default": 90, "info":"Applied if block Typle is boxed" },
+              { "type": "color", "id": "block_bg", "label": "Block Background Color", "default": "#ffffff" },
+
+              { "type": "header", "content": "Content settings" },
+              { "type": "image_picker", "id": "topAddit_sec_Img", "label": "Block Image" },
+			  { "type": "color", "id": "img__per_bg_clr", "label": "Image Background Color", "default": "#00b8bc" },
+              { "type": "select", "id": "img_align", "label": "Img Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" },
+              { "type": "text", "id": "headerText", "label": "Header Text" },
+              { "type": "color", "id": "headerTextColor", "label": "Header Font Color", "default": "#81aec5" },
+              { "type": "range", "id": "headerTextSize", "min": 1, "max": 75, "step": 1, "unit": "px", "label": "Header Font Size", "default": 44 },
+              { "type": "range", "id": "ltr-spacing", "min": 1, "max": 35, "step": 1, "unit": "px", "label": "letter spacing", "default": 3 },
+              { "type": "select", "id": "text_align", "label": "Text Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" },
+               { "type": "html", "id": "addit_leftcontent", "label":"Content"},
+               { "type": "html", "id": "addit_rightcontent", "label":"Content"},
+              { "type": "text", "id": "addit_sec_paragraph", "label": "Addintonal Content" },
+              { "type": "select", "id": "add_txt_align", "label": "Text Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" }   
+           
+			]
+        },
+        {
+           "type":"cont_videoBB",
+           "name":"Content with Video",
+           "settings":[
+              	{"type": "checkbox", "id": "enable_sec_video","label": "Enable Video Section","default":true },
+              	{"type": "text", "id": "sec_video", "label": "Video URL","info":"Upload video in Assets folder and add file name with extensiton"}, 
+				{"type": "image_picker", "id": "video_poster", "label":"Poster Image" },
+				{"type": "image_picker", "id": "video_poster_m", "label":"Poster Image(Mobile)" },
+				{"type":"header","content":"Bottom Text"}, 
+				{"type": "color", "id": "addit_bg_color", "label": "Background Color", "default": "#f6f6f6" },
+				{"type":"html","id":"addit_sec_paragraph","label":"Content"}
+			]
+        },
+        {
+           "type":"sp_featureBB",
+           "name":"Special Features",
+           "settings":[
+              { "type": "header", "content": "Block settings" },
+              { "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+			  { "type": "color", "id": "block_bg_Spe", "label": "Block Background Color", "default": "#ffffff" },
+			  {"type":"image_picker","id":"featureRightImg","label":"Right Image"},
+			 { "type": "color", "id": "img__f_bg_clr", "label": "Image Background Color", "default": "#00b8bc" },
+              {"type":"header", "content":"Section [1]"},
+              {"type":"text","id":"featureTitle1","label":"Title"},
+              {"type":"html","id":"featureText1","label":"Content"},            
+              {"type":"header", "content":"Section [2]"},
+              {"type":"text","id":"featureTitle2","label":"Title"},
+              {"type":"html","id":"featureText2","label":"Content"},             
+              {"type":"header", "content":"Section [3]"},
+              {"type":"text","id":"featureTitle3","label":"Title"},
+              {"type":"html","id":"featureText3","label":"Content"},              
+              {"type":"header", "content":"Section [4]"},
+              {"type":"text","id":"featureTitle4","label":"Title"},
+              {"type":"html","id":"featureText4","label":"Content"}              
+           ]
+        },
+		{
+           "type":"ss_Ingredient",
+           "name":"Super Ingredient",
+           "settings":[
+         {"type":"header","content":"Super Ingredient [1]"},
+		{"type":"image_picker","id":"si_title","label":"logo"},
+        {"type":"richtext","id":"si_description","label":"Content"},
+        {"type": "image_picker", "id":"si_image", "label":"Image"},
+		{"type":"header","content":"Super Ingredient [2]"},
+		{"type":"checkbox","id":"si_enable_box_2","label":"Enable","default":false},
+		{"type":"image_picker","id":"si_title_2","label":"logo"},
+        {"type":"richtext","id":"si_description_2","label":"Content"},
+        {"type": "image_picker", "id":"si_image_2", "label":"Image"} 
+         ]}
+	]
+  }
+{% endschema %}
+  <script>
+$(document).on("click",".inner_text h3",function(){
+$(".inner_text .sf_c_content").removeClass("is_spc_active");
+var sf_id = $(this).attr("spf_id");
+$("#"+sf_id).addClass("is_spc_active");
+});
+  </script>

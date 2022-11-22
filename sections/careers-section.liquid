@@ -1,0 +1,408 @@
+<section id="ppcp_Careers_Pet">
+<div class="main_div_Careers_Pet">
+<h1 class="wwa_heading wwa_heading_red">{{ section.settings.cpp_title }}</h1>
+<p>{{ section.settings.cpp_content }}</p>
+<a class="careers_btn" href="{{ section.settings.cpp_url }}">View open Roles</a>
+</div>
+</section>
+<section id="ppcp_banner_img">
+{% if section.settings.banner_img %}
+	{{ section.settings.banner_img | img_url:'master' | img_tag:'banner_img','img-responsive' }}
+	{% endif %}
+  {% assign dHtmlCon='' %}  
+  {% for block in section.blocks %} 
+	{% if block.type == 'cp_BannerText' %} 
+  {% capture dHtml %}
+    <div class="_cp_Banner _cp_Banner_{{forloop.index}}{% if forloop.first == true %} cp_is_active{% endif %}">
+        <div><h3>{{- block.settings.cpb_title -}}</h3>
+        <p>{{- block.settings.cpb_content -}}</p>
+      </div>
+    </div>
+  {% endcapture %}
+  {% assign dHtmlCon = dHtmlCon | append: dHtml %}
+  {% endif %}
+	{% endfor %}
+  
+  
+  <div class="cp_banner_text sliderr is_only_desktop" id="careers_p_b_des">
+  {{dHtmlCon}}
+  </div>
+  <div class="cp_banner_text is_only_mobile">
+   {{dHtmlCon}}
+  </div>
+</section>
+<section id="ppcp_Our_core">
+<div class="join_pack join_pack_left">
+<h2 class="wwa_heading wwa_heading_blue">{{ section.settings.ocv_title }}</h2>
+</div>
+<div class="main_div_Our_core is_only_desktop">
+<ul class="ppcp_Our_core_tab">
+  {% for block in section.blocks %} 
+		{% if block.type == 'CoreValuesTab' %} 
+			<li tab_id="ppcp_oc_{{forloop.index}}" class="ppcp_oc{% if forloop.first == true %} is_tab_list_active{% endif %}">
+              {% if block.settings.cvt_img %}
+              {{ block.settings.cvt_img | img_url:'master' | img_tag:'cvt_img','img-responsive' }}
+            {% endif %}
+  			</li> 
+		{% endif %}
+	{% endfor %}
+</ul>
+  {% for block in section.blocks %} 
+		{% if block.type == 'CoreValuesTab' %} 
+<div id="ppcp_oc_{{forloop.index}}" class="ppcp_Our_core_content {% if forloop.first == true %} is_content_active{% endif %}">
+  <h3>{{ block.settings.cvt_title }}</h3>
+  <div class="_core_content">{{ block.settings.cvt_content }}</div>
+</div>
+  {% endif %}
+	{% endfor %}
+</div>
+  <div class="main_div_Our_core iss_only_mobile">
+<ul class="ppcp_Our_core_tab" id="ppcp_Our_core_tab">
+  {% for block in section.blocks %} 
+		{% if block.type == 'CoreValuesTab' %} 
+			<li class="ppcp_ocactive ppcp_o_{{forloop.index}}" id="ppcp_odsfc_{{forloop.index}}">
+              {% if block.settings.cvt_img %}
+            <span class="ppcp_icon_img">{{ block.settings.cvt_img | img_url:'master' | img_tag:'cvt_img','img-responsive' }}</span>
+            {% endif %}
+              <div class="ppcp_Our_core_content is_content_active">
+  				<h3>{{ block.settings.cvt_title }}</h3>
+  					<div class="_core_content">{{ block.settings.cvt_content }}</div>
+				</div>
+  			</li> 
+		{% endif %}
+	{% endfor %}
+</ul>
+</div>
+</section>
+
+<section id="ppcp_The_Treats">
+<div class="main_div_The_Treats">
+<h2 class="wwa_heading wwa_heading_red">{{ section.settings.tt_heading }}</h2>
+<p class="ppcp_tt_sub_h">{{ section.settings.tt_sub_heading }}</p>
+<div class="ppcp_tt_listing">
+<div class="ppcp_tt_list_i">{{ section.settings.tt_list_1 }}
+</div>
+<div class="ppcp_tt_list_i">{{ section.settings.tt_list_2 }}
+</div>
+<div class="ppcp_tt_list_i">{{ section.settings.tt_list_3 }}
+</div>
+</div>
+</div>
+</section>
+<section id="ppcp_Top_Dog">
+<div class="main_div_Top_Dog">
+<div class="Top_Dog Top_Dog_left">
+  {% if section.settings.tg_image %}
+	{{ section.settings.tg_image | img_url:'master' | img_tag:'tg_image','img-responsive' }}
+	{% endif %}
+</div>
+<div class="Top_Dog Top_Dog_right">
+<h2 class="wwa_heading wwa_heading_blue">{{ section.settings.td_title }}</h2>
+<p>{{ section.settings.td_content }}</p>
+</div>
+</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Careers Setting",
+    "settings": [
+		{"type":"header", "content":"Careers at Pet Parents"},
+        {"type":"text","id":"cpp_title","label":"Heading"},
+        {"type":"richtext","id":"cpp_content","label":"Content"},
+        {"type":"url","id":"cpp_url","label":"Button Url"},
+        {"type":"header", "content":"Banner"},
+        {"type":"image_picker","id":"banner_img","label":"Image"},
+        {"type":"header", "content":"Our Core Values"},
+        {"type":"text","id":"ocv_title","label":"Heading","default":"Our Core Values"},
+        {"type":"header", "content":"The Treats"},
+        {"type":"text","id":"tt_heading","label":"Heading"},
+        {"type":"text","id":"tt_sub_heading","label":"Sub Heading"},
+        {"type":"html","id":"tt_list_1","label":"List 1"},
+        {"type":"html","id":"tt_list_2","label":"List 2"},
+        {"type":"html","id":"tt_list_3","label":"List 3"},
+        {"type":"header", "content":"Top Dog HQ"},
+        {"type":"text","id":"td_title","label":"Heading"},
+        {"type":"richtext","id":"td_content","label":"Content"},
+        {"type":"image_picker","id":"tg_image","label":"Image"},
+        {"type":"header", "content":"Want to join the pack?"}
+	],
+	"blocks" : [{	
+				"name":"Core Values Tab",
+				"type":"CoreValuesTab",
+				"settings": [
+				{"type":"text","id":"cvt_title","label":"Title"},
+				{"type":"richtext","id":"cvt_content","label":"Content"},
+				{"type":"image_picker","id":"cvt_img","label":"Icon Image"}
+				]
+				},
+				{	
+				"name":"Banner Text",
+				"type":"cp_BannerText",
+				"settings": [
+				{"type":"text","id":"cpb_title","label":"Title"},
+				{"type":"richtext","id":"cpb_content","label":"Content"}
+				]
+				}]
+			
+  }
+{% endschema %}
+
+<style>
+  
+ body {font-family: 'Gentona Book';}
+.main_div_Careers_Pet h1:before{   content: ""; position: absolute; background: red; height: 10px; width: 100%; max-width: 210px; border-radius: 40px; top: -30px; visibility: hidden; }
+.wwa_heading,.main_div_Careers_Pet h1 {position: relative; font-size: 40px; text-align: center; font-family: 'Gentona Book'; font-weight: 500; color: #706f6f; margin: 0; }
+.wwa_heading::after {content: ""; background: #00b6bd; position: absolute; height: 10px; width: 100%; max-width: 210px; border-radius: 40px; top: -30px; left: 0; right: 0; margin: 0 auto; }
+.wwa_heading_red::after {background: red; }
+.wwa_heading_blue::after {background: #00b6bd;}
+.main_div_Careers_Pet {padding: 120px 0 110px; background: #f6f6f6; }
+.main_div_Careers_Pet p {font-size: 16px; text-align: center; max-width: 650px; line-height: 1.35; margin: 25px auto; color: #706f6f; font-family: 'Gentona Book'; }
+.careers_btn {text-decoration: none !important; background: #00b6bd; border-radius: 50px; width: max-content; display: block; padding: 10px 20px; line-height: 1; margin: 0px auto; text-align: center; color: #fff !important; font-weight: bold; text-transform: uppercase; }
+#ppcp_banner_img::before {visibility: hidden; content: ""; background: rgba(0,0,0,0.2); width: 100%; height: 100%; position: absolute; left: 0; right: 0; top: 0; }
+.main_div_Our_core.is_only_desktop {margin-top: -50px; }
+/* #ppcp_banner_img img.img-responsive {width: 100%; } */
+.join_pack.join_pack_left {padding: 120px 0 150px; background: #f6f6f6;}
+#ppcp_Our_core .join_pack.join_pack_left {padding: 120px 0 150px;background: #f6f6f6;}
+.ppcp_Our_core_content {max-width: 680px; padding: 0 15px; margin: 0px auto;}
+.ppcp_Our_core_content h3 {color: #00b6bd;font-size: 23px;margin: 60px 0 20px;letter-spacing: 0;text-transform: none;font-weight: 600;}
+#ppcp_The_Treats {background: #f6f6f6; padding : 120px 0 90px; margin: 50px 0 0;}
+.main_div_The_Treats {max-width: 1050px; padding: 0 15px; margin: 0px auto;}
+.ppcp_tt_list_i ul {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	grid-gap: 20px;
+}
+p.ppcp_tt_sub_h {border-top: 1px solid rgba(0, 0, 0, 0.25); border-bottom: 1px solid rgba(0, 0, 0, 0.25); text-align: center; padding: 15px 0; margin: 50px 0 60px; font-size: 16px; line-height: 1.35; color: #706f6f; font-family: 'Gentona Book';}
+.ppcp_tt_list_i {width: 100%; }
+.main_div_Top_Dog {display: flex; flex-wrap: wrap; align-items : center;}
+.Top_Dog.Top_Dog_left img {width : 100%; }
+.join_pack.join_pack_right img {width : 100%;}
+.main_div_Top_Dog>div {width: 50%; }
+.Top_Dog_right h2, .Top_Dog_right p {max-width : 325px; padding : 0 15px; margin: 0px auto; text-align : left;}
+.Top_Dog_right p {padding : 7px 15px; font-size: 16px; line-height: 1.5; color: #706f6f; font-family: 'Gentona Book';}
+
+.Top_Dog_right h2::after {left: 15px; margin: 0; }
+.main_div_join_pack {display: flex; align-items: center; }
+.main_div_join_pack>div {width: 50%; position: relative; }
+.main_div_join_pack h2, .main_div_join_pack p {max-width : 265px; padding : 0 15px; margin: 0px auto; text-align : left; }
+.wwa_heading_red_anchor {max-width : 265px; margin: 0px auto; }
+.main_div_join_pack h2, .main_div_join_pack p {padding : 0 15px; text-align : left; }
+.main_div_join_pack p {padding : 7px 15px; font-size: 17px; line-height: 1.35; color: #706f6f; font-family: 'Gentona Book'; }
+.join_pack_img_con p em {padding-top: 15px;	display: block;}
+.wwa_heading_red_anchor .careers_btn {margin: 0px 15px 0; }
+.join_pack_img_con {position: absolute; top: 0; padding: 80px 0 0 80px;}
+.join_pack_img_con p {padding: 0; font-size : 18px !important; color: #fff !important; }
+.join_pack_img_con p em {margin-top : 15px; }
+
+.__Footer_sec_inner {padding: 70px 38px 40px; border: none; }
+.wwa_heading_red_anchor .wwa_heading_red::after {margin: 0; left: 15px; }
+ul.ppcp_Our_core_tab li {background: #aaa; }
+ul.ppcp_Our_core_tab li.is_tab_list_active {background: #00b6bd; }
+.ppcp_Our_core_content{display:none;}
+.ppcp_Our_core_content.is_content_active{display:block;}
+
+ul.ppcp_Our_core_tab {display: flex; align-items: center; justify-content: center; grid-column-gap: 30px;}  
+li.ppcp_oc {width: 100%; max-width: 85px; display: flex; align-items: center; justify-content: center; height: 85px; border-radius: 50%;overflow: hidden;}
+li.ppcp_oc[tab_id="ppcp_oc_2"] img {padding-top: 25px;}
+._core_content p {font-size: 17px; line-height: 1.35; color: #706f6f; font-family: 'Gentona Book'; }
+.ppcp_tt_list_i li {
+	font-size: 16px;
+	line-height: 1;
+	color: #706f6f;
+	font-family: 'Gentona Book';
+	position: relative;
+	margin-left: 10px;
+	width: 30%;
+    margin-bottom: -5px;
+}
+.ppcp_tt_list_i li::before {position: absolute; content: ""; width: 3px; height: 3px; background: #706f6f; top: 9px; left: -10px; border-radius: 50%; }
+.main_div_join_pack {background: #f6f6f6; }
+div#join_pack_right_sl {margin-bottom: 0; }
+section#ppcp_banner_img {position: relative; }
+div#careers_p_b_des {position: absolute; top: 0; z-index: 99; left: 0; display: flex;}
+#careers_p_b_des ._cp_Banner {
+    padding: 20px;
+    background: #fff;
+    width: 100%;
+    border: none;
+    margin: -1px;
+    opacity: 0;
+}
+#careers_p_b_des ._cp_Banner:hover {
+    opacity: 1;
+}
+
+._cp_Banner h3 {color: #e3002b; font-size: 16px; font-weight: 800; margin: 5px 0; text-transform: capitalize; }
+._cp_Banner p {font-size: 14px; line-height: 1.15; color: #706f6f; font-family: 'Gentona Book'; }
+.is_only_mobile,.iss_only_mobile{display:none;}
+  
+.slick-slider .slick-dots li.slick-active button::before {width: 12px !important;height: 12px !important;}
+.slick-dots li button {height: 12px;width: 12px;}
+.slick-slider .slick-dots li button::before {width: 12px !important;height: 12px !important;}  
+
+ 
+img.is_img_mobile {display: none;}
+img.is_img_desktop {display: block;}
+h2.wwa_heading.wwa_heading_red {
+    line-height: 1.3;
+}  
+.join_pack.join_pack_left p{line-height: 1.5;}
+#join_pack_right_sl ul.slick-dots {
+    display: none;
+} 
+div#careers_p_b_des ._cp_Banner.cp_is_active {
+    display: block;
+}
+/* #ppcp_banner_img img.img-responsive {
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom center;
+}  */
+li.ppcp_oc[tab_id="ppcp_oc_6"] img {
+    width: 100%;
+    max-width: 82px;
+    padding-top: 28px;
+    padding-right: 23px;
+}
+  
+
+/*  Group Updated  */
+#ppcp_banner_img img.img-responsive {
+    width: 100%;
+}
+#careers_p_b_des ._cp_Banner {
+    padding: 0;
+    background: #fff;
+    border: none;
+    margin: 0;
+    opacity: 0;
+}
+._cp_Banner div {
+    max-width: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    justify-content: center;
+    height: 100%;
+    overflow: scroll;
+}
+._cp_Banner div::-webkit-scrollbar {
+  display: none;
+}
+._cp_Banner p {
+    margin: 0;
+}
+
+div#careers_p_b_des {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+grid-template-rows: repeat(3, 33%);
+height: 100%;
+}
+._cp_Banner_18 div,._cp_Banner_19 div,._cp_Banner_20 div,._cp_Banner_21 div,._cp_Banner_22 div,._cp_Banner_23 div,._cp_Banner_29 div
+  {justify-content: start;padding-top: 5px;padding-bottom: 5px;}
+
+  
+  
+@media (max-width: 991px) {
+.main_div_Top_Dog {display: block; }
+.main_div_Top_Dog>div {width: 100%; }
+.Top_Dog.Top_Dog_right {padding-top: 75px;}
+.main_div_join_pack {display: flex; align-items: center; flex-direction: column-reverse; flex-wrap: wrap;}
+}
+
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+.main_div_Careers_Pet p {max-width: 465px; padding: 35px 10px 0 !important; margin: 0px auto !important;}
+
+.is_only_desktop{display:none;}
+.is_only_mobile{display:flex; flex-wrap: wrap;}
+  .iss_only_mobile{display:block}
+._cp_Banner { width: 50%; padding: 20px; display: flex;flex-direction: column;justify-content: center;}
+  ._cp_Banner div {
+    max-width: 100%;
+}
+._cp_Banner_7, ._cp_Banner_10, ._cp_Banner_11, ._cp_Banner_14, ._cp_Banner_15, ._cp_Banner_18,._cp_Banner_19, ._cp_Banner_22, ._cp_Banner_23, ._cp_Banner_26, ._cp_Banner_27, ._cp_Banner_30  {background: #f6f6f6;}
+.cp_banner_text.is_only_mobile {
+    margin-bottom: 5px;
+}
+  /* ._cp_Banner h3 {font-size: 14px;} */
+._cp_Banner p {font-size: 14px; margin-bottom: 0 !important;}
+/* ._cp_Banner._cp_Banner_13 {background: #e5e5e4;width: 100%;	margin-bottom: 10px;padding: 30px 50px;} */
+p.ppcp_tt_sub_h {margin: 50px auto 50px !important; max-width: 280px;}
+.ppcp_tt_listing {flex-wrap: wrap;grid-gap: 30px;}
+.Top_Dog_right p {margin: 0 auto !important; line-height: 1.5;}
+.Top_Dog.Top_Dog_right {padding: 70px 0 50px;}
+.main_div_join_pack > div {width: 100%;}
+
+ul.ppcp_Our_core_tab li {background: none;}
+.ppcp_icon_img {background: #00b6bd;height: 120px;width: 120px;margin: 0px auto 0;border-radius: 50%;display: flex;align-items: center;	justify-content: center;}
+#ppcp_Our_core_tab {grid-column-gap: 0px;margin: -60px 0 0 0;}
+#ppcp_Our_core_tab .slick-dots {bottom: -40px;}
+.wwa_heading, .main_div_Careers_Pet h1 {font-size: 34px;}
+/* #ppcp_banner_img img.img-responsive {height: 250px;object-fit: cover;} */
+.join_pack_img_con {padding:20px;}
+.ppcp_Our_core_content {max-width: 300px;}
+.wwa_heading_red_anchor .careers_btn {margin: 0 auto;}
+  
+.ppcp_tt_list_i ul {margin: 0;display: flex;flex-wrap: wrap;width: 100%;grid-gap: 15px;}
+.ppcp_tt_list_i {width: 100%; max-width: 100%; padding: 0 20px}
+.ppcp_tt_list_i li {width: 43%;}
+  
+.main_div_Careers_Pet {padding: 100px 20px 80px;}
+#ppcp_The_Treats {padding: 90px 0 70px; margin: 70px 0 0;}  
+#ppcp_banner_img::before {display:none;}._cp_Banner h3 + p,.main_div_Careers_Pet h1 + p {display: none;}
+
+img.is_img_mobile {display: block;}
+img.is_img_desktop {display: none;}
+  
+  #ppcp_Our_core .join_pack.join_pack_left {padding: 150px 0 130px;background: #f6f6f6;}
+  #shopify-section-careers-section-slider .join_pack.join_pack_left {padding: 120px 0 100px;}
+  .Top_Dog_right h2, .Top_Dog_right p {max-width : 300px;}
+  .wwa_heading.wwa_heading_blue {text-align: center;}
+  .slick-current.slick-active .ppcp_Our_core_content {display: block;}
+  #ppcp_Our_core_tab.ppcp_Our_core_tab li.is_tab_list_active {background: none;}
+  .wwa_heading_blue::after {background: #00b6bd;margin: 0 auto !important;left: 0 !important}
+	._cp_Banner._cp_Banner_12 {
+      max-width: 135px;
+  }
+/*   ._cp_Banner._cp_Banner_8 p {
+    max-width: 70%;
+} */
+  
+  div#careers_p_b_des {
+    display: none;
+}
+  .join_pack_img_con p {
+    font-size: 14px !important;
+    max-width: 180px;
+}
+  
+  
+}
+
+
+</style>
+<script>
+ $(document).ready(function(){
+$("ul.ppcp_Our_core_tab li").hover(function(){
+$("ul.ppcp_Our_core_tab li").removeClass("is_tab_list_active");
+$(this).addClass("is_tab_list_active");
+$(".ppcp_Our_core_content").removeClass("is_content_active");
+var tabID = $(this).attr("tab_id");
+$("#"+tabID).addClass("is_content_active");
+})
+
+
+$("div#careers_p_b_des ._cp_Banner:first-child").addClass("cp_is_active");
+  $("div#careers_p_b_des ._cp_Banner").hover(function(){
+  $("div#careers_p_b_des ._cp_Banner").removeClass("cp_is_active");
+  $(this).addClass("cp_is_active");
+  })
+})                                            
+
+ 
+</script>

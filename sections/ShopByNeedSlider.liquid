@@ -1,0 +1,44 @@
+<section class="shopPetAge_wht sf_ShopByNeedSlider sf_need_slider">
+	<div class="container">
+      <span class="sf_divider" style="background:{{section.settings.dividerColor}}"></span>
+		
+			<h2 class="head_sec bl_h">{{section.settings.section_title}}</h2>
+		
+			<div class="proKnownSliderHome" id="sf_sliderShopByNeed">
+              {% for block in section.blocks %} 
+				<div class="proKnownSlider">
+				  <a href="{{block.settings.productSliderUrl}}">
+					<span class="sf_pro_img">
+					{% if block.settings.productImg %}
+                       	<img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.productImg | img_url: 'master' }}" alt="productImg">
+                       {% endif %}
+					</span>					
+				  </a>
+                  <h6>{{block.settings.productTitle}}</h6>
+				</div>
+				{% endfor %}
+			
+			  </div>
+		 </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Shop By Need",
+		"settings": [
+			{"type":"text","id":"section_title","label":"Section Title"},
+			{"type":"color","id":"dividerColor","label":"Divider Color"}
+		],
+		"blocks" : [{
+         "type": "slide",
+         "name": "New Item",
+         "settings": [
+			{"type":"text","id":"productTitle","label":"Product Title"},
+			{"type":"image_picker","id":"productImg","label":"Product Image"},
+            {"type":"url","id":"productSliderUrl","label":"Product Url"}		
+            ]}],
+		"presets": [{
+			"name": "Shop By Need"
+		}]
+	}
+{% endschema %}

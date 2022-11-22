@@ -1,0 +1,94 @@
+{% assign count = section.settings.blog_per_page %}
+{% assign blog_name =  section.settings.blog_setting %}
+
+<!-- Dog Blog List -->
+<div class="DogBlogList1">
+   {% paginate blogs[blog_name].articles by count %}
+  
+  {% if section.settings.blog_type_o == 'blogList' %}
+  <ul class="slider" id="veterinary_program_slider">  
+   {% for article in blogs[blog_name].articles %}  	 
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list1">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text1">          
+            <div class="__dog-title1">
+              <span class="img-title1">{{ article.published_at | date: "%b %d " }}</span>
+              {% for tag in article.tags %}
+				{% if tag contains 'vet reviewed' %}
+                <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="_dog_cnt_1">
+               {{  article.title }}
+                <p><span class="SeeMOre1"> > read <strong>more</strong> </span></p>
+            </div>
+          </div>
+        </a>
+      </li>   
+   {% endfor %}
+        </ul> 
+  {% else %}
+  <ul class="slider" id="veterinary_program_slider">  
+   {% for block in section.blocks %}  
+    {% assign article = articles[block.settings.for_article] %}
+    			{% if article %}
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list1">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text1">          
+            <div class="__dog-title1">
+              <span class="img-title1">{{ article.published_at | date: "%b %d " }}</span>
+              {% for tag in article.tags %}
+				{% if tag contains 'vet reviewed' %}
+                <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="_dog_cnt_1">
+               {{  article.title }}
+                <p><span class="SeeMOre1"> > read <strong>more</strong> </span></p>
+            </div>
+          </div>
+        </a>
+      </li>   
+    {% endif %}
+   {% endfor %}
+        </ul>   
+  {% endif %}
+    {% endpaginate %}  
+</div>
+<!-- Blog Landing Section Ends -->
+{% schema %}
+  {
+    "name": "Blog List section",
+      "settings": [
+		 {"type":"select", "id":"blog_type_o", "label":"List Type", "options": [ {"value":"blogList", "label":"Blog"},{"value":"article", "label":"Article"} ],"default":"article","info":"If choose blog, select only collection, otherwise article select manully"},
+         {"type": "blog", "id":"blog_setting","label": "Blog"},
+         {"type": "number", "id": "blog_per_page","label": "Blog per page","default": 20}
+    ],
+	"blocks" : [{	
+				"name":"Article",
+				"type":"selectArticless",
+				"settings": [
+				{"type":"article", "id":"for_article", "label":"Select Aticle"}
+				]
+				}],
+	"presets":[{
+      "name": "Blog landing Page",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<script>
+  jQuery(".FilterButton").click(function(){
+   jQuery(".flist").toggle();
+    
+  });
+</script>

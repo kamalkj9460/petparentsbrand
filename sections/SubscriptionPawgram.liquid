@@ -1,0 +1,50 @@
+<section class="deskTab sf_SubscriptionPawgram" style="background:{{section.settings.sp_home_Color}}">
+	<div class="container">
+		<div class="row _sf_S_Pawgram">
+            <div class="cnt_left_sf">
+                  <div class="BannerContent">
+                    <h2>{{section.settings.sp_home_banner_heading}} 
+                      <span>{{section.settings.sp_home_banner_heading2}}</span></h2>
+                    <p class="txt-btn">{{section.settings.sp_home_banner_des}} <a href="{{section.settings.sp_home_banner_url}}">Learn More</a> </p>
+                                                      
+                   </div>
+              </div>
+           	 <div class="img_right_sf">
+               <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.sp_BannerMob | img_url: 'master' }}" alt="sp_BannerMob">
+             </div> 
+          </div>
+	</div>
+</section>
+<section class="BannerHome mobBan sf_SubscriptionPawgram">
+	<div class="container">
+		<div class="row ">
+			<div class="BannerHome">
+				<div class="BannerContent">
+                  <h2>{{section.settings.sp_home_banner_heading}}</h2>
+                  <h3>{{section.settings.sp_home_banner_heading2}}</h3>
+                  <p>{{section.settings.sp_home_banner_des}}</p>
+                  <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.sp_BannerMob | img_url: 'master' }}" alt="sp_BannerMob">
+                  <a href="{{section.settings.sp_home_banner_url}}">Learn More</a>
+             	 </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+{
+"name" : "Subscription Pawgram",
+"settings" : [			
+{"type":"color","id":"sp_home_Color","label":"Background Color","default":"#00b7bc"},
+{"type":"image_picker","id":"sp_BannerMob","label":"Image"},
+{"type":"text","id":"sp_home_banner_heading","label":"Banner Heading [1]"},
+{"type":"text","id":"sp_home_banner_heading2","label":"Banner Heading [2]"},
+{"type":"html","id":"sp_home_banner_des","label":"Banner Description"},
+{"type":"url","id":"sp_home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Subscription Pawgram"
+}]
+}
+{% endschema %}

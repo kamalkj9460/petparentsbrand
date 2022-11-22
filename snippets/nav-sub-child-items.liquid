@@ -1,0 +1,43 @@
+<ul class="__dropDown{% if link.levels == 2 %} site-nav--has-grandchildren{% endif %}">
+  {% for childlink in link.links %}
+  {% if childlink.links != blank %}
+  	{% assign child_index = forloop.index %}
+  	<li class="{{ childlink.title | handleize | escape }}">
+      <span class="border-devide"></span>
+    <a href="{{ childlink.url }}"
+       class="site-nav__dropdown-link"
+       aria-controls="MenuChildren-{{ parent_index }}-{{ child_index }}"
+       data-meganav-type="parent"
+       {% unless template.name == 'index' %}{% if childlink.active %}aria-current="page"{% endif %}{% endunless%}
+       tabindex="-1">
+      {{ childlink.title | escape }}
+      <span class="icon icon-arrow-down" aria-hidden="true"></span>
+    </a>
+    <div class="site-nav__dropdown-grandchild">
+      <ul
+          id="MenuChildren-{{ parent_index }}-{{ child_index }}"
+          data-meganav-dropdown>
+        {% for grandchildlink in childlink.links %}
+        <li{% if grandchildlink.active %} class="site-nav--active"{% endif %}>
+          <a
+             href="{{ grandchildlink.url }}"
+             class="site-nav__dropdown-link"
+             data-meganav-type="child"
+             {% unless template.name == 'index' %}{% if grandchildlink.active %}aria-current="page"{% endif %}{% endunless %}
+             tabindex="-1">
+            {{ grandchildlink.title | escape }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </li>
+  {% else %}
+    <li class="{{ childlink.title | handleize | escape }}">
+      <a href="{{ childlink.url }}" class="3">
+        {{ childlink.title | escape }}
+      </a>
+    </li>
+  {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,71 @@
+{%- capture _vData -%}
+  {%- assign type1 = type | downcase | escape | handleize -%}
+  {%- assign val1 = val | downcase | escape | handleize -%}
+  {%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+	  {%- assign var_type = block.type -%}
+	  {%- case var_type -%}		
+		{% comment %}when block type is type {% endcomment %}
+		{%- when 'type' -%}
+		 {%- assign typeVal = block.settings.type | downcase | escape | handleize -%}
+		 {%- assign customTypeVal = block.settings.type_text -%}
+		 {%- if type1 ==  var_type -%}
+            {%- if block.settings.type_img != blank -%}
+				{%- if block.settings.use_custom_type -%}
+					{%- assign _product = all_products[block.settings.block_product] -%}
+					<label>
+                      {%- if block.settings.block_product != blank %}
+                      	<a data-id="{{block.settings.block_product}}" href="{{_product.url}}">
+                      {%- endif -%}
+                {% else %}
+                     <input type="radio" {% if OSL == val %} checked="checked"{% endif %}{% unless VLS %} disabled="disabled"{% endunless %} value="{{- val | escape -}}" data-index="option{{ OI }}" name="{{ type }}" class="single-option-selector__radio{%- unless VLS -%} disabled{% endunless -%}" id="ProductSelect-option-{{- type -}}-{{- val | escape -}}">
+						<label for="ProductSelect-option-{{- type -}}-{{- val | escape -}}"{%- unless VLS -%} class="disabled"{%- endunless -%}> 
+                {%- endif -%}
+                	  {{- block.settings.type_img | img_url:'150x' | img_tag -}}
+                      {%- if block.settings.use_custom_type -%}{{-customTypeVal-}}{%- else -%}{{- val -}}{%- endif -%}
+                {%- if block.settings.block_product != blank %}</a>{%- endif -%}</label>
+			{%- endif -%}
+		 {%- endif -%}
+                          
+		{% comment %}when block type is size{% endcomment %}
+		{%- when 'sizes' -%}
+		 {%- assign sizeVal = block.settings.size | downcase | escape | handleize -%}
+		 {%- assign customSizeVal = block.settings.size_text -%}
+         {% assign type11 = type1 | append: 's' %}
+		 {%- if type11 == var_type -%}
+            {%- if block.settings.use_custom_size -%}
+				<label>
+            {% else %}
+                  <input type="radio" {% if OSL == val %} checked="checked"{% endif %}{% unless VLS %} disabled="disabled"{% endunless %} value="{{- val | escape -}}" data-index="option{{ OI }}" name="{{ type }}" class="single-option-selector__radio{%- unless VLS -%} disabled{% endunless -%}" id="ProductSelect-option-{{- type -}}-{{- val | escape -}}">
+                  <label for="ProductSelect-option-{{- type -}}-{{- val | escape -}}"{%- unless VLS -%} class="disabled"{%- endunless -%}>                 
+            {%- endif -%}
+            {%- if block.settings.size_img != blank -%}
+                {{- block.settings.size_img | img_url:'150x' | img_tag -}}                
+                {%- if block.settings.use_custom_size -%}{{-customSizeVal-}}{%- else -%}{{- val -}}{%- endif -%}
+            {%- else -%}
+                {{- val -}}
+            {%- endif -%}</label>
+		 {%- endif -%}		
+		{% comment %}when block type is flavor{% endcomment %}
+		{%- when 'flavor' -%}
+		{%- assign flavorVal = block.settings.flavor | downcase | escape | handleize -%}
+		 {%- assign customFlavorVal = block.settings.flavor_text -%}
+		 {%- if type1 ==  var_type -%}
+			{%- if block.settings.use_custom_flavor -%}
+				<label>
+            {% else %}
+                  <input type="radio" {% if OSL == val %} checked="checked"{% endif %}{% unless VLS %} disabled="disabled"{% endunless %} value="{{- val | escape -}}" data-index="option{{ OI }}" name="{{ type }}" class="single-option-selector__radio{%- unless VLS -%} disabled{% endunless -%}" id="ProductSelect-option-{{- type -}}-{{- val | escape -}}">
+                  <label for="ProductSelect-option-{{- type -}}-{{- val | escape -}}"{%- unless VLS -%} class="disabled"{%- endunless -%}>                 
+            {%- endif -%}
+			{%- if block.settings.flavor_img != blank -%}
+                {{- block.settings.flavor_img | img_url:'150x' | img_tag -}}                
+                {%- if block.settings.use_custom_flavor -%}{{-customFlavorVal-}}{%- else -%}{{- val -}}{%- endif -%}
+            {%- else -%}
+                {{- val -}}
+            {%- endif -%}</label>
+	     {%- endif -%}
+	  {%- endcase -%}      
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{{- _vData -}}

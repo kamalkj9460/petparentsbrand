@@ -1,0 +1,162 @@
+<div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths sf_PB_banner_right">
+  <div class="product-single__meta2">      
+    <div class="product_code" itemprop="name">
+    {% if section.settings.online_exclusive and section.settings.exe_image %}
+      <div class="title_online_exe_badge is_desktop_ex"><span class="ex_title">{% if section.settings.product_vendor_enable %}Pet Parents<sup>®</sup>{% endif %} {{ section.settings.custom_title | default:product.title }}</span>{{ section.settings.exe_image | img_url:'master' | img_tag:'badge-img','badge-image' }}</div>
+      {% endif %}
+    </div>
+    <div class="_product_subData">
+      <h5 class="subH5">{{section.settings.sub_text_product}}</h5>
+    </div>    
+    <div class="rating __belowtitle">            
+      <div class="price">							
+        <span class="item-reviews">
+          {% render 'product-header-features' %}
+          {% if section.settings.review_show %} <!-- Stamped - Begin Star Rating Badge --><span class="stamped-product-reviews-badge stamped-main-badge sf_review_section" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-type="{{product.type}}" data-product-title="{{product.title}}" style="display: inline-block;">{{ product.metafields.stamped.badge }} Reviews</span><!-- Stamped - End Star Rating Badge -->{% endif %}
+          {% if section.settings.show_sku %}<span class="__sku variant-sku">SKU: {{ current_variant.sku }}</span>{% endif %}
+        </span>
+      </div>
+    </div>
+     <p class="subH5">{{section.settings.sf_product_des}}</p>
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+      <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">      
+      {% comment %}Product Form Start{% endcomment %}
+      <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="AddToCartForm--{{ section.id }}" class="product-single__form">
+        {% render 'clear-div' %}
+        <div class="__price_button">
+          <div class="col-md-12 no-padding">
+            {% unless product.has_only_default_variant %}
+              {% for option in product.options_with_values %}
+              	<div class="radio-wrapper js product-form__item __frm_{{forloop.index}}">              
+                {% if section.settings.product_selector == 'radio' %}
+                	{% assign p_counter = forloop.index0 %}
+                	<div class="single-option-radio {{option.name | downcase | escape | handleize }}-{{product.id}}" name="{{ option.name }}" id="ProductSelect-option-{{ p_counter }}">
+                  	{%- assign option_index = forloop.index -%}
+                  	{%- assign var_name = option.name -%}
+                    {% assign counter = 0 %}
+                  	{%- for value in option.values -%}
+                  		{%- assign variant_label_state = true -%}
+                  		{%- if product.options.size == 1 -%}
+                  			{%- unless product.variants[forloop.index0].available  -%}
+                  				{%- assign variant_label_state = false -%}
+                  			{%- endunless -%}
+                  		{%- endif -%}
+                  		{%- if forloop.first == true -%}
+                  			{% assign hide_title =  false %}
+                            {% if option.name == 'Default' or option.name == 'Title' or option.name == 'Color' %}
+                            	{% assign hide_title =  true %}
+                            {% endif %}
+                          <label class="single-option-radio__label{% if hide_title %} hidden-label{% endif %}" for="ProductSelect-option-{{ p_counter }}">
+                            <span class="span_bg_color">Select {{ option.name }}</span>                    
+                            {% comment %}{% if option.name == 'Type' %}<span class="spacer"></span><span class="opt2">Color</span>{% endif %}{% endcomment %}
+                          </label>
+                  		{%- endif -%}
+                      	
+                      	{% if option_index > 1   %}
+                      		{% assign hide_others = true %}                      		
+                      		{% if current_variant.id == product.variants[forloop.index0].id %} 
+                              {% assign hide_others = false %}
+                      		  {% assign counter = forloop.index %}
+                      		{% endif %}
+                      		{% if counter != 1 and forloop.first == false %}
+                      		  {% assign hide_others = false %}
+                      		{% endif %}
+                      	{% endif %}
+                      	
+                      
+                        <div index="{{forloop.index0}}" data-available="{{product.variants[forloop.index0].id}}" class="__itemWraper {% if hide_others%} hide{% endif %}" data-name="{{- value -}}">
+                          <input type="radio" {% if option.selected_value == value %} checked="checked"{% endif %}{% unless variant_label_state %} disabled="disabled"{% endunless %} value="{{- value | escape -}}" data-index="option{{ option_index }}" name="{{ option.name }}" class="single-option-selector__radio{%- unless variant_label_state -%} disabled{% endunless -%}" id="ProductSelect-option-{{- option.name -}}-{{- value | escape -}}" autocomplete="off">
+                          <label for="ProductSelect-option-{{- option.name -}}-{{- value | escape -}}"{%- unless variant_label_state -%} class="disabled"{%- endunless -%}>
+                            {%- assign val = value -%}
+                            {%- render 'covr-product-variant-data', type:var_name, val:val, split:true -%}
+                          </label>
+                        </div>
+                     {%- endfor -%}
+                	 </div>                
+                {% endif %}
+              	</div>
+              {% endfor %}
+            {% endunless %}
+            
+            <select name="id" data-productid="{{ product.id }}" id="ProductSelect" class="product-single__variants no-js">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                <option {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} data-sku="{{ variant.sku }}"  value="{{ variant.id }}">
+                  {{ variant.title }} - {{ variant.price | money_with_currency }}
+                </option>
+                {% else %}
+                <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            {% if section.settings.quantity_enabled %}
+              <div class="product-single__quantity">
+                <label for="Quantity" class="product-single__quantity-label js-quantity-selector"><span class="span_bg_color">{{ 'products.product.quantity' | t }}</span></label>
+                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+              </div>
+            {% endif %}
+            <!-- Begin ReCharge code -->
+            {% if product.available %}{% render 'subscription-product' %}{% endif %}
+            <!-- End ReCharge code -->
+
+            {% capture product_price %}
+            <div class="flex-price-wrapper">
+              {% comment %}<div class="__product_price">Price:</div>{% endcomment %}
+              {% if current_variant.compare_at_price > current_variant.price %}
+                <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                <span class="product-single__price--wrapper">
+                  <span id="ComparePrice" class="product-single__price--compare-at">
+                    {% if current_variant.compare_at_price > current_variant.price %}{{ current_variant.compare_at_price | money }}{% endif %}
+                  </span>
+                </span>
+                <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+              {% else %}
+              	<span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              {% endif %}
+              <div itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}" class="__price_price {% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}" id="ProductPrice">{{ current_variant.price | money }}</div>
+            </div>
+            {% endcapture %}
+            <!-- ATC Button -->
+            {% capture button_atc_txt %}<span class="add-to-cart-text">{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}</span>{% endcapture %}
+            {% capture spacer %}<span class="__space">-</span>{% endcapture %}
+            {% capture atc_spinner %}<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-spinner" viewBox="0 0 20 20"><path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" fill="#919EAB"></path></svg>{% endcapture %}
+            <div class="product-single__add-to-cart">
+              <span class="sf_product_price">{{product_price}}</span>
+              <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="add-to-cart" {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                {{button_atc_txt}}{{atc_spinner}}
+              </button>
+            </div>
+          </div>
+          {% if section.settings.show_offer and section.settings.offerText != blank %}
+          <div class="col-md-12 no-gutter">
+            <div class="off_code">
+              {{ section.settings.offerText }}
+            </div>
+          </div>
+          {% endif %}
+          {% style %}
+          .col-md-12.no-gutter { padding: 0; margin: 14px 0 0; }
+          .off_code p{font-size:{{section.settings.text_size}}px; color:{{section.settings.offer_txt_color}};padding:{{section.settings.spacingTop}}px {{section.settings.spacingBottom}}px;margin: 0; text-align: center; }
+          .off_code{
+            {% if section.settings.sow_border %}
+            	border: {{section.settings.border_width}}px solid {{section.settings.border_color}};          		
+            {% endif %}
+          		margin: 0;display: flex;align-items: center;justify-content: center;
+          }
+          {% endstyle %}
+          {%- if section.settings.show_launch_date and section.settings.launch_text != blank -%}
+          <div class="col-md-12 no-gutter">
+            <span class="_launchText">{{-section.settings.launch_text-}}</span>
+          </div>
+          {% style %}._launchText{font-size:{{section.settings.text_fontsize}}px;color:{{section.settings.text_color}};}{% endstyle %}
+          {%- endif -%}
+        </div>          
+        {% render 'clear-div' %}
+      </form>
+    </div>
+    {% if section.settings.pp_text_enable !=blank %}
+    <span class="PatentsPendingTag is_mobile_ex">{{section.settings.pp_text}}</span>
+	{% endif %}
+  </div>
+</div>

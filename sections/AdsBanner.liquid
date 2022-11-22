@@ -1,0 +1,35 @@
+{% if section.settings.ab_enable != blank %}
+<section id="AdsBanner">
+  <div class="AdsBanner-main">    
+    <div class="AdsBanner_item deskTab">
+      {% if section.settings.ab_image_des %}
+      <a href="{{section.settings.ab_url}}">
+        <img class="img-responsive" srcset="{{ section.settings.ab_image_des | img_url: '1512x' }} 1536w,{{ section.settings.ab_image_des | img_url: '1200x' }} 1280w,{{ section.settings.ab_image_des | img_url: '720x' }} 768w,{{ section.settings.ab_image_des | img_url: '360x'}} 320w" alt="ab_image_des">
+      </a>
+	{% endif %}
+    </div>
+    <div class="AdsBanner_item mobBan">
+      {% if section.settings.ab_image_mob %}
+      <a href="{{section.settings.ab_url}}">
+        <img class="img-responsive" src="{{ section.settings.ab_image_mob | img_url: '540x' }}" alt="ab_image_mob">
+      </a>
+	{% endif %}
+    </div>
+ </div>    
+  </section>
+    {% endif %}
+
+{% schema %}
+{
+"name" : "Ads Banner",
+"settings" : [
+    {"type":"checkbox","id":"ab_enable","label":"Enable","default":false},
+    {"type":"image_picker","id":"ab_image_des","label":"Image (Desktop)"},
+    {"type":"image_picker","id":"ab_image_mob","label":"Image (Mobile)"},
+    {"type":"url","id":"ab_url","label":"Button Url"}
+    ],
+    "presets": [{
+    "name": "Ads Banner"
+    }]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{% if section.blocks.size > 0 %}
+<ul class="__feature">
+  {% for block in section.blocks %}
+  	{% if block.type == 'feature' %}
+  		{% if block.settings.show_feature %}	
+  			<li {% if block.settings.badge_Img %} {% else %}style="background:{{ block.settings.feature_bg }};color:{{ block.settings.feature_fr }};{% endif %}">
+            	{% if block.settings.badge_Img %} 
+              <span class="{{block.settings.feature_txt}}">
+                {{ block.settings.badge_Img | img_url:'master' |img_tag:'badge_Img','img-responsive' }}
+              </span>
+				{% else %}
+              		{{ block.settings.feature_txt }}
+				{% endif %}
+  			</li>
+  		{% endif %}
+  	{% endif %}
+  {% endfor %}
+</ul>
+{% endif %}

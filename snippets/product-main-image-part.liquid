@@ -1,0 +1,101 @@
+<div class="grid__item large--six-twelfths medium--six-twelfths sf_PB_banner_left"> 
+  {% if section.settings.exe_image_m != blank %}
+  {% if section.settings.online_ex_by_click != blank %}
+  <div class="title_online_exe_badge is_mobile_ex is_click_eable"><span class="ex_title">{{ section.settings.exe_image_m | img_url:'master' | img_tag:'badge-img','badge-image' }}</div>
+  {% else %}  
+   <div class="title_online_exe_badge is_mobile_ex is_click_disable"><span class="ex_title">{{ section.settings.exe_image_m | img_url:'master' | img_tag:'badge-img','badge-image' }}</div>
+   {% endif %}
+     {% endif %}
+  <div class="product-thumbnail__photos product-single__photos2 thumnails_mode">            
+    {% capture img_id_class %}product-single__photo-{{ featured_image.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductImageWrapper-{{ featured_image.id }}{% endcapture %}
+    {% comment %}Display current variant image{% endcomment %}    
+    <div class="product-single__photo--flex-wrapper">
+      <div class="product-single__photo--flex">
+        {% comment %} {% include 'image-style' with image: featured_image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}{% endcomment %}
+        <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb full-img">
+          <div class="product-single__photo-wrapper" {% comment %}style="padding-top:{{ 1 | divided_by: featured_image.aspect_ratio | times: 100}}%;"{% endcomment %}>
+            {% assign img_url = featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+            <img class="img-responsive product-single__photo lazyloaded lazy2 {{ img_id_class }}"
+                 src="{{ featured_image | img_url: '300x' }}"
+                 data-src="{{ featured_image | img_url: 'master' }}"
+                 data-mobsrc="{{ featured_image | img_url: '540x' }}"
+                 data-widths="[180, 360, 590, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ featured_image.aspect_ratio }}"
+                 data-sizes="auto"
+                 {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
+                 data-image-id="{{ featured_image.id }}"
+                 alt="{{ featured_image.alt | escape }}">
+
+            <noscript>
+              <img class="product-single__photo"
+                   src="{{ featured_image | img_url: 'master' }}"
+                   {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
+                   alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}">
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %}Populate rest of product images with display = none, not repeating the featured one{% endcomment %}
+    
+    {% for image in product.images %}
+    {% unless image contains featured_image %}
+    {% capture img_id_class %}product-single__photo-{{ image.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
+
+    <div class="product-single__photo--flex-wrapper">
+      <div class="product-single__photo--flex">
+        {% comment %}{% include 'image-style' with image: image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}{% endcomment %}
+        <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb hide full-img">
+          <div class="product-single__photo-wrapper" {% comment %}style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"{% endcomment %}>
+            {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+            <img class="product-single__photo lazyloaded lazy2 {{ img_id_class }}"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                 data-src="{{ image | img_url: 'master' }}"
+                 data-mobsrc="{{ image | img_url: '540x' }}"
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ image.aspect_ratio }}"
+                 data-sizes="auto"
+                 {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
+                 data-image-id="{{ image.id }}"
+                 alt="{{ image.alt | escape }}">
+
+            <noscript>
+              <img class="product-single__photo" src="{{ image.src | img_url: 'master' }}"
+                   {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
+                   alt="{{ image.alt | escape }}"
+                   data-image-id="{{ image.id }}">
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endunless %}
+    {% endfor %}
+    {% comment %}  Display thumbnails {% endcomment %}    
+    <ul class="swiper-container product-single__thumbnails" id="ProductThumbs">
+      {% assign counter_img = 2 %}
+      {% for image in product.images %}
+      {% if product.images.size > 1 and  counter_img < 15 %}
+        <li class="grid__item2 medium--one-third large--one-fifth product-single__photo-wrapper {{counter_img}}" {% if counter_img == 4 %} id="thumb_list_count"{% endif %}>
+          <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: 'grande' }}" class="product-single__thumbnail {% if image contains featured_image %} active-thumb{% endif %}">
+            <img class="product-single__thumb lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ image.src | img_url: '300X300' }}" alt="{{ image.alt | escape }}">
+          </a>
+        </li>
+      {% endif %}
+      {% assign counter_img = counter_img | plus:1 %}
+      {% endfor %}
+      {% if counter_img <= 3 %}
+      {% elsif counter_img >= 15 %}
+        <span id="sf_peding_image">4+</span>
+      {% else %}
+       <span id="sf_peding_image">4+</span>
+      {% endif %}
+    </ul>
+    {% if section.settings.pp_text_enable !=blank %}
+    <span class="PatentsPendingTag is_desktop_ex">{{section.settings.pp_text}}</span>
+	{% endif %}
+  </div>   
+</div>

@@ -1,0 +1,117 @@
+<!-- Homepage ShipInfo and Review Section -->
+<!-- sections/homepage--shipreviews.liquid -->
+<div class="clear"></div>
+{% if section.settings.show_ship %}
+<style type="text/css">
+  .__Free_Shipping_sec{background-color:{{ section.settings.shipbg }};}
+</style>
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 no-padding">
+             <div class="review_clr__above_data"></div>
+        </div>
+      <div class="__Free_Shipping_sec">			
+        <div class="col-md-7 no-padding">
+          <div class="__Free_Shipping">						
+            <div class="__Free_Shipping_img">
+              {{ section.settings.ship_img | img_url:'master' | img_tag:'shipping img','dsktop'}}
+            </div>
+          </div>	
+        </div>
+        <div class="col-md-5 no-padding">
+          <div class="__Red">	
+            <div class="__Pro_Title_free">{{ section.settings.ship_text }}</div>
+          </div>	
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="clear"></div>
+{% if section.settings.show_review %}
+<style type="text/css">
+  .__testimonial{background-color: {{ section.settings.reviewbg}};}
+  .review_clr_data {background-color: {{ section.settings.review_clr}};}
+   .review_clr__above_data {background-color: {{ section.settings.review_clr_abv}};}
+</style>
+<div class="__main_banner">
+  <div class="container">
+    <div class="row">
+      <div class="__white_SEC opinion_data">	
+        <div class="col-md-12 no-padding">
+             <div class="review_clr_data"></div>
+        </div>
+          <div class="col-md-12 no-padding">
+               <div class="__our_opinion_data">
+                 {{ section.settings.star_text_data }}
+                </div>
+           </div>
+        {% for block in section.blocks %}
+        <style>
+            .mainheading_data-{{block.id}}{color:{{block.settings.rheadingcolor}};}
+         </style> 
+          <div class="col-md-4 no-padding" {{block.shopify_attributes}}>
+               <div class="products_reviews_data">
+                      <div class="mainheading_data-{{block.id}}">
+                         {{ block.settings.rheading }}
+                       </div>
+                      <div class="cus_reviews_data">
+                        {{ block.settings.rhtml }}
+                       </div>
+                     <div class="customer_name_data">
+                       {{ block.settings.cname }}
+                      </div>
+            </div>
+           </div>
+        {% endfor %}
+          <div class="col-md-12 no-padding">
+             <div class="saying_data">
+                 <div class="__see_images_saying_data">
+                  <a href="{{ section.settings.star_url }}">See what others are saying. 
+                      <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/stars5.png?10778">
+                       <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/arrow1.png?10778">
+                   </a>
+                </div>            
+              </div>
+          </div> 
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!--<div class="clear"></div>-->
+{% schema %}
+  {
+    "name": "Shipping Info and Reviews",
+    "settings": [
+		{"type":"checkbox","id":"show_ship","label":"Enable Shipping Content","default":true},
+		{"type":"color","id":"shipbg","label":"Section Background Color","default":"#ed1b3c"},
+		{"type":"image_picker","id":"ship_img","label":"Add Section Image"},
+		{"type":"html","id":"ship_text","label":"Add Section Text"},
+		{"type":"checkbox","id":"show_review","label":"Enable Reviews Content","default":true},
+        {"type":"color","id":"review_clr_abv","label":"Free 3Day Shipping Above Stripe Color"},
+	    {"type":"color","id":"review_clr","label":"Free 3Day Shipping Below Stripe Color"},
+        {"type":"html","id":"star_text_data","label":"Opinion Content"},
+		{"type":"url","id":"star_url","label":"Url of Star Text Area"}
+	],
+	"blocks":[
+		{
+			"type":"review",
+			"name":"review",
+             "limit": 3,
+			"settings":[
+				{ "type":"text","id":"rheading","label":"Review Heading","default":"Pee Pad"},
+				{ "type":"color","id":"rheadingcolor","label":"Heading Color","default":"#000000"},
+				{ "type":"html","id":"rhtml","label":"Review Text","default":"test"},
+				{ "type":"text","id":"cname","label":"Customer Name","default":"Black"}
+			]
+		}
+	],
+	"presets":[{
+      "name": "Home -- shipping and Reviews",
+      "category": "Homepage"
+    }]
+  }
+{% endschema %}

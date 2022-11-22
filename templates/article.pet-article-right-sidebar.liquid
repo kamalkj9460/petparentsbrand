@@ -1,0 +1,192 @@
+{% layout 'themeX' %}
+
+{% render 'article-css' %}
+
+<link rel="stylesheet" data-href="{{ 'article.css' | asset_url }}">
+
+{% assign number_of_comments = article.comments_count %}
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+{% comment %}capturing content and process the same{% endcomment %}
+{% assign is_header = false %}
+{% assign is_footer = false %}
+{% if article.content != blank %}
+	{% assign articleContent = article.content %}
+	
+	{% comment %}header data {% endcomment %}
+	
+	{% if articleContent contains '<!--contentstart-->' %}
+		{% assign  is_header = true %}
+		{% assign header = articleContent | split: '<!--contentstart-->' | first %}
+	{% endif %}
+	
+	{% comment %}footer data{% endcomment %}
+	{% if articleContent contains '<!--contentend-->' %}
+		{% assign  is_footer = true %}
+		{% assign footer = articleContent | split: '<!--contentend-->' | last %}	
+	{% endif %}
+
+	{% comment %}content data{% endcomment %}
+	{% if articleContent contains '<!--contentstart-->' and article.content | split: '<!--contentend-->' %}
+		{% assign content = articleContent | split:'<!--contentstart-->' | last | split:'<!--contentend-->' | first  %}
+	{% elsif articleContent contains '<!--contentstart-->' %}
+		{% assign content = articleContent | split: '<!--contentstart-->' | last %}
+	{% elsif articleContent contains '<!--contentend-->' %}
+		{% assign content = articleContent | split: '<!--contentstart-->' | first %}
+	{% else %}
+		{% assign content = articleContent %}
+	{% endif %}
+{% endif %}
+<! -- img class='sf_imgff' src="{{ 'microsoftteams-image.jpg' | asset_url }}" / --->
+
+{% capture HeaderBanner %}
+  {% if   is_header%}
+     <div class="artical_banner">
+        <div class="containerr">
+           <div class="row">
+              <div class="__Inner_title articalBanner">
+                 <div class="art_img_blog_data">
+                    {{ 'lgs.png'  | file_img_url: 'master' | img_tag:'Art-Logo','logodata_new_white' }}
+                    {{ header }}
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture in_tags_data %}  
+  <div class="_add_tags_data content_added_data">
+    {%- if article.tags.size > 0 -%}
+    <p aria-label="{{ 'blogs.article.tags' }}">
+      <i>In: </i>
+      {%- for tag in article.tags -%}
+      	<a class="_in_tags_{{forloop.index}}_item" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }} </a>
+      	{% unless forloop.last %}<span class="__last_comma">, </span>{% endunless %}
+      {%- endfor -%}
+    </p>
+    {%- endif -%}
+  </div>
+{% endcapture %}
+
+
+{% capture blogRightSide %}
+  <div class="__blogRightNew _arttemplate">
+      {% include "blog-custom-sidebar" , curArticle:article %}
+  </div>
+{% endcapture %}
+
+{% capture footerBanner %}
+  {% if is_footer %}
+     <div class="artical_banner">
+        <div class="containerr">
+           <div class="row">
+              <div class="__Inner_title articalBanner">
+                 <div class="art_img_blog_data">
+                    {{ footer }}
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  {% else %}
+	 <div class="artical_banner">
+        <div class="containerr">
+           <div class="row">
+              <div class="__Inner_title articalBanner">
+                 <div class="art_img_blog_data">
+                    <a href="https://petparentsbrand.com/pages/pet-blog" class="banner_footer_article">
+                       {{- 'univeral-banner-cta.png' | file_img_url:'master' | img_tag:'footer-Banner','all-footer-banner' -}}
+                    </a>
+                </div>
+             </div>
+          </div>
+      </div>
+	</div>
+  {% endif %}
+{% endcapture %}
+
+{% capture blogLeftSide %}
+<div class="white_space __blogLeftSideNew" itemscope itemtype="http://schema.org/Article">
+    <!-- Article Title -->
+    <div class="art_title_data art_data"><h1>{{ article.title }}</h1></div>    
+  	<div class="clear"></div> 
+    <div class="__articleContent" itemprop="articleBody">
+      {{ content }}
+    </div>
+  	<div class="clear"></div> 
+  	<!-- add article commment-->
+  	<div class="__commentData white_space">{%- include 'article-comment-data' -%}</div>  	<div class="clear"></div> 
+  	
+    <!-- Right Side Content -->
+    {{- blogRightSide -}}  	
+</div>
+	<!-- footer banner -->
+    {{ footerBanner }}
+
+    {% include "article-footer"  %}
+{% endcapture %}
+
+
+
+
+{% comment %}capturing the products from tags{% endcomment %}
+{% capture product-popup-bar %}
+	{% assign product_ids = "" | split: "," %}
+	{% for tag in article.tags %}
+		{% if tag contains 'meta-product-' %}
+			{% assign productid = tag | split:'meta-product-' | last | split: ',' %}
+			{% assign product_ids = product_ids | concat: productid  %}
+		{% endif %}
+	{% endfor %}
+
+	{% if product_ids.size > 0 %}
+      {% paginate collections['all'].products by 500 %}
+          {% assign by_now = 'Learn More' %}
+          <ul class="articleStikcyCart articleStikcyCartoff" style="opacity:0;">            
+              <li class="featuredProducts"><span class="strong">Featured</span> Products</li>          	
+              <ul class="_listProducts" data-id="{{product_ids| json}}">
+                {% for product in collections['all'].products %}
+                    {% for productID in product_ids %}
+                        {% assign pro1  = productID | plus: 0 %}
+                        {% assign pro2 = product.id | plus:0 %}
+                        {% if pro1 ==  pro2 %}
+                            {% render 'article-product-data', product: product, by_now:by_now %}						
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+              </ul>
+          </ul>
+      {% endpaginate %}
+	{% endif %}
+{% endcapture %}
+
+
+<!-- banner part asfdgfhg -->
+{{- HeaderBanner -}}
+<div class="container">
+<div class="clear"></div>
+
+<!-- in tags Data -->
+{{- in_tags_data -}}
+
+<div class="ArticleNewLayout">
+<!--Left side Content -->
+{{- blogLeftSide -}}
+</div>
+
+<div class="clear"></div>
+
+<!-- product banner popup-->
+{{- product-popup-bar -}}
+
+<!-- Home Link-->
+{% assign blog_custom_URL = '/pages/blog/' %}
+{% if blog.title == 'wholesale' %}
+	{% assign blog_custom_URL = '/pages/pet-parents-wholesale-blog' %} 
+{% endif %}
+<div class="see_more_articles breed"><a href="/pages/pet-blog" class="">BLOG HOME PAGE</a></div>
+</div>

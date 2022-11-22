@@ -1,0 +1,80 @@
+<section class="socialSection">
+	<div class="container">
+		<div class="row socila_row">
+			<div class="pp-6 pup_gal">
+				{% if section.settings.Social_Pet_Image %}
+				<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.Social_Pet_Image  | img_url: 'master' }} ">
+				{% endif %}
+				{% if section.settings.Social_Pet_Image2 %}
+				<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src=" {{ section.settings.Social_Pet_Image2  | img_url: 'master' }}">
+				{% endif %}
+				{% if section.settings.Social_Pet_Image3 %}
+				<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.Social_Pet_Image3  | img_url: 'master' }}">
+				{% endif %}
+				{% if section.settings.Social_Pet_Image4 %}
+				<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.Social_Pet_Image4  | img_url: 'master' }}">
+				{% endif %}
+			</div>
+			<div class="pp-6 pup_spcoal">
+				<div class="socialSectionBG ">
+					<div class="pup_so_content"> 
+						<p><b>{{ section.settings.Social_content1 }}</b></p>
+						<p>{{ section.settings.Social_content2 }}</p>
+						<h3>{{ section.settings.Social_hashtag }}</h3>
+						<p>{{ section.settings.Social_content3 }}</p>
+						<p>{{ section.settings.Social_content4 }}</p>
+					</div>
+					<div class="soc_icn">
+						{% if section.settings.Social_link %}
+						<a href="{{section.settings.Social_link}}" target="_blank">
+							<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/sc1.png?v=1584947511">
+						</a>
+						{% endif %}
+						{% if section.settings.Social_link1 %}
+						<a href="{{section.settings.Social_link1}}" target="_blank">
+							<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/sc2.png?v=1584947511">
+						</a>
+						{% endif %}
+						{% if section.settings.Social_link2 %}
+						<a href="{{section.settings.Social_link2}}" target="_blank">
+							<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://cdn.shopify.com/s/files/1/0358/3377/4217/files/sc3.png?v=1584947511">
+						</a>
+						{% endif %}
+						<div class="SocialBG">
+							{% if section.settings.Social_Pet_back %}
+							<img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.Social_Pet_back  | img_url: 'master' }}">
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>.socialSectionBG{background:{% if section.settings.bG_social %}{{ section.settings.bG_social }}{% endif %};}</style>
+
+{% schema %}
+{
+	"name": "Home --- Social Section",
+	"settings": [
+		{"type":"image_picker","id":"Social_Pet_Image","label":"Choose Image (1)"},
+		{"type":"image_picker","id":"Social_Pet_Image2","label":"Choose Image (2)"},
+		{"type":"image_picker","id":"Social_Pet_Image3","label":"Choose Image (3)"},
+		{"type":"image_picker","id":"Social_Pet_Image4","label":"Choose Image (4)"},
+		{"type":"image_picker","id":"Social_Pet_back","label":"Background Image (right)"},
+		{"type":"color","id":"bG_social","label":"Background Colo (right)"},
+		{"type":"text","id":"Social_content1","label":"Enter First Line"},
+		{"type":"text","id":"Social_content2","label":"Enter Second Line"},
+		{"type":"text","id":"Social_hashtag","label":"Enter Hash-Tag"},
+		{"type":"text","id":"Social_content3","label":"Enter Thrid Line"},
+		{"type":"text","id":"Social_content4","label":"Enter Fourth Line"},
+		{"type":"url","id":"Social_link","label":"Facbook Link"},
+		{"type":"url","id":"Social_link1","label":"InstaGram Link"},
+		{"type":"url","id":"Social_link2","label":"Youtube Link"}
+	],
+	"presets": [{
+		"name": "Home --- Social Section",
+		"category": "Homepage"
+	}] 
+}
+{% endschema %}

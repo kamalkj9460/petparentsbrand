@@ -1,0 +1,467 @@
+{% layout 'themeX' %}
+<!-- /templates/page.full-width.liquid -->
+{% section 'washing-instruction-main' %}
+{% section 'washingEssentials' %}
+
+{%  assign currURL = canonical_url | split:'/' %}
+{% assign last =  currURL.size | minus: 1 %}
+{% comment %}{{ currURL[last] }}{% endcomment %}
+{% if currURL[last] == 'diapers' %}
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_2,#wi_tab2').addClass("Sf_wi_active");
+  });
+</script>
+{% elsif currURL[last] == 'pee-pads-for-dogs' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_3,#wi_tab3').addClass("Sf_wi_active");
+  });
+</script>
+
+{% elsif currURL[last] == 'waterproof-pet-blankets' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_4,#wi_tab4').addClass("Sf_wi_active");
+  });
+</script>
+
+{% elsif currURL[last] == 'pet-blankets' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_5,#wi_tab5').addClass("Sf_wi_active");
+  });
+</script>
+
+{% elsif currURL[last] == 'snuffle-mat' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_6,#wi_tab6').addClass("Sf_wi_active");
+  });
+</script>
+
+{% elsif currURL[last] == 'slow-feeder-dog-bowls' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_7,#wi_tab7').addClass("Sf_wi_active");
+  });
+</script>
+
+{% elsif currURL[last] == 'pet-hair-remover' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_8,#wi_tab8').addClass("Sf_wi_active");
+  });
+</script>
+{% elsif currURL[last] == 'accessories' %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_9,#wi_tab9').addClass("Sf_wi_active");
+  });
+</script>
+{% else %}
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+  $('li.Sf_wi_1,#wi_tab1').addClass("Sf_wi_active");
+  });
+</script>
+{% endif %}
+
+<style>
+.Sf_wi_tab{display:none}
+.Sf_wi_tab.Sf_wi_active {display: block;}
+  .sf_new_washingDiaper ul.Sf_wi_tabs-list{list-style:none;border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 12px 0; margin : 0;  margin-top: 50px; }
+.sf_new_washingDiaper ul.Sf_wi_tabs-list>div { display: flex; justify-content: center;flex-wrap : wrap;}
+.sf_new_washingDiaper { display: flex; max-width: 100%; width: 100%;}
+.sf_wi_tab_content { display: flex; max-width: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;justify-content:center;}
+.sf_wi_tab_content ul { display: flex; justify-content: center; width: 100%; padding: 70px 0 50px; margin: 0; grid-gap: 64px; flex-wrap: wrap;}
+.sf_wi_tab_content ul li {
+  	width: 100%;
+    max-width: 110px;
+}
+section.sf_new_washingDiaper_banner { background: #f6f6f6; padding: 50px 0px 55px; text-align: center; margin-top: 10px; }
+.banner_section p { max-width: 595px; margin: 0 auto; font-size: 23px; line-height: 1.15; color: #706f6f; font-family: gentona;}
+.banner_section h1 { color: #ed1b3c; font-size: clamp(48px, 4.15vw, 70px); font-weight: 900; font-family: gentona; margin: 0;}
+ul.Sf_wi_tabs-list li a { 
+  padding: 0 12px; 
+  text-decoration: none; 
+  font-size: 18px; 
+  color: #9e9d9d  !important; 
+  transition : .25s;
+}
+ul.Sf_wi_tabs-list li.Sf_wi_active a { 
+    color: #000; 
+     text-shadow: 0 0 .75px #000, 0 0 .75px 
+}
+ul.Sf_wi_tabs-list li  span { font-size: 18px; color: #706f6f !important;}
+
+.Sf_wi_tabs-list li {margin-bottom: 0px;}
+.sf_row_ExcessOdor h3 { border-bottom: 1px solid #c6c6c6; margin: 0px; padding : 60px 0 18px; position: relative; text-transform: capitalize; color : #939598; letter-spacing: 0px; font-weight: 500; }
+.sf_row_ExcessOdor h3::after { position: absolute; content: " "; width: 10px; height: 10px; background: red; }
+.sf_row_ExcessOdor h3::after { position: absolute; content: " "; height: 7px; background: #00b7bc; bottom: -4px; left: 0; }
+.sf_row_ExcessOdor .col-md-4 h3::after { width: 100%; max-width: 165px; }
+.sf_row_ExcessOdor .col-md-8 h3::after { width: 100%; max-width: 250px;}
+.sf_contentOdor p { margin: 0px; }
+.sf_contentOdor p:nth-child(odd) { color: #939598; font-size: 17px; margin-top : 20px; font-family: 'Gentona book';}
+.sf_contentOdor p:nth-child(even) { color: #939598; font-size: 13px; font-family: 'Gentona book';}
+.sf_content_tab p { color :#939598;     font-family: 'Gentona book'; line-height: 1.15; }
+.sf_row_ExcessOdor .col-md-8 { margin-bottom: 75px; }
+.sf_content_tab img { width:100%; display: block; margin: 0px auto; }
+.sf_new_washingDiaper .sf_content_tab li span {
+  padding-top: 18px; 
+  font-size: 12px; 
+  color: #939598; 
+  max-width: 96px; 
+  display: block; 
+  margin : 0px auto; 
+  line-height: 1.33;
+}
+
+#shopify-section-washing-instruction-main .container {
+  	 max-width: 860px;
+     padding: 0 25px;
+}  
+
+.sf_row_ExcessOdor .container .col-md-4, .col-md-8 {
+  	padding-left: 0px;
+    padding-right: 0px;
+} 
+.sf_row_ExcessOdor .container {
+    display: flex;
+    justify-content: space-between;
+    grid-gap : 45px;
+}
+  
+#pet-parents-washing-instructions-diapers-bands-pee-pads-amp-more .__Footer_sec_inner {
+/*     border-top: none;
+    padding:  0px 15px 40px; */
+}
+.sf_content_tab>p {
+	margin-bottom: 5px; 
+  padding-bottom: 10px;
+}
+  
+  .__Footer_sec_inner {
+    border-top: none;
+    padding: 0px 38px 40px;
+}
+  
+ul.Sf_wi_tabs-list li:not(:first-child) a {
+    border-left: 2px solid #9e9d9d;
+}
+.Sf_wi_tab .sf_content_tab p {
+    border-bottom: 1px solid #c6c6c6;
+}
+  
+  
+  
+.sf_wi_tab_content #wi_tab8 ul {
+    padding: 70px 0 20px;
+}
+.sf_wi_tab_content #wi_tab8 ul li {
+    max-width: 168px !important;
+}
+#wi_tab8 .sf_content_tab img {
+    max-width: 100px !important;
+}
+.sf_new_washingDiaper #wi_tab8 .sf_content_tab li span {
+    max-width: 100%;
+}
+.sf_new_washingDiaper #wi_tab8 .sf_content_tab li:nth-child(01) span {
+    max-width: 115px;
+}
+.sf_new_washingDiaper #wi_tab8 .sf_content_tab li:nth-child(02) span {
+    max-width: 130px;
+}
+
+
+.washingEssentials .heading>h1 {
+    font-size: clamp(24px, 2.25vw, 56px);
+    padding: 0;
+    line-height: .7;
+    color: #9d9d9c;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bolder;
+}
+.washingEss_lf_rgt>div h3 {
+    font-size: clamp(24px, 2vw, 48px);
+    padding: 0;
+    line-height: .7;
+    color: #00b7bc;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+.washingEss_lf_rgt>div p {
+    font-size: 24px;
+    font-family: "Gentona book";
+    font-weight: 500;
+    color: #979797;
+    margin: 25px 0 20px;
+}
+.we_shop_now {
+    font-size: 16px;
+    line-height: 1;
+    color: #fff !important;
+    display: inline-block;
+    background: #e3002b;
+    padding: 8px 30px;
+    border-radius: 50px;
+    margin-top: 10px;
+    transition: .25s;
+    text-decoration: none !important;
+    transition: .25s;
+}
+.we_shop_now:hover {
+    color: #fff !important;
+    background: #00b7bc;
+}
+.washingEss_main.washingEss_main_left img[alt="sf_we_img"] {
+    max-width: 225px;
+    margin: 35px auto 15px;
+}
+.washingEss_main.washingEss_main_left {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+.washingEss_main.washingEss_main_left {
+    padding: 35px 0 0;
+}
+.washingEss_lf_rgt>div {
+    background: #eff0f2;
+    text-align: center;
+}
+.washingEss_main.washingEss_main_right {
+    padding: 0px 35px 35px;
+}
+.washingEss_lf_rgt {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 35px 0;
+}
+.washingEss_main_right img {
+    max-width: 280px;
+    margin: 10px auto 35px;
+}
+
+
+
+  
+  
+@media (max-width: 991px) {
+  	ul.Sf_wi_tabs-list li a {
+        padding: 0 10px;
+        font-size: 16px;
+        color: #706f6f !important;
+    }
+
+
+
+  .washingEss_lf_rgt {
+    grid-template-columns: 100%;
+    grid-gap: 25px;
+}
+.washingEss_lf_rgt>div p {
+    font-size: 18px;
+}
+.washingEssentials_main .container {
+    padding: 0 15px;
+}
+}
+  
+@media (max-width: 767px) {
+    ul.Sf_wi_tabs-list li a {  font-size: 11px; }
+    .sf_wi_tab_content ul { padding: 0px; margin: 0px; flex-wrap: wrap; grid-gap: 30px;}
+    .sf_wi_tab_content ul li { max-width: 95px; }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list{padding:15px 0 10px 0;}
+/*     .sf_new_washingDiaper ul.Sf_wi_tabs-list li:nth-child(3)::after { 
+      content: ''; width: 90%; display: block; 
+      color: #ddd; height: 1px; background:#ddd;
+      margin-top: 15px; position: absolute; left: 17px; 
+    } */
+    .Sf_wi_tabs-list li { margin-bottom: 5px; }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list { margin: 0; margin-top: 10px; margin-bottom: 25px; }
+    .sf_contentOdor {padding-top: 10px}
+    .sf_new_washingDiaper .sf_content_tab li span {max-width: 100px;}
+    .Sf_wi_tabs ul.Sf_wi_tabs-list li:nth-child(4) span {display: none;}
+    section.sf_new_washingDiaper_banner p {max-width: 323px;margin: 0 auto !important;}
+    section.sf_new_washingDiaper_banner {padding: 85px 0px;}
+  	.banner_section h1 {
+        margin: 0 auto;
+        max-width: 425px;
+        padding-bottom: 20px;
+      
+    }
+    #shopify-section-washing-instruction-main .container {
+         max-width: 860px;
+         padding: 0 15px;
+    } 
+  	.sf_row_ExcessOdor .container {
+        display: block;
+    }
+    
+    .sf_content_tab p {
+        margin: 20px 30px 0px !important;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+  .sf_wi_tab_content {border-bottom:none;}  
+    .sf_row_ExcessOdor h3 {
+        padding: 40px 0 14px;
+    }
+    .sf_contentOdor p:nth-child(odd) {
+      	margin-bottom: 0 !important;
+      font-weight: 600;
+    }
+    .sf_contentOdor p:nth-child(even) {
+    	margin-top: 0 !important;
+      font-size: 14px;
+    }
+    .sf_row_ExcessOdor .col-md-8 {
+        margin-bottom: 75px;
+    }
+  	.sf_new_washingDiaper ul.Sf_wi_tabs-list {
+        position: relative;
+    }
+ 	.sf_new_washingDiaper ul.Sf_wi_tabs-list>div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        grid-row-gap: 0px;
+    } 
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list:after {
+        content: '';
+        width: 100%;
+        display: block;
+        color: #ddd;
+        height: 0px;
+        background: #ddd;
+        position: absolute;
+        left: 0;
+        top: calc(49% - 2px);
+    }
+/*     .sf_contentOdor p:nth-child(odd) {
+      font-weight: 300;
+    } */
+  
+  	.sf_row_ExcessOdor .col-md-8 h3 {
+        padding: 60px 0 14px;
+    }
+    .white_space {
+        display: none;
+    }
+    .sf_row_ExcessOdor .col-md-8 {
+        margin-bottom: 35px;
+    }
+
+}
+
+@media (max-width: 767px) {
+	ul.Sf_wi_tabs-list li a {
+       padding: 0 4px;
+    }
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list>div {
+        max-width: 350px;
+    }
+    section.sf_ExcessOdor {
+        padding: 0 30px !important;
+    }
+    
+}
+ 
+@media (max-width: 575px) {
+	
+    .sf_new_washingDiaper ul.Sf_wi_tabs-list>div {
+        max-width: 100%;
+    }
+    .sf_wi_tab_content #wi_tab8 ul {
+        padding: 30px 0 20px;
+        justify-content: space-evenly !important;
+        grid-column-gap: 2px;
+        grid-row-gap: 25px;
+    }
+  
+    
+}
+  
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+var currentURL = window.location.href;
+  /*
+if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/diapers'){
+//$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+//$('li.Sf_wi_2,#wi_tab2').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/pee-pads-for-dogs'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_3,#wi_tab3').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/waterproof-pet-blankets'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_4,#wi_tab4').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/pet-blankets'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_5,#wi_tab5').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/snuffle-mat'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_6,#wi_tab6').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/slow-feeder-dog-bowls'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_7,#wi_tab7').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/pet-hair-remover'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_8,#wi_tab8').addClass("Sf_wi_active");
+}else if(currentURL=='https://petparentsbrand.com/pages/washing-instructions/accessories'){
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_9,#wi_tab9').addClass("Sf_wi_active");
+}else{
+$(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+$('li.Sf_wi_1,#wi_tab1').addClass("Sf_wi_active");
+} */
+
+if(currentURL == 'https://petparentsbrand.com/pages/washing-instructions/pet-hair-remover'){
+      jQuery("div#shopify-section-washingEssentials").slideUp('fast');
+    }else{
+      jQuery("div#shopify-section-washingEssentials").slideDown('slow');
+    }
+
+
+/*
+  $(".Sf_wi_tabs-list li a").click(function(e){
+     e.preventDefault();
+  });
+
+  $(".Sf_wi_tabs-list li").click(function(){
+     var tabid = $(this).find("a").attr("href");
+     $(".Sf_wi_tabs-list li,.Sf_wi_tab").removeClass("Sf_wi_active");
+     $(".Sf_wi_tab").hide();  
+     $(tabid).show();  
+     $(this).addClass("Sf_wi_active");
+    if(tabid == '#wi_tab8'){
+      jQuery("div#shopify-section-washingEssentials").slideUp('fast');
+    }else{
+      jQuery("div#shopify-section-washingEssentials").slideDown('slow');
+    }
+
+  }); */
+
+});
+</script>

@@ -1,0 +1,54 @@
+<section class="ProductFaq" id="sf_ProductFaq">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="faqproductpagesf_faq">
+					<h2>{{section.settings.cusreviewheadline}}</h2>
+					<div id="sf_accordion_id">
+                        {% assign rightHtml = '' %}
+                        {% assign leftHtml = '' %}
+						{% for block in section.blocks %}
+                      		{% if block.type == 'faq' %} 
+                       			 {% capture lHtml %}
+								<div class="faqConent"><h3>{{block.settings.faq_title}}</h3>
+                        		  <p>{{block.settings.faq_data}}</p></div>                        
+                       			 {% endcapture %}
+                        		{% assign leftHtml = leftHtml | append: lHtml %}
+							{% endif %}                        
+                        {% if block.type == 'faq_right' %} 
+                              {% capture rHtml %}
+                              <div class="faqConent"><h3>{{block.settings.faq_title_r}}</h3>
+                                <p>{{block.settings.faq_data_r}}</p></div>
+                              {% endcapture %}
+                            {% assign rightHtml = rightHtml | append: rHtml %}
+                          {% endif %}                                       
+						{% endfor %}
+                      {% if leftHtml != blank %}
+                      <div class="sf_accoo sf_acco_left{% if rightHtml == blank %} _is_right_blank{% endif %}">
+                        {{leftHtml}}
+                      </div>
+                  {% endif %}
+                      {% if rightHtml != blank %}
+                      <div class="sf_accoo sf_acco_right">{{rightHtml}}</div>
+                      {% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- review widget -->
+<!--Stamped - Begin Main Widget -->
+<div id="reviews">
+<div id="stamped-main-widget"   
+data-widget-style="standard" 
+data-product-id="{{ product.id }}"   
+data-name="{{ product.title | escape }}"   
+data-url="{{ shop.url }}{{ product.url }}"   
+data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+data-description="{{ product.description | escape }}"   
+data-product-sku="{{product.handle}}"
+data-product-type="{{product.type}}">   
+{{ product.metafields.stamped.reviews }}   
+</div></div>
+<!-- Stamped - End Main Widget -->

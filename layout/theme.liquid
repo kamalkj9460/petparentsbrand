@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js"> <!--<![endif]-->
+	<head
+
+      <!-- Global site tag (gtag.js) - Google Analytics --><script>
+/* >> TriplePixel :: start*/
+~function(W,H,A,L,E,_){function O(T,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET","//triplewhale-pixel.web.app/triplepx.txt?"+~(Date.now()/9e7),!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?setTimeout(function(){return eval(H.responseText)},50):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(T-1))}}if(L=window,!L[H+"sn"]){L[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),W.includes("⇈")&&A.setItem(H+"Stg",1+(0|A.getItem(H+"Stg")||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=L,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),E._headless=!0,W},E.ch=W,O(5)))}}("","TriplePixel",localStorage);
+/* << TriplePixel :: end*/
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274395-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108274395-1');
+</script>
+
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WHBXNVR');</script>
+<!-- End Google Tag Manager -->
+
+      
+		<meta name="google-site-verification" content="r-VsmXAVHA7fHtBssGdTo5_xx-e5mZXlY6EerSx6wXA">
+		<meta name="facebook-domain-verification" content="gvfpiow6qtnrqcpwldlmefyetvbh8s" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+		{% if settings.favicon %}
+			<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+		{% endif %}
+		{% if canonical_url contains 'apps/product-registration' %}
+			<title>Pet Parents® | Healthy Pets. Happy Family ®</title>
+		{% else if canonical_url contains 'account/register' %}
+			<title>{{ page_title }}</title>
+		{% else %}
+            <title>
+                {% if template contains 'index' %}
+                    {{ shop.name }}
+                {% else %}
+                    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %}{% endunless %}
+                {% endif %}
+            </title>
+		{% endif %}
+		{% if page_description %}
+			{% if canonical_url contains 'tagged' %}
+				{% include 'tagged-meta', c_url:canonical_url %}
+			{% else %}
+				<meta name="description" content="{{ page_description | escape }}">
+			{% endif %}
+		{% endif %}
+		{% if canonical_url contains 'wholesale/tagged' %}
+			{% include 'wholesale-tagged-meta', c_url:canonical_url %}
+		{% endif %}
+		{% include 'social-meta-tags' %}
+		<link rel="canonical" href="{{ canonical_url }}">
+		{%- assign ListArr = 'https://petparentsbrand.com/blogs/learning-center,https://petparentsbrand.com/products/pet-parents-tshirt,https://petparentsbrand.com/pages/contact-us,https://petparentsbrand.com/pages/email-offer-1,https://petparentsbrand.com/pages/email-offer-2,https://petparentsbrand.com/pages/form,https://petparentsbrand.com/pages/our-policies,https://petparentsbrand.com/search,https://petparentsbrand.com/search?q=gnawtlers' -%}
+		{%- assign List = ListArr | split:',' -%}
+		{%- for noindexURL in List  -%}
+			{%- if canonical_url == noindexURL -%}<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">{%- endif -%}
+		{%- endfor -%}
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<meta name="theme-color" content="{{ settings.color_primary }}">
+		<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TQHPBWX');</script>
+		<script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
+		<script type="lazyload2">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-63196059-2');
+		</script>
+      	
+        {% render 'all-css' %}
+      	{% render 'all-css-2' %}
+      	{% render 'all-css-3' %}
+      	{% if template contains 'product' %}
+			{% render 'product-css' %}
+		{% endif %}
+      	<link rel="stylesheet" data-href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      	<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'timber.scss.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'theme.scss.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'petparents.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'responsive.css' | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'slick.css'  | asset_url }}">
+		<link rel="stylesheet" data-href="{{ 'slick-theme.css'  | asset_url }}">
+
+		{% if template contains 'product' %}
+		<link rel="stylesheet" data-href="{{ 'product.scss.css' | asset_url }}">
+		{% endif %}
+		<script >
+			window.theme = window.theme || {};
+			theme.strings = {
+				zoomClose: {{ "products.zoom.close" | t | json }},
+				zoomPrev: {{ "products.zoom.prev" | t | json }},
+				zoomNext: {{ "products.zoom.next" | t | json }},
+				moneyFormat: {{ shop.money_format | json }},
+				addressError: {{ 'home_page.map.address_error' | t | json }},
+				addressNoResults: {{ 'home_page.map.address_no_results' | t | json }},
+				addressQueryLimit: {{ 'home_page.map.address_query_limit_html' | t | json }},
+				authError: {{ 'home_page.map.auth_error_html' | t | json }},
+				cartEmpty: {{ 'cart.general.empty' | t | json }},
+				cartCookie: {{ 'cart.general.cookies_required' | t | json }},
+				cartSavings: {{ 'cart.general.savings_html' | t: price: '[savings]' | json }},
+				soldOut: "Sold Out",
+				unavailable: "Unavailable",
+				addToCart: "Add to Cart"
+			};
+			theme.settings = {
+				cartType: {{ settings.cart_type | json }},
+				gridType: {{ settings.collection_products_grid | json }}
+			};
+          {% assign temp = template | split:'.' | first %}
+          {% if  temp == 'product' %}
+          	theme.productData = {
+              selected : {{product.selected_or_first_available_variant | map: 'id' }},
+              options  : {{ product.options_with_values | json }},
+              vars : {{product.variants | json }}
+            };
+          {% endif %}
+		</script>
+      	{% render 'jquery-min' %}
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-PFZ7DLZ"></script>
+		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-M29QJT6"></script>
+		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MZS8ZJX"></script>
+		<script type="lazyload2" data-src="https://www.googleoptimize.com/optimize.js?id=OPT-MBRDBG6"></script>
+		<script type="lazyload2" data-src="{{ 'jquery-2.2.3.min.js' | asset_url }}"></script>
+		<script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+		<script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script>
+		
+		<!-- Header hook for plugins-->
+        {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+            {{ content_for_header }}
+        {%- else -%}
+            {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+            {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
+            <script>var trekkie=[];trekkie.integrations=!0;</script>
+        {%- endif -%}
+		{% include 'oldIE-js' %}
+		<script type="lazyload2" data-src="{{ 'modernizr.min.js' | asset_url }}"></script>
+		{% comment %}If you store has customer accounts disabled, you can remove the following JS file{% endcomment %}
+		{% if template.directory == 'customers' %}
+			{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+		{% endif %}
+		{% include 'shogun-head' %}
+		{% include 'judgeme_core' %}
+		<style>.product--image.lazyload{opacity:1}.ocu-hidden.ocu-hidden.ocu-hidden,.bold_hidden.bold_hidden.bold_hidden{display:none !important}@media (min-width: 960px){.BannerHome{height: 447px}}section.shopPetAge_wht .row ._sec_legend img{width:100%;height:auto}.grid_3_img{width:33%}.grid_3_img img{width:100%;height:100%}@media (max-width:768px){.grid_3_img{width:100%}}.wrap_img{height:100%;width:100%}.BannerHome,.BannerHome img{width:100%;height:auto;}</style>
+		<!-- Stamped - Begin Script-->
+		<script type="lazyload2" data-api-key="pubkey-1Ji05FR0ALc1UgGF7L447934XEH33B" id="stamped-script-widget" data-src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+		<!-- Stamped - End Script -->
+		{% render 'gsf-conversion-pixels' %}
+		<style>@font-face{font-family:'OpenSans Light';src:url("https://cdn.shopify.com/s/files/1/1355/5443/t/15/assets/OpenSans-Light.ttf") format('truetype')}.petTitle{font-family:"OpenSans Light",sans-serif}@media (max-width:600px){.BannerHome.mobBan{min-height:300px!important;display:block!important}}@media (min-width:600px){.BannerHome.deskTab{min-height:356px!important;display:block!important}}</style>
+      	<script>$(this).html().replace("Pawtect™","Pawtect<sup>®</sup>")</script>
+      	<script type="lazyload2">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134595017"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+      	{% if template contains 'product' %}
+      		<link data-href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+      	{% endif %}
+      	<style class="cls_css">@media only screen and (min-width:1200px){.template-index .AdsBanner-main .AdsBanner_item.deskTab img{min-height:23vw}}.site-header__logo img{min-height:56.6167px}@media only screen and (max-width:500px){#shopify-section-header{min-height:131.617px}.template-index .AdsBanner-main .AdsBanner_item.mobBan img{min-height:80vw}}</style>
+      	<!-- Google Tag Manager -->
+		<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TQHPBWX');</script>
+        <!-- End Google Tag Manager -->
+      	<!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
+        <script type="lazyload2">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-63196059-2');
+        </script>
+      <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-873066568');
+        </script>
+
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "df9mucrevp");
+</script>
+  
+	</head>
+		{% comment %}Add the page template as a class for easy page or template specific styling.{% endcomment %}
+      	<link rel="stylesheet" href="{{ 'header-footer.css' | asset_url }}" />
+	<body data-layout="theme" data-pid="{{product.id}}" id="{{ page_title | handle }}" class="supports-fontface {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHBXNVR"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+      
+		<script type="lazyload2">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+		<script type="lazyload2">window.Beacon('init', '1e408e71-d6e6-4bcd-ae7c-0d52eba424a8')</script>
+		<div class="sf_wrapper">
+			<!-- mobile menu drawer start here -->
+			<div id="NavDrawer" class="drawer drawer--left">{% section 'drawer-menu' %}</div>
+			<!-- mobile menu drawer ends here -->
+			<div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer">
+				<div class="drawer__fixed-header">
+					<div class="drawer__header">
+						<div class="drawer__title">
+                            <h3>Your Cart</h3>
+                        </div>
+						<div class="drawer__close">
+							<button type="button" class="icon-fallback-text drawer__close-button js-drawer-close"><span class="icon icon-x" aria-hidden="true"></span><span class="fallback-text">{{ 'cart.general.close_cart' | t }}</span></button>
+						</div>
+					</div>                 
+				</div>      
+				<div class="drawer__inner">
+					<div id="CartContainer" class="drawer__cart"></div>
+				</div>
+			</div>
+			<div id="PageContainer" class="page-container">
+				{% section 'header' %}
+              
+				{% if template.name == "index" %}
+					{% section 'slideshow' %}
+              		{% render 'newstyle-css' %}
+              		<link rel="stylesheet" data-href="{{ 'newstyle.css' | asset_url }}">
+              	{% endif %}
+				<main class="main-content" role="main">
+					{% if template contains 'product' %}
+						<h1 class="sf_h1_heading">Product</h1>
+					{% endif %}
+					<!-- snippet/tagged-description.liquid -->
+					{% section 'topHomeOffSubscription' %}
+					{% if canonical_url contains 'petblog/tagged' %}
+						{% include 'tagged-description', c_url:canonical_url %}
+					{% endif %}
+					{% unless template.name == "index" or template == "collection.image" %}
+						<div class="wrapper">
+					{% endunless %}
+					{{ content_for_layout }}
+					{% unless template.name == "index" or template == "collection.image" %}
+						</div>
+					{% endunless %}
+					<!-- snippet/tagged-footer-banner.liquid -->
+				</main>
+				{% section 'footer' %}
+			</div>
+		</div><!-- end of wrapper-->
+		{% comment %}Template-specific js{% endcomment %}
+		<script type="lazyload2">
+			{% if resetPassword %}
+			setTimeout(function() {
+				timber.resetPasswordSuccess();
+			}, 1000);
+			{% endif %}
+		</script>
+
+		{% if settings.cart_type == 'drawer' %}
+			{% include 'ajax-cart-template' %}
+		{% endif %}
+		{% if template.name == 'product' or template.name == 'index' %}
+			{% if product.id == 6050703999166 or product.id == 6087189332158 %}
+				{% capture AtcTect %}PREORDER{% endcapture %}
+			{% else %}
+			{% capture AtcTect %}{{ 'products.product.add_to_cart' | t | json }}{% endcapture %}
+		{% endif %}
+		<script>
+			// Override default values of shop.strings for each template.
+			// Alternate product templates can change values of
+			// add to cart button, sold out, and unavailable states here.
+			theme.productStrings = {
+				addToCart: {{ AtcTect }},
+				soldOut: {{ 'products.product.sold_out' | t | json }},
+				unavailable: {{ 'products.product.unavailable' | t | json }}
+			}
+		</script>
+		{% endif %}
+		<div id="SearchModal" class="mfp-hide">{% include 'search-bar', search_btn_style: 'btn', search_bar_location: 'search-bar--modal' %}</div>
+		<script type="lazyload2" data-src="//cdn.codeblackbelt.com/js/modules/frequently-bought-together/main.min.js?shop=petparents.myshopify.com"></script>
+		{% include 'sumo' %}
+		<script type="lazyload2">
+			var referrer = encodeURIComponent( document.referrer ),
+			landedPage = encodeURIComponent(window.location.href),
+			pixelUrl = "https://bettermetrics.co/track/?op=trak&uid=899&referrer=" + referrer + "page=" + landedPage;
+			pixelScript = document.createElement( "script" );
+			pixelScript.type = "application/javascript";
+			pixelScript.src = pixelUrl;
+			document.getElementsByTagName( "body" )[0].appendChild( pixelScript );
+		</script>
+		<script type="lazyload2">
+			(function(h,i,v,e,s,d,k){h.HiveSDKObject=s;h[s]=h[s]||function(){(h[s].q=h[s].q||[]).push(arguments)},d=i.createElement(v),k=i.getElementsByTagName(v)[0];d.async=1;d.id=s;d.src=e+'?sef=1&r='+parseInt(new Date()/60000);k.parentNode.insertBefore(d,k)})(window,document,'script','https://cdn-prod.hive.co/static/js/sdk-loader.js','HIVE_SDK')
+			HIVE_SDK('init', 121090);
+			function onFormSubmitSuccess(){
+				// you can use this function to do things when users sucessfully submit your form
+			}
+		</script>
+		<script type="lazyload2">
+			setTimeout(function() {
+				if(window.location.href.indexOf("login") > -1) {
+					$('.section-header').css('visibility','visible');
+				}
+			}, 1000);
+		</script>
+		<script type="lazyload2">
+			setTimeout(function() {
+				if(window.location.href.indexOf("account") > -1) {
+					$('.section-header').css('visibility','visible');
+				}
+			}, 1000);
+		</script>   
+		<script type="lazyload2">
+			setTimeout(function() {
+				if(window.location.href.indexOf("online-training-program") > -1) {
+					$('.section-header').css('visibility','visible');
+					$('.section-header > h1').html('Wholesale Login');
+				}
+			}, 1000);
+             $(document).on("click","span.sf_search_i",function(){
+            $(".__top_login.RedblueSubscription").toggleClass("is_active");
+            });
+		</script>
+		<script type="lazyload2">
+			setTimeout(function() {
+				$('.custom_reviews_slider1').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviews"),
+					customDirectionNav: $(".custom-navigation-reviews a")
+				});
+				$('.custom_reviews_slider2').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-bands"),
+					customDirectionNav: $(".custom-navigation-bands a")
+				});
+				$('.custom_reviews_slider3').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-dogs"),
+					customDirectionNav: $(".custom-navigation-dogs a")
+				}); 
+				$('.custom_reviews_slider4').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-cats"),
+					customDirectionNav: $(".custom-navigation-cats a")
+				});
+				$('.custom_reviews_slider5').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-gnawtlers"),
+					customDirectionNav: $(".custom-navigation-gnawtlers a")
+				});
+				$('.custom_reviews_slider6').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-furniture"),
+					customDirectionNav: $(".custom-navigation-furniture a")
+				});
+				$('.custom_reviews_slider7').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-peepads"),
+					customDirectionNav: $(".custom-navigation-peepads a")
+				});
+				$('.custom_reviews_sliderallergy').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsallergy"),
+					customDirectionNav: $(".custom-navigation-reviewsallergy a")
+				});
+				$('.custom_reviews_sliderbladder').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsbladder"),
+					customDirectionNav: $(".custom-navigation-reviewsbladder a")
+				});
+				$('.custom_reviews_slidercalming').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewscalming"),
+					customDirectionNav: $(".custom-navigation-reviewscalming a")
+				});
+				$('.custom_reviews_sliderhipjoint').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewshipjoint"),
+					customDirectionNav: $(".custom-navigation-reviewshipjoint a")
+				});
+				$('.custom_reviews_slidermultivitamin').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsmultivitamin"),
+					customDirectionNav: $(".custom-navigation-reviewsmultivitamin a")
+				});
+				$('.custom_reviews_sliderprobiotic').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsprobiotic"),
+					customDirectionNav: $(".custom-navigation-reviewsprobiotic a")
+				});
+				$('.custom_reviews_sliderskincoat').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsskincoat"),
+					customDirectionNav: $(".custom-navigation-reviewsskincoat a")
+				});
+				$('.custom_reviews_sliderturmeric').flexslider({
+					animation: "slide",
+					slideshow: false,
+					controlsContainer: $(".custom-controls-container-reviewsturmeric"),
+					customDirectionNav: $(".custom-navigation-reviewsturmeric a")
+				});
+				$(window).trigger('resize');
+			}, 5000);
+		</script>
+		<!-- Begin ReCharge code -->
+		{% include 'subscription-theme-footer' %}
+		<!-- End ReCharge code -->
+		{% if settings.sticky_cart and template contains 'product' %}
+			{% render 'pet-sticky-bar' %}
+		{% endif %}
+		{% comment %}{% endcomment %}
+		      {% if template contains 'product' %}
+        <style>
+          #videoControl{
+            width:100%;height: 550px !important;
+          }
+          .vjs-big-play-button{
+            display:none !important;
+          } 
+          .vjs-poster {
+            background-size: cover;
+          }
+        </style>
+        <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+      	<script type="lazyload2">
+          setTimeout(function(){
+            if( jQuery(window).width() > 767 ){
+              let counter = 1;
+              let imgURL = 'https://cdn.shopify.com/s/files/1/1355/5443/files/';
+              let acImg = jQuery('.Special_Features_img img').attr('src');
+              jQuery('.Special_Features .inner_text,.Special_Features_row .inner_text').each(function(id, ele){
+
+                let fname = '{{ product.handle }}-'+counter+'.png';
+                jQuery(ele).attr({'data-src': fname ,'data-id': counter});
+
+                if( 
+                  document.body.dataset.id == 6050703999166 
+                  || document.body.dataset.id == 626011668532 
+                  || document.body.dataset.id  == 625932894260 ){
+                   jQuery('.Special_Features_row .inner_text').last().addClass('dis');
+                } 
+
+                // create image and append to image div
+                let image = imgURL+''+jQuery(ele).data('src');
+                let img   = document.createElement('img');
+                img.setAttribute('src', image);
+                img.classList.add('hide');
+                img.classList.add('img-'+counter);
+                img.dataset.i = counter;
+                jQuery('.Special_Features_img').append(img);
+
+
+                jQuery(ele).on('mouseenter', function(){
+                  if( !jQuery(this).hasClass('dis') ){
+                    let ids = jQuery(ele).data('id');
+                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').addClass('black');
+                    jQuery(ele).addClass('white').removeClass('black');
+                    let img = imgURL+''+jQuery(ele).data('src');
+                    jQuery('.Special_Features_img').addClass('up_div');
+                    jQuery('.Special_Features_img img').addClass('hide');
+                    jQuery('.Special_Features_img .img-'+ids).removeClass('hide').addClass('updated');
+
+                  }else{
+                    jQuery('.Special_Features_img').removeClass('up_div');
+                    if( document.body.dataset.id == 626011668532){
+                      jQuery('.Special_Features_img img').addClass('hide');
+                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                      jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                    }else{
+                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                    }
+
+
+                  }
+                });
+
+                jQuery(ele).on('mouseleave', function(){
+                  if( !jQuery(this).hasClass('dis') ){
+                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
+                    jQuery('.Special_Features_img img').addClass('hide');   
+                    jQuery('.Special_Features_img').removeClass('up_div');
+                    if( document.body.dataset.id == 626011668532){            
+                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                      jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                    }else{
+                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                    }
+                  }
+                });
+                counter++;
+              });
+              jQuery('.Special_Features_img').on('mouseenter', function(){
+                jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('black');
+                jQuery('.Special_Features_img').removeClass('up_div');
+                jQuery('.Special_Features_img img').addClass('hide');
+                if( document.body.dataset.id == 626011668532){      	
+                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                  jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                }else{
+                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                }
+              });
+
+              jQuery('.sf_Special_Features_sec .container').on('mouseleave', function(){
+                jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
+                jQuery('.Special_Features_img').removeClass('up_div');
+                jQuery('.Special_Features_img img').addClass('hide');
+                if( document.body.dataset.id == 626011668532){      	
+                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                  jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                }else{
+                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                }
+              });
+            }
+          });   
+        </script>
+      	{% endif %}
+	
+				        <script>
+          var site_nav_link_burger = true;
+          jQuery(document).ready(function() {
+            jQuery(".is_mobil_manu").click(function() {
+              if(site_nav_link_burger) {
+                event.preventDefault();
+                site_nav_link_burger = false;
+              }
+            });
+          })
+        </script>
+	
+
+{% include 'stamped-rewards-init' %}
+{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
+{% assign oneclickupsellapp = true %}
+</body>
+</html>
+{{ 'wnw-optimization.js' | asset_url | script_tag }}

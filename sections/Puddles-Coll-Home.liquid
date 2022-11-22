@@ -1,0 +1,67 @@
+{% include 'forage-home-snippet' %}
+{% schema %}
+{
+"name" : "Puddles Collection",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Banner Image"},
+{"type":"image_picker","id":"home_banner2","label":"Banner Image [Mobile]"},
+{"type":"color","id":"home_bg_color","label":"Background Color","default":"#09babe"},
+{"type":"image_picker","id":"home_bg_img","label":"Background Image"},
+{"type":"text","id":"home_banner_heading","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des","label":"Banner Description"},
+{"type":"url","id":"home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Puddles Collection"
+}]
+}
+{% endschema %}
+<style>
+ div#shopify-section-165545123541b14ea2 {
+    margin-top: 22px;
+}
+#section_id_165545123541b14ea2 .ForageHomeM {
+    position: relative;
+}
+#section_id_165545123541b14ea2 .ForageHomeMain {
+    max-width: 300px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    transform: translate(-50%,-50%);
+}
+#section_id_165545123541b14ea2 .ForageHomeMain h2 {
+    color: #76e0e9;
+}
+#section_id_165545123541b14ea2 .ForageHomeImg {
+    width: 100%;
+}
+#section_id_165545123541b14ea2 .ForageHomeImg img {
+    max-width: 100%;
+    width: 100%;
+}
+  
+  
+  
+
+@media screen and (min-width : 100px) and (max-width : 667px){
+		
+	}
+  
+  
+ @media only screen and (max-width: 991px){
+   #section_id_165545123541b14ea2 .ForageHomeMain {
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+    #section_id_165545123541b14ea2 .ForageHomeM {
+     padding: 0; 
+}
+   #section_id_165545123541b14ea2 .row {
+    justify-content: center;
+}
+
+ }
+</style>

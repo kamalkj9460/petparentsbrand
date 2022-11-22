@@ -1,0 +1,292 @@
+<!-- Blog Landing Top Section -->
+<section id="Veterinarianbanner_sec">
+<div class="banner">
+  <div class="header_imges art_img_blog_data">
+     {% if section.settings.banner_img %}
+    {{ section.settings.banner_img | img_url: 'master' | img_tag:'banner_img','img-responsive' }}
+    {% endif %}
+  </div>
+    {% if section.settings.banner_title %}
+      <div class="container">
+  		<div class="header_text">{{ section.settings.banner_title }}</div>
+  	  </div>
+     {% endif %}
+</div>
+</section>
+ {% if section.settings.banner_text_v1 %}
+<section id="VeterinarianCont_sec_1" class="VeterinarianCont_sec VeterinarianCont_sec01">
+  <div class="container">
+<div class="slider_below_content">
+      <div class="below_content">{{ section.settings.banner_text_v1 }}</div>
+</div>
+    </div>
+</section>
+{% endif %}
+
+ {% if section.settings.banner_text_v2 %}
+<section id="VeterinarianCont_sec_2" class="VeterinarianCont_sec VeterinarianCont_sec02">
+  <div class="container">
+<div class="slider_below_content">
+      <div class="below_content">{{ section.settings.banner_text_v2 }}</div>
+</div>
+    </div>
+</section>
+{% endif %}
+
+ {% if section.settings.banner_text_v3 %}
+<section id="VeterinarianCont_sec_3" class="VeterinarianCont_sec VeterinarianCont_sec03">
+  <div class="container">
+<div class="slider_below_content">
+      <div class="below_content">{{ section.settings.banner_text_v3 }}</div>
+</div>
+    </div>
+</section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Veterinary Section",
+    "settings": [
+		 {"type":"header", "content":"Banner"},
+         {"type":"image_picker","id":"banner_img","label":"Banner Image"},
+		  {"type":"text","id":"banner_title","label":"Banner Text"},
+		 {"type":"header", "content":"Contant"},
+         {"type":"html","id":"banner_text_v1","label":"Text #1","default": "Text here"},
+		 {"type":"html","id":"banner_text_v2","label":"Text #2","default": "Text here"},
+		 {"type":"html","id":"banner_text_v3","label":"Text #3","default": "Text here"}
+	 ]
+    
+  }
+{% endschema %}
+<style>
+ p {font-family: "Gentona"}
+
+#Veterinarianbanner_sec {background: #a1c3c3; margin-top: 10px;}
+#Veterinarianbanner_sec .art_img_blog_data img {object-fit: contain;}
+  .header_text sup {top: -11px;font-size: 18px;left: 3px;}
+#Veterinarianbanner_sec .art_img_blog_data {padding: 0;}
+#VeterinarianCont_sec_1 {padding-top: 80px;}
+.look_for_Badge {
+    background: #a1c3c3 url(https://cdn.shopify.com/s/files/1/1355/5443/files/image2_72bda3d7-e5aa-4eae-931c-69e947113d68.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  background-size: contain; background-repeat: no-repeat; padding: 30px 60px; min-height: 440px; background-position: right; display: flex;
+flex-direction: column;justify-content: center;}
+.banner {position: relative; }
+.header_text { position: absolute !important; top: 45px; font-size: 70px; margin: 0 auto; line-height: .9; color: #fff;}
+.below_content h2 { text-align: left; font-size: 36px; margin: 0;}
+.below_content p {margin: 50px 0 50px; font-size: clamp(18px,1.8vw,25px); line-height: 1.3; padding: 0!important; }
+  #VeterinarianCont_sec_2 .below_content p {margin: 30px 0 50px;}
+.look_for_Badge h3 {font-size: 33px;color: #fff;margin: 0;padding: 0 0 30px;letter-spacing: 0;}
+.look_for_Badge p {padding: 0; margin: 0 0 20px;font-size: 25px; color: #fff; width: 100%; max-width:75%;}
+.vp_team_m { display: flex; align-items: center;}
+.vp_team_con {width: 100%;padding: 0 40px;}
+  .vp_team_img.vp_teamsf {width: 20%;}
+  .vp_team_con h4 {color: #9d9d9c; font-size: 20px; margin: 0;letter-spacing: 0;}
+  .vp_team_con p{color: #9d9d9c; font-size: 18px; margin: 5px 0 20px; width: 100%;}
+.vp_review_ites {grid-gap:50px; display: flex; justify-content: center; width: 100% !important; max-width: 1366px; margin: 0 auto;}
+  .vp_team_con p a {width: 100%;display: block;color: #06b3bd;font-size: 13px;}
+.vp_review_img img { margin-left: auto; margin-right: auto; }
+.vp_review_img h4 { text-align: center; font-size: 20px; padding: 20px; }  
+  
+section.VeterinarianCont_sec02 {padding: 50px 0;}
+  .VeterinarianCont_sec03 .below_content p {margin: 30px 0px;}
+  .VeterinarianCont_sec03 .below_content h2 {font-size: 30px; margin-bottom: 20px; font-family: "Gentona book" !important; font-weight: 500;}
+  .vp_team_img img {width: 235px;height: 235px;object-fit: contain;}
+  .vp_review_pro {padding: 30px 0 70px;border-bottom: 1px solid #837c6b ;margin-bottom: 70px;}
+  .vp_review_pro .vp_review_img h4 {padding: 0;letter-spacing: 0;font-size: 24px;text-align: left;line-height: 1.3;font-weight: 400;}
+  
+  ._dog_cnt_1 span.SeeMOre1 {font-size: 15px;}
+  ._dog_cnt_1 {font-size: 28px;line-height: 1.3; position: absolute;bottom: 0; left: 30px; right: 30px;}
+  #veterinary_program_slider.slick-initialized .slick-slide {display: block;margin: 0;	border-right: 10px solid #fff;}
+._dog-img-list1 {position: relative;}
+  ._dog-img-list1::before {content: "";background: rgba(0,0,0,0.2);	position: absolute;height: 100%;width: 100%; left: 0; right: 0; top: 0;}
+#veterinary_program_slider .slick-slide {position: relative;}
+._dog-img-text1 {position: absolute; top: 0; width: 100%; height: 100%; padding: 20px 30px; color: #fff;}
+.__dog-title1 {display: flex; justify-content: space-between; color: #fff; font-size: 16px;}
+._dog-img-list1 img {height: 350px;width: 100%;object-fit: cover;}
+#veterinary_program_slider li.slick-slide:first-child {margin: 0 0px;}
+  
+  #veterinary_program_slider.slick-dotted.slick-slider {position: relative;margin-bottom: 120px;}
+  #veterinary_program_slider .slick-prev {right: 30px !important;}
+  #veterinary_program_slider .slick-next {right: 0;}
+  #veterinary_program_slider .slick-arrow:hover, #veterinary_program_slider .slick-arrow:hover {background: #a4a5a5 !important;}
+  #veterinary_program_slider .slick-arrow {background: #e7e7e7 !important;left: unset;border-radius: 50%;height: 22px;width: 22px;display: flex !important;align-items: center;justify-content: center; top: -25px !important;}
+  #veterinary_program_slider.slick-slider .slick-dots li button::before {background-color: #e2e2e2 !important;}
+  #veterinary_program_slider.slick-slider .slick-dots {bottom: -80px;padding-bottom: 30px;}
+  .vp_review_img {position: relative;width: 33%;}
+  .vp_review_img::before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/arrroww.png);
+    height: 12px;
+    width: 170px;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    right: -115px;
+    top: 90px;
+    background-size: 100%;
+}
+  .vp_review_ites .vp_review_img:last-child::before {display: none;}
+  span.redText_1 {color: #e72335;}
+  .mobActive_is {
+    display: none;
+}
+  .ban_blog {
+     border-bottom: none; 
+}
+  
+.container {
+    padding: 0 150px;
+}
+.__Footer_sec.sf_footerSection .container {
+    padding: 0 70px;
+}
+.vp_team_m:nth-child(even) .vp_team_con {
+    padding-left : 0px;
+}
+  .vp_review_img:first-child h4 {
+    max-width: 276px;
+    margin: 0px auto !important;
+}
+.vp_team_con.vp_teamsf.Sarah {
+    margin-top: 20px;
+}
+
+  
+  @media only screen and (min-width: 100px) and (max-width: 768px) {
+    #Veterinarianbanner_sec {background: #a1c3c3 url(https://cdn.shopify.com/s/files/1/1355/5443/t/24/assets/bannerimg.jpg);
+	height: 235px;background-size: 107%;background-position: bottom;background-repeat: no-repeat;}    
+    #Veterinarianbanner_sec .header_text {font-size: 36px;	width: 100%;line-height: 45px;	font-weight: 400;}
+    #Veterinarianbanner_sec .header_imges img {display: none;}
+    
+  	#VeterinarianCont_sec_1 .container {padding: 0;}
+    #VeterinarianCont_sec_1 {padding-top: 50px;}
+    .container {padding: 0 25px;}
+    .vp_team_m {flex-direction: column;margin-bottom: 25px;}
+    .vp_team_img img {margin: 0 auto;}
+    .vp_team_img.vp_teamsf {width: 100%;}
+    .below_content h2 {font-size: 20px; margin-bottom: 25px;}
+    .VeterinarianCont_sec03 .below_content h2 {font-size: 20px;}
+    .below_content p {font-size: clamp(14px,1.25vw,24px);line-height: 1.6;}
+    #VeterinarianCont_sec_3 .below_content p { margin-bottom: 25px !important;}
+    .vp_teams {padding-top: 30px;}
+    .vp_team_con h4 {font-size: 16px;margin: 20px 0 10px;}
+    .vp_team_con {padding: 0;}
+    .vp_teams .vp_team_m:nth-child(2) .vp_team_con {order: 1;}
+    
+    .vp_review_img::before{display:none;}
+    .vp_review_ites {grid-gap: 0px;flex-direction: column;}
+    .vp_review_img {width: 100%;margin-bottom: 30px;}
+    .vp_review_pro .vp_review_img h4 {text-align: center;margin: 0;}
+    #VeterinarianCont_sec_1 .below_content > h2, #VeterinarianCont_sec_1 .below_content > p {padding: 0 25px !important;display: block;}
+    .look_for_Badge {min-height: 100%; margin-top: 20px; padding: 50px 25px 125px;
+	background: #a1c3c3 url(https://cdn.shopify.com/s/files/1/1355/5443/t/24/assets/BadgeImg.jpg);
+	background-position: bottom center; background-repeat: no-repeat; background-size: 107%; }
+    .look_for_Badge p {max-width: 100%; margin-bottom: 20px !important;}
+    .look_for_Badge h3 {font-size: 20px; padding: 0 0 20px;}
+    .vp_team_img img {width: 180px;height: 180px;}
+    ._dog-img-text1 {padding: 15px 15px;}
+    ._dog_cnt_1 {font-size: 20px;padding: 15px 15px; left: 0; right: 0;}
+    .__dog-title1 img {max-width: 100px;}
+    #veterinary_program_slider .slick-list.draggable {padding: 0 !important;}
+    
+    
+    .desktopActive_is {display : none;}
+    .mobActive_is { display: block;}
+    .wrapper>.container {padding: 0;}
+    
+    
+    .header_text br {
+        display: none;
+        max-width: 103px;
+    }
+    #Veterinarianbanner_sec .header_text {
+        max-width: 226px;
+    }
+    ._dog-img-list1 img {height: 300px;}
+    
+     span.redText_1 {display : block;}
+    
+/*     .wrapper>.container {
+        padding: 0;
+    }
+    form#blog_search02 {
+        display: block;
+    }
+    .blog-search {
+        background: transparent;
+    }
+    .blog-search {
+        flex-direction: column;
+    }
+    .blog-search.catgeory p {
+        padding: 15px 0;
+        background: #e3002b;
+        width: 100%;
+    }
+    form#blog_search02 {
+        width: 100%;
+    }
+    .blog-search form input {
+        border-radius: 0px;
+        width: 97%;
+        margin: 0 auto;
+        height: 55px;
+        text-align: center;
+    } */
+    
+    .header_text {
+        top: 45px !important;
+        left: 7%!important;
+    }
+    .wrapper .container {
+        padding: 0 15px !important;
+    }
+    ._dog-img-text1 {
+        padding: 15px 7px;
+    }
+    span.img-title1 {
+        font-size: 13px;
+    }
+    .__dog-title1 {
+        align-items: center;
+    }
+	#veterinary_program_slider.slick-initialized .slick-slide {
+        border: 5px solid #fff;
+    }
+    #veterinary_program_slider.slick-slider .slick-dots {
+        bottom: -65px;
+        border-bottom: 0px solid #837c6b;
+        padding-bottom: 0px;
+    }
+    div#vet-program_cat_sf {
+      padding: 0 !important;
+     }
+    #veterinary_program_slider .slick-next {
+        right:15px;
+    }
+    #veterinary_program_slider .slick-prev {
+      right: 45px !important;
+    }
+    #veterinary_program_slider.slick-dotted.slick-slider {
+        margin-bottom: 75px;
+    }
+	.vp_review_pro {
+        padding: 30px 0 20px;
+        border-bottom: 0px solid #837c6b;
+        margin-bottom: 30px;
+    }
+/*     #VeterinarianCont_sec_1 .container {padding : 0 15px !important;} */
+    
+    .__Footer_sec.sf_footerSection .container {
+        padding: 0 15px;
+    }
+	.vp_team_m .vp_team_con.vp_teamsf.Sarah {order: 2;}
+    .vp_team_con.vp_teamsf.Sarah {margin-top: 10px;}
+    
+    
+    
+    }    
+</style>
+

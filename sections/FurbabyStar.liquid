@@ -1,0 +1,56 @@
+<section class="shopPetAge_wht sf_FurbabyStar deskTab">
+	<div class="container">		
+			<h2 class="head_sec_bl_h2">{{section.settings.fs_section_title}}</h2>
+			<h3 class="sub_bl_h">{{section.settings.fs_sub_section_title}}</h3>
+			<div class="proKnownSliderHome">
+              {% for block in section.blocks %} 
+				<div class="proKnownSlider">
+				  {% if block.settings.fs_productSliderUrl != blank %}<a target="_blank" href="{{block.settings.fs_productSliderUrl}}">{% endif %}
+					<span class="sf_pro_img">					
+                      <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.fs_productImg | img_url:'master' }}" alt="fs_productImg">
+                      </span>					
+                  {% if block.settings.fs_productSliderUrl != blank %}</a>{% endif %}
+				</div>
+				{% endfor %}
+			
+			  </div>
+		 </div>
+</section>
+<section class="shopPetAge_wht sf_FurbabyStar mobBan">
+	<div class="container">		
+			<h2 class="head_sec_bl_h2">{{section.settings.fs_section_title}}</h2>
+			<h3 class="sub_bl_h">{{section.settings.fs_sub_section_title}}</h3>
+			<div class="proKnownSliderHome3" id="sf_FurbabyStar">
+              {% for block in section.blocks %} 
+				<div class="proKnownSlider">
+				  {% if block.settings.fs_productSliderUrl != blank %}<a target="_blank" href="{{block.settings.fs_productSliderUrl}}">{% endif %}
+					<span class="sf_pro_img">					
+                      <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.fs_productImg | img_url:'master' }}" alt="fs_productImg">
+                      </span>					
+                  {% if block.settings.fs_productSliderUrl != blank %}</a>{% endif %}
+				</div>
+				{% endfor %}
+			
+			  </div>
+		 </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Furbaby Star",
+		"settings": [
+			{"type":"text","id":"fs_section_title","label":"Section Title"},
+			{"type":"html","id":"fs_sub_section_title","label":"Sub Title"}
+		],
+		"blocks" : [{
+         "type": "slide",
+         "name": "New Item",
+         "settings": [
+			{"type":"image_picker","id":"fs_productImg","label":"Image"},
+            {"type":"url","id":"fs_productSliderUrl","label":"Url"}		
+            ]}],
+		"presets": [{
+			"name": "Furbaby Star"
+		}]
+	}
+{% endschema %}

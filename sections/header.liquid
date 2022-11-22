@@ -1,0 +1,331 @@
+<style>
+  .site-header__logo img {
+    {% comment %}max-width: {{ section.settings.logo_max_width | escape | default: '180' | remove: 'px' | append: 'px' }};{% endcomment %}
+  }
+  
+  .hero__header {
+    position: {{ section.settings.header_layout }};
+    background-color: {{ section.settings.color_header_bg }};
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  @media screen and (max-width: 768px) {
+    .site-header__logo img {max-width: 100%;}
+  }
+</style>
+<div  class="{% if settings.sticky_cart !=blank %}is_sticky_menu{% endif %}">
+{% assign hero_full_height = true %}
+<div data-section-id="{{ section.id }}" data-section-type="header-section" data-template="{{ template.name }}">
+  <div class="header-container">
+    <!-- header announcement bar start here -->
+    {% if section.settings.show_announcement %}
+        {% if section.settings.home_page_only == false or template.name == 'index' %}
+          <style>
+            .announcement-bar {
+              background-color: {{ section.settings.color_bg }};
+            }
+
+            .announcement-bar--link:hover {
+              {% assign brightness = section.settings.color_bg | color_brightness %}
+
+              {% if brightness <= 192 %}
+                {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
+                background-color: {{ section.settings.color_bg | color_lighten: lightenAmount }};
+              {% else %}
+                {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
+                background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
+              {% endif %}
+            }
+            .announcement-bar__message {
+              color: {{ section.settings.color_text }};
+            }
+          </style>
+
+          {% if section.settings.link == blank %}
+            <div class="announcement-bar">
+          {% else %}
+            <a href="{{ section.settings.link }}" class="announcement-bar announcement-bar--link">
+          {% endif %}
+            <p class="announcement-bar__message">{{ section.settings.text | escape }}</p>
+          {% if section.settings.link == blank %}
+             </div>
+          {% else %}
+           </a>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    <!-- ends here -->
+    <div class="header-wrapper{% unless hero_full_height %} header-wrapper--over-hero{% endunless %}">
+      <!-- header part start here -->
+      <header class="site-header" role="banner">
+          <div class="grid--full grid--table">
+            <!-- mobile aria menu start here -->
+             <div class="no-padding grid__item large--hide large--one-sixth one-quarter">
+              <!-- adding cart icon-->
+              <span class="sf_search_i"> <img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/search.png" >
+               </span>
+              <a href="/cart" class="__mobile_cart site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
+                {% comment %} <img src="{{ "basket-icon.png" | asset_url }}">   {% endcomment %} 
+  				<img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/Cart_Icon_31x35px.svg?17648960249336167474"> 
+                <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
+              </a>
+              <!-- ends here -->
+              <div class="site-nav--open site-nav--mobile">
+                 <div id="header">
+                <a class="is_mobil_manu" data_href="#is_mobile_menu"><span></span></a>
+            </div>
+                <!-- button type="button" class="icon-fallback-text site-nav__link site-nav__link--burger js-drawer-open-button-left" aria-controls="NavDrawer">
+                  <span class="burger-icon burger-icon--top"></span>
+                  <span class="burger-icon burger-icon--mid"></span>
+                  <span class="burger-icon burger-icon--bottom"></span>
+                  <span class="fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                </button --->
+             </div>
+              </div>
+            
+            <!-- ends here -->
+            <div class="large--one-sixth medium-down--one-half no-padding">
+              {% comment %}
+                Use the uploaded logo from theme settings if enabled.
+                Site name gets precedence with H1 tag on homepage, div on other pages.
+              {% endcomment %}
+              {% if template.name == 'index' %}
+                <div class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+                <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+              {% endif %}
+                {% if section.settings.logo_max_width != blank %}
+                  {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+                {% else %}
+                  {% assign image_size = "master" %}
+                {% endif %}
+
+                {% if section.settings.logo %}
+                  <a href="/" itemprop="url" class="site-header__logo-link">
+                    {% comment %}
+                     <img src="{{ section.settings.logo | img_url: image_size }}"
+                     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                     alt="{{ section.settings.logo.alt | default: shop.name }}"
+                     itemprop="logo">
+                    {% endcomment %}
+                    <img src="{{ 'PP_siteLogo_SVG.svg' | asset_url }}" alt="Site Logo" />
+                  </a>
+                {% else %}
+                  <a href="/" itemprop="url">{{ shop.name }}</a>
+                {% endif %}
+              {% if template.name == 'index' %}
+                </div>
+              {% else %}
+                </div>
+              {% endif %}
+            </div>
+            <!-- aading header extra css -->
+            <div class="left large--one-half-custom large--text-left medium-down--hide no-padding ">
+              <!-- snnipets/site-nav-advanced.liquid -->
+              {% include 'header-site-nav-advanced' %}
+            </div>
+            <div class=" small--hide right large--one-third-custom large--text-left no-padding">
+              <!-- adding header right part -->
+              <!-- snnipets/site-nav-right.liquid -->
+              {% include 'header-site-nav-right' %}
+            </div>           
+            
+            <!-- mobile cart icon start here -->
+           {% comment %} <div class="grid__item large--hide medium--hide one-quarter">
+              <div class="site-nav--mobile text-right">
+                <a href="/cart" class="site-nav__link cart-link js-drawer-open-button-right" aria-controls="CartDrawer">
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-cart" aria-hidden="true"></span>
+                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+                  </span>
+                  <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
+                </a>
+              </div>
+            </div>{% endcomment %}
+			<!-- ends here {{ 'petparents_WholeCatalog.pdf' | asset_url }} -->
+        </div>
+      </header>
+    </div>
+  </div>
+</div>
+<section class="topOffersectionHome">
+	<div class="sf_container">
+		<div class="row ">
+          <div class="blueSubscription">
+			 <h6>{{section.settings.FreeShippingText}} <span>{{section.settings.FreeShippingPrice}}</span></h6>
+			</div>
+          <div class="__top_login RedblueSubscription">
+	<ul class="menu-top">
+		{% if section.settings.searchShipping == "box" %}
+		<li id="__search_icon" class="small--hide">
+			{% include 'search-bar', search_bar_location: 'search-bar--header' %}
+		</li>
+		{% endif %}
+		<!-- adding a search link for mobile devices -->
+		<li class="site-nav__item site-nav__item--compressed large--hide">
+			<a href="/search" class="site-nav__link site-nav__link--icon">
+				<span class="icon-fallback-text">
+					<span class="icon icon-search" aria-hidden="true"></span>
+					<span class="fallback-text">{{ 'general.search.title' | t }}</span>
+				</span>
+			</a>
+		</li>
+		{% if section.settings.searchShipping == 'page' or section.settings.search == 'modal' %}
+			{% assign search_modal = true %}
+			{% if section.settings.searchShipping == 'page' %}
+				{% assign search_modal = false %}
+			{% endif %}
+			<li class="site-nav__item site-nav__item--compressed">
+				<a href="/search" class="site-nav__link site-nav__link--icon{% if search_modal %} js-toggle-search-modal{% endif %}" data-mfp-src="#SearchModal">
+					<span class="icon-fallback-text">
+						<span class="icon icon-search" aria-hidden="true"></span>
+						<span class="fallback-text">{{ 'general.search.title' | t }}</span>
+					</span>
+				</a>
+			</li>
+		{% endif %}
+            </ul></div>
+          
+          
+		</div>
+	</div>
+</section>
+</div>
+  {% if settings.sticky_cart !=blank %}
+    <div class="is_sticky_menu_mt"></div>
+    {% endif %}
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+	  {"type":"select","id":"header_layout","options":[{"value":"relative","label":"Relative"},{"value":"absolute","label":"Absolute"},{"value":"fixed","label":"Fixed"}],"label":"Header Layout","default":"relative"},
+	  {"type":"color","id":"color_header_bg","label":"Header Background","default": "#ffffff"},
+      {
+        "type": "link_list",
+        "id": "main_menu_link_list",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+	  {
+		"type":"text",
+		"id":"mega_menu_item",
+		"label":"Add menu item slug",
+		"info":"Same slug that used by menu item"
+	  },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Custom logo width (in pixels)",
+        "default": "180"
+      },
+      {
+        "type": "select",
+        "id": "search",
+        "options": [
+           { "value": "page",
+             "label": "Page"
+           },
+           { "value": "box",
+             "label": "Box"
+           },
+           { "value": "none",
+             "label": "None"
+           }
+        ],
+        "label": "Search type"
+      },
+	  {"type":"image_picker","id":"aspca_logo","label":"ASPCA Logo"},	
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_page_only",
+        "label": "Home page only",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Bar",
+        "default": "#1c1d1d"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#fff"
+      },
+{"type":"header", "content":"Shipping and Search"},
+{"type":"text","id":"FreeShippingText","label":"Free Shipping Text"},
+	{"type":"color","id":"backGroundColor","label":"Free Shipping Text Background Color","default":"#ed1b3c"},
+	{"type":"text","id":"FreeShippingPrice","label":"Free Shipping Price"},
+	{"type":"color","id":"backGroundSearch","label":"Search Background Color","default":"#00b6bd"},
+	{"type": "select",
+        "id": "searchShipping",
+        "options": [
+           { "value": "page",
+             "label": "Page"
+           },
+           { "value": "box",
+             "label": "Box"
+           },
+           { "value": "none",
+             "label": "None"
+           }
+        ],
+        "label": "Search Type","default":"box"
+      }
+    ],
+"blocks" : [{	
+				"name":"Mega Menu Tab (Desktop)",
+				"type":"mega_menu",
+				"settings": [
+				{"type":"header", "content":"Menu (Only Desktop)"},
+				{"type":"text","id":"m_menu_title","label":"Title"},
+				{"type":"text","id":"m_c_m","label":"Menu Custom Title"},
+				{"type":"link_list","id":"m_menu_link_list_1","label":"Select Menu 1"},
+				{"type":"header", "content":"Only Products Tab"},
+				{"type":"text","id":"m_c_m2","label":"Menu Custom Title"},
+                {"type":"link_list","id":"m_menu_link_list_2","label":"Select Menu 2"},
+                {"type":"header", "content":"Right Section"},
+                {"type":"image_picker","id":"m_menu_bg_img","label":"Background Image"},
+                {"type":"html","id":"m_menu_sec_title","label":"Section Title"},
+                {"type":"html","id":"m_menu_sec_des","label":"Section Description"},
+                {"type":"url","id":"m_menu_sec_url","label":"Button url"}
+				]} 
+			]
+  }
+{% endschema %}
+
+<style>
+  .blueSubscription{
+    background:{{section.settings.backGroundColor}}!important;
+  }
+  .RedblueSubscription{
+    background:{{section.settings.backGroundSearch}} ;
+  }
+</style>

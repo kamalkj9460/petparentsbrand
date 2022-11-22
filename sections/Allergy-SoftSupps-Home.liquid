@@ -1,0 +1,57 @@
+{% include 'forage-home-snippet' %}
+{% schema %}
+{
+"name" : "Allergy SoftSupps",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Banner Image"},
+{"type":"image_picker","id":"home_banner2","label":"Banner Image [Mobile]"},
+{"type":"color","id":"home_bg_color","label":"Background Color","default":"#09babe"},
+{"type":"image_picker","id":"home_bg_img","label":"Background Image"},
+{"type":"text","id":"home_banner_heading","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des","label":"Banner Description"},
+{"type":"text","id":"home_btn_txt","label":"Button Text","default":"Learn More"},
+{"type":"url","id":"home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Allergy SoftSupps"
+}]
+}
+{% endschema %}
+<style>
+ #section_id_1655449024c7b8b75e {
+    padding: 30px 0;
+}
+  #section_id_1655449024c7b8b75e .ForageHomeM {
+    width: 100%;
+}
+  #section_id_1655449024c7b8b75e .ForageHomeMain {
+    width: 50%;
+    max-width: 350px;
+}
+  #section_id_1655449024c7b8b75e .ForageHomeImg {
+    width: 30%;
+}
+  #section_id_1655449024c7b8b75e .ForageHomeMain span.leanMore {
+    color: #ffb9ca;
+}
+  #section_id_1655449024c7b8b75e .ForageHomeMain span.leanMore:hover {
+    color: #fff;
+}
+  
+  
+  
+  
+
+@media screen and (min-width : 100px) and (max-width : 667px){
+ #section_id_1655449024c7b8b75e .ForageHomeMain,#section_id_1655449024c7b8b75e .ForageHomeImg {
+    width: 100% !important;
+}		
+	}
+  
+  
+ @media only screen and (max-width: 991px){
+#section_id_1655449024c7b8b75e img.home_Forage.home_Forage_mobile {
+    transform: translate(25px);
+} 
+ }
+</style>

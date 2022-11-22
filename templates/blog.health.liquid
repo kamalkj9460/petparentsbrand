@@ -1,0 +1,49 @@
+{% layout 'themeX' %}
+{% render 'custom-pet-blog-css' %}
+<link rel="stylesheet" data-href="{{ 'custom-pet-blog.css' | asset_url }}">
+<!-- templates/blog.liquid -->
+{% section 'Blog-subheader'%}
+{% section 'health-banner' %}
+<div class="container" id="health_cat_sf">
+  <div class="desktopActive_is"> 
+    {% section 'Blogcategory-search'%}
+  </div>
+  <div class="mobActive_is">
+    {% section 'Blog-search'%}
+  </div>
+</div>
+<div class="grid2 container">  
+  <h1 class="sf_h1_heading">
+    {% if template contains 'index' %}
+    {{ shop.name }}
+    {% else %}
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+    {% endif %} - Pet Parents®
+  </h1>
+  {% comment %}blog articles listing for normal and tagged url {% endcomment %}
+   <div class="DogBlogList">
+    {% paginate blog.articles by 30 %}  
+     {% for article in blog.articles reversed %}
+      <ul {{current_tags | json}}>   
+        <li>
+          <a href="{{ article.url }}">
+            <div class="_dog-img-list"><img src="{{ article.image.src | image_url: width: 500 }}" ></div>
+            <div class="_dog-img-text">
+              <div class="__dog-title">
+                <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+                {% if article.tags.size > 0 and article.tags contains 'vet reviewed' %}
+                	<img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+                {% endif %}
+              </div>
+              <div class="_dog_cnt_">
+                 {{  article.title }}
+                 <p><span class="SeeMOre"> > read <strong>more</strong> </span></p>             
+              </div>
+            </div>
+          </a>
+        </li>  
+      </ul>
+     {% endfor %}
+	</div>
+   {% endpaginate %}
+</div>

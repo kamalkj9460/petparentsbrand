@@ -1,0 +1,8 @@
+{% if article.tags.size > 0 %}
+<p class="__tags_type">{% if article.tags.size > 0 %}
+  {% for tag in article.tags %}
+  <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="__tips">#{{ tag }}</a>
+  {% endfor %}
+  {% endif %}
+</p>
+{% endif %}

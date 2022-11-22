@@ -1,0 +1,28 @@
+{% include 'forage-home-snippet' %}
+{% schema %}
+{
+"name" : "Forager Home",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Banner Image"},
+{"type":"image_picker","id":"home_banner2","label":"Banner Image [Mobile]"},
+{"type":"color","id":"home_bg_color","label":"Background Color","default":"#09babe"},
+{"type":"image_picker","id":"home_bg_img","label":"Background Image"},
+{"type":"text","id":"home_banner_heading","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des","label":"Banner Description"},
+{"type":"text","id":"home_btn_txt","label":"Button Text","default":"Learn More"},
+{"type":"url","id":"home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Forager Home"
+}]
+}
+{% endschema %}
+<style>
+   @media only screen and (max-width: 991px){
+    #section_id_16500059477e5e14ed .ForageHomeMain p {
+	margin: 0 auto 7px !important;
+	}
+
+  }
+  
+</style>

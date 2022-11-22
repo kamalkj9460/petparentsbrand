@@ -1,0 +1,113 @@
+<section class="findPetProducts">
+	<div class="container">
+		<div class="treatTitle">
+          <div class="desktopSection">
+          	<h2 class="findProductHeading petTitle"><span class="red">Find the product</span> <span class="skyblue">for your pet’s needs</span></h2>
+		  </div>
+          <div class="mobileSection">
+          	<h2 class="findProductHeading petTitle"><span class="red">Find the product</span><br><span class="skyblue">for your pet’s needs</span></h2>
+		  </div>
+		</div>
+        <div class="desktopSection">
+          <div class="row">
+              <div class="grid_3">
+              {% for block in section.blocks %}
+                {% if block.type == 'Find_PetProduct' %}
+                  <div class="grid_3_img">
+                      <div class="wrap_img">
+                           {% if block.settings.find_Pet_Image %}
+                              <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.find_Pet_Image | img_url: 'master' }}">
+                           {% endif %}
+                           <h4 style="color:#fff">{{ block.settings.FindPet_headline }}</h4>
+                           <div class="lrn_grd"><a href="{{ block.settings.FindPet_link }}">Learn More</a></div>
+                      </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+          </div>
+        </div>
+      <div class="mobileSection">
+		<div class="row">
+          <div class="NewMobileChangesFindSection">
+              <div class="grid_3 NewMobileChangesFindSection1 navFindPro">
+              {% for block in section.blocks %}
+                  {% if block.type == 'Find_PetProduct_mobile' %}
+                    <div class="grid_3_img TopFindProblem">
+                      <a href="{{ block.settings.FindPet_link }}">
+                        <div class="wrap_img">
+                             {% if block.settings.find_Pet_Image %}
+                                <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.find_Pet_Image | img_url: 'master' }}">
+                             {% endif %}
+                             <h4 style="color:#fff">{{ block.settings.FindPet_headline }}</h4>
+                        </div>
+                      </a>
+                    </div>
+                  {% endif %}
+              {% endfor %}
+              </div>
+            <div class="grid_3 NewMobileChangesFindSection2">
+              {% for block in section.blocks %}
+                  {% if block.type == 'Find_PetPro_mobile_bottom' %}
+                    <div class="grid_3_img BottomFindProblem">
+                      <a href="{{ block.settings.FindPet_link }}">
+                        <div class="wrap_img">
+                             {% if block.settings.find_Pet_Image %}
+                                <img class="lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.find_Pet_Image | img_url: 'master' }}">
+                             {% endif %}
+                             <h4 style="color:#fff">{{ block.settings.FindPet_headline }}</h4>
+                        </div>
+                      </a>
+                    </div>
+                  {% endif %}
+              {% endfor %}
+            </div>
+           </div>
+		</div>
+      </div>
+	</div>
+</section>
+
+<!-- Find PetProduct[Home] -->
+
+{% schema %}
+  {
+	"name": "Find PetProduct[Home]",
+	"settings": [
+	{"type":"text","id":"Section_find_headline","label":"Enter Section Headline"}
+  ],
+  "blocks":[
+	{
+	  "type":"Find_PetProduct",
+	  "name":"Find PetProduct",
+	  "settings":[
+		{"type":"image_picker","id":"find_Pet_Image","label":"Choose Image"},
+		{"type":"text","id":"FindPet_headline","label":"Enter Headline","default": "Enter Headline"},
+		  {"type":"url","id":"FindPet_link","label":"Layout Link"}
+	  ]
+	},
+	{
+	  "type":"Find_PetProduct_mobile",
+	  "name":"Find PetProduct [Mobile]",
+	  "settings":[
+		{"type":"image_picker","id":"find_Pet_Image","label":"Choose Image"},
+		{"type":"text","id":"FindPet_headline","label":"Enter Headline","default": "Enter Headline"},
+		  {"type":"url","id":"FindPet_link","label":"Layout Link"}
+	  ]
+	},
+	{
+	  "type":"Find_PetPro_mobile_bottom",
+	  "name":"Find PetProduct [Bottom]",
+	  "settings":[
+		{"type":"image_picker","id":"find_Pet_Image","label":"Choose Image"},
+		{"type":"text","id":"FindPet_headline","label":"Enter Headline","default": "Enter Headline"},
+		  {"type":"url","id":"FindPet_link","label":"Layout Link"}
+	  ]
+	}
+  ],
+  "presets": [{
+	  "name": "Find PetProduct[Home]",
+	  "category": "Text"
+	}] 
+  }
+{% endschema %}

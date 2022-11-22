@@ -1,0 +1,36 @@
+<div class="white_space">
+  <h1 class="mid-title md2"><span style="background-color:{{ section.settings.re_head_color }};">{{ section.settings.r_title }}</span></h1>
+  <div class="rev_cols">
+   {% for block in section.blocks %}
+    {% if block.type == 'product-c-review' %}
+    <div class="col-md-6">
+      <h2 style="color:{{ section.settings.re_head_color }};font-weight: 400;">{{ block.settings.review_title }}
+        <div class="starts_rev">
+        	{% for i in (1..5) %}
+          		{% if i <= block.settings.rating %}
+        			<i class="fa fa-star"></i>
+        		{% endif %}
+          	{% endfor %}
+        </div>
+      </h2>
+      <div class="clear"></div>
+      {% if block.settings.review_c %}{{ block.settings.review_c }}{% endif  %}
+      <p class="__Client_name">{% if block.settings.reviewer_id %}- {{ block.settings.reviewer_id }}{% endif  %}</p>
+    </div>
+    {% endif %}
+    {% endfor %}    
+  </div>
+  {% comment %}
+  <h1 class="mid-title md3"><span><a href="">SEE ALL REVIEWS</a></span>
+    <span>WRITE A REVIEW</span></h1>
+  {% endcomment %}
+  <!-- Product Question Answers Start Here -->
+ {% if section.settings.QA_show %}
+   {% comment %}{% include 'product-questions-answers' %} {% endcomment %}
+ {% endif %}
+  <!-- Ends Here -->
+  <!-- adding shopify default review app code start here -->
+    {% comment %} <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>  {% endcomment %}
+  
+    <!-- ends here -->
+</div>

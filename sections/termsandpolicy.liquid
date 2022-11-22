@@ -1,0 +1,323 @@
+<section id="TermsPolicies">
+  <div class="container">
+    <h1><span>{{section.settings.tp_title}}</span></h1>
+    <p>{{-section.settings.tp_content-}}</p>
+  </div> 
+</section>
+<section id="TabSysteming">
+  {% assign tabItems = '' %}
+  {% assign tabContent = '' %}
+  {%- for block in section.blocks -%}  	
+  	{% if block.type == 'TabItem' %} 
+  		{% capture tabHtml %}
+  			<li class="tabItem{% if forloop.first == true %} is_tab_active{% endif %}" tab_id="tabItem_{{forloop.index}}">{{- block.settings.TabItem_title -}}</li>
+  		{% endcapture %}
+  		{% capture tabconHtml %}
+          <div class="tabItem_content{% if forloop.first == true %} is_tab_active{% endif %}" id="tabItem_{{forloop.index}}">
+            <h2><span>{{- block.settings.TabItem_heading -}}</span></h2>
+              <div class="tcontent">{{ block.settings.TabItem_content }}</div>
+          </div>
+  		{% endcapture %}
+  		{% assign tabItems = tabItems | append: tabHtml %}
+    	{% assign tabContent = tabContent | append: tabconHtml %}
+	{% endif %}  
+  {% endfor %}
+  <div class="container">
+    <div class="TabSysteming_itm">
+    <ul class="TabSystemingItms TabSysteming_desktop">
+      {{tabItems}}
+      </ul>
+      <ul class="TabSystemingItms slider TabSysteming_mobile" id="TabSystemingItms">
+      {{tabItems}}
+      </ul>
+    </div>
+  </div> 
+<div class="TabSysteming_contnt">  
+  	<div class="TabSysteming_cont_main">  
+  		{{tabContent}}
+  	</div>
+  </div>
+</section>
+<section id="TermsPolicies_last">
+  <div class="container">
+    <p>{{section.settings.tp_f_text}} <a href="{{section.settings.tp_f_btnUrl}}">Contact Us</a></p>
+  </div> 
+</section>
+
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [ 
+                  {"type":"header","content":"Top Section"},
+                  {"type":"text","id":"tp_title","label":"Title"},
+                  {"type":"html","id":"tp_content","label":"Content"},
+                  {"type":"header","content":"Last Section"},
+                  {"type":"text","id":"tp_f_text","label":"Text"},
+                  {"type":"url","id":"tp_f_btnUrl","label":"Button Url"}
+				],
+	"blocks" : [{
+        "type": "TabItem",
+        "name": "Tab Item",
+        "settings": [
+	       {"type":"text","id":"TabItem_title","label":"Tab Title"},
+			{"type":"text","id":"TabItem_heading","label":"Heading"},
+	       {"type":"html","id":"TabItem_content","label":"Content"}		   
+		]}
+		],
+	"presets":[{
+      "name": "Terms and Policies",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<style>
+  .tabItem_content{display:none;}
+  .tabItem_content.is_tab_active{display:block;}
+.TabSysteming_cont_main {
+    background: #f6f6f6;
+    padding: 75px 0 60px;
+}
+  li.tabItem.is_tab_active {
+    font-weight: bold;
+}
+  ul.TabSystemingItms li {
+    display: initial;cursor: pointer;
+    padding: 0 10px;
+}
+  .TabSysteming_desktop{display:block}
+  .TabSysteming_mobile{display:none}
+  
+  
+body {font-family: "Gentona book" !important;}
+.WarrantyProgram .container, .Coverage_main .container, #WorksPrograms .container {
+    max-width: 1180px;
+}
+#TermsPolicies h1 {
+    font-size: 40px;
+    color: #9d9d9c;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Gentona book" !important;
+    margin: 75px 0 20px;
+    text-align: center;
+}
+#TermsPolicies h1 span {
+    position: relative;
+}
+#TermsPolicies h1 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #e3002b;
+    content: "";
+    left: 0;
+    top: -25px;
+    border-radius: 5px;
+}
+#TermsPolicies p {
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    color: #9d9d9c;
+    padding: 50px 0;
+    max-width: 855px;
+    margin: 0px auto;
+}   
+ul.TabSystemingItms {
+    margin-bottom: 100px;
+}  
+ul.TabSystemingItms {
+    margin-bottom: 100px;
+    width: max-content;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 15px 0;
+    margin: 0px auto 100px;
+}  
+ul.TabSystemingItms li {
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+    line-height: 1.2;
+     padding: 0 15px; 
+}
+ul.TabSystemingItms  li:not(:last-child) {
+    border-right: 1px solid  rgb(112, 111, 111); 
+   
+}
+ul.TabSystemingItms  li:first-child {
+    padding-left: 0; 
+   
+}
+ul.TabSystemingItms  li:last-child {
+    padding-right: 0;  
+}
+.tabItem_content.is_tab_active {
+    display: block;
+    max-width: 1250px;
+    margin: 0px auto;
+  padding: 0 15px;
+}
+.__Footer_sec_inner {
+    border-top: 0;
+} 
+.tabItem_content h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+}
+.tabItem_content h2 span {
+    position: relative;
+}
+.tabItem_content h2 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #00b6bd;
+    content: "";
+    left: 0;
+    top: -20px;
+    border-radius: 5px;
+} 
+.tcontent p {
+    margin-bottom: 0px;
+}
+.tcontent p span {
+    font-size: 18px;
+    line-height: 1.25;
+    color: #9d9d9c;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.tcontent p {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    margin: 0;
+}
+.tcontent p span {
+    padding-top: 30px;
+    display: inline-block;
+}
+#TermsPolicies_last p {
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: center;
+    color: #9d9d9c;
+    margin: 30px 0px 0;
+}  
+#TermsPolicies_last p a {
+    font-size: 26px;
+    color: #fff;
+    line-height: 1.25;
+    padding: 8px 25px;
+    text-align: center;
+    background: #00b7bc;
+    font-weight: 500;
+    font-family: "Gentona book";
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: .15s;
+    white-space: nowrap;
+      margin-left: 20px;
+  border: 2px solid #00b7bc;
+}  
+#TermsPolicies_last p a:hover {
+    color: #00b7bc;
+    background: #fff;
+}  
+#tabItem_7 p {padding-top: 30px;}  
+  
+.tcontent ul {
+    padding-top: 25px;
+    margin:0;
+}
+.tcontent ul li {
+    color: #9d9d9c;
+    margin: 0;
+    line-height: 1.25;
+    font-size: 16px;
+}  
+
+@media screen and (min-width : 100px) and (max-width : 767px){
+	.TabSysteming_desktop{display:none}	
+    .TabSysteming_mobile{display:block}
+  
+    #TermsPolicies_last p a {
+        max-width: 120px;
+        margin: 15px auto 0 !important;
+        font-size: 16px;
+        display: block;
+    }
+    #TermsPolicies_last p {
+        font-size: 16px;
+        padding-top: 10px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #d3ced0;
+    }
+    #TermsPolicies .container, #TermsPolicies_last .container, #TabSysteming .container {
+        padding: 0 15px;
+    }
+    .white_space {
+        display: none;
+    }
+    #TermsPolicies h1 span {
+        display: block;
+    }
+    #TermsPolicies h1 span {
+        display: block;
+        width: 320px;
+        margin: 0px auto;
+    }
+    #TermsPolicies p {
+        font-size: 18px;
+        color: #9d9d9c;
+        padding: 35px 15px;
+    }
+    ul.TabSystemingItms {
+        width: 100%;
+        margin: 100px auto 60px;
+    }
+    ul.TabSystemingItms li {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .slick-initialized .slick-slide {
+        width: auto !important;
+    }
+    .slick-arrow {
+        background: #e7e7e7;
+        left: unset;
+        border-radius: 50%;
+        height: 22px;
+        width: 22px;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        top: -25px;
+    }
+    button.slick-next.slick-arrow {
+        right: 0px;
+    }
+    button.slick-prev.slick-arrow {
+        right: 35px;
+    }
+    .slick-arrow:hover {
+        background: #a4a5a5;
+    }
+
+}
+  
+  
+  
+  
+</style>

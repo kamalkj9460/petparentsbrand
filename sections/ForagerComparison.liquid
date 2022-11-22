@@ -1,0 +1,452 @@
+<section id="BlanketComparison">
+  <div class="BlanketComparison ForagerComparison_01" style="background:{{-section.settings.blc_banner_bg-}}">
+  <div class="home-shrink">  
+    {% if section.settings.blc_banner %}
+		{{ section.settings.blc_banner | img_url:'master' | img_tag:'blc_banner','home-blaket is_desktop_enble img-responsive' }}
+	{% endif %}
+    {% if section.settings.blc_banner_m %}
+		{{ section.settings.blc_banner_m | img_url:'master' | img_tag:'blc_banner_m','home-blaket is_mobile_enble img-responsive' }}
+	{% endif %}
+      <div class="container home-shrink-content">
+          <div class="row ">
+            <div class="half-empty">
+            </div>
+              <div class="BannerHome">
+                  <div class="BannerContent">
+                    <h2>{{section.settings.blc_banner_heading}}</h2>
+                    <p>{{section.settings.blc_banner_des}}</p>                    
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</section>
+<section id="ChooseYour">
+  <div class="ChooseYour ForagerComparison_02">
+    <div class="container">
+      <h2><span>{{-section.settings.cyb_heading-}}</span></h2>
+      <div class="ChooseYour_content is_desktop_enble">
+        <div class="ChooseYour_item ChooseYour_item_01">
+          	{% if section.settings.cyb_img_1 %}
+				{{ section.settings.cyb_img_1 | img_url:'master' | img_tag:'cyb_img_1','img-responsive' }}
+			{% endif %}
+          <h4>{{-section.settings.cyb_title_1-}}</h4>
+          <p class="bks_content">{{-section.settings.cyb_description_1-}}</p>
+          <p class="btttn"><a href="{{-section.settings.cyb_btn_url_1-}}">Learn More</a></p>
+        </div>
+        <div class="ChooseYour_item ChooseYour_item_02">
+          	{% if section.settings.cyb_img_2 %}
+				{{ section.settings.cyb_img_2 | img_url:'master' | img_tag:'cyb_img_2','img-responsive' }}
+			{% endif %}
+          <h4>{{-section.settings.cyb_title_2-}}</h4>
+          <p class="bks_content">{{-section.settings.cyb_description_2-}}</p>
+          <p class="btttn"><a href="{{-section.settings.cyb_btn_url_2-}}">Learn More</a></p>
+        </div>
+      </div>
+       <div class="ChooseYour_content is_mobile_enble">
+      <div class="ChooseYour_cent slider" id="ChooseYour_content">
+        <div class="ChooseYour_item ChooseYour_item_01">
+          	{% if section.settings.cyb_img_1_m %}
+				{{ section.settings.cyb_img_1_m | img_url:'master' | img_tag:'cyb_img_1_m','img-responsive' }}
+			{% else %}
+				{{ section.settings.cyb_img_1 | img_url:'master' | img_tag:'cyb_img_1','img-responsive' }}
+			{% endif %}
+          <h4>{{-section.settings.cyb_title_1-}}</h4>
+          <p class="bks_content">{{-section.settings.cyb_description_1-}}</p>
+          <p class="btttn"><a href="{{-section.settings.cyb_btn_url_1-}}">Learn More</a></p>
+        </div>
+        <div class="ChooseYour_item ChooseYour_item_02">
+            {% if section.settings.cyb_img_2_m %}
+                {{ section.settings.cyb_img_2_m | img_url:'master' | img_tag:'cyb_img_2_m','img-responsive' }}
+            {% else %}
+            	{{ section.settings.cyb_img_2 | img_url:'master' | img_tag:'cyb_img_2','img-responsive' }}
+            {% endif %}
+          <h4>{{-section.settings.cyb_title_2-}}</h4>
+          <p class="bks_content">{{-section.settings.cyb_description_2-}}</p>
+          <p class="btttn"><a href="{{-section.settings.cyb_btn_url_2-}}">Learn More</a></p>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section id="BlanketComparisonChart">
+  <div class="BlanketCompChart ForagerComparison_03">
+    <div class="container">
+      <h2><span>{{-section.settings.bc_heading-}}</span></h2>      
+       <div class="BlketCompChart is_desktop_enble">
+         {% if section.settings.bc_desktop_img %}
+				{{ section.settings.bc_desktop_img | img_url:'master' | img_tag:'bc_desktop_img','img-responsive' }}
+			{% endif %}
+      </div>
+      <div class="BlketCompChart is_mobile_enble slider" id="BlketCompChart">
+        <div class="BlketCoCht_item BlketCoCht_item_01">
+          {% if section.settings.bc_mob_img_1 %}
+				{{ section.settings.bc_mob_img_1 | img_url:'master' | img_tag:'bc_mob_img_1','img-responsive ing_01' }}
+			{% endif %}
+          {% if section.settings.bc_mob_chart_1 %}
+				{{ section.settings.bc_mob_chart_1 | img_url:'master' | img_tag:'bc_mob_chart_1','img-responsive ing_02' }}
+			{% endif %}        
+        </div>
+        <div class="BlketCoCht_item BlketCoCht_item_02">
+          {% if section.settings.bc_mob_img_2 %}
+				{{ section.settings.bc_mob_img_2 | img_url:'master' | img_tag:'bc_mob_img_2','img-responsive ing_01' }}
+			{% endif %}
+          {% if section.settings.bc_mob_chart_2 %}
+				{{ section.settings.bc_mob_chart_2 | img_url:'master' | img_tag:'bc_mob_chart_2','img-responsive ing_02' }}
+			{% endif %}        
+        </div>
+        <div class="BlketCoCht_item BlketCoCht_item_03">
+          {% if section.settings.bc_mob_img_3 %}
+				{{ section.settings.bc_mob_img_3 | img_url:'master' | img_tag:'bc_mob_img_3','img-responsive ing_01' }}
+			{% endif %}
+          {% if section.settings.bc_mob_chart_3 %}
+				{{ section.settings.bc_mob_chart_3 | img_url:'master' | img_tag:'bc_mob_chart_3','img-responsive ing_02' }}
+			{% endif %}        
+        </div>
+        <div class="BlketCoCht_item BlketCoCht_item_04">
+          {% if section.settings.bc_mob_img_4 %}
+				{{ section.settings.bc_mob_img_4 | img_url:'master' | img_tag:'bc_mob_img_4','img-responsive ing_01' }}
+			{% endif %}
+          {% if section.settings.bc_mob_chart_4 %}
+				{{ section.settings.bc_mob_chart_4 | img_url:'master' | img_tag:'bc_mob_chart_4','img-responsive ing_02' }}
+			{% endif %}        
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Page Setting",
+    "settings": [
+            {"type":"header", "content":"Banner"},
+            {"type":"color","id":"blc_banner_bg","label":"Background","default":"#7facc4"},
+            {"type":"image_picker","id":"blc_banner","label":"Image"},
+            {"type":"image_picker","id":"blc_banner_m","label":"Image [Mobile]"},
+            {"type":"text","id":"blc_banner_heading","label":"Banner Heading"},
+            {"type":"html","id":"blc_banner_des","label":"Banner Description"},
+            {"type":"header", "content":"Choose Your Forager"},
+			{"type":"text","id":"cyb_heading","label":"Heading"},
+            {"type":"header", "content":"Forager Bowl"},
+            {"type":"image_picker","id":"cyb_img_1","label":"Image"},
+			{"type":"image_picker","id":"cyb_img_1_m","label":"Image(Mobile)"},
+            {"type":"text","id":"cyb_title_1","label":"Heading"},
+            {"type":"html","id":"cyb_description_1","label":"Description"},
+            {"type":"url","id":"cyb_btn_url_1","label":"Button Url"},
+            {"type":"header", "content":"Forager Mat"},
+            {"type":"image_picker","id":"cyb_img_2","label":"Image"},
+			{"type":"image_picker","id":"cyb_img_2_m","label":"Image(Mobile)"},
+            {"type":"text","id":"cyb_title_2","label":"Heading"},
+            {"type":"html","id":"cyb_description_2","label":"Description"},
+            {"type":"url","id":"cyb_btn_url_2","label":"Button Url"},           
+			{"type":"text","id":"bc_heading","label":"Forager Comparison Heading"},
+            {"type":"header", "content":"Forager Comparison [Desktop]"},			
+            {"type":"image_picker","id":"bc_desktop_img","label":"Image"},
+			{"type":"header", "content":"Forager Comparison [Mobile]"},
+			{"type":"image_picker","id":"bc_mob_img_1","label":"Image 1"},
+            {"type":"image_picker","id":"bc_mob_chart_1","label":"Chart 1"},
+            {"type":"image_picker","id":"bc_mob_img_2","label":"Image 2"},
+            {"type":"image_picker","id":"bc_mob_chart_2","label":"Chart 2"},
+			{"type":"image_picker","id":"bc_mob_img_3","label":"Image 3"},
+            {"type":"image_picker","id":"bc_mob_chart_3","label":"Chart 3"},
+			{"type":"image_picker","id":"bc_mob_img_4","label":"Image 4"},
+            {"type":"image_picker","id":"bc_mob_chart_4","label":"Chart 4"}
+		]
+  }
+{% endschema %}
+<style>
+  
+  
+  
+  
+body {font-family: "Gentona book" !important;}
+.is_mobile_enble{display:none !important}
+ 
+section#BlanketComparison {
+    margin-top: 7px;
+}  
+.home-shrink {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}  
+.home-shrink img {
+    max-width: 55%;
+    width: 100%;
+}
+.home-shrink-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    height: 100%;
+    top: 0;
+    width: 100%;
+}  
+.home-shrink-content .row {
+    height: 100%;
+    align-items: center;
+}  
+.half-empty {
+    width: 60%;
+}  
+.BannerHome {
+    width: 40%;
+}  
+.BannerContent h2 {
+  font-size: 42px;
+  font-family: "Gentona book" !important;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 10px;
+  padding-bottom: 25px;
+}
+.BannerContent p {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 440px;
+    font-weight: 300;
+}
+.ChooseYour h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #9d9d9c;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    padding: 80px 0 70px; 
+}
+.ChooseYour h2 span {
+    position: relative;
+}
+.ChooseYour h2 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #00b6bd;
+    content: "";
+    left: 0;
+    top: -20px;
+    border-radius: 5px;
+}
+.ChooseYour_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ChooseYour_content>div {
+    background:#f6f6f6;
+    padding: 0 45px 70px;
+    position: relative;
+}
+.is_desktop_enble.ChooseYour_content>div {
+	width : 48%;
+}
+.ChooseYour_item img {
+    margin: -20px auto 0;
+    min-height: 195px;
+    object-fit: contain;
+    width: 100%;
+    max-width: 95%;
+} 
+.ChooseYour_item.ChooseYour_item_02 img {
+    max-width: 100%;
+    transform: scale(1.07) translateY(15px);
+} 
+section#BlanketComparisonChart {
+    border-top: 10px solid #80acc4;
+    margin-top: 55px;
+}  
+.BlketCompChart img {
+    margin: 0px auto;
+}  
+/* .BlanketCompChart {
+    width: max-content;
+    margin: 0px auto;
+} */
+.BlanketCompChart h2 {
+    margin: 0;
+    padding: 60px 0 30px;
+    padding-left: 15px;
+    color: #9d9d9c;
+    font-size: 30px;
+    font-family: "Gentona book";
+} 
+.ChooseYour_item h4 {
+    font-size: 16px;
+    font-family: "Gentona book";
+    color: rgb(157, 157, 156);
+    font-weight: bold;
+    margin: 15px 0 5px;
+    text-transform: inherit;
+  letter-spacing: 0;
+}
+.bks_content {
+    font-size: 15px;
+    font-family: "Gentona book";
+    color: rgb(157, 157, 156);
+    line-height: 1.2;
+    min-height: 80px;
+}  
+.btttn {
+    margin: 20px 0 0;
+    text-align: center;
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    left: 0;
+} 
+.btttn a {
+    background: #80acc4;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 12px;
+    border-radius: 20px;
+    line-height: 1;
+    text-decoration: none;
+      border: 1px solid #80acc4;
+} 
+.btttn a:hover {
+    background: #fff;
+    color: #80acc4;
+} 
+.__Footer_sec_inner {
+    border-top: 0;
+}
+  
+@media screen and (max-width : 1200px){
+    .BannerContent h2 {
+        font-size: 36px;
+        letter-spacing: 8px;
+    }
+    .BannerContent p {
+        font-size: 14px;
+    }
+}  
+
+  
+@media screen and (min-width : 100px) and (max-width : 1023px){
+    .BannerContent h2 {
+        font-size: 30px;
+    }
+    #ChooseYour .container {
+        padding: 0 15px;
+    }
+  
+}
+  
+  
+@media screen and (min-width : 100px) and (max-width : 767px){
+    .is_desktop_enble{display:none}
+    .is_mobile_enble{display:block !important}
+  
+  	.container {
+        padding: 0 15px;
+    }
+  
+  	.home-shrink-content {
+        position: unset;
+    }
+    .home-shrink img {
+        max-width: 100%;
+    }
+    .BannerHome {
+        width: 100%;
+    }
+  	.container.home-shrink-content {
+        padding: 0 50px;
+    }
+    .BannerContent p {
+        padding-bottom: 30px;
+         padding-left : 10px;
+    }
+    .is_mobile_enble .ChooseYour_content>div {
+        width: 100% !important;
+    }
+    
+  
+  	
+    .slick-arrow {
+        background: #e7e7e7;
+        left: unset;
+        border-radius: 50%;
+        height: 22px;
+        width: 22px;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        top: -25px;
+    }
+    button.slick-next.slick-arrow {
+        right: 0px;
+    }
+    button.slick-prev.slick-arrow {
+        right: 35px;
+    }
+    .slick-arrow:hover {
+        background: #a4a5a5;
+    }
+    .BlanketCompChart {
+        width: 100%;
+    }
+    div#BlketCompChart {
+        margin-top: 15px;
+    }
+    div#BlketCompChart .slick-arrow {
+        top: 10px;
+    }
+	.BlanketCompChart h2 {
+        padding-left: 0px; 
+        text-align: center;
+    }
+    .ChooseYour_item.slick-slide {
+        position: relative;
+        padding: 0px 35px 100px;
+    }
+    .ChooseYour_content>div {
+        padding: 0px;
+        background: linear-gradient(180deg, white 25%, #f6f6f6 25%);
+    }
+    
+  	.ChooseYour_item img {
+        margin: -30px auto 0px !important;
+    }
+    div#BlketCompChart {
+        margin-top: 15px;
+        border-bottom: 1px solid #c6c6c6;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+    .white_space {
+        display: none;
+    }
+  
+    .BlketCompChart img {
+        margin: 30px auto 25px;
+    }
+    .BannerContent h2 {
+        text-align: center;
+    }
+    .ChooseYour_item img {
+        margin: 0px auto 0 !important;
+        min-height: 150px;
+    }
+  
+  .ChooseYour_item.ChooseYour_item_02 img {
+      transform: scale(1);
+  } 
+    
+
+}
+
+  
+</style>
+

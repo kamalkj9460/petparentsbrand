@@ -1,0 +1,151 @@
+<section class="sf_new_washingDiaper_banner">
+  <div class="banner_section">
+    <h1>{{section.settings.sp_heading}}</h1>
+    <p>{{section.settings.sp_sub_heading}}</p>
+  </div>
+</section>
+<section class="subscription_sub_Sec_r">
+  <div class="homeBanner_sp">
+	<div class="container">
+      <div class="sp_save_wrapper"><p class="sp_save_header">{{ section.settings.sp_save_header }}</p></div>
+      <ul class="sp_subscription_items">
+      {% for block in section.blocks %}
+        {% assign handle = block.settings.sp_subs_title %}
+        {% if handle =='Coming Soon' %}
+        <li><span>Coming <br> Soon</span></li>
+       {% else %}
+        <li><a href="{{ block.settings.sp_subs_link }}">{{ block.settings.sp_subs_img | img_url:'master' | img_tag:'sp_subs_img','img-responsive' }}
+          <span>{{ block.settings.sp_subs_title }}</span>
+          </a></li>
+      {% endif %}
+      {% endfor %}
+        </ul>
+       <p class="sp_save_footer">{{ section.settings.sp_save_footer }}</p>
+    </div>
+  </div>  
+</section>
+
+{% schema %}
+  {
+    "name": "Subscription Content",
+   "settings": [
+		 {"type":"text","id":"sp_heading","label":"Heading"},
+		 {"type":"text","id":"sp_sub_heading","label":"Sub Heading"},
+ 		 {"type":"text","id":"sp_save_header","label":"Save Up (Header line)"},
+		 {"type":"text","id":"sp_save_footer","label":"Save Up (Footer line)"}
+		],
+	"blocks" : [{
+        "type": "Content1",
+        "name": "New Item",
+        "settings": [
+	       {"type":"image_picker","id":"sp_subs_img","label":"Image"},
+	       {"type":"text","id":"sp_subs_title","label":"Image Title"},
+	       {"type":"url","id":"sp_subs_link","label":"Image Link"}
+		]}
+	],
+	"presets":[{
+      "name": "Subscription"
+    }]
+
+  }
+{% endschema %}
+
+<style>
+section.sf_new_washingDiaper_banner { background: #00b7bc; padding: 45px 0px 70px; margin-top: 10px; text-align: center; }
+.banner_section p { max-width: 590px; margin: 0 auto; font-size: 22px; color: #fff; font-family: gentona;}
+.banner_section h1 { color: #fff; font-size: clamp(54px, 4.25vw, 62px); font-weight: 900; font-family: gentona;}
+.sp_save_wrapper {margin-top: 50px;border-top: 1px solid #c6c6c6;}
+p.sp_save_header { background: #ed1b3c; color: #fff; text-align: center; margin: 45px 0; padding: 6px 0; line-height: 1; font-size: 24px; font-family: 'Gentona';}
+p.sp_save_header span { font-weight: 900; }
+ul.sp_subscription_items { display: flex; align-items: center; justify-content: space-between;  flex-wrap : wrap; margin: 0; }
+/* ul.sp_subscription_items li{ background : #f6f6f6; } */
+ul.sp_subscription_items li { 
+  background: #f6f6f6; 
+  width: 33%; text-align: 
+    center; display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 290px;
+}
+.sp_subscription_items img { display : block; margin: 0px auto; padding-top : 35px; }
+.sp_subscription_items  span { font-family: 'Gentona'; font-size: 31px; color: #706f6f; display: inline-block; padding: 25px 0 30px; text-align: left; line-height: 1; }
+p.sp_save_footer { margin: 20px 0 45px; text-align: center; font-size: 24px !important; color: #706f6f; font-family: 'Gentona';}
+.banner_section span { font-weight: 400; }
+ul.sp_subscription_items li a img {min-height: 235px; max-width: 250px; object-fit: contain;}
+/* ul.sp_subscription_items li {} */
+
+/* Updated CSS 06-Jan-22 */
+.wrapper {
+    max-width: 100%;
+    padding: 0px;
+}
+.subscription_sub_Sec_r .container {
+    width: 100%;
+    max-width: 1170px;
+}
+.template-page-subscription .__Footer_sec_inner {
+    border-top: none;
+    padding-top: 0px ;
+}
+  
+@media (max-width: 991px) {
+ 	ul.sp_subscription_items li a img {
+      max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp_subscription_items span br { display: none !important; }
+  div#shopify-section-footer .white_space { padding: 4px !important; }
+  section.sf_new_washingDiaper_banner p{max-width: 100%;font-size: 20px;margin: 20px auto  0 !important;}
+  .subscription_sub_Sec_r .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+  }
+  .banner_section h1 {
+      font-size: 54px;
+  }
+    ul.sp_subscription_items li {
+      width: 100%;
+      min-height: 325px;
+  }
+  ul.sp_subscription_items {
+    grid-row-gap: 40px;
+    padding: 30px;
+  }
+  .sp_subscription_items li a {
+      display: block;
+      width: 100%;
+  }
+  ul.sp_subscription_items li a img {
+      width: 75%;
+  }
+  .sp_save_wrapper {
+      margin-top: 10px;
+  }
+  section.sf_new_washingDiaper_banner {
+      margin-top: 2px;
+      padding: 100px 0px 120px;
+  }
+  p.sp_save_header {
+      margin: 10px 0 0!important;
+  }
+  p.sp_save_footer {
+      font-size: 27px;
+      max-width: 243px;
+      margin: 0px auto !important;
+      line-height: 1.2;
+      padding: 20px 0 45px;
+  }
+  .sp_subscription_items span {
+      font-size: 34px;
+      padding: 45px 0 35px;
+  }
+  .sp_subscription_items img {
+      padding-top: 50px;
+  }
+}
+  
+</style>
+

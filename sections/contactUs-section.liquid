@@ -1,0 +1,348 @@
+<section class="__main-header">
+  <div class="container">
+    <h1><span>{{section.settings.cu_top_title}}</span></h1>
+    <p>{{section.settings.cu_top_stitle}}</p>
+  </div> 
+</section>
+<section id="exchange_section">
+    <div class="container">
+        <div class="exchange-section">
+            <div class="exchange_section exchange-section-01"{% if section.settings.cu_left_bg %} style="background:{{section.settings.cu_left_bg}}"{% endif %}>
+                {% if section.settings.cu_left_img %}
+              <div class="rounded-img">{{ section.settings.cu_left_img | img_url: 'master' | img_tag:'cu_left_img','lazyloaded' }}</div>
+  				  {% endif %}
+                <div>
+                    <h4>{{section.settings.cu_left_title}}</h4>
+                  <a href="{{section.settings.cu_left_url}}">Click Here</a>
+                </div>
+            </div>
+            <div class="exchange_section exchange-section-02"{% if section.settings.cu_right_bg %} style="background:{{section.settings.cu_right_bg}}"{% endif %}>
+                {% if section.settings.cu_right_img %}
+              <div class="rounded-img">{{ section.settings.cu_right_img | img_url: 'master' | img_tag:'cu_right_img','lazyloaded' }}</div>
+  				  {% endif %}
+                <div>
+                    <h4>{{section.settings.cu_right_title}}</h4>
+                    <a href="{{section.settings.cu_right_url}}">Learn More</a>
+                </div>
+            </div>
+        </div>
+  	</div>
+</section>
+<section id="exchange_btm">
+  <div class="container">
+        <div class="exchange-btm">
+            <div class="exchange_btm exchange-btm-01">
+                <div>
+                  <h4>{{section.settings.cu_s_title_1}}</h4>
+                  <a href="{{section.settings.cu_s_url_1}}">Visit Our FAQ homepage</a>
+              </div>
+            </div>
+            <div class="exchange_btm exchange-btm-02">
+                <div>
+                  <h4>{{section.settings.cu_s_title_2}}</h4>
+                <p>{{section.settings.cu_s_stitle_2}}</p>
+                  <a href="{{-section.settings.cu_s_url_2-}}">help@petparentsbrand.com</a>
+              </div>
+            </div>
+            <div class="exchange_btm exchange-btm-03">
+                <div>
+                   <h4>{{section.settings.cu_s_title_3}}</h4>
+                <div class="cu_address">{{section.settings.cu_s_stitle_3}}</div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Contact Us",
+    "settings": [
+{"type":"header", "content":"Top Section"},
+{"type":"text","id":"cu_top_title","label":"Heading"},
+{"type":"text","id":"cu_top_stitle","label":"Sub Heading"},
+{"type":"header", "content":"Section [2]"},
+{"type":"image_picker","id":"cu_left_img","label":"Left Image"},
+{"type":"color","id":"cu_left_bg","label":"Left Background"},
+{"type":"text","id":"cu_left_title","label":"Left Heading"},
+{"type":"url","id":"cu_left_url","label":"Left Url"},
+{"type":"image_picker","id":"cu_right_img","label":"Right Image"},
+{"type":"color","id":"cu_right_bg","label":"Right Background"},
+{"type":"text","id":"cu_right_title","label":"Right Heading"},
+{"type":"url","id":"cu_right_url","label":"Right Url"},
+{"type":"header", "content":"Section [3]"},
+{"type":"text","id":"cu_s_title_1","label":"Heading (1)"},
+{"type":"url","id":"cu_s_url_1","label":"Url (1)"},
+{"type":"text","id":"cu_s_title_2","label":"Heading (2)"},
+{"type":"text","id":"cu_s_stitle_2","label":"Sub Heading (2)"},
+{"type":"text","id":"cu_s_url_2","label":"Url (2)"},
+{"type":"text","id":"cu_s_title_3","label":"Heading (3)"},
+{"type":"html","id":"cu_s_stitle_3","label":"Sub Heading (3)"}
+	],
+	"presets":[{
+      "name": "Contact Us",
+      "category": "Pages"
+    }]
+  }
+{% endschema %}
+
+
+<style>
+body {font-family: "Gentona book" !important;}
+.__main-header h1 {
+  font-size: 40px;
+  color: #9d9d9c;
+  font-weight : 500;
+  line-height: 1.2;
+  font-family: "Gentona book" !important;
+  margin: 75px 0 20px;
+  text-align: center;
+}
+.__main-header h1 span {
+    position: relative;
+}
+.__main-header h1 span::after {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #e3002b;
+    content: "";
+    left: 0;
+    top: -25px;
+    border-radius: 5px;
+}
+.__main-header p {
+  font-size: 25px;
+  line-height: 1.2;
+  text-align: center;
+  color: #9d9d9c;
+  padding-bottom: 40px;
+}
+.exchange-section {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.exchange-section>div {
+    width: 48%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  overflow: hidden;
+}
+.rounded-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   background: #f6f6f6;
+}
+.rounded-img img {
+    max-width: 100px;
+}
+.exchange_section>div {
+    width: 66%;
+    padding: 20px 30px 30px 40px;
+}
+.exchange-section-01 .rounded-img + div {
+    padding: 50px 30px 30px 40px;
+}  
+
+.exchange_section>.rounded-img {
+    width: 30%;
+    margin: -1px;
+    position: relative;
+}
+.exchange_section>div h4 {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    font-weight: 500;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+    font-family: "Gentona book";
+}
+
+.exchange_section>div a {
+    font-size: 12px;
+    color: #e3002b;
+    line-height: 1;
+    padding: 6px 20px;
+    text-align: center;
+    background: #fff;
+    font-weight: 500;
+    font-family: "Gentona book";
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: .15s;
+}
+.exchange_section>div a:hover {
+    color: #fff;
+    background: #e3002b;
+}
+.exchange-section-02 a:hover {
+    background: #00b7bc !important;
+}
+.exchange-btm {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+     margin-top: 40px;
+}
+.exchange_btm {
+    background: #f6f6f6;
+    width: 33%;
+}
+  .exchange_btm>div {
+    max-width: max-content;
+    margin: 55px auto;
+}
+.__Footer_sec_inner {
+    border-top: 0;
+}
+.exchange_btm h4 {
+    font-size: 28px;
+    color: rgb(157, 157, 156);
+    line-height: 1.2;
+    text-transform: inherit;
+    letter-spacing: 0;
+    margin: 0;
+    font-family: "Gentona book";
+    font-weight: 500;
+    padding-left: 10px;
+}
+.exchange_btm p, .exchange_btm .cu_address {
+    font-size: 20px;
+    color: rgb(157, 157, 156);
+    line-height: 1.2;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    margin: 0;
+    font-family: "Gentona book";
+    font-weight: 500;
+     padding-top: 20px;
+    padding-left: 10px;
+}
+.exchange_btm a {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 14px;
+    text-align: center;
+    background: #e3002b;
+    font-weight: 500;
+    font-family: "Gentona book";
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+    transition: .15s;
+}
+.exchange_btm a:hover {
+    color: #e3002b;
+    background: #fff;
+}
+.rounded-img:before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/round-strip.png);
+    background-position: 110%;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 240px;
+    width: 35px;
+    background-position: right;
+    right: -27px;
+}
+  
+@media (max-width: 1350px) {
+  	.__main-header h1 {
+        font-size: 32px;
+    }
+    .__main-header h1 span {
+        position: relative;
+        display: inline-block;
+    }
+    .exchange_section>div h4 {
+        font-size: 22px;
+    }
+    .exchange_btm h4 {
+        font-size: 24px;
+    }
+    .cu_address br {display : none;}
+    .exchange_btm a {
+      font-size: 18px;
+    }
+}  
+
+  
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 45px;
+    }
+    .exchange-section>div {
+        width: 100%;
+        justify-content: start;
+    }
+    .exchange-section {
+        grid-gap: 30px;
+    }
+    .exchange-btm {
+        margin: 60px 0 10px;
+        grid-gap: 30px;
+    }
+    .exchange_btm {
+        width: 100%;
+    }
+}
+  
+  
+@media (max-width: 991px) {
+    .container {
+        padding: 0 15px;
+    }
+    p {
+       margin: 0px!important; 
+    }
+}
+  
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+    p {
+       margin: 0px!important; 
+    }
+    section.__main-header {
+        max-width: 315px;
+        margin: 0px auto;
+    }
+    .cu_address br {display : block;}
+    .__main-header p {
+        padding-bottom: 30px;
+        font-size: 18px;
+    }
+  	.rounded-img img {
+        max-width: 65px;
+    }
+    .exchange_section>div {
+        width: 70%;
+    }
+    .exchange_section>.rounded-img {
+      width: 30%;
+    }
+    .exchange_section>div h4 {
+        font-size: 19px !important;
+    }
+    .exchange-section>div {
+        min-height: 180px;
+    }
+    .rounded-img:before {
+        right: -20px;
+    }
+}
+  
+</style>

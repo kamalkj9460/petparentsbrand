@@ -1,0 +1,181 @@
+<div class="__title_banner">
+ <h1 class="sf_h1_heading">{% if template contains 'index' %}
+				{{ shop.name }}
+			{% else %}
+				{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %} {% if article %}| {{ shop.name }}{% endif %}
+			{% endif %} - Pet Parents®</h1>
+  {% if  section.settings.addi_img1 %}
+  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+    
+  {% endif %}
+</div>
+<div class="__section2-problem problem_blue">
+   <p>{{section.settings.section2Content}}</p>
+</div>
+<div class="clear"></div>
+<div class="dog_prd">
+  <div class="container">
+    <div class="row">
+      <div class="white_space">
+        <div class="review_main_data">
+        {% for block in section.blocks %}
+                 {% if block.type == 'ProBanner' %}{% if  block.settings.prodBanner %}
+                    <div class="__problemProductBanner {{block.settings.prodBannerHeading}} revew_min_banner" {{block.shopify_attributes}}>
+                        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner | img_url: 'master' }}" alt="prodBanner">
+                            
+                     
+                      <h2>{{block.settings.prodBannerHeading}}</h2>
+                    </div>   {% endif %}
+                 {% endif %}
+                 {% if block.type == 'ProContent' %}
+                 {% if block.settings.head2 != '' %}
+                    <div class="col-md-12 main_slider_holder_icons">
+                      <div class="custom_reviews_slider{{block.settings.sliderno}} cust_review_slider_data">
+                        <ul class="slides">
+                          <li>
+                            <div class="col-md-12 rev_slider_hlder">
+                                        <div class="__problemProductContent prob_30_70 pnt_p rewv_flex_slide_row">
+                                                {% if  block.settings.addi_img3 %}
+                                                  <div class="productIng reveiw_slide_Img">
+                                                    <span>
+                                                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img3 | img_url: 'master' }}" alt="addi_img3">
+                                                      
+                                                    </span>
+                                                  </div>
+												{% endif %}
+                                            <div class="productDetailsContent {% if  block.settings.check1 %} fullReviewWidth{% endif %}">
+                                              <span>
+                                              {% if block.settings.head2 != '' %}
+                                                <div class="problemProduct para_style2">
+                                                  <h5 style="color:{{block.settings.colorHead}}">{{block.settings.head2}}</h5>
+                                                  <p>{{block.settings.content2}}</p>
+                                                </div>
+                                              {% endif %}
+                                              </span>
+                                            </div>
+                                        </div>
+                            </div>
+                          </li>
+                          {% if block.settings.content3 != '' %}
+                          <li>
+                            <div class="col-md-12 rev_slider_hlder">
+                                        <div class="__problemProductContent prob_30_70 pnt_p rewv_flex_slide_row" >
+                                                {% if  block.settings.addi_img4 %}
+                                                  <div class="productIng reveiw_slide_Img">
+                                                    <span>
+                                                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img4 | img_url: 'master' }}" alt="addi_img4">
+                                                      
+                                                    </span>
+                                                  </div>
+												{% endif %}
+                                            <div class="productDetailsContent {% if  block.settings.check2 %} fullReviewWidth{% endif %}">
+                                              <span>
+                                              {% if block.settings.head3 != '' %}
+                                                <div class="problemProduct para_style2">
+                                                  <h5 style="color:{{block.settings.colorHead1}}">{{block.settings.head3}}</h5>
+                                                  <p>{{block.settings.content3}}</p>
+                                                </div>
+                                              {% endif %}
+                                              </span>
+                                            </div>
+                                        </div>
+                            </div>
+                          </li>
+                          {% endif %}
+                          {% if block.settings.content4 != '' %}
+                          <li>
+                            <div class="col-md-12 rev_slider_hlder">
+                                        <div class="__problemProductContent prob_30_70 pnt_p rewv_flex_slide_row" >
+                                                {% if  block.settings.addi_img5 %}
+                                                  <div class="productIng reveiw_slide_Img">
+                                                    <span>
+                                                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img5 | img_url: 'master' }}" alt="addi_img5">
+                                                      
+                                                    </span>
+                                                  </div>
+												{% endif %}
+                                            <div class="productDetailsContent {% if  block.settings.check3 %} fullReviewWidth{% endif %}">
+                                              <span>
+                                              {% if block.settings.head4 != '' %}
+                                                <div class="problemProduct para_style2">
+                                                  <h5 style="color:{{block.settings.colorHead2}}">{{block.settings.head4}}</h5>
+                                                  <p>{{block.settings.content4}}</p>
+                                                </div>
+                                              {% endif %}
+                                              </span>
+                                            </div>
+                                        </div>
+                            </div>
+                          </li>
+                          {% endif %}
+                          {% if block.settings.content5 != '' %}
+                          <li>
+                            <div class="col-md-12 rev_slider_hlder">
+                                        <div class="__problemProductContent prob_30_70 pnt_p rewv_flex_slide_row">
+                                                {% if  block.settings.addi_img6 %}
+                                                  <div class="productIng reveiw_slide_Img">
+                                                    <span>
+                                                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img6 | img_url: 'master' }}" alt="addi_img6">
+                                                      
+                                                    </span>
+                                                  </div>
+												{% endif %}
+                                            <div class="productDetailsContent {% if  block.settings.check4 %} fullReviewWidth{% endif %}">
+                                              <span>
+                                              {% if block.settings.head5 != '' %}
+                                                <div class="problemProduct para_style2">
+                                                  <h5 style="color:{{block.settings.colorHead3}}">{{block.settings.head5}}</h5>
+                                                  <p>{{block.settings.content5}}</p>
+                                                </div>
+                                              {% endif %}
+                                              </span>
+                                            </div>
+                                        </div>
+                            </div>
+                          </li>
+                          {% endif %}
+                          {% if block.settings.content6 != '' %}
+                          <li>
+                            <div class="col-md-12 rev_slider_hlder">
+                                        <div class="__problemProductContent prob_30_70 pnt_p rewv_flex_slide_row">
+                                                {% if  block.settings.addi_img7 %}
+                                                  <div class="productIng reveiw_slide_Img">
+                                                    <span>
+                                                      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.addi_img7 | img_url: 'master' }}" alt="addi_img7">
+                                                      
+                                                    </span>
+                                                  </div>
+												{% endif %}
+                                            <div class="productDetailsContent {% if  block.settings.check5 %} fullReviewWidth{% endif %}">
+                                              <span>
+                                              {% if block.settings.head6 != '' %}
+                                                <div class="problemProduct para_style2">
+                                                  <h5 style="color:{{block.settings.colorHead4}}">{{block.settings.head6}}</h5>
+                                                  <p>{{block.settings.content6}}</p>
+                                                </div>
+                                              {% endif %}
+                                              </span>
+                                            </div>
+                                        </div>
+                            </div>
+                          </li>
+                         {% endif %}
+                        </ul>
+                      </div>
+                      <div class="prev_next_data">
+                        <div class="custom-navigation-{{block.settings.supplemClass}}">
+                            <a href="#" class="flex-prev"><span class="prevnext_ctrl_data">Prev</span></a>
+                                <div class="custom-controls-container-{{block.settings.supplemClass}}"></div>
+                            <a href="#" class="flex-next"><span class="prevnext_ctrl_data">Next</span></a>
+                        </div>
+                      </div>
+                    </div>
+                {% endif %}
+                {% endif %}
+        {% endfor %}
+        <!--end--> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

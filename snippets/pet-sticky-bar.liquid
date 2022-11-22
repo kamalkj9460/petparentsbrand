@@ -1,0 +1,299 @@
+<div class="_pet_sticky_cart _pet_sticky_cart_invisible">
+  <div class="_pet_sticky_wrapper">
+    <div class="_leftpart">
+      <span class="_shipping_info">FREE SHIPPING ON U.S. ORDERS OVER $45</span>
+    </div>
+    <div class="_middlepart {% if product.variants.size == 1 %}_alignItemsRight{% endif %}">
+      {% if product.variants.size > 1 %}
+      	{% for option in product.options_with_values %}
+      		<div class="_stickyPetOptions sof_{{option.name}} stickyPeT_{{forloop.index}}">
+              <label>{{option.name}}:</label>
+              <select id="sf_selECT__radio_0{{forloop.index}}" autocomplete="off" class="single-option-selector__radio product-form__input" data-index="option{{ forloop.index }}" data-type="{{option.name}}">
+                {% for value in option.values %}
+                  <option value='{{ value | escape }}'{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | split:'-' | first }}</option>
+                {% endfor %}
+              </select>
+      		</div>
+      	{% endfor %}
+      {% endif %}
+      <div class="_petStickyQty">
+        <label>Qty:</label>
+        <input type="number" id="StickyBarQty" class="_pet_qty" value="1" >
+      </div>
+    </div>
+    
+    {% assign ATCText = 'ADD TO CART' %}
+    {% if  product.available %}
+    	{% assign ATCText = 'ADD TO CART' %}
+    {% else %}
+    	{% assign ATCText = 'OUT OF STOCK' %}
+    {% endif %}
+    
+    <div class="_rightpart text-center">
+      {% capture spinner %}<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-spinner" viewBox="0 0 20 20"><path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" fill="#919EAB"></path></svg>{% endcapture %}
+      <a class="_petStickyATC {% if product.available %}{% else %}_redBck{%endif%}" {% if product.available %} href="javascript:void(0); {%endif%} "><span class="_petStikcyPrice"> {% if  product.available %}{{ product.selected_or_first_available_variant.price | money }}</span> - {% endif %}{{ATCText}} {% if  product.available %}{{-spinner-}}{% endif %}</a>
+    </div>
+    <div class="_rightpart text-center"></div>
+  </div>
+</div>
+<style type="text/css">
+._pet_sticky_cart_invisible {transition: all 1s ease !important;opacity: 0 !important;pointer-events: none !important;transform: translateY(200px) !important;}
+._pet_sticky_cart_visible {transition: all 1s ease !important;	opacity: 1 !important;transform: translateY(0) !important;pointer-events: all !important;}
+._pet_sticky_cart { position: fixed; bottom: 0px; width: 100%; padding: 15px 0; background: #fff;z-index: 9; } 
+._pet_sticky_wrapper { display: flex; width: 95%;justify-content: space-between; margin: 0 auto;align-content: center; align-items: center; } 
+._shipping_info {font-weight: bold; background: #e3002b; color: #fff; max-width: 385px; width: 100% !important; text-align: center; line-height: 45px !important; text-transform: uppercase; border: 0; padding: 0 10px !important;display: inline-block; font-size: 17px !important; } 
+._stickyPetOptions { border: 1px solid #ccc; margin: 0 4px; padding: 0 5px; font-size: 15px !important; } 
+._stickyPetOptions select{ border:none;} 
+._middlepart { display: flex; justify-content: space-evenly; } 
+._petStickyATC,._petStickyATC:hover { background: #11b6bd !important; line-height: 64px; height: unset; padding: 0 !important; display: inline-block; min-width: 265px; font-size: 20px; font-weight: bold !important;color: #fff; } 
+._petStickyQty { display: flex; align-content: center; align-items: center; justify-content: right; padding-left: 4px; } 
+._petStickyQty .js-qty { left: 15px;justify-content: end;max-width: 145px; } 
+._petStickyQty .js-qty input[type="text"] { width: 27% !important;padding: 5px 9px; } 
+._petStickyQty label{ position: relative; left: 14px; }
+._stickyPetOptions label {
+  font-size: inherit !important;
+}
+._pet_sticky_wrapper {
+  width: 90%;
+  justify-content: flex-start;
+  margin: 0 auto 0 3%;
+  align-content: center;
+  align-items: center;
+}
+/* ._middlepart ._stickyPetOptions:nth-child(2) select {
+  width: 65px;
+} */
+
+._leftpart {
+  align-self: flex-start;
+}
+._rightpart {
+  align-self: flex-end;
+  margin: 0 0 0 auto;
+}
+.text-center {
+  text-align: center !important;
+}
+._middlepart {
+  align-self: center;
+  flex: 1;
+}
+ 
+  
+.hsds-beacon .ghvbWr {
+    bottom: 60px !important;
+}
+._pet_sticky_wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+     padding : 0 15px;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+  
+._petStickyQty label {
+    position: relative;
+    left: unset !important;
+}
+._petStickyQty .js-qty {
+    justify-content: flex-end;
+    max-width: max-content !important;
+    left: unset !important;
+}
+._stickyPetOptions {
+    width: 24% !important;
+}
+._petStickyQty {
+    width: 150px;
+}
+._stickyPetOptions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}  
+
+  
+._stickyPetOptions select[data-type="Size"] {
+    width: 100%;
+    max-width: 75px !important;
+}  
+._stickyPetOptions select[data-type="Color"] {
+    width: 100%;
+    max-width: 135px !important;
+} 
+  
+  
+._pet_sticky_wrapper ._middlepart._alignItemsRight {
+    justify-content: center;
+}
+  
+  ._pet_sticky_wrapper select {
+    font-size: 14px;
+    padding: 10px;
+    background-position: right center;
+    background-position: right;
+    width: 100% !important;
+  }
+  
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  ._pet_sticky_cart {
+      display: block !important;
+  }
+  ._pet_sticky_wrapper {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+  }
+  ._leftpart {
+      width: 100%;
+  }
+    span._shipping_info {
+      max-width: 100%;
+      margin-bottom: 25px;
+  }
+  
+  ._pet_sticky_wrapper ._middlepart._alignItemsRight {
+      justify-content: end;
+  }
+  
+}
+@media (max-width: 767px) {
+    ._petStickyQty .js-qty input[type="text"] { width: 40% !important; } 
+    ._leftpart {
+        width: 100%;
+        max-width : 100% !important;
+    }
+    ._leftpart ._shipping_info {
+        font-size: 12px!important;line-height:30px !important;
+    }
+  ._pet_sticky_cart ._petStickyQty {margin: 0;}
+    ._pet_sticky_cart ._middlepart {
+        margin: 5px 0 40px;
+        grid-gap: 5px;
+    }
+/*     ._middlepart._alignItemsRight {
+        margin: 20px 0 0px;
+    }  */
+    ._stickyPetOptions:nth-child(1) {
+        width: 35%;
+    }
+    ._stickyPetOptions:nth-child(2) {
+        width: 22%;
+    }
+    ._petStickyQty {
+        width: 40%;
+    }
+    ._petStickyQty .js-qty {
+        justify-content: start;
+        max-width: 130px;
+    }
+    
+    ._pet_sticky_wrapper select option {
+        font-size: 10px !important;
+    }
+    ._pet_sticky_cart ._middlepart {
+        width: 100%;
+    }
+    ._pet_sticky_cart ._middlepart ._stickyPetOptions {
+        height: 30px;
+        margin: 5px 0;
+    }
+    ._petStickyQty .js-qty input[type="text"] {
+        font-size: 24px;
+        line-height: 20px !important;
+        font-family: "Gentona" !important;
+    }
+    .js-qty__adjust {
+       padding: 0px 5px !important;
+       border-radius: 50%;
+    }
+    .supports-fontface .icon:before {
+       font-size: 10px;
+    }
+    ._petStickyQty .js-qty {
+        justify-content: center;
+    }
+    ._pet_sticky_cart._pet_sticky_cart_visible ._pet_sticky_wrapper {
+      justify-content: start;
+  }
+      button.js-qty__adjust.js-qty__adjust--plus.icon-fallback-text {
+            display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+      span.icon.icon-plus {
+        line-height: 1;
+    }
+    ._pet_sticky_cart ._leftpart {
+        margin-right: 0px; 
+    }
+     ._pet_sticky_cart span._shipping_info {
+          line-height: 1.2 !important;
+          max-width: 100%;
+          padding: 10px 10px !important;
+      }
+   span.icon.icon-plus, span.icon.icon-minus {
+    height: 18px !important;
+}
+  ._pet_sticky_cart button, ._pet_sticky_cart input {
+      width: 40px;
+      min-width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  
+  ._pet_sticky_wrapper {
+    position: relative;
+      }
+      ._rightpart.text-center {
+        position: absolute;
+        right: unset;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+      ._middlepart._alignItemsRight {
+        justify-content: start;
+    }
+     ._stickyPetOptions {
+        width: 32% !important;
+    } 
+  
+  
+  
+  	button.js-qty__adjust.js-qty__adjust--minus.icon-fallback-text, button.js-qty__adjust.js-qty__adjust--plus.icon-fallback-text {
+        width: 20px !important;
+        min-width: 20px;
+        height: 20px !important;
+    }
+    ._petStickyATC, ._petStickyATC:hover {
+        line-height: 34px !important;
+        height: 34px !important;
+        font-size: 14px !important;
+    }
+	._pet_sticky_cart {
+        padding: 15px 0 5px;
+    }
+    ._stickyPetOptions select[data-type="Size"] {
+        max-width: 100% !important;
+      }  
+    ._stickyPetOptions select[data-type="Color"] {
+      max-width: 100% !important;
+    }
+    .hsds-beacon .ghvbWr {
+        bottom: 25px !important;
+        right: 0px;
+        transform: scale(.75) !important;
+    }
+    
+    ._pet_sticky_cart button, ._pet_sticky_cart input {
+        height: 30px !important;
+        border: 1px solid #ccc !important;
+        max-width: 62px;
+    }
+
+}  
+</style>

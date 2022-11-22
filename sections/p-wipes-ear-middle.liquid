@@ -1,0 +1,147 @@
+{% include 'wipes-middle-snippet' %}
+{% schema %}
+  { 
+    "name": "Middle Part",
+    "settings": [
+    ],
+	"blocks" : [
+        {
+           "type":"content_with_imgBB",
+           "name":"Content with Image",
+           "settings":[
+              { "type": "header", "content": "Block settings" },
+              { "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+              { "type": "select", "id": "block_type", "label": "Block Type", "options": [ { "value": "full", "label": "Full" }, { "value": "boxed", "label": "Boxed" } ], "default": "full" },
+              { "type": "range", "id": "margn-up", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Top", "default": 15 },
+              { "type": "range", "id": "margn-dwn", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Bottom", "default": 25 },
+              { "type": "range", "id": "width", "min": 1, "max": 100, "step": 1, "unit": "%", "label": "Block Width", "default": 90, "info":"Applied if block Typle is boxed" },
+              { "type": "color", "id": "block_bg", "label": "Block Background Color", "default": "#ffffff" },
+              { "type": "header", "content": "Content settings" },
+              { "type": "image_picker", "id": "topAddit_sec_Img", "label": "Block Image" },
+			  { "type": "image_picker", "id": "topAddit_sec_Img_m", "label": "Block Image (Mobile)" },
+			  { "type": "color", "id": "img__per_bg_clr", "label": "Image Background Color", "default": "#00b8bc" },
+              { "type": "select", "id": "img_align", "label": "Img Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" },
+              { "type": "text", "id": "headerText", "label": "Header Text" },
+              { "type": "color", "id": "headerTextColor", "label": "Header Font Color", "default": "#81aec5" },
+              { "type": "range", "id": "headerTextSize", "min": 1, "max": 75, "step": 1, "unit": "px", "label": "Header Font Size", "default": 44 },
+              { "type": "range", "id": "ltr-spacing", "min": 1, "max": 35, "step": 1, "unit": "px", "label": "letter spacing", "default": 3 },
+              { "type": "select", "id": "text_align", "label": "Text Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" },
+              { "type": "html", "id": "addit_leftcontent", "label":"Content"},
+              { "type": "html", "id": "addit_rightcontent", "label":"Content"},
+              { "type": "text", "id": "addit_sec_paragraph", "label": "Addintonal Content" },
+              { "type": "select", "id": "add_txt_align", "label": "Text Alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" }   
+           
+			]
+        },
+        {
+           "type":"cont_videoBB",
+           "name":"Content with Video",
+           "settings":[
+              {"type": "checkbox", "id": "enable_sec_video","label": "Enable Video Section","default":true },
+              	{ "type": "text", "id": "sec_video", "label": "Video URL","info":"Upload video in Assets folder and add file name with extensiton"}, 
+				{ "type": "image_picker", "id": "video_poster", "label":"Poster Image" },
+				{ "type": "image_picker", "id": "video_poster_m", "label":"Poster Image(Mobile)" },
+				 {"type":"header","content":"Bottom Text"}, 
+				{ "type": "color", "id": "addit_bg_color", "label": "Background Color", "default": "#f6f6f6" },
+				{ "type":"html","id":"addit_sec_paragraph","label":"Content"}
+			]
+        },
+        {
+           "type":"sp_featureBB",
+           "name":"Special Features",
+           "settings":[
+			  {"type":"text","id":"spltextBB","label":"Heading"},
+              { "type": "header", "content": "Block settings" },
+              { "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+			  { "type": "color", "id": "block_bg_Spe", "label": "Block Background Color", "default": "#ffffff" },
+			  {"type":"image_picker","id":"featureRightImg","label":"Right Image"},
+			  {"type":"image_picker","id":"featureRightImg_m","label":"Right Image (Mobile)"},
+			  { "type": "color", "id": "img__f_bg_clr", "label": "Image Background Color", "default": "#00b8bc" },
+              {"type":"header", "content":"Section [1]"},
+              {"type":"text","id":"featureTitle1","label":"Title"},
+              {"type":"html","id":"featureText1","label":"Content"},             
+              {"type":"header", "content":"Section [2]"},
+              {"type":"text","id":"featureTitle2","label":"Title"},
+              {"type":"html","id":"featureText2","label":"Content"},            
+              {"type":"header", "content":"Section [3]"},
+              {"type":"text","id":"featureTitle3","label":"Title"},
+              {"type":"html","id":"featureText3","label":"Content"},             
+              {"type":"header", "content":"Section [4]"},
+              {"type":"text","id":"featureTitle4","label":"Title"},
+              {"type":"html","id":"featureText4","label":"Content"},             
+              {"type":"header", "content":"Section [5]"},
+              {"type":"text","id":"featureTitle5","label":"Title"},
+              {"type":"html","id":"featureText5","label":"Content"}             
+           ]
+        },
+		{
+           "type":"sp_ingredientsPP",
+           "name":"Bio Ingredients",
+           "settings":[			  
+              { "type": "header", "content": "Targeted Ingredients" },             
+			  {"type":"text","id":"ingredientsPPtitle","label":"Heading"},
+              {"type":"header", "content":"Section [1]"},
+			  {"type":"image_picker","id":"tarIngred_img_1","label":"Image"},
+              {"type":"text","id":"tarIngred_title_1","label":"Title"},
+              {"type":"html","id":"tarIngred_content_1","label":"Content"},             
+              {"type":"header", "content":"Section [2]"},
+			  {"type":"image_picker","id":"tarIngred_img_2","label":"Image"},
+              {"type":"text","id":"tarIngred_title_2","label":"Title"},
+              {"type":"html","id":"tarIngred_content_2","label":"Content"},            
+              {"type":"header", "content":"Section [3]"},
+			  {"type":"image_picker","id":"tarIngred_img_3","label":"Image"},
+              {"type":"text","id":"tarIngred_title_3","label":"Title"},
+              {"type":"html","id":"tarIngred_content_3","label":"Content"}, 
+              {"type":"header", "content":"Section [4]"},
+			  { "type": "checkbox", "id": "ingredientSec4", "label": "Enable Block", "default": false,"info":"If you display forth section to check" },
+			  {"type":"image_picker","id":"tarIngred_img_4","label":"Image"},
+              {"type":"text","id":"tarIngred_title_4","label":"Title"},
+              {"type":"html","id":"tarIngred_content_4","label":"Content"}, 
+              { "type": "header", "content": "Ingredients" }, 
+              {"type":"text","id":"ingredientsTitle","label":"Heading"},
+              {"type":"image_picker","id":"ingredientsImg","label":"Image"},
+              {"type":"html","id":"ingredientsContent","label":"Content"}, 
+              { "type": "header", "content": "Footer Icons" }, 
+              {"type":"image_picker","id":"ingredientsFicon_img1","label":"Icon 1"},
+              {"type":"text","id":"ingredientsFicon_txt1","label":"Icon Text 1"},
+              {"type":"image_picker","id":"ingredientsFicon_img2","label":"Icon 2"},
+              {"type":"text","id":"ingredientsFicon_txt2","label":"Icon Text 2"},
+              {"type":"image_picker","id":"ingredientsFicon_img3","label":"Icon 3"},
+              {"type":"text","id":"ingredientsFicon_txt3","label":"Icon Text 3"},
+              {"type":"image_picker","id":"ingredientsFicon_img4","label":"Icon 4"},
+              {"type":"text","id":"ingredientsFicon_txt4","label":"Icon Text 4"}                       
+           ]
+        },
+        {
+            "type": "ProductImageTwoBB",
+            "name": "Slider",
+            "settings": [
+				{ "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+				{"type":"text","id":"slidertextBB","label":"Slider Heading"},
+				{"type":"header","content":"Slide 1"},
+                {"type":"image_picker","id":"prodBanner1","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner1_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 2"},
+                {"type":"image_picker","id":"prodBanner2","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner2_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 3"},
+                {"type":"image_picker","id":"prodBanner3","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner3_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 4"},
+                {"type":"image_picker","id":"prodBanner4","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner4_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 5"},
+                {"type":"image_picker","id":"prodBanner5","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner5_m","label":"Slide (Mobile)"},
+                {"type":"header","content":"Slide 6"},
+                {"type":"image_picker","id":"prodBanner6","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner6_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 7"},
+                {"type":"image_picker","id":"prodBanner7","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner7_m","label":"Slide (Mobile)"}
+            ]
+        }
+        
+	]
+  }
+{% endschema %}

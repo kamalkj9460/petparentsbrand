@@ -1,0 +1,61 @@
+<!-- earning start -->
+<section class="earning_main" id="earning_main_{{ section.id }}">
+    <div class="container">
+        <div class="row ">
+          <div class="parent_earn">
+             <h2>{{- section.settings.ep_rewards_headline -}}</h2>
+          {% if section.settings.ep_rewards_headline_s != blank %}
+            <p>{{- section.settings.ep_rewards_headline_s -}}</p>
+          {% endif %}
+          </div>
+           
+        </div>
+      {% assign sliderHTML = '' %}
+      {% for block in section.blocks %} 
+        		{% if block.type == 'earningpoints' %} 
+              {% capture slideHtml %}
+                    <div class="earningpoints earningpoints_0{{forloop.index}}">                     
+                      <p class="points_count">{{- block.settings.ep_points -}}</p>
+                      <div class="icon_img">
+                        {% if block.settings.ep_points_img %}
+                        	{{ block.settings.ep_points_img | img_url:'master' | img_tag:'ep_points_img','img-responsive' }}
+                      	{% endif %}
+                      </div>
+                      <h3>{{- block.settings.ep_points_title -}}</h3>
+                      <p>{{- block.settings.ep_points_content -}}</p>                      
+                  </div>
+                {% endcapture %}
+                  {% assign sliderHTML = sliderHTML | append: slideHtml %}
+        		{% endif %}
+        	{% endfor %}
+      
+        <div class="row_new">
+            <div class="earningpoints_main slider" id="earningpoints_desk">
+              {{ sliderHTML }}
+          </div>
+          <div class="earningpoints_main slider" id="earningpoints_mob">
+              {{ sliderHTML }}
+          </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Earning Points",
+    "settings": [
+      {"type":"text","id":"ep_rewards_headline","label":"Headline"},
+      {"type":"text","id":"ep_rewards_headline_s","label":"Sub Headline"}
+    ],
+    "blocks" : [{	
+				"name":"Slide",
+                "type":"earningpoints",
+				"settings": [
+				{"type":"text","id":"ep_points","label":"Points"},
+				{"type":"image_picker","id":"ep_points_img","label":"Choose Icon"},
+                {"type":"text","id":"ep_points_title","label":"Title"},
+                {"type":"html","id":"ep_points_content","label":"Content"}
+				]} 
+			]
+  }
+{% endschema %}

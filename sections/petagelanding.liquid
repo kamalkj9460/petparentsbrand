@@ -1,0 +1,59 @@
+<div class="__petpage Landing">
+  <div class="__petpage_banner pet_age_land_banner">
+  	{% if section.settings.bannerPet %}
+          <img src="{{section.settings.bannerPet | img_url: 'master' }}" />
+	{% endif %}
+  </div>
+  <div class="__getBelowContent pt_land_gray">
+    <h5>Click the <span class="__red-Content">Stage You're Looking For</span></h5>
+  </div>
+  <div class="below content pt_land_cat_dog">
+    <div class="_left_content">
+  	{% if section.settings.bannerPetLeft %}
+          <img src="{{section.settings.bannerPetLeft | img_url: 'master' }}" />
+	{% endif %}
+      <div class="_linkdata">
+        <a href="{{section.settings.petlink1}}">{{section.settings.petdata1}}</a>
+        <a href="{{section.settings.petlink2}}">{{section.settings.petdata2}}</a>
+        <a href="{{section.settings.petlink3}}">{{section.settings.petdata3}}</a>
+      </div>
+    </div>
+    <div class="_right_content">
+      {% if section.settings.bannerPetRight %}
+            <img src="{{section.settings.bannerPetRight | img_url: 'master' }}" />
+      {% endif %}
+      <div class="_linkdata">
+        <a href="{{section.settings.petlink4}}">{{section.settings.petdata4}}</a>
+        <a href="{{section.settings.petlink5}}">{{section.settings.petdata5}}</a>
+        <a href="{{section.settings.petlink6}}">{{section.settings.petdata6}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name" : "PetAge-Page",
+    "settings" : [			
+			{"type":"image_picker","id":"bannerPet","label":"Banner Image"},
+			{"type":"image_picker","id":"bannerPetLeft","label":"Cat Image"},
+			{"type":"text","id":"petdata1","label":"title(1)"},
+			{"type":"url","id":"petlink1","label":"Url (1)"},
+			{"type":"text","id":"petdata2","label":"title(2)"},
+			{"type":"url","id":"petlink2","label":"Url (2)"},
+			{"type":"text","id":"petdata3","label":"title(3)"},
+			{"type":"url","id":"petlink3","label":"Url (3)"},
+			{"type":"image_picker","id":"bannerPetRight","label":"Dog Image"},
+			{"type":"text","id":"petdata4","label":"title(1)"},
+			{"type":"url","id":"petlink4","label":"Url (1)"},
+			{"type":"text","id":"petdata5","label":"title(2)"},
+			{"type":"url","id":"petlink5","label":"Url (2)"},
+			{"type":"text","id":"petdata6","label":"title(3)"},
+			{"type":"url","id":"petlink6","label":"Url (3)"}
+          ],
+	"presets": [{
+      "name": "PetAge-Page",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

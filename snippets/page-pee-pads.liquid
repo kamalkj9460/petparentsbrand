@@ -1,0 +1,47 @@
+<div class="clear"></div>
+<div class="__title_banner">
+  <div class="container">
+    <div class="row">
+      <div class="__Inner_title">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="__title_banner">
+  <div class="container">
+    <div class="row">
+      <div class="white_space">
+        {{ section.settings.header_image | img_url:'master' |img_tag:'belly_bands_header','img-responsive'}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+
+<div class="">
+  <div class="container dog_brands">
+    <div class="row">
+      <h2 class="h_brands" style="background-color:{{ section.settings.bg_color }};">{{ section.settings.header_bellow_text }}</h2>
+      <ul class="col-md-6">
+    {% assign counter = 1 %}
+    {% assign count = 1 %}
+	{% for block in section.blocks %}
+        {% if counter > 3 %}{% assign counter = 1 %}</ul><ul class="col-md-6">{% endif %}
+        <li class="steps_brand" ><div class="step_icon">
+          {{ block.settings.image | img_url:'master' | img_tag:'block_img','img-responsive'}}<span class="num" style="background-color:{{ section.settings.count_bg_color }};">{{ count }}</span></div>
+          <div class="step_dec"><p>{{ block.settings.title }}</p></div></li>
+     {% assign counter = counter | plus: 1 %}
+     {% assign count = count | plus: 1 %}
+     {% endfor %} 
+     </ul>
+      <div class="clear"></div>
+      {% if section.settings.is_warn and section.settings.warn_text.size > 0 %}
+     	 <span class="wrng"><b>Warning:</b> {{ section.settings.warn_text }}</span>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+<div class="clear"></div>

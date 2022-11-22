@@ -1,0 +1,222 @@
+{% capture proImg %}art-pro-{{product.id}}.png{% endcapture %}
+{% assign add_li = true %}
+{% assign fileSize = '100x' %}
+{% case product.id %}
+	{% when 625955274804 %}
+		{% assign proTitle = 'Dog Diapers' %}
+		{% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+	{% when 625973723188 %}
+		{% assign proTitle = 'Cat Diaper' %}
+		{% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+	{% when 625932894260 %}
+		{% assign proTitle = 'Belly Bands' %}
+		{% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+    {% when 626011668532 %}
+        {% assign proTitle = 'Pawtect® Pads' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+    {% when 625998790708 %}
+        {% assign proTitle = 'Gnawtlers®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+    {% when 3700723908660 %}
+        {% assign proTitle = 'Allergy SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3701892546612 %}
+        {% assign proTitle = 'Bladder SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3705549357108 %}
+        {% assign proTitle = 'Calming SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3715424059444 %}
+        {% assign proTitle = 'Hip & Joint SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3718410338356 %}
+        {% assign proTitle = 'Multi-Vitamin SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3720577187892 %}
+        {% assign proTitle = 'Probiotic SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3721917857844 %}
+        {% assign proTitle = 'Skin & Coat SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 3725499203636 %}
+        {% assign proTitle = 'Turmeric & Curcumin SoftSupps®' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+    {% when 6087203061950 %}
+        {% assign proTitle = 'Pawtect® Blanket' %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img' %}
+	{% when 3738675347508 %}
+        {% assign proTitle = 'Pet Parents® SoftSupps® Premium Dog Supplements' %}
+		{% capture proImg %}art-pro-{{product.id}}.jpg{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 6050696691902 %}
+        {% assign proTitle = 'Covrs™ ' %}
+		{% comment %}{% capture proImg %}art-pro-{{product.id}}_100x.jpg{% endcapture %}{% endcomment %}
+		{% capture proImg %}04_Products_Covrs_Pet_Parents_Website_1280_B2Cv26_BandsDiapers_Covrs_Image_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 6087203061950 %}
+        {% assign proTitle = 'Pawtect® Blankets' %}
+		{% capture proImg %}product-1_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 6093218185406 %}
+        {% assign proTitle = 'Extendrs™' %}
+		{% capture proImg %}04_Products_Covrs_Pet_Parents_Website_1280_B2Cv26_BandsDiapers_Covrs_Image_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 6835991216318 %}
+        {% assign proTitle = 'Wash Bags' %}
+		{% capture proImg %}art-pro-6835991216318_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 6050703999166 %}
+        {% assign proTitle = 'Pawtect<sup>®</sup> Blankets' %}
+		{% capture proImg %}product-1_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 6788640276670 %}
+        {% assign proTitle = 'Pet Blanket' %}
+		{% capture proImg %}05_ece77db5-918d-4e4c-8cb1-f9445f549172_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 6877823107262 %}
+        {% assign proTitle = 'Pawtect<sup>®</sup> Blankets' %}
+		{% capture proImg %}02_e318020e-d113-406a-982a-d6df9a087dca_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 7535380070636 %}
+        {% assign proTitle = 'Forager™ Mat' %}
+		{% capture proImg %}mat4_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 7535332950252 %}
+        {% assign proTitle = 'Forager™ Bowl' %}
+		{% capture proImg %}blue_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}	
+	{% when 7573739241708 %}
+        {% assign proTitle = 'FurBall®' %}
+		{% capture proImg %}fffurball_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 7621708349676 %}
+        {% assign proTitle = 'Pet WiPees™ Allergy' %}
+		{% capture proImg %}asfdg-2_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 7621707137260 %}
+        {% assign proTitle = 'Pet WiPees™ Skin & Coat' %}
+		{% capture proImg %}asfdg-3_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 7621757599980 %}
+        {% assign proTitle = 'Pet WiPees™ Cat Wipes' %}
+		{% capture proImg %}asfdg-1_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 7621749571820 %}
+        {% assign proTitle = 'Pet WiPees™ Ear Wipes' %}
+		{% capture proImg %}asfdg-4_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% when 7621751144684 %}
+        {% assign proTitle = 'Pet WiPees™ Gland Wipes' %}
+		{% capture proImg %}asfdg-5_100x.png{% endcapture %}
+        {% assign cls = 'art-gray' %}
+		{% assign cls_bg = 'art-red-bg' %}
+		{% assign art-paw = 'ppaw.png' %}
+		{% assign supCls = 'sup-img-all' %}
+		{% assign fileSize = '' %}
+	{% else %}
+		{% assign add_li = false %}
+{% endcase %}
+{% if add_li %}
+  <li class="item {{supCls}}" data-pid="{{product.id}}" data-to-cart="{{product.selected_or_first_available_variant.id}}" data-qty="1" data-item-colletion="{{product.collections[0]}}">
+    {{ proImg | file_img_url:fileSize | img_tag:'','img' }}
+    <div class="title {{cls}}">{{ art-paw | file_img_url:'50x' | img_tag: 'paw','pawIcon' }}<div>{{ proTitle }}</div></div>
+    <div class="ArticlestickyATC {{cls_bg}}"><a href="{{product.url}}" target="_blank" class="_stickyCartLink">{{ by_now }}</a></div>
+  </li>
+{% endif %}

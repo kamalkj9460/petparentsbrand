@@ -1,0 +1,24 @@
+<section id="section_id_{{section.id}}"  class="ForageHome sop_{{section.settings.home_banner_heading | downcase | escape | handleize}}"{% if section.settings.home_bg_img != blank %} style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{ block.settings.home_bg_img }})"{% else %} style="background:{{section.settings.home_bg_color}}"{% endif %}>
+  <a href="{{section.settings.home_banner_url}}">
+  <div class="container">
+          <div class="row">            
+              <div class="ForageHomeM">
+                  <div class="ForageHomeMain">
+                    <h2>{{section.settings.home_banner_heading}}</h2>
+                    <p>{{section.settings.home_banner_des}}</p>
+                    <span class="leanMore">{% if section.settings.home_btn_txt != blank %}{{ section.settings.home_btn_txt }}{% else %}Learn More{% endif %}</span>          
+              </div>
+              <div class="ForageHomeImg">
+                {% if section.settings.home_banner1 %}
+                <img class="home_Forage home_Forage_desktab lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.home_banner1 | img_url:'master' }}" alt="home_banner1">
+                
+                {% endif %}
+                {% if section.settings.home_banner2 %}
+                <img class="home_Forage home_Forage_mobile lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.home_banner2 | img_url:'master' }}" alt="home_banner2">
+                
+                {% endif %} 
+              </div>
+          </div> 
+      </div>
+      </div></a>
+</section>

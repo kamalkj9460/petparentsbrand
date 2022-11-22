@@ -1,0 +1,41 @@
+<div class="dp_author_trade">
+<div class="dp_at_left">
+<div class="_dp_at_left _dp_at_left1">
+<p>The author</p>
+<h4>{{ section.settings.blog_author }}</h4>
+<p><a href="{{ section.settings.blog_author_url }}">Author Bio</a></p>
+</div>
+<div class="_dp_at_left _dp_at_left2">
+<p>{{ section.settings.blog_author_des }}</p>
+</div>
+</div>
+<div class="dp_at_right">
+<div class="_dp_at_right _dp_at_right1">
+  {% if section.settings.blog_Reviewed_img != blank %}
+	{{ section.settings.blog_Reviewed_img | img_url:'master' | img_tag:'blog_Reviewed_img','img-responsive' }}
+  	{% else %}
+  <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/logo-mark12.png" alt="">
+	{% endif %}  
+  </div>
+<div class="_dp_at_right _dp_at_right2">
+<p>{{ section.settings.blog_Reviewed_text }}</p>
+</div>
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Article Footer",
+    "settings": [
+              {"type":"header", "content":"Footer"},
+              {"type":"text","id":"blog_author","label":"Author","default": "MICKA V."},
+			  {"type":"image_picker","id":"blog_author_img","label":"Author Image"},
+			  {"type":"html","id":"blog_author_des","label":"Author Description","default": "Micka Virtudazo is a full-time content creator at Pet Parents who lives with thirteen adorable American Bullies and a Shih Tzu-Maltese mix named Gretel. She especially enjoys writing how-to articles as she feels through this she can connect to other pet parents on a more personal level."},		
+              {"type":"url","id":"blog_author_url","label":"Author Bio"},
+			  {"type":"image_picker","id":"blog_Reviewed_img","label":"Reviewed Image"},
+              {"type":"html","id":"blog_Reviewed_text","label":"Veterinarian Reviewed","default": "The Veterinarian Reviewed Badge indicates that an article has been reviewed and approved by a licensed vet in the United States. Vet reviewed articles will include this badge at the top of the page. To meet our vets and learn more about our approval process, click here."}				
+]
+  }
+{% endschema %}
+

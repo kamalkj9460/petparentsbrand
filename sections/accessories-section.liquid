@@ -1,0 +1,178 @@
+<section id="Extendrs">
+<div class="main-Extendrs" style="background:{{section.settings.ex_bg_color}}">
+<div class="container"> 
+<div class="row"> 
+<div class="sf_Extendrs sf_Extendrs_left">
+  {% if section.settings.ex_img %}
+	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.ex_img | img_url:'master' }}" alt="ex_img">
+	{% endif %}
+  {% if section.settings.ex_img_m %}
+	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.ex_img_m | img_url:'master' }}" alt="ex_img_m">
+	{% endif %}
+</div>
+<div class="sf_Extendrs sf_Extendrs_right">
+<div class="ecw_contert">
+<h2>{{section.settings.ex_title}}</h2>
+<h4>{{section.settings.ex_sub_title}}</h4>
+<a class="acc_btn_ak" href="{{section.settings.ex_btn_url}}">Learn More</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="CoversWash">
+<div class="main-CoversWash">
+  
+<div class="sf_CoversWash sf_CoversWash_left" style="background:{{section.settings.co_bg_color}}">
+  <div class="container"> 
+  <div class="ecw_contert Cover_Tag">
+<h2>{{section.settings.co_title}}</h2>
+<h4>{{section.settings.co_sub_title}}</h4>
+<a class="acc_btn_ak" href="{{section.settings.co_btn_url}}">Learn More</a>
+  </div>
+   {% if section.settings.co_img %}
+    	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.co_img | img_url:'master' }}" alt="co_img">
+	
+	{% endif %}
+    {% if section.settings.co_img_m %}
+    	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.co_img_m | img_url:'master' }}" alt="co_img_m">
+	
+	{% endif %}
+</div>
+  </div>
+  
+<div class="sf_CoversWash sf_CoversWash_right" style="background:{{section.settings.wb_bg_color}}">
+  <div class="container">
+<div class="ecw_contert Wash_Bags">
+<h2>{{section.settings.wb_title}}</h2>
+<h4>{{section.settings.wb_sub_title}}</h4>
+<a class="acc_btn_ak" href="{{section.settings.wb_btn_url}}">Learn More</a>
+  </div>
+   {% if section.settings.wb_img %}
+    	<img class="img-responsive ass_desk_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wb_img | img_url:'master' }}" alt="wb_img">
+	
+	{% endif %}
+    {% if section.settings.wb_img_m %}
+    	<img class="img-responsive ass_mob_img lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.wb_img_m | img_url:'master' }}" alt="wb_img_m">
+	
+	{% endif %}
+</div>
+  </div>
+  
+</div>
+</section>
+{% schema %}
+  {
+    "name": "Accessories Settings",
+    "settings": [
+          {"type":"header","content":"Extendrs"},
+          {"type":"color","id":"ex_bg_color","label":"Background Color"},
+          {"type":"image_picker","id":"ex_img","label":"Image"},
+		{"type":"image_picker","id":"ex_img_m","label":"Image(Mobile)"},
+          {"type":"text","id":"ex_title","label":"Title"},
+          {"type":"html","id":"ex_sub_title","label":"Sub Title"},
+          {"type":"url","id":"ex_btn_url","label":"Product URL"},
+          {"type":"header","content":"Covers"},
+          {"type":"color","id":"co_bg_color","label":"Background Color"},
+          {"type":"image_picker","id":"co_img","label":"Image"},
+			{"type":"image_picker","id":"co_img_m","label":"Image(Moblie)"},
+          {"type":"text","id":"co_title","label":"Title"},
+          {"type":"html","id":"co_sub_title","label":"Sub Title"},
+          {"type":"url","id":"co_btn_url","label":"Product URL"},
+          {"type":"header","content":"Wash Bags"},
+          {"type":"color","id":"wb_bg_color","label":"Background Color"},
+          {"type":"image_picker","id":"wb_img","label":"Image"},
+		{"type":"image_picker","id":"wb_img_m","label":"Image(Mobile)"},
+          {"type":"text","id":"wb_title","label":"Title"},
+          {"type":"html","id":"wb_sub_title","label":"Sub Title"},
+          {"type":"url","id":"wb_btn_url","label":"Product URL"}
+		]
+	}
+{% endschema %}
+
+
+
+<style>
+.main-Extendrs {padding: 100px 0 0; margin-top: 20px;}
+.ecw_contert {color: #fff;}
+.ecw_contert.Wash_Bags {color: #706f6f;padding-top: 50%; padding-left: 4%;position: relative;z-index: 77;}
+.ecw_contert h2 {font-size: 38px; font-weight: 900 !important; font-family: "Gentona";}
+.sf_Extendrs { display: flex; align-items: center;}
+.ecw_contert h4 {letter-spacing: 0; font-size: 25px; text-transform: none; font-weight: 400;line-height: 34px; margin: 0; font-family: "Gentona";}
+.ecw_contert a {font-size: 12px;line-height: 1;	color: #e3002b;	display: inline-block;	background: #fff;	padding: 7px 20px;border-radius: 50px;	margin-top: 25px;transition: .25s;
+	text-decoration: none; font-weight: 600;}
+.ecw_contert.Wash_Bags a {background: #00b7bc;color: #fff;}
+.ecw_contert.Cover_Tag a {color: #00b7bc;}
+.main-CoversWash {display: flex; justify-content: space-between;}
+.sf_CoversWash {width: 50%;position: relative;}
+.Cover_Tag {margin: 0 auto 60px auto; max-width: 170px;}
+.sf_CoversWash_left {padding: 100px 0 0;}
+.sf_CoversWash_right {overflow: hidden;} 
+.Wash_Bags + img.img-responsive {position: absolute;right: -30px;top: 0; max-width: 640px; width: 100%;z-index:7;}
+.sf_Extendrs.sf_Extendrs_right {justify-content: flex-end;width: 25%;margin-bottom: 100px;}
+.sf_CoversWash .container {padding: 0 35px;}
+.ass_mob_img {display: none;}
+a.acc_btn_ak {display: block;max-width: 110px;text-align: center;z-index: 9999;}
+a.acc_btn_ak:hover {opacity: 0.9;}
+  
+@media (max-width: 767px) {
+	.sf_Extendrs.sf_Extendrs_left {
+        order: 1;
+    } 
+    .main-Extendrs .container {
+        padding: 0;
+    }
+    .sf_Extendrs.sf_Extendrs_right {
+        justify-content: center;
+        width: 195px;
+        margin: 0px auto 100px;
+    }
+    .sf_CoversWash .container {
+        padding: 0;
+    }
+    .main-CoversWash {
+        flex-direction: column;
+    }
+    .sf_CoversWash {
+        width: 100%;
+    }
+    .ecw_contert.Cover_Tag+img {
+        max-width: 760px;
+        margin: 0px auto;
+        position: relative;
+        right: 160px;
+    }
+    .Cover_Tag {
+        margin: 0 auto 100px auto;
+    }
+    .ecw_contert.Wash_Bags {
+        padding-top: 100px;
+        padding-left: 0;
+        padding-bottom: 45px;
+        margin: 0px auto;
+        width: max-content;
+    }
+    .Wash_Bags + img.img-responsive {
+        position: unset;
+    }
+    section#CoversWash {
+        margin-bottom: 30px;
+    }
+    .main-Extendrs {
+        margin-top: 10px;
+    }
+  
+  	.ass_desk_img {display: none;}
+    .ass_mob_img {display: block;}
+
+  .__Footer_sec_inner {border-top: none;} 
+   
+  
+}
+  
+  
+  
+  
+</style>

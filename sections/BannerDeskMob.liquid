@@ -1,0 +1,26 @@
+<section class="shopPetAge_wht sf_BannerDeskMob">
+  <div class="BannerHome deskTab">
+  {% if section.settings.sf_bannerurl != blank %}<a href="{{section.settings.sf_bannerurl}}">{% endif %}
+ 	{{ section.settings.BannerDesk | img_url:'master' | img_tag:'BannerDesk','img-responsive' }}
+    {% if section.settings.sf_bannerurl != blank %}</a>{% endif %}
+  </div>
+    <div class="BannerHome mobBan">
+  {% if section.settings.sf_bannerurl != blank %}<a href="{{section.settings.sf_bannerurl}}">{% endif %}
+ {{ section.settings.BannerMob | img_url:'master' | img_tag:'BannerMob','img-responsive' }}
+    {% if section.settings.sf_bannerurl != blank %}</a>{% endif %}
+  </div>			
+</section>
+
+{% schema %}
+	{
+		"name": "Banner Desktop & Mobile",
+		"settings": [
+			{"type":"image_picker","id":"BannerDesk","label":"Banner [Desktop]"},
+			{"type":"image_picker","id":"BannerMob","label":"Banner [Mobile]"},
+			{"type":"url","id":"sf_bannerurl","label":"Banner Url"}
+		],
+		"presets": [{
+			"name": "Banner Desktop & Mobile"
+		}]
+	}
+{% endschema %}

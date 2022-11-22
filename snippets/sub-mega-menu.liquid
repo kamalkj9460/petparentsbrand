@@ -1,0 +1,273 @@
+<div class="top-sub-mega-menu" style="">
+  <div class="menu-section">
+        <div class="sf_pp-12">
+           <div class="petMenuContainer_mpet_menues">
+            <div class="sf_menu_tabs">  
+  <ul class="sf_menu_tabs-list">
+    {% for block in section.blocks %} 
+      {% if block.type == 'mega_menu' %}            
+        <li {% if forloop.first == true %}class="sf_menu_active"{% endif %}>
+          <a tab_id="#sf_menu_tab{{ forloop.index }}">
+            {{ block.settings.m_menu_title }}
+          </a>
+        </li>                         
+      {% endif %}
+    {% endfor %} 
+  </ul>
+  <div class="sf_menu_contant_main sf_subMenu">
+    {% for block in section.blocks %} 
+      {% if block.type == 'mega_menu' %}
+  		<div id="sf_menu_tab{{forloop.index}}" class="sf_menu_tab {% if forloop.first == true %}sf_menu_active{% endif %}">
+          {% assign menuCount = 0 %}
+          {% assign menu1 = block.settings.m_menu_link_list_1 %}
+          {% assign menu2 = block.settings.m_menu_link_list_2 %}
+          {% if menu1 != blank %}
+          	{% assign menuCount = menuCount | plus:1 %}
+          {% endif %}
+          {% if menu2 != blank %}
+          	{% assign menuCount = menuCount | plus:1 %}
+          {% endif %}
+          {% capture menu1 %}
+            <ul class="_sf_menu_ _sf_menu_1">
+             {% if block.settings.m_c_m != blank  %}
+              <li class="menu_title"><span>{{block.settings.m_c_m}}</span></li>
+             {% endif %}
+             {% for link in linklists[menu1].links %}
+             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+             {% endfor %}
+            </ul>
+          {% endcapture %}
+          {% capture menu2 %}
+          {% if menu2 != blank %}
+          <ul class="_sf_menu _sf_menu_2">
+            {% if block.settings.m_c_m2 != blank  %}
+            <li class="menu_title"><span>{{block.settings.m_c_m2}}</span></li>
+             {% endif %}
+            {% for link in linklists[menu2].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endcapture %}
+         <div class="sf_menu sf_menu_left menu-{{menuCount}}">
+           {{menu1}}{{menu2}}
+          </div>
+          <div class="lazybg sf_menu sf_menu_right" {% if block.settings.m_menu_bg_img != blank %} data-style="background:url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.m_menu_bg_img}});background-size: cover;background-repeat: no-repeat;background-position:center;"{% endif %}>
+            <div class="_sf_left_sf">
+              {% if block.settings.m_menu_sec_title != blank %}
+              <h3>{{ block.settings.m_menu_sec_title }}</h3>
+              {% endif %}
+              <div class="sf_lodge">
+              {% if block.settings.m_menu_sec_des != blank %}
+              <div class="sfDesText">{{ block.settings.m_menu_sec_des }}</div>
+              {% endif %}
+              {% if block.settings.m_menu_sec_url != blank %}
+              <a href="{{ block.settings.m_menu_sec_url }}">Shop</a>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+  </div>
+      {% endif %}
+    {% endfor %} 
+  </div>
+</div>  
+          </div>
+    </div>
+  </div>
+</div>
+
+<style>
+ul.sf_menu_tabs-list li:before,.sf_menu_contant_main div ul li:before {display: none;}
+.sf_menu_tabs {display: flex;grid-gap: 20px;}
+.sf_menu_tabs .sf_menu_tabs-list{list-style:none;margin:0px;padding:0px;}
+.sf_menu_tabs .sf_menu_tabs-list li{padding:10px 5px;background-color:#ddd;display: block !important;width: 100% !important;}
+.sf_menu_tabs .sf_menu_tabs-list li:hover{cursor:pointer;background-color:#aaa;}
+.sf_menu_tabs .sf_menu_tabs-list li a{text-decoration: none;color:white;}
+.sf_menu_tabs .sf_menu_tab{display:none;width:96%;min-height:250px;height:auto;border-radius:3px;padding:20px 15px;color:darkslategray;clear:both;}
+.sf_menu_active{display:block !important;}
+.sf_menu_tabs .sf_menu_tabs-list li.sf_menu_active{background-color:#000 !important;}
+.nav li.shop .top-sub-mega-menu {position: absolute; display: none; background: #fff; border-top: 5px solid #e3002b; left: 0; right: 0; margin: 42px 70px 0;}
+.nav li.shop._else:hover .top-sub-mega-menu {display: block;}
+li.shop .petMenuContainer.mpet_menues>div { max-width: 100%; width: 100%; }
+li.shop .sf_menu_tab.sf_menu_active { display: flex !important; justify-content: space-between; width: 100%; grid-row-gap: 19px; grid-column-gap: 20px;margin-top:-1px; }
+li.shop .petMenuContainer.mpet_menues { padding: 20px 0 50px 0; display: flex; justify-content: space-between; max-width: 1040px; width: 100%; margin: 0 auto; }
+li.shop ._sf_left h3 { color: #fff; font-size: 21px; width: 125px; margin-right: 22px; }  
+ul.sf_menu_tabs-list li.active{background: #ed1b3c; color: #fff;}
+ul.sf_menu_tabs-list li.active > a {color: #fff;}
+ul.sf_menu_tabs-list li::before { content: ""; position: absolute; background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/blue-arrow.png); width: 10px; height: 10px; display: block; right: -10px; top: 10px; background-repeat: no-repeat; }
+.sf_menu_contant_main.sf_subMenu { width: 930px; }
+.sf_menu_tab { grid-gap: 0 !important; }
+.__top_navbar ul li.shop._else { position: unset; }
+header.site-header { position: relative; }
+.petMenuContainer_mpet_menues .sf_menu_tabs { grid-gap: 0; flex-wrap: wrap; } 
+.sf_menu_tabs ul.sf_menu_tabs-list {height: 250px; padding: 0px; margin: 40px 0px 40px 20px; border-right: 1px solid #b3b3b3; width: 210px; }
+.petMenuContainer_mpet_menues .sf_menu_tabs-list li.sf_menu_active { background: #eeeded !important; }
+.petMenuContainer_mpet_menues .sf_menu_tabs-list li.sf_menu_active a { color: #fff; background: #706f6f !important; } 
+.sf_menu_tabs .sf_menu_tabs-list li:hover { background: #eeeded !important; color: #fff !important; }
+.sf_menu_tabs .sf_menu_tabs-list li:hover a { background: #706f6f !important; color: #fff !important; }
+.petMenuContainer_mpet_menues .sf_menu_tabs-list li { text-align: left; background: none !important; padding: 0px 0px; margin: 0 0 25px; list-style: none; float: left; position:relative; }
+.petMenuContainer_mpet_menues .sf_menu_tabs-list li a { padding: 5px 10px !important; text-align: left; font-size: 20px; font-weight: 600; color: #9d9d9c; float: left; line-height: 20px; }
+#sf_menu_tab1 ._sf_left_sf {width: 220px; text-align: left; }
+._sf_right { padding-left: 50px; }
+
+#sf_menu_tab1 ._sf_left_sf h3 {
+	line-height: 27px;
+	font-weight: 900;
+	font-size: 36px !important;
+	letter-spacing: 0;
+	text-align: left;
+	font-family: 'Gentona Book';
+	text-transform: uppercase;
+	width: auto !important;
+}
+.petMenuContainer_mpet_menues ._sf_left_sf a:hover {
+	border: 1px solid #fff; background: none !important;
+}
+.petMenuContainer_mpet_menues ._sf_left_sf a {border: 1px solid transparent;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #fff !important;
+	display: inline-block;
+	padding: 5px 20px !important;
+	border-radius: 50px;
+	text-transform: uppercase;
+	font-weight: 800;
+	position: absolute;
+	left: 0;
+	right: 0;
+	max-width: 90px;
+	margin: 10px auto 0 auto;
+	bottom: 30px;
+	text-align: center; transition-duration: .35s;
+} 
+#sf_menu_tab5 .sf_menu.sf_menu_left.menu-2 {
+	display: flex;
+	grid-gap: 20px;
+	width: 460px;
+}
+#sf_menu_tab3 .sf_menu.sf_menu_left {
+	width: 250px;
+}
+#sf_menu_tab1 .sf_lodge {
+	position: relative;
+	grid-gap: 0;
+	display: block;
+}
+#sf_menu_tab1 ._sf_left_sf a{background: #e3002b;position: relative;bottom: 0px;}
+#sf_menu_tab2 ._sf_left_sf a{background: #00b7bc;}
+#sf_menu_tab3 ._sf_left_sf a{background: #00b7bc;}
+ #sf_menu_tab4 ._sf_left_sf a{background: #79303b; margin: 10px 0 0 auto;bottom: 15px;right: 0px;}
+
+.sf_subMenu .sf_menu.sf_menu_left { padding: 40px 20px; width: 185px }
+.sf_menu.sf_menu_left ul { display: flex; flex-direction: column; padding: 40px 20px; }
+.sf_menu.sf_menu_left ul { padding: 0; margin: 0; text-align: left; }
+.sf_subMenu .sf_menu.sf_menu_left ul li { padding: 0 0 2px; margin: 0; text-align: left;}
+.sf_subMenu .sf_menu.sf_menu_left ul li span {color: #9d9d9c; font-size: 15px; font-weight: 800;}
+.sf_subMenu .sf_menu.sf_menu_left ul li a { padding: 0 !important; color: #9d9d9c; font-size: 14px; text-align: left !important; font-weight: 400;}
+.petMenuContainer_mpet_menues .sf_menu_tab { padding: 0; }
+ul.nav >li.sf_is_active {background: #ed1b3c;}
+ul.nav >li.sf_is_active>a{color:#fff !important;}
+.sf_menu.sf_menu_right { background: #9d8ac1; padding: 20px; display: flex; width: 470px; min-height: 350px;position: relative;} 
+
+._sf_left_sf h3 {
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	line-height: 34px;
+	font-weight: 900;
+	font-size: 45px !important;
+	letter-spacing: 0;
+	font-family: 'Gentona Book';
+	width: auto !important;
+}
+.sfDesText h4 {
+	text-transform: uppercase;
+	font-size: 24px;
+	letter-spacing: 0;
+	font-weight: 100;
+	color: #79303b; margin: 0;
+	font-family: 'Gentona Book';
+}
+  #sf_menu_tab4 ._sf_left_sf h3 {
+	color: #79303b;
+}
+.conent_heading {
+	color: #6d6d4d;
+	font-weight: 900;
+}
+.LimitedTime {
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #6d6d4d;
+	font-weight: 800;
+	letter-spacing: 3px;
+}
+  #sf_menu_tab4 ._sf_left_sf h3 span {
+	color: #6d6d4d;
+	font-weight: 900;
+}
+.sf_lodge {
+	display: flex;
+	text-align: left;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	grid-gap: 15px;
+}
+._sf_left_sf {
+	width: 100%;
+	position: relative;
+}
+._sf_left_sf h3 a {background: #ed1b3c;text-align:center;color: #fff; border-radius: 15px;}
+
+
+#sf_menu_tab4 ._sf_left_sf a {
+    margin: 0px 0 25px 20px;
+    background: #ffffff;
+    color: #00b6bd !important;
+}
+#sf_menu_tab4 ._sf_left_sf a:hover {
+    background: #ed1b3c !important;
+    border: 1px solid transparent;
+    color: #fff  !important;
+}
+
+  
+@media (min-width: 768px) and (max-width: 1024px) {  
+  .sf_menu_contant_main.sf_subMenu {
+      max-width: 550px;
+  }
+}
+  
+  
+@media (min-width: 768px) and (max-width: 991px) {
+
+    #sf_menu_tab1 ._sf_left_sf h3 {
+        font-size: 26px !important;
+    }
+
+}
+  
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(document).on("click","ul.sf_menu_tabs-list li",function(){
+     var tabid = $(this).find("a").attr("tab_id");
+     $("ul.sf_menu_tabs-list li,.sf_menu_contant_main .sf_menu_tab").removeClass("sf_menu_active");
+     $(this).addClass("sf_menu_active"); 
+     $(tabid).addClass("sf_menu_active");
+  });
+	
+    jQuery("ul.nav >li").hover(
+      function () {
+        jQuery(this).addClass("sf_is_active");
+      },
+      function () {
+        jQuery(this).removeClass("sf_is_active");
+      }
+    );
+});
+
+</script>

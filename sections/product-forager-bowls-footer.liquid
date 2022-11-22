@@ -1,0 +1,52 @@
+<!-- snippets/product-uses-snippet.liquid-->
+{% include 'product-footer-snippet' %}
+{% schema %}
+  {
+    "name": "Forager Bowls footer",
+    "settings": [	  
+	  {"type":"text","id":"cusreviewheadline","label":"FAQ Heading"}		
+    ],
+	"blocks" : [{
+			"type":"faq",
+			"name":"FAQ Left",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data","label":"Faq Content"}
+				]
+			},
+			{
+			"type":"faq_right",
+			"name":"FAQ Right",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title_r","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data_r","label":"Faq Content"}
+				]
+			}]
+  }
+{% endschema %}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  /* JS code for inline play */
+  let buttons = document.querySelectorAll('.inline_video.img');
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      console.log(e.target);
+      let videoId = button.getAttribute('video');
+      if (!videoId) return;
+      let videoPath = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+      let ifrm = document.createElement("iframe");
+      ifrm.setAttribute('src', videoPath);
+      ifrm.setAttribute('allow', 'autoplay')
+      ifrm.style.width = '100%';
+      ifrm.style.height = '350px';
+      ifrm.style.border = 'none';
+      button.classList.remove('img');
+      button.classList.add('playing');
+      button.children[0].innerHTML = '';
+      button.children[0].appendChild(ifrm);
+    },{once:true});
+  });
+});
+</script>

@@ -1,0 +1,38 @@
+<section class="learnMore">
+	<div class="container">
+		<div class="row">
+			<div class="pp-7">
+				<div class="learnMoreText">
+                  	{{ section.settings.learnMore_text }}
+					<div class="learnMoreBtn">
+						<a href="{{ section.settings.learnMore_but_url }}" class="RedButton">{{ section.settings.learnMore_but_text }}</a>
+					</div>
+				</div>
+			</div>
+			<div class="pp-5">
+				<div class="shipingImg">
+					{% if section.settings.learnMore_pet %}
+    				 	{{ section.settings.learnMore_pet | img_url: 'master' | img_tag:'Pet-Image','lazyloaded' }}
+    				{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+  {
+    "name" : "Banner with background",
+    "settings" : [			
+			{"type":"image_picker","id":"learnMore_pet","label":"Pet Image"},
+			{"type":"html","id":"learnMore_text","label":"Content"},
+			{"type":"url","id":"learnMore_but_url","label":"Button Url"},
+			{"type":"text","id":"learnMore_but_text","label":"Button Text"}
+          ],
+	"presets": [{
+      "name": "Banner with background",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

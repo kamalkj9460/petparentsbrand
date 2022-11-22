@@ -1,0 +1,874 @@
+<div class="newformatingSizeSection sf_newformatingSizeSection">
+  <div class="product-blanket-regular-middle-content">
+    <section id="softsupps_bnr" class="sf_petWipes sf_petWipes_{{section.id}}">
+ <div class="softsupps_bnr" style="background:{{section.settings.ts_bg_color}}">
+	<div class="container">
+      <div class="softsupps_inn">
+		<div class="softsupps_txt">
+			<h2>{{- section.settings.ts_title -}}</h2>
+			<p>{{- section.settings.ts_description -}}</p>
+		</div>
+		{% if section.settings.ts_img %}
+	{{ section.settings.ts_img | img_url:'master' | img_tag:'ts_img','img-responsive' }}
+	{% endif %}
+      </div>
+   </div>
+</div>   
+    </section>  
+  {%- for block in section.blocks -%}
+     {%- case block.type -%}
+        {% when 'SoftSuppsproductList' %}
+              <section id="SoftSuppsproductList" class="sf_petWipes sf_petWipes_{{block.id}}">
+              <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.ssp_heading }}</h3>  
+                <div class="pick-wrapper-main" style="background:{{ block.settings.ssp_bg_color }}">
+                    <div class="container">
+                         <div class="pick-wrapper slider" id="SoftS_sliderrr">
+                           {% if block.settings.ssp_img_1 %}
+                              <div class="pick-supli_wrap">
+                               
+                                  <div class="pick-supli_items"> <a href="{{- block.settings.ssp_url_1 -}}">
+                                      {{ block.settings.ssp_img_1 | img_url:'master' | img_tag:'ssp_img_1','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_1 -}}</p></a>
+                                  </div>
+                                
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_2 %}
+                              <div class="pick-supli_wrap">
+                                
+                                  <div class="pick-supli_items"><a href="{{- block.settings.ssp_url_2 -}}">
+                                      {{ block.settings.ssp_img_2 | img_url:'master' | img_tag:'ssp_img_2','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_2 -}}</p>
+                                    </a></div>
+                              
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_3 %}
+                              <div class="pick-supli_wrap">
+                               
+                                  <div class="pick-supli_items"> <a href="{{- block.settings.ssp_url_3 -}}">
+                                      {{ block.settings.ssp_img_3 | img_url:'master' | img_tag:'ssp_img_3','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_3 -}}</p>
+                                  </a></div>
+                                
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_4 %}
+                              <div class="pick-supli_wrap">
+                                
+                                  <div class="pick-supli_items"><a href="{{- block.settings.ssp_url_4 -}}">
+                                      {{ block.settings.ssp_img_4 | img_url:'master' | img_tag:'ssp_img_4','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_4 -}}</p>
+                                  </a> </div>
+                               
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_5 %}
+                              <div class="pick-supli_wrap">
+                                
+                                  <div class="pick-supli_items"><a href="{{- block.settings.ssp_url_5 -}}">
+                                      {{ block.settings.ssp_img_5 | img_url:'master' | img_tag:'ssp_img_5','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_5 -}}</p>
+                                </a>  </div>
+                                
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_6 %}
+                              <div class="pick-supli_wrap">
+                                
+                                  <div class="pick-supli_items"><a href="{{- block.settings.ssp_url_6 -}}">
+                                      {{ block.settings.ssp_img_6 | img_url:'master' | img_tag:'ssp_img_6','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_6 -}}</p>
+                                  </a> </div>
+                               
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_7 %}
+                              <div class="pick-supli_wrap">
+                               
+                                  <div class="pick-supli_items"> <a href="{{- block.settings.ssp_url_7 -}}">
+                                      {{ block.settings.ssp_img_7 | img_url:'master' | img_tag:'ssp_img_7','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_7 -}}</p>
+                                  </a> </div>
+                               
+                              </div>
+                           {% endif %}
+                           {% if block.settings.ssp_img_8 %}
+                              <div class="pick-supli_wrap">
+                               
+                                  <div class="pick-supli_items"> <a href="{{- block.settings.ssp_url_8 -}}">
+                                      {{ block.settings.ssp_img_8 | img_url:'master' | img_tag:'ssp_img_8','img-responsive' }}
+                                      <p class="pick-supli_title">{{- block.settings.ssp_title_8 -}}</p>
+                                  </a> </div>
+                               
+                              </div>
+                           {% endif %}
+                         </div>
+                      </div>
+                  </div>
+                </section>    
+        {% when 'ProductImageTwoBB' %}
+    		{% if block.settings.show_block %}
+     <section class="pb_slider_{{block.id}} sss_slider sf_petWipes" id="sf_petWipes_{{block.id}}">
+    <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.slidertextBB }}</h3>
+              <div class="sf_PawtectBlanketSlider5 is_desktop_enble" id="PawtectBlanketSlider5">    
+                 {% if block.settings.prodBanner1 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner1 | img_url:'master' | img_tag:'prodBanner1','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner2 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner2 | img_url:'master' | img_tag:'prodBanner2','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner3 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner3 | img_url:'master' | img_tag:'prodBanner3','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner4 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner4 | img_url:'master' | img_tag:'prodBanner4','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner5 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner5 | img_url:'master' | img_tag:'prodBanner5','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner6 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner6 | img_url:'master' | img_tag:'prodBanner6','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner7 != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner7 | img_url:'master' | img_tag:'prodBanner7','img-responsive' }}</div>
+                {% endif %}
+              </div>
+       			<div class="sf_PawtectBlanketSlider5 is_mobile_enble" id="PawtectBlanketSlider6">    
+                 {% if block.settings.prodBanner1_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner1_m | img_url:'master' | img_tag:'prodBanner1_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner2_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner2_m | img_url:'master' | img_tag:'prodBanner2_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner3_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner3_m | img_url:'master' | img_tag:'prodBanner3_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner4_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner4_m | img_url:'master' | img_tag:'prodBanner4_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner5_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner5_m | img_url:'master' | img_tag:'prodBanner5_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner6_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner6_m | img_url:'master' | img_tag:'prodBanner6_m','img-responsive' }}</div>
+                {% endif %}
+                {% if block.settings.prodBanner7_m != blank %}
+                <div class="bc_slide">{{ block.settings.prodBanner7_m | img_url:'master' | img_tag:'prodBanner7_m','img-responsive' }}</div>
+                {% endif %}
+              </div>
+    </section>
+           {% endif %} 
+  			
+        {% when 'SafetyFirst' %}
+    <section id="safety_sf" class="sf_petWipes sf_petWipes_{{block.id}}">      
+      <div class="container">
+      <div class="safety-txt">
+	<h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.saf_heading }}</h3>	
+      {% if block.settings.saf_img_1 %}
+      {% capture items1 %}
+		<div class="safety_items">
+			{{ block.settings.saf_img_1 | img_url:'master' | img_tag:'saf_img_1','img-responsive' }}
+			<div>
+				<h2>{{- block.settings.saf_title_1 -}}</h2>
+				<p>{{- block.settings.saf_des_1 -}}</p>
+			</div>
+		</div>
+      {% endcapture %}
+      {% endif %}
+      {% if block.settings.saf_img_2 %}
+      {% capture items2 %}
+		<div class="safety_items">
+			{{ block.settings.saf_img_2 | img_url:'master' | img_tag:'saf_img_2','img-responsive' }}
+			<div>
+				<h2>{{- block.settings.saf_title_2 -}}</h2>
+				<p>{{- block.settings.saf_des_2 -}}</p>
+			</div>
+		</div>
+      {% endcapture %}
+      {% endif %}
+      {% if block.settings.saf_img_3 %}
+      {% capture items3 %}
+		<div class="safety_items">
+			{{ block.settings.saf_img_3 | img_url:'master' | img_tag:'saf_img_3','img-responsive' }}
+			<div>
+				<h2>{{- block.settings.saf_title_3 -}}</h2>
+				<p>{{- block.settings.saf_des_3 -}}</p>
+			</div>
+		</div>
+      {% endcapture %}
+      {% endif %}
+        <div class="is_desktop_enble">
+         	  <div class="safety_wrap"> 
+                {{items1}}{{items2}}{{items3}}
+         	 </div>
+     	 </div>
+        <div class="is_mobile_enble">
+        	<div class="safety_wrap sf_MoreWipeSlider">   
+              {{items1}}{{items2}}{{items3}}
+   			 </div>
+       </div>
+</div>
+  </div>    
+    </section>
+              
+        {% when 'SoftChewSupps' %}
+    {% capture firstPart %}
+    <div class="what_wrapper what_wrapper_01">
+            <div class="what_items01">
+                <h2>{{- block.settings.scs_title_1 -}}</h2>
+                <p>{{- block.settings.scs_des_1 -}}</p>
+            </div>
+            <div class="what_items02">
+                <h2>{{- block.settings.scs_title_2 -}}</h2>
+                <p>{{- block.settings.scs_des_2 -}}</p>
+            </div>
+        </div>
+    {% endcapture %}
+    {% capture secondPart %}
+     <div class="what_wrapper what_wrapper_03">
+              <div class="what_items01">
+                  <h2>{{- block.settings.scs_title_3 -}}</h2>
+                  <p>{{- block.settings.scs_des_3 -}}</p>
+              </div>
+              <div class="what_items02">
+                  <h2>{{- block.settings.scs_title_4 -}}</h2>
+                  <p>{{- block.settings.scs_des_4 -}}</p>
+              </div>
+          </div>
+    {% endcapture %}    
+    <section id="SoftChewSupps" class="sf_petWipes sf_petWipes_{{block.id}}">
+      <div class="what_section">
+        <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.scs_heading }}</h3>
+        <div class="container">
+          <div class="is_desktop_enble"> 
+          <div class="what-wrap-third">  
+            {{firstPart}}
+            <div class="what_wrapper what_wrapper_02">		
+        {{ block.settings.scs_img | img_url:'master' | img_tag:'scs_img','img-responsive' }}	
+        </div>
+           {{secondPart}}
+          </div>
+            </div>
+          <div class="is_mobile_enble">
+          <div class="what-wrap-thir">
+            <div class="what_wrapper what_wrapper_02">		
+        {{ block.settings.scs_img | img_url:'master' | img_tag:'scs_img','img-responsive' }}	
+        </div>
+            <div class="sf_wiPeeSlider slider">
+            {{firstPart}}            
+           {{secondPart}}
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+           
+     {%- endcase -%}
+  {%- endfor -%}
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Pet WiPees",
+    "settings": [
+          {"type":"header","content":"Top Section"},
+          {"type":"color","id":"ts_bg_color","label":"Background Color","default":"#00b7bc"},
+          {"type":"text","id":"ts_title","label":"Title"},
+          {"type":"html","id":"ts_description","label":"Description"},
+			{"type":"image_picker","id":"ts_img","label":"Image"}
+	],
+	"blocks" : [
+			{
+            "type": "ProductImageTwoBB",
+            "name": "Slider",
+            "settings": [
+				{ "type": "checkbox", "id": "show_block", "label": "Enable Block", "default": true },
+				{"type":"text","id":"slidertextBB","label":"Slider Heading"},
+				{"type":"header","content":"Slide 1"},
+                {"type":"image_picker","id":"prodBanner1","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner1_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 2"},
+                {"type":"image_picker","id":"prodBanner2","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner2_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 3"},
+                {"type":"image_picker","id":"prodBanner3","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner3_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 4"},
+                {"type":"image_picker","id":"prodBanner4","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner4_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 5"},
+                {"type":"image_picker","id":"prodBanner5","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner5_m","label":"Slide (Mobile)"},
+                {"type":"header","content":"Slide 6"},
+                {"type":"image_picker","id":"prodBanner6","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner6_m","label":"Slide (Mobile)"},
+				{"type":"header","content":"Slide 7"},
+                {"type":"image_picker","id":"prodBanner7","label":"Slide"},
+				{"type":"image_picker","id":"prodBanner7_m","label":"Slide (Mobile)"}
+            ]
+        },
+		{
+            "type": "SoftSuppsproductList",
+            "name": "Pet WiPees Product",
+            "settings": [
+				{"type":"text","id":"ssp_heading","label":"Slider Heading"},
+				{"type":"color","id":"ssp_bg_color","label":"Background Color"},
+				{"type":"header","content":"Product [1]"},
+				{"type":"image_picker","id":"ssp_img_1","label":"Image"},
+				{"type":"text","id":"ssp_title_1","label":"Title"},
+				{"type":"url","id":"ssp_url_1","label":"Product URL"},
+				{"type":"header","content":"Product [2]"},
+				{"type":"image_picker","id":"ssp_img_2","label":"Image"},
+				{"type":"text","id":"ssp_title_2","label":"Title"},
+				{"type":"url","id":"ssp_url_2","label":"Product URL"},
+				{"type":"header","content":"Product [3]"},
+				{"type":"image_picker","id":"ssp_img_3","label":"Image"},
+				{"type":"text","id":"ssp_title_3","label":"Title"},
+				{"type":"url","id":"ssp_url_3","label":"Product URL"},
+				{"type":"header","content":"Product [4]"},
+				{"type":"image_picker","id":"ssp_img_4","label":"Image"},
+				{"type":"text","id":"ssp_title_4","label":"Title"},
+				{"type":"url","id":"ssp_url_4","label":"Product URL"},
+				{"type":"header","content":"Product [5]"},
+				{"type":"image_picker","id":"ssp_img_5","label":"Image"},
+				{"type":"text","id":"ssp_title_5","label":"Title"},
+				{"type":"url","id":"ssp_url_5","label":"Product URL"},
+				{"type":"header","content":"Product [6]"},
+				{"type":"image_picker","id":"ssp_img_6","label":"Image"},
+				{"type":"text","id":"ssp_title_6","label":"Title"},
+				{"type":"url","id":"ssp_url_6","label":"Product URL"},
+				{"type":"header","content":"Product [7]"},
+				{"type":"image_picker","id":"ssp_img_7","label":"Image"},
+				{"type":"text","id":"ssp_title_7","label":"Title"},
+				{"type":"url","id":"ssp_url_7","label":"Product URL"},
+				{"type":"header","content":"Product [8]"},
+				{"type":"image_picker","id":"ssp_img_8","label":"Image"},
+				{"type":"text","id":"ssp_title_8","label":"Title"},
+				{"type":"url","id":"ssp_url_8","label":"Product URL"}
+            ]
+        },
+		{
+            "type": "SafetyFirst",
+            "name": "Pet WiPees",
+            "settings": [
+				{"type":"text","id":"saf_heading","label":"Heading"},			
+				{"type":"header","content":"Product [1]"},
+				{"type":"image_picker","id":"saf_img_1","label":"Image"},
+				{"type":"text","id":"saf_title_1","label":"Title"},
+				{"type":"html","id":"saf_des_1","label":"Description"},
+				{"type":"header","content":"Product [2]"},
+				{"type":"image_picker","id":"saf_img_2","label":"Image"},
+				{"type":"text","id":"saf_title_2","label":"Title"},
+				{"type":"html","id":"saf_des_2","label":"Description"},
+				{"type":"header","content":"Product [3]"},
+				{"type":"image_picker","id":"saf_img_3","label":"Image"},
+				{"type":"text","id":"saf_title_3","label":"Title"},
+				{"type":"html","id":"saf_des_3","label":"Description"}
+				
+            ]
+        },
+		{
+            "type": "SoftChewSupps",
+            "name": "Pet WiPees Best",
+            "settings": [
+				{"type":"text","id":"scs_heading","label":"Heading"},
+				{"type":"image_picker","id":"scs_img","label":"Image"},
+				{"type":"header","content":"Section [1]"},			
+				{"type":"text","id":"scs_title_1","label":"Title"},
+				{"type":"html","id":"scs_des_1","label":"Description"},
+				{"type":"header","content":"Section [2]"},			
+				{"type":"text","id":"scs_title_2","label":"Title"},
+				{"type":"html","id":"scs_des_2","label":"Description"},
+				{"type":"header","content":"Section [3]"},				
+				{"type":"text","id":"scs_title_3","label":"Title"},
+				{"type":"html","id":"scs_des_3","label":"Description"},
+				{"type":"header","content":"Section [4]"},			
+				{"type":"text","id":"scs_title_4","label":"Title"},
+				{"type":"html","id":"scs_des_4","label":"Description"}
+            ]
+        }
+				 ]
+	}
+{% endschema %}
+
+
+<style>
+body {
+    font-family: "Gentona";
+}
+.softsupps_bnr {
+    margin-top: 20px;
+}
+.softsupps_inn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.softsupps_inn img {
+    margin: -105px 0 -170px;
+}
+.softsupps_txt {
+    max-width: 245px;
+    color: #f6f6f6;
+    text-align: right;
+}
+.softsupps_txt p {
+    font-size: 26px;
+    line-height: 1.25;
+}
+.softsupps_txt h2 {
+    font-size: 36px;
+    font-weight: 900;
+    font-family: "Gentona";
+    margin: 0;
+    margin-bottom: 15px;
+}
+h3.forEveryNeed {
+    color: #706f6f;
+    text-align: center;
+    margin: 35px 0;
+    font-family: "Gentona";
+    font-size: 30px;
+    text-transform: inherit;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+.pick-supli_title {
+  	color: #706f6f;
+    text-align: center;
+    margin: 20px 0 0;
+    font-family: "Gentona";
+    font-size: 24px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.pick-supli_items img {
+    display: block;
+    margin: 0px auto;
+}
+#SoftS_sliderrr .slick-track {
+    display: inline-flex ;
+    align-items: flex-end;
+}
+.pick-supli_items {
+    padding: 0 15px;
+}
+.pick-wrapper-main {
+    padding: 70px 0 20px;
+}
+.pick-supli_wrap a {text-decoration: none;}
+.bc_slide img {
+    height: 485px;width:100%;
+    object-fit: cover;
+}
+.slick-slider .slick-dots li.slick-active button:before {
+    background-color: #fff !important;
+    border-color: #fff !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0px !important;
+}
+.slick-slider .slick-dots li button:before {
+    background-color: #ccc !important;
+    border: 1px solid #ccc !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0px !important;
+}
+.slick-slider .slick-dots {
+    bottom: 25px;
+}
+.safety-txt h3.forEveryNeed {
+    margin: 100px 0 35px;
+} 
+.safety_wrap {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    grid-column-gap: 25px;
+    flex-wrap: wrap;
+}
+.safety_items {
+    background: #f6f6f6;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 31.35%;
+    grid-gap: 30px;
+}
+.safety_items>div>p {
+    font-size: 20px;
+    color: #706f6f;
+}  
+.safety_items>div>h2 {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #706f6f;
+    font-family: "Gentona";
+    font-weight: 500;
+}  
+.safety_items>img {
+    display: block;
+    margin: 20px auto;
+}
+.what_section h3.forEveryNeed {
+    margin: 80px 0 100px;
+}  
+.what-wrap-third {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+}  
+.what_wrapper_01 {width: 21%;} 
+.what_wrapper_02 {width: 35%;} 
+.what_wrapper_03 {width: 19%;} 
+.what_wrapper_02 img {
+    transform: translate(-20px, -45px);
+}
+.what_wrapper h2 {
+    margin: 0;
+    font-family: "Gentona";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.25;
+}
+.what_wrapper p {
+    margin: 5px 0 55px;
+    font-family: "Gentona";
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}  
+.what_wrapper_01 .what_items02 {
+    padding-right: 35px;
+}
+.what_section {
+    padding-bottom: 30px;
+}
+.__Footer_sec_inner {
+    border-top: none;
+    padding: 0px 38px 40px;
+}  
+
+  
+#SoftS_slider .slick-arrow {
+    position: absolute;
+    top: -90px;
+    background: #e7e7e7;
+    left: unset;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#SoftS_slider .slick-next {
+    right : 0;
+}
+#SoftS_slider .slick-prev {
+    right : 35px;
+}
+.slide_next, .slide_prev {
+    position: absolute;
+    top: -40px;
+    background: #e7e7e7;
+    left: unset;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px !important;
+}  
+.slide_next.slick-arrow:before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_right.png);
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-size: 7px;
+    background-position: center center !important;
+} 
+.slide_prev.slick-arrow:before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/1355/5443/files/a_left.png);
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+}
+.slide_next {
+    right: 5%;
+}
+.slide_prev {
+    right: 7.5%;
+}
+  
+.pick-wrapper .slide_next, .pick-wrapper .slide_prev {
+    top: -27px;
+}
+  
+.is_mobile_enble {
+    display: none;
+}
+.top_additional_sec_subcontent ul li {
+    padding-bottom: 15px !important;
+    line-height: 19px!important;
+}
+.sf_top_additional_right_sec ul>li:before {
+    width: 4px!important;
+    height: 4px!important;
+    background: #706f6f !important;
+}
+  
+.pick-wrapper a {
+    text-decoration: none;
+}
+  
+@media (max-width: 1200px) {
+    .what_wrapper_01 {width: 25%;} 
+    .what_wrapper_02 {width: 45%;} 
+    .what_wrapper_03 {width: 25%;} 
+} 
+ 
+  
+@media (max-width:1023px) {
+  .container {
+      padding: 0 15px;
+  }
+  .safety_items {
+      padding: 25px;
+  }
+  .what-wrap-third {
+      flex-direction: column;
+  }
+  .what_wrapper {
+  	   width: 750px;
+      padding : 0 15px;
+      margin: 0 auto;
+  }
+  .what_wrapper_02 {
+  	  order: -1;
+  }
+  .what_wrapper_02 img {
+      transform: translate(0px);
+      margin: 0px auto;
+  }
+  .what_wrapper p {
+      margin: 5px 0 25px;
+  }
+  .safety_wrap {
+      grid-column-gap: 10px;
+  }
+  
+} 
+  
+  
+
+@media (max-width:767px) {
+  .container {
+      padding: 0 15px;
+  }
+  .softsupps_inn {
+      align-items: start;
+      flex-direction: column;
+  }
+  .softsupps_txt {
+      max-width: 240px;
+      color: #f6f6f6;
+      text-align: left;
+      margin: 60px  0 50px;
+  }
+  .softsupps_txt+img {
+      margin-left: auto;
+      transform: translate(60px, -25px);
+      margin-bottom: -140px;
+  }
+  .pick-wrapper-main .container  {
+      padding: 0px;
+  }
+  .safety_items {
+      width: 100%;
+  }
+  .safety_items {
+      flex-direction: row-reverse;
+      grid-gap: 25px;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .safety_items>img {
+      max-width: 135px;
+  }
+  .safety_items>div>h2 {
+      font-size: 22px;
+  }
+  .safety_items>div>p {
+      font-size: 14px;
+  }
+  .safety_items:nth-child(2) img {
+      transform: translate(0px, 0px);
+  }
+  #SoftS_slider .pick-supli_wrap {
+      width: 50%;
+      padding-bottom: 25px;
+  }
+  .pick-supli_title {
+      font-size: 18px;
+      margin: 15px 0 35px !important;
+  }
+  .pick-supli_items {
+      padding: 0px 0  25px;
+  }
+  .pick-supli_items img {
+      max-width: 150px;
+  }
+  #SoftSuppsproductList h3.forEveryNeed {
+      background: #fff;
+      margin: 0;
+      padding: 35px 0;
+  }
+  h3.forEveryNeed {
+      margin: 15px 0 55px;
+  }
+  .pick-wrapper-main {
+      padding: 0;
+  }
+  .what_wrapper {
+      width: 100%;
+  }
+  .what_wrapper_01 .what_items02 {
+      padding-right: 0px;
+  }
+  .what_wrapper_01 {order: 2;} 
+  .what_wrapper_02 img {
+      max-width: 80%; 
+      margin: 0px auto 50px;
+  } 
+  .what_wrapper_03 {order: 3;} 
+  .what_section h3.forEveryNeed {
+      margin: 35px auto;
+      max-width: 265px;
+  }
+  .what_wrapper_03 {
+      margin-top: 0px;
+  }
+  div#SoftS_slider {
+      padding-bottom: 35px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+  }
+  span.slide_prev.slick-arrow {
+      right: 48px;
+  }
+  span.slide_next.slick-arrow {
+      right: 15px;
+  }
+  .safety_items>div {
+      max-width: 100%;
+  } 
+  .slick-slider .slick-dots {
+      bottom: -60px !important;
+  }
+  .slick-slider .slick-dots li.slick-active button:before {
+      background-color: #f0f0f0 !important;
+      border-color: #f0f0f0 !important;
+  }
+  .__Footer_sec_inner {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 25px 38px 40px;
+  }
+  .safety-txt h3.forEveryNeed {
+      margin: 25px 0 55px;
+  }
+  .is_desktop_enble {
+    display: none;
+  }
+    .is_mobile_enble {
+      display: block !important;
+  }
+  #SoftS_sliderrr .slick-track {
+    align-items: start;
+  }
+  .safety_wrap .slick-track {
+    background: #f6f6f6;
+  } 
+  .safety_items>img {
+      margin: 15px auto 35px;
+  }
+  .what_section {
+      padding-bottom: 0px;
+  }
+  .softsupps_bnr .container {
+      padding: 0 15px;
+      padding-right: 0;
+  }
+  .pick-wrapper-main {
+      background: #fff !important;
+  }
+  
+  .sf_wiPeeSlider .slick-prev, .sf_wiPeeSlider .slick-next {
+      position: absolute;
+      top: -20px;
+      background: #e7e7e7;
+      left: unset;
+      border-radius: 50%;
+      height: 22px;
+      width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px !important;
+  }
+  .safety_wrap .slick-next, .safety_wrap .slick-prev {
+      position: absolute;
+      top: -20px;
+      background: #e7e7e7;
+      left: unset;
+      border-radius: 50%;
+      height: 22px;
+      width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px !important;
+  }
+  .safety_wrap .slick-next {
+      right: 0px;
+  }
+  .safety_wrap .slick-prev {
+      right: 35px;
+  }
+  .sf_wiPeeSlider .slick-next {
+      right: 0px !important;
+  }
+  .sf_wiPeeSlider .slick-prev {
+      right: 35px !important;
+  }
+  .bc_slide img {
+      height: auto;
+      max-height: 700px;
+  }
+  .pick-wrapper .slick-slide img {
+      margin: 0px auto;
+  }
+
+}  
+  
+  
+</style>

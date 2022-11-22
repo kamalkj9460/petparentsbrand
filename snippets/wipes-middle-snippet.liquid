@@ -1,0 +1,814 @@
+<div class="newformatingSizeSection sf_newformatingSizeSection" id="WiPeeSec_id_{{section.id}}">
+  <div class="product-blanket-regular-middle-content">
+  {%- for block in section.blocks -%}
+     {%- case block.type -%}
+        {% when 'content_with_imgBB' %}
+           {% if block.settings.show_block %}
+              <section {{block.shopify_attributes}} class="additional_sec_helpIssue pro_points block-{{block.id}} {% if block.settings.block_type == 'block_type' %}white_space{% endif %}" style="background-color:{{block.settings.block_bg}}!important;" id="WiPeeBlk_id_{{block.id}}">
+                <div class="container"> 
+                  <div class="top_additional_sec_issue">
+                      <div class="top_additional_sec_Img sf_top_additional_left_sec" style="background:{{-block.settings.img__per_bg_clr-}}">
+                        {% if block.settings.topAddit_sec_Img_m != blank %}
+                         {{ block.settings.topAddit_sec_Img  | img_url:'master' | img_tag:'block-img','img-responsive is_desktop_enble' }}
+                        {{ block.settings.topAddit_sec_Img_m  | img_url:'master' | img_tag:'block-img','img-responsive is_mobile_enble' }}
+                        {% else %}
+                        {{ block.settings.topAddit_sec_Img  | img_url:'master' | img_tag:'block-img','img-responsive' }}
+                        {% endif %}
+                      </div>
+                      <div class="top_additional_sec_content listing_pnts sf_top_additional_right_sec">
+                         <h1 class="header-{{block.id}} text-{{block.settings.text_align}}">{{-block.settings.headerText-}}</h1>
+                         <div class="top_additional_sec_subcontent">
+                            <div class="top_add_sec_leftcontent">{{-block.settings.addit_leftcontent-}}</div>
+                            <div class="top_add_sec_rightcontent">{{-block.settings.addit_rightcontent-}}</div>
+                         </div>
+                      </div>      
+                   </div>
+                </div>
+                {% if block.settings.addit_sec_paragraph != blank %}
+                 <p class="sub_cod text-{{block.settings.add_txt_align}}">{{-block.settings.addit_sec_paragraph-}}</p>
+                {% endif %}
+              </section>
+              {% style %}        
+                 .additional_sec_helpIssue.block-{{block.id}}{ 
+                    margin:{{block.settings.margn-up}}px {{block.settings.margn-dwn}}px 0 {{block.settings.margn-dwn}}px !important; 
+                    {% if block.settings.block_type == 'boxed' %}
+                       width:{{ block.settings.width }}%;margin: 0 auto !important;
+                    {% endif %}
+                 }
+                 {% if block.settings.img_align == 'right' %}
+                    .block-{{block.id}} .top_additional_sec_Img{ order:1; }
+                 {% endif %}
+                 .header-{{block.id}}{
+                    color: {{block.settings.headerTextColor}} !important;
+                    font-size:{{block.settings.headerTextSize}}px !important;
+                    letter-spacing:{{block.settings.ltr-spacing}}px !important;            
+                 }         
+              {% endstyle %}
+           {% endif %}
+        {% when 'cont_videoBB' %}
+    		<section id="WiPeeBlk_id_{{block.id}}">
+  					{% if block.settings.enable_sec_video !=blank %}
+                        <div class='embed-containerfg is_desktop_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{{-block.settings.video_poster-}}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+                        <div class='embed-containerfg is_mobile_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{% if block.settings.video_poster_m !=blank %}{{-block.settings.video_poster_m-}}{% else %}{{-block.settings.video_poster-}}{% endif %}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+              		{% endif %}  
+              {% if block.settings.addit_sec_paragraph !=blank %}
+                <div class="additional_sec_helpIssue pro_points never-secrifice" style="margin-top:0px; background-color:{{block.settings.addit_bg_color}} !important;">
+                  <div class="container">
+                    <p class="sub_cod">{{block.settings.addit_sec_paragraph}}</p>
+                  </div>
+                </div>
+                {% endif %} 
+    		</section>
+        {% when 'sp_featureBB' %}
+           {% if block.settings.show_block %}  
+                <section class="sf_Special_Features_sec" style="background:{{ block.settings.block_bg_Spe}}" id="WiPeeBlk_id_{{block.id}}">
+                   <div class="container">
+                           <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.spltextBB }}</h3>
+                       <div class="Special_Features">
+                     	 <div class="Special_Features_content">
+                          <div class="inner_text first_inner_text_">
+                          <h3 spf_id="spc_ftu_1">{{ block.settings.featureTitle1}}</h3>
+                          <div id="spc_ftu_1" class="sf_c_content"><p>{{ block.settings.featureText1}}</p>		
+                          </div>{% if block.settings.featurePlusText1 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText1}}</p>{% endif %}</div>
+                          <div class="inner_text">
+                          <h3 spf_id="spc_ftu_2">{{ block.settings.featureTitle2}}</h3>
+                          <div id="spc_ftu_2" class="sf_c_content"><p>{{ block.settings.featureText2}}</p>
+                          </div>{% if block.settings.featurePlusText2 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText2}}</p>{% endif %}</div>
+                          <div class="inner_text">
+                          <h3 spf_id="spc_ftu_3">{{ block.settings.featureTitle3}}</h3>
+                          <div id="spc_ftu_3" class="sf_c_content"><p>{{ block.settings.featureText3}}</p>		
+                          </div>{% if block.settings.featurePlusText3 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText3}}</p>{% endif %}</div>
+                          <div class="inner_text">
+                          <h3 spf_id="spc_ftu_4">{{ block.settings.featureTitle4}}</h3>
+                          <div id="spc_ftu_4" class="sf_c_content"><p>{{ block.settings.featureText4}}</p>		
+                          </div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
+                        <div class="inner_text">
+                          <h3 spf_id="spc_ftu_5">{{ block.settings.featureTitle5}}</h3>
+                          <div id="spc_ftu_5" class="sf_c_content"><p>{{ block.settings.featureText5}}</p>		
+                          </div>{% if block.settings.featurePlusText5 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText5}}</p>{% endif %}</div>
+                      	</div>
+                        <div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
+                          {% if block.settings.featureRightImg_m != blank %}
+                         {{ block.settings.featureRightImg  | img_url:'master' | img_tag:'featureRightImg','img-responsive is_desktop_enble' }}
+                        {{ block.settings.featureRightImg_m  | img_url:'master' | img_tag:'featureRightImg_m','img-responsive is_mobile_enble' }}
+                        {% else %}
+                        {{ block.settings.featureRightImg  | img_url:'master' | img_tag:'featureRightImg','img-responsive' }}
+                        {% endif %}
+                        </div>
+            		</div>
+               </div>
+            </section>   
+  			{% style %}
+  		.__PeePadUse.block-{{block.id}} .row.row_iconic{ margin:0 auto;}
+  			  {% endstyle %}
+           {% endif %}
+    	{% when 'sp_ingredientsPP' %}       
+                <section class="sp_ingredientsPP" id="sp_ingredientsPP_id_{{block.id}}">
+                   <div class="container">
+                           <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.ingredientsPPtitle }}</h3>
+                       <div class="Special_ingredientsPP">
+                     	 <ul class="naturl_a_Ingredients {% if block.settings.ingredientSec4 !=blank %}is_fout_items{% else %}is_three_items{% endif %}">
+                              {% if block.settings.tarIngred_img_1 != blank %}
+                              <li>                
+                                <span>{{ block.settings.tarIngred_img_1 | img_url:'master' | img_tag:'tarIngred_img_1','img-responsive' }}</span>
+                                <h3>{{- block.settings.tarIngred_title_1 -}}</h3>
+                                <p>{{- block.settings.tarIngred_content_1 -}}</p>
+                              </li>
+                              {% endif %}
+                              {% if block.settings.tarIngred_img_2 != blank %}
+                              <li>                
+                                <span>{{ block.settings.tarIngred_img_2 | img_url:'master' | img_tag:'tarIngred_img_2','img-responsive' }}</span>
+                                <h3>{{- block.settings.tarIngred_title_2 -}}</h3>
+                                <p>{{- block.settings.tarIngred_content_2 -}}</p>
+                              </li>
+                              {% endif %}
+                              {% if block.settings.tarIngred_img_3 != blank %}
+                              <li>                
+                                <span>{{ block.settings.tarIngred_img_3 | img_url:'master' | img_tag:'tarIngred_img_3','img-responsive' }}</span>
+                                <h3>{{- block.settings.tarIngred_title_3 -}}</h3>
+                                <p>{{- block.settings.tarIngred_content_3 -}}</p>
+                              </li>
+                              {% endif %}
+                              {% if block.settings.ingredientSec4 != blank %}
+                              <li>                
+                                <span>{{ block.settings.tarIngred_img_4 | img_url:'master' | img_tag:'tarIngred_img_4','img-responsive' }}</span>
+                                <h3>{{- block.settings.tarIngred_title_4 -}}</h3>
+                                <p>{{- block.settings.tarIngred_content_4 -}}</p>
+                              </li>
+                              {% endif %}		
+                           </ul>
+            		</div>
+                     <div class="Sf_ingredients_PP">                        
+                          <div class="ingredients_PP_main">
+                              <div class="ingredients_PP_m ingredients_PP_left">
+                              {{ block.settings.ingredientsImg | img_url:'master' | img_tag:'ingredientsImg','img-responsive' }}
+                              </div>
+                              <div class="ingredients_PP_m ingredients_PP_right">
+                              <h3>{{- block.settings.ingredientsTitle -}}</h3>
+                              <p>{{- block.settings.ingredientsContent -}}</p>
+                              </div>
+                          </div>
+                        </div>
+                       <div class="Sf_ingredients_PP_icons">
+                         <ul class="ients_PP_icons">
+                           <li class="icon_img list_item_01">
+                             {{ block.settings.ingredientsFicon_img1 | img_url:'master' | img_tag:'ingredientsFicon_img1','img-responsive' }}
+                             <span>{{- block.settings.ingredientsFicon_txt1 -}}</span>
+                           </li>
+                           <li class="icon_img list_item_02">
+                             {{ block.settings.ingredientsFicon_img2 | img_url:'master' | img_tag:'ingredientsFicon_img2','img-responsive' }}
+                             <span>{{- block.settings.ingredientsFicon_txt2 -}}</span>
+                           </li>
+                           <li class="icon_img list_item_03">
+                             {{ block.settings.ingredientsFicon_img3 | img_url:'master' | img_tag:'ingredientsFicon_img3','img-responsive' }}
+                             <span>{{- block.settings.ingredientsFicon_txt3 -}}</span>
+                           </li>
+                           <li class="icon_img list_item_04">
+                             {{ block.settings.ingredientsFicon_img4 | img_url:'master' | img_tag:'ingredientsFicon_img4','img-responsive' }}
+                             <span>{{- block.settings.ingredientsFicon_txt4 -}}</span>
+                           </li>
+                         </ul>
+                      </div>	
+               </div>
+            </section>   
+        {% when 'ProductImageTwoBB' %}
+      		{% if block.settings.show_block %}
+              <section class="pb_slider_{{block.id}} sss_slider" id="WiPeeBlk_id_{{block.id}}">
+                <h3 class="forEveryNeed sliderEveryNeed">{{ block.settings.slidertextBB }}</h3>
+                <div class="sf_PawtectBlanketSlider5 slider is_desktop_enble" id="PawtectBlanketSlider5">    
+                  {% if block.settings.prodBanner1 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner1 | img_url:'master' | img_tag:'prodBanner1','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner2 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner2 | img_url:'master' | img_tag:'prodBanner2','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner3 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner3 | img_url:'master' | img_tag:'prodBanner3','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner4 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner4 | img_url:'master' | img_tag:'prodBanner4','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner5 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner5 | img_url:'master' | img_tag:'prodBanner5','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner6 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner6 | img_url:'master' | img_tag:'prodBanner6','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner7 != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner7 | img_url:'master' | img_tag:'prodBanner7','img-responsive' }}</div>
+                  {% endif %}
+                </div>
+                <div class="sf_PawtectBlanketSlider5 slider is_mobile_enble" id="PawtectBlanketSlider6">    
+                  {% if block.settings.prodBanner1_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner1_m | img_url:'master' | img_tag:'prodBanner1_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner2_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner2_m | img_url:'master' | img_tag:'prodBanner2_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner3_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner3_m | img_url:'master' | img_tag:'prodBanner3_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner4_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner4_m | img_url:'master' | img_tag:'prodBanner4_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner5_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner5_m | img_url:'master' | img_tag:'prodBanner5_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner6_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner6_m | img_url:'master' | img_tag:'prodBanner6_m','img-responsive' }}</div>
+                  {% endif %}
+                  {% if block.settings.prodBanner7_m != blank %}
+                  <div class="bc_slide">{{ block.settings.prodBanner7_m | img_url:'master' | img_tag:'prodBanner7_m','img-responsive' }}</div>
+                  {% endif %}
+                </div>
+              </section>
+           {% endif %}            
+     {%- endcase -%}
+  {%- endfor -%} 
+  </div>
+</div>
+
+<style>
+/* .sf_PB_banner_left .product-single__thumbnails img {object-fit: contain !important;} */
+.sss_slider .forEveryNeed {display: block;}
+.sf_PB_banner_right .__price_button .col-md-12.no-padding {justify-content: center; grid-column-gap: 30px; }
+.thumnails_mode .product-single__photo-wrapper>img {mix-blend-mode: darken; }
+.inner_text.first_inner_text_ {width: 100%; }
+span.color_variant_bg {margin: 0 auto 15px!important; }
+.sf_PB_banner_right #ProductSelect-option-0 .__itemWraper input[type=radio]:checked+label span:before {border: 0px solid #11b6bd!important; }
+span.color_variant_bg {width: 45px; height: 45px; background-size: 120%!important; }
+.sf_PB_banner_right .product-single__add-to-cart {margin: 0px auto 0; padding: 24px 0; }
+.sf_PB_banner_right #ProductSelect-option-0 span.color_variant_bg {border: 3px solid #aca4a6!important; }
+h3.is_icon_rotate:before {transform: rotate(90deg);}
+
+/* Updated css */
+.sf_PB_banner_right label.single-option-radio__label:after {
+    display: none;
+}
+.sf_PB_banner_right label.single-option-radio__label {
+    margin-bottom: 0px!important;
+}
+.radio-wrapper.product-form__item .single-option-radio {
+    display: flex;
+    align-items: center;
+}
+.sf_PB_banner_right .__frm_1 label.single-option-radio__label {
+    width: unset !important;
+}  
+.sf_PB_banner_right .__price_button .col-md-12.no-padding {
+    justify-content: space-between;
+    align-items: center;
+}  
+.peePadVarientsSC .product-form__item.__frm_2 div#ProductSelect-option-1 {
+    justify-content: center !important;
+    align-items: center;
+    grid-column-gap: 15px;
+    flex-wrap: nowrap;
+}
+label[for="ProductSelect-option-Wipes Quantity-100"] {
+    width: 40px !important;
+    max-width: 40px !important;
+    display: block;
+    height: 40px;
+    border: 2px solid #ababac !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 50%;
+} 
+.peePadVarientsSC .product-form__item.__frm_2 div#ProductSelect-option-1 .__itemWraper>label {
+    font-size: 14px!important;
+}
+#ProductSelect-option-1 .__itemWraper {
+    max-width: 40px!important;
+}
+span.span_bg_color {
+    padding-right: 0px; 
+}
+span.color_variant_bg {
+    background-size: 70%!important;
+}
+.radio-wrapper.product-form__item .single-option-radio .__itemWraper {
+    max-width: 50px;
+}
+.product-single__quantity, .__frm_2, .__frm_1  {
+  	width: 30% !important;
+    max-width: 25% !important;
+}
+.__frm_1  {
+    max-width: 30% !important;
+}
+.sf_PB_banner_right .__frm_1 label.single-option-radio__label {
+    width: unset !important;
+    max-width: 35px !important;
+} 
+.sf_PB_banner_right label.single-option-radio__label {
+    max-width: 55px !important;
+}  
+.product-single__quantity  {
+    flex-wrap: nowrap !important;
+}
+.__frm_2 label.single-option-radio__label {
+    max-width: 85px !important;
+}  
+.radio-wrapper.js.product-form__item.__frm_2 {
+    margin-bottom: 0px!important;
+} 
+.sf_PB_banner_right #ProductSelect-option-0 span.color_variant_bg {
+    border: 2px solid #aca4a6!important;
+} 
+.sf_PB_banner_right #ProductSelect-option-0 .__itemWraper input[type=radio]:checked+label span:before {
+    border: 2px solid #11b6bd!important;
+    left: -2px;
+    top: -2px;
+    width: 45px;
+    height: 45px;
+}
+.radio-wrapper.js.product-form__item.__frm_2, .radio-wrapper.js.product-form__item.__frm_1 {
+    margin-bottom: 0px!important;
+}
+.Special_Features_content .inner_text:nth-child(3) {
+    background: #e5e5e4;
+}
+  .Special_Features_content .inner_text:nth-child(5) {
+    background: #ededed;
+}
+.sf_PB_banner_left .product-single__thumbnails img {
+    min-width: unset !important; 
+    max-width: unset !important;
+}
+.sf_top_additional_right_sec .top_additional_sec_subcontent ul li {
+    padding-bottom: 12px;
+}
+span.ex_title {
+    margin-bottom: 10px;
+}
+#shopify-section-p-wipes-cat-middle .sf_top_additional_right_sec .top_additional_sec_subcontent ul li {
+    padding-bottom: 15px;
+}
+  
+#shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent, 
+#shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent {
+    max-width: 80%;
+    justify-content: space-between;
+    grid-gap: 30px;
+    flex-wrap: wrap;
+}
+#shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent>div, 
+#shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent>div {
+    width: 45%;
+} 
+  
+#pet-wipees-ear-wipes .top_additional_sec_subcontent, #pet-wipees-gland-wipes .top_additional_sec_subcontent {
+    max-width: 390px;
+} 
+.is_mobile_enble,._stickyPetOptions.sof_Wipes.Quantity.stickyPeT_2 {
+    display: none !important;
+}
+.additional_sec_helpIssue.pro_points .top_additional_sec_Img {
+    min-height: 550px;
+}
+#shopify-section-p-wipes-cat-middle .sf_top_additional_right_sec .top_additional_sec_subcontent ul li {
+    padding-left: 9px!important;
+}
+.naturl_a_Ingredients {
+    display: flex;
+    grid-gap: 15px;
+    margin-left: 0;
+}
+  .naturl_a_Ingredients li {
+    position: relative;
+    background: #f5f5f5;
+    padding: 60px 25px 25px;
+    font-family: Gentona;
+}
+ul.naturl_a_Ingredients.is_fout_items li {
+    max-width: 25%;
+    width: 25%;
+}
+ul.naturl_a_Ingredients.is_three_items li {
+    width: 33%;
+    max-width: 33%;
+}
+.naturl_a_Ingredients li img {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+}
+.naturl_a_Ingredients li h3 {
+    color: #706f6f!important;
+    font-size: 26px;text-transform: unset;
+    font-weight: 300;
+    font-family: Gentona;
+}
+.naturl_a_Ingredients li p {
+    font-size: 16px;
+}
+.Special_ingredientsPP {
+    padding-top: 75px;
+}
+  
+.ingredients_PP_main {
+    display: grid;
+    grid-template-columns: 25% 60%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 35px;
+    grid-gap: 30px;
+}
+.ingredients_PP_main .ingredients_PP_right h3 {
+    color: #706f6f !important;
+    text-transform: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+.ingredients_PP_main .ingredients_PP_right p {
+    color: #706f6f !important;
+    font-size: 18px;
+}  
+.Sf_ingredients_PP_icons {
+  	 border-top: 2px solid #d3ced0;
+    border-bottom: 2px solid #d3ced0;
+    margin-bottom: 25px;
+}
+ul.ients_PP_icons {
+    margin: 0;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+}  
+ul.ients_PP_icons li.icon_img {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    grid-gap: 20px;
+    transform: translateY(0px);
+    font-size: 16px;
+}  
+.sp_ingredientsPP .forEveryNeed {
+    padding: 20px 0 20px;
+}  
+  
+ul.WipressStaticVarient_list {
+    background: #f8f8f8;
+    padding: 10px;
+    grid-column-gap: 10px;
+    margin-left: 0;
+    display: flex;
+    width: 100%;
+    max-width: 485px;
+}
+ul.WipressStaticVarient_list li.sf_link_item {
+    width: 100%;
+    max-width: 85px;
+}
+.WipressStaticVarient_list li.sf_link_item img {
+    max-width: 45px;
+    transition: .25s;
+    margin: 0px auto;
+}
+
+.naturl_a_Ingredients li h3 span {
+    white-space: nowrap;
+}
+.WipressStaticVarient_list li.sf_link_item a {
+    font-size: 12px;opacity: .25;
+    display: block;
+    text-align: center;
+    text-decoration: none !important;
+}
+.WipressStaticVarient_list li.sf_link_item a:hover  {
+    opacity: 1;
+}
+.WipressStaticVarient_list li.sf_link_item.is_item_active a {
+    opacity: 1;
+}
+.WipressStaticVarient_list li.sf_link_item a span {
+    padding-top: 6px;
+    display: block;
+}
+  
+@media (max-width: 1285px) {
+  .sf_PB_banner_right .__frm_1 label.single-option-radio__label {
+        width: 100%!important;
+        max-width: 100% !important;
+    }
+    .sf_PB_banner_right label.single-option-radio__label {
+        max-width: 100% !important;
+    }
+    .peePadVarientsSC .product-form__item.__frm_2 div#ProductSelect-option-1 {
+        flex-wrap: wrap;
+    }
+    .product-single__quantity {
+        flex-wrap: wrap !important;
+    }
+    .pawtectBlanketProductContainer .radio-wrapper.js.product-form__item.__frm_2 label.single-option-radio__label {
+        margin-bottom: 0px!important;
+    }
+  	.sf_PB_banner_right label.single-option-radio__label {
+        align-items: center !important;
+        border-top: 1px solid #e8e8e8 !important;
+        overflow: visible;
+        margin: 20px 0 5px !important;
+    } 
+    span.span_bg_color {
+        background: white;
+        padding: 0 5px;
+        transform: translateY(-10px);
+    }
+    div#rc_container {
+        margin-top: 0 !important;
+    }
+	.pawtectBlanketProductContainer .radio-wrapper.js.product-form__item.__frm_2 label.single-option-radio__label {
+        margin-top: 20px !important;
+    }
+    .top_additional_sec_content.listing_pnts .top_additional_sec_subcontent>div ul {
+        text-align: left;
+    }
+	
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1100px) {
+	.sf_PB_banner_right .__price_button .col-md-12.no-padding {flex-direction: row;}
+    .top_additional_sec_content.listing_pnts {
+        padding: 35px 20px 20px!important;
+    }
+    .Special_Features_img {
+        padding: 15px;
+    }
+    #shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent {
+        max-width: 100%;
+        grid-gap: 15px;
+    }
+    #shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent {
+        max-width: 100%;
+        grid-gap: 15px;
+    }
+    .forEveryNeed {
+        padding: 15px 0 10px;
+    }
+    ul.naturl_a_Ingredients.is_fout_items li {
+        max-width: calc(50% - 5px);
+        width: 100%;
+    }
+    .naturl_a_Ingredients {
+        flex-wrap: wrap;
+        grid-row-gap: 90px;
+        grid-column-gap: 10px;
+    }
+    .sp_ingredientsPP .container {
+        padding: 0 10px;
+    }
+    ul.naturl_a_Ingredients.is_three_items {
+        flex-wrap: nowrap;
+    }
+}
+  
+
+
+@media (max-width: 767px){
+	section.pb_slider_35be7bef-965e-4797-985d-ebe490ecc347.sss_slider {display: block !important;}
+	.sf_PB_banner_right .__price_button .col-md-12.no-padding .product-single__add-to-cart {justify-content: center; padding: 20px 0!important; margin:  0!important; margin-top: 30px !important; border-top: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6;}
+	.product-single__quantity {border-bottom: 0px solid #cccccc;}
+	.product-single__quantity label span.span_bg_color {margin-top: 0px;}
+	.sf_PB_banner_right label.single-option-radio__label:after {background: transparent;}
+	.radio-wrapper.js.product-form__item.__frm_1 span.span_bg_color {padding: 0; display: block; text-align: center !important; margin: 0px auto;}
+	#PawtectBlanketSlider5 .bc_slide {padding-top: 17%;}
+	.sss_slider {display: block !important;}
+	.Special_Features_img img {
+    padding: 50px 70px 40px 70px;}
+  
+  	.product-single__quantity .js-qty {
+        justify-content: center; 
+    }
+  	.product-single__quantity label span.span_bg_color {
+        padding:  0 10px;
+    }
+    label[for="ProductSelect-option-Wipes Quantity-100"] {
+        width: 40px !important;
+        max-width: 40px !important;
+        height: 40px;
+    }
+  	
+    .additional_sec_helpIssue.pro_points .top_additional_sec_Img {
+        padding: 50px 0px;
+    }
+    .top_add_sec_leftcontent ul {
+        width: 70%;
+        margin: 0 auto !important;
+        display: block;
+    }
+    #shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent, 
+    #shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent {
+        max-width: 100%;
+        grid-gap: 0px;
+    }
+    #shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent>div, 
+    #shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent>div {
+        width: 100%;
+        max-width: 100%;
+    }
+    #shopify-section-p-wipes-skincoat-middle .top_additional_sec_subcontent, 
+    #shopify-section-p-wipes-cat-middle .top_additional_sec_subcontent {
+        max-width: 250px !important;
+    }
+    #shopify-section-p-wipes-skincoat-middle .top_add_sec_leftcontent ul,
+    #shopify-section-p-wipes-cat-middle .top_add_sec_leftcontent ul {
+        width: 100%;
+    }
+  
+  	#pet-wipees-ear-wipes .sf_top_additional_right_sec, #pet-wipees-gland-wipes .sf_top_additional_right_sec {
+        flex-direction: row;
+    }
+  	#pet-wipees-ear-wipes .top_add_sec_leftcontent ul, #pet-wipees-gland-wipes .top_add_sec_leftcontent ul {
+        width: 100%;
+    }
+  
+  
+    .is_mobile_enble {
+      display: block !important;}
+    .is_desktop_enble {
+      display: none !important;}
+  
+    .sf_PB_banner_right .__price_button .col-md-12.no-padding .radio-wrapper.js.product-form__item.__frm_1 {
+        width: 48%!important;
+        max-width: 48%!important;
+    }
+    span.color_variant_bg {
+        width: 55px;
+        height: 55px;
+    }
+    #ProductSelect-option-1 .__itemWraper {
+        max-width: 55px!important;
+    }
+    .sf_PB_banner_right #ProductSelect-option-0 .__itemWraper input[type=radio]:checked+label span:before {
+        width: 55px;
+        height: 55px;
+    }
+    label[for="ProductSelect-option-Wipes Quantity-100"] {
+          width: 55px !important;
+          max-width: 55px !important;
+          height: 55px;
+      }
+    .sf_PB_banner_right .__price_button .col-md-12.no-padding .radio-wrapper.js.product-form__item.__frm_2 {
+        width: 40%!important;
+        max-width: 40%!important;
+    }
+    .pawtectBlanketProductContainer .radio-wrapper.js.product-form__item.__frm_2 label.single-option-radio__label {
+        margin-top: -36px !important;
+    }
+    .radio-wrapper.js.product-form__item.__frm_2 label.single-option-radio__label {
+        border-top: 0px solid #e8e8e8 !important; 
+    }
+    .sf_PB_banner_right .__price_button .col-md-12.no-padding {
+        justify-content: center;
+        grid-column-gap: 5px;
+    }
+    .radio-wrapper.js.product-form__item.__frm_1 label.single-option-radio__label {
+        align-items: start !important;
+    }
+    .radio-wrapper.js.product-form__item.__frm_1 span.span_bg_color {
+        text-align: left !important;
+        margin: 0;
+    }
+  	.slick-slide img {
+      width: 100%;
+    }
+	.never-secrifice .sub_cod {
+        padding: 20px 20px!important;
+    }
+    .top_additional_sec_Img img {
+        max-height: 100%;
+    }
+    .additional_sec_helpIssue.pro_points .top_additional_sec_Img {
+        min-height: 350px;
+        padding: 35px 0 25px !important;
+    }
+  	.ingredients_PP_main {
+        grid-template-columns: 100%;
+    }
+    .ingredients_PP_m.ingredients_PP_left img {
+        margin: 0px auto;
+        width: 100%;
+        max-width: 65%;
+    }
+	.ingredients_PP_main .ingredients_PP_right h3 {
+        text-align: center;
+    }
+    ul.ients_PP_icons {
+        grid-column-gap: 35px;
+        flex-wrap: wrap;
+        grid-row-gap: 25px;
+        justify-content: space-evenly;
+        width: 100%;
+        max-width: 300px;
+        margin: 0px auto;
+    }
+    ul.ients_PP_icons li.icon_img {
+        flex-direction: column;
+        grid-gap: 15px;
+        width: 100%;
+        max-width: 115px;
+    }
+    .ingredients_PP_main .ingredients_PP_right h3 {
+        margin: 0px 0 30px 0;
+    }
+    .naturl_a_Ingredients li img {
+        top: -50px;
+        max-width: 130px;
+    }
+    .sp_ingredientsPP .container {
+        padding: 0 10px;
+    }
+    .naturl_a_Ingredients li {
+        padding: 35px 20px 20px;
+    }
+    .naturl_a_Ingredients li p {
+        font-size: 12px;
+        line-height: 1.25;
+    }
+    .naturl_a_Ingredients li h3 {
+      font-size: 14px;
+    }
+    .sp_ingredientsPP .forEveryNeed {
+        font-size: 28px;
+    }
+    .ingredients_PP_main .ingredients_PP_right p {
+        font-size: 16px;
+        line-height: 1.25;
+        margin: 0 10px !important;
+    }
+    .naturl_a_Ingredients {
+        grid-row-gap: 60px;
+    }
+    .Special_ingredientsPP {
+        padding-top: 45px;
+    }
+    ul.naturl_a_Ingredients.is_three_items {
+        flex-wrap: wrap ;
+    }
+    ul.naturl_a_Ingredients.is_three_items li {
+        width: 100%;
+        max-width: calc(50% - 5px);
+        padding: 50px 25px 25px;
+    }
+    ul.naturl_a_Ingredients.is_three_items li:first-child {
+        width: 100%;
+        max-width: 100%;
+        padding: 35px;
+    }
+    ul.naturl_a_Ingredients.is_three_items li:first-child img {
+        top: -70px;
+        max-width: 170px;
+    }
+    ul.naturl_a_Ingredients.is_three_items li img {
+        top: -35px;
+        max-width: 110px;
+    }
+  
+  	ul.WipressStaticVarient_list {
+        width: 100%;
+        max-width: 100%;
+        justify-content: space-evenly;
+    }
+
+
+  
+}
+  
+@media(max-width: 575px) {
+	ul.WipressStaticVarient_list {
+        justify-content: center;
+    }  
+}
+  
+  
+</style>
+  <script>
+// special feature in product page
+  $(document).on("click",".Special_Features_content .inner_text h3",function(){
+    $(".sf_c_content.is_active_slide").slideUp();  
+    $(".inner_text .sf_c_content").removeClass('is_active_slide');
+    $(".inner_text h3").removeClass('is_icon_rotate');
+    $(this).addClass('is_icon_rotate');	
+	var spl_id = jQuery(this).attr('spf_id');
+	$("#"+ spl_id).addClass('is_active_slide');
+  $(".sf_c_content.is_active_slide").slideDown('slow');  
+  })
+  </script>

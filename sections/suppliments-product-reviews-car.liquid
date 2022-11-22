@@ -1,0 +1,47 @@
+
+<div class="allergyreview_main_data">
+
+  <div class="col-md-12">
+    <div class="custom_reviews_sliderallergy1 cust_review_slider_data">
+      <ul class="slides">
+       {% for block in section.blocks %}
+      <li>
+    <div class="first_review_data red_review_data"><span>{{ block.settings.review_label }}</span></div>
+      <div class="__Blog_cnt_pee_data">
+        <span>{{ block.settings.review_txt }}</span>
+         <p><span><i> - {{ block.settings.review_person }}</i></span></p>
+      </div>
+      </li>
+       {% endfor %}
+      </ul>
+    </div>
+   
+    <div class="prev_next_data">
+      <div class="custom-navigation-reviewsallergy"><a href="#" class="flex-prev"><span class="prevnext_ctrl_data">Prev</span></a>
+      <div class="custom-controls-container-reviewsallergy"></div>
+      <a href="#" class="flex-next"><span class="prevnext_ctrl_data">Next</span></a></div>
+    </div>
+  </div>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Review carousel",
+	"max_blocks":5,
+    "settings": [
+	],
+	"blocks":[
+		{
+			"type":"review",
+			"name":"review",
+			"settings":[
+				{"type":"richtext","id":"review_txt","default":"<p>test</p>","label":"Review Text"},
+				{"type":"text","id":"review_person","label":"Reviewer"},
+				{"type":"text","id":"review_label","label":"Review Heading"}
+				
+			]
+		}
+	]
+  }
+{% endschema %}

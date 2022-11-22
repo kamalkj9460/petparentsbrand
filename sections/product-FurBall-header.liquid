@@ -1,0 +1,415 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image  = current_variant.featured_image | default: product.featured_image %}
+
+<div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.zoom_enable }}" data-enable-history-state="true" data-scroll-to-image="{% if section.settings.image_layout == "stacked" %}true{% else %}false{% endif %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">    
+    <div class="product-single white_space large--text-left peePadVarientsSC">
+      {%- include 'belly_head_judgeme' -%}
+      <!-- product image and thumbnails code: Left Side-->
+		{% render 'product-main-image-part',current_variant:current_variant, featured_image:featured_image %}
+      <!-- product content: Right Side -->
+      <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths sf_PB_banner_right">
+        <div class="product-single__meta2">            
+          <div class="product_code" itemprop="name">
+         {% if section.settings.online_exclusive and section.settings.exe_image %}
+      <div class="title_online_exe_badge is_desktop_ex dog_diapper"><span class="ex_title">{% if section.settings.product_vendor_enable %}Pet Parents<sup>®</sup>{% endif %} {{ section.settings.custom_title | default:product.title }}</span>{{ section.settings.exe_image | img_url:'master' | img_tag:'badge-img','badge-image' }}</div>
+      {% endif %}
+          </div>
+          <div class="_product_subData">
+              <p class="subH5">{{section.settings.sub_text_product}}</p>            	
+          </div>
+          <div class="rating __belowtitle">            
+            <div class="price">							
+              <span class="item-reviews">
+                <!-- Features content -->
+                {% render 'product-header-features' %}
+                <!-- Features content -->
+                {% if section.settings.review_show %}          
+                  <!-- review content -->         
+                   <!-- Stamped - Begin Star Rating Badge -->
+                <span class="stamped-product-reviews-badge stamped-main-badge sf_review_section" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-type="{{product.type}}" data-product-title="{{product.title}}" style="display: inline-block;">{{ product.metafields.stamped.badge }} Reviews</span><!-- Stamped - End Star Rating Badge -->
+				  <!-- review content -->
+                {% endif %}
+                <!-- SKU content -->
+                {% if section.settings.show_sku %}            		
+                  <span class="__sku variant-sku">SKU: {{ current_variant.sku }}</span>
+                {% endif %}
+                <!-- SKU content -->
+              </span>
+            </div>
+          </div>
+          <p class="subH5">{{section.settings.sf_product_des}}</p>
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+            <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="AddToCartForm--{{ section.id }}" class="product-single__form">
+            <div class="clear"></div>
+              <div class="__price_button">
+                <!-- option start here-->
+                <div class="col-md-12 no-padding">
+                  {% unless product.has_only_default_variant %}
+                  {% for option in product.options_with_values %}
+                  <div class="radio-wrapper js product-form__item __frm_{{forloop.index}}">              
+                    {% if section.settings.product_selector == 'radio' %}
+                    {% assign p_counter = forloop.index0 %}
+                    <div class="single-option-radio {{option.name}}-item-{{product.id}}" name="{{ option.name }}" id="ProductSelect-option-{{ p_counter }}">
+                      {%- assign option_index = forloop.index -%}
+                      {%- assign var_name = option.name -%}
+                      {%- for value in option.values -%}
+                          {%- assign variant_label_state = true -%}
+                      {%- if product.options.size == 1 -%}
+                          {%- unless product.variants[forloop.index0].available  -%}
+                              {%- assign variant_label_state = false -%}
+                          {%- endunless -%}
+                      {%- endif -%}
+                      {%- if forloop.first == true -%}
+                        <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' or option.name == 'Color'%} hidden-label{% endif %}"
+                               for="ProductSelect-option-{{ p_counter }}"><span class="span_bg_color">{{ option.name }}</span></label>
+                      {%- endif -%}                
+
+                      <div id="{{product.selected_variant.option2 }}" class="__itemWraper" data-name="{{- value -}}">
+                        <input type="radio" {% if option.selected_value == value %} checked="checked"{% endif %}{% unless variant_label_state %} disabled="disabled"{% endunless %} value="{{- value | escape -}}" data-index="option{{ option_index }}" name="{{ option.name }}" class="single-option-selector__radio{%- unless variant_label_state -%} disabled{% endunless -%}" id="ProductSelect-option-{{- option.name -}}-{{- value | escape -}}" autocomplete="off">
+                        <label for="ProductSelect-option-{{- option.name -}}-{{- value | escape -}}"{%- unless variant_label_state -%} class="disabled"{%- endunless -%}>
+                          {%- assign val = value -%}
+                          {%- assign type = var_name -%}
+                         {%- capture _vData -%}
+                            {%- assign type1 = type | downcase | escape | handleize -%}
+                            {%- assign val1 = val | downcase | escape | handleize -%}
+                            {%- if section.blocks.size > 0 -%}
+                              {%- for block in section.blocks -%}
+                                {%- assign col_val = block.settings.color | downcase | escape | handleize -%}
+                                {%- assign size_val = block.settings.size | downcase | escape | handleize -%}
+                                {%- assign customSizeVal = block.settings.size_text -%}
+                                {%- if block.type == type1 and col_val ==  val1 -%}
+                                    {%- if block.settings.icon_type != blank -%}
+                                        <span class="color_variant_bg lazybg" data-style="background:{%- if block.settings.icon_type == 'bgimg' -%}url(https://cdn.shopify.com/s/files/1/1355/5443/{{block.settings.color_imgs}}) {%- else-%}{{block.settings.icon_type_c}}{%- endif -%}"></span>
+                          {%- if block.settings.show_other_colr != blank -%}<ul class="otherColorVari"><li style="background:{{block.settings.color_type_1}}">&nbsp;</li><li style="background:{{block.settings.color_type_2}}">&nbsp;</li></ul>{%- endif -%}
+                                        {{- val -}}
+                                    {%- else -%}
+                                        {{- type -}}
+                                    {%- endif -%}
+                                {%- elsif block.type == type1 and size_val ==  val1 -%}
+                                    {%- if block.settings.size != blank -%}
+                                   
+                                        <span class="__roundCrl">
+                                         {{- val -}}
+                                      </span>
+                                        {{-customSizeVal-}}
+                                    {%- else -%}
+                                        {{- type -}}
+                                    {%- endif -%}
+                                {%- endif -%}
+                              {%- endfor -%}
+                            {%- endif -%}
+                          {%- endcapture -%}
+                          {{- _vData -}}
+                        </label>
+                      </div>
+                      {%- endfor -%}
+                    </div>
+                    {% else %}
+                    <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                      {% for value in option.values %}
+                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                    {% endif %}
+                  </div>
+                  {% endfor %}
+                  {% endunless %}
+                  <select name="id" data-productid="{{ product.id }}" id="ProductSelect" class="product-single__variants no-js">
+                    {% for variant in product.variants %}
+                    {% if variant.available %}
+                    <option {% if variant == product.selected_or_first_available_variant %}
+                            selected="selected" {% endif %}
+                            data-sku="{{ variant.sku }}"
+                            value="{{ variant.id }}">
+                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                    </option>
+                    {% else %}
+                    <option disabled="disabled">
+                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                    </option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+                  {% if section.settings.quantity_enabled %}
+                  <div class="product-single__quantity">
+                    <label for="Quantity" class="single-option-radio__label js-quantity-selector"><span class="span_bg_color">{{ 'products.product.quantity' | t }}</span></label>
+                    <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+                  </div>
+                  {% endif %}
+                  <!-- quantity end here -->
+                  <!-- Begin ReCharge code -->
+                  {% if product.available %}{% include 'subscription-product' %}{% endif %}
+                  <!-- End ReCharge code -->
+
+                  <!-- Add to cart Button code Start  -->
+                  {% capture product_price %}
+                  <div class="flex-price-wrapper">
+                  {% comment %}<div class="__product_price">Price:</div>{% endcomment %}
+                  {% comment %}Optionally show the 'compare at' or original price of the product.{% endcomment %}
+                  {% if current_variant.compare_at_price > current_variant.price %}
+                  <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                  <span class="product-single__price--wrapper">
+                    <span id="ComparePrice" class="product-single__price--compare-at">
+                      {% if current_variant.compare_at_price > current_variant.price %}
+                      {{ current_variant.compare_at_price | money }}
+                      {% endif %}
+                    </span>
+                  </span>
+                  <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                  {% else %}
+                  <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                  {% endif %}
+                  <div itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}" class="__price_price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}" id="ProductPrice">{{ current_variant.price | money }}</div>
+                  </div>
+                  {% endcapture %}
+                  <!-- add to cart -->
+                  {% capture button_atc_txt %}{% if current_variant.available %}<span class="add-to-cart-text" {{current_variant.id}}>{{ 'products.product.add_to_cart' | t }}</span>{% else %}<span>{{ 'products.product.sold_out' | t }}</span>{% endif %}{% endcapture %}
+                  {% capture atc_margin %}<span class="__space">-</span>{% endcapture %}
+                  {% capture atc_items %}<div class="_atc_items">(<span class="_atc_items_span">1 item</span>)</div>{% endcapture %}
+                  {% capture atc_spinner %}<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-spinner" viewBox="0 0 20 20"><path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" fill="#919EAB"></path></svg>{% endcapture %}
+                  <div class="product-single__add-to-cart">
+                    <span class="sf_product_price">{{product_price}}</span>
+                    <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="add-to-cart" {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                      {{button_atc_txt}}{{atc_spinner}}
+                    </button>
+                  </div>
+                  <!-- Add to card Button code Ends-->
+                </div><!--col-7 end here -->
+                <!-- option ends here -->
+                {% if section.settings.show_offer and section.settings.offerText != blank %}
+                <div class="col-md-12 no-gutter">
+                   <div class="off_code">
+                      {{ section.settings.offerText }}
+                   </div>
+                </div>
+                {% endif %}
+                {% style %}
+                    .col-md-12.no-gutter {
+                        padding: 0;
+                        margin: 14px 0 0;
+                    }
+                   .off_code p{
+                      font-size:{{section.settings.text_size}}px;
+                      color:{{section.settings.offer_txt_color}};
+                      padding:{{section.settings.spacingTop}}px {{section.settings.spacingBottom}}px;margin: 0;
+                      text-align: center;
+                   }
+                   .off_code{
+                      {% if section.settings.sow_border %}
+                         border: {{section.settings.border_width}}px solid {{section.settings.border_color}};          		
+                      {% endif %}
+                      margin: 0;    
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                   }
+                {% endstyle %}
+                {%- if section.settings.show_launch_date and section.settings.launch_text != blank -%}
+                	<div class="col-md-12 no-gutter">
+                      <span class="_launchText">{{-section.settings.launch_text-}}</span>
+                	</div>
+                {% style %}._launchText{font-size:{{section.settings.text_fontsize}}px;color:{{section.settings.text_color}};}{% endstyle %}
+                {%- endif -%}
+              </div>
+              <!-- price ends here -->            
+              <div class="clear"></div> 
+            </form>
+          </div>
+          <!-- ends here -->    
+          <!-- sharing content -->
+          {% if section.settings.social_sharing_products %}
+          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+          {% endif %}
+        </div>
+        {% if section.settings.pp_text_enable !=blank %}
+    		<span class="PatentsPendingTag is_mobile_ex">{{section.settings.pp_text}}</span>
+			{% endif %}
+      </div>      
+  	</div>
+    {% render 'clear-div' %}
+</div>
+{% unless product.empty == empty %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+  {{ product | json }}
+</script>
+{% endunless %}
+{% schema %}
+  {
+    "name": "Header Part",
+    "settings": [
+	  {"type": "header","content": "General"},
+      {"type": "checkbox", "id": "zoom_enable","label": "Enable image zoom","default":true},
+	  {"type": "checkbox", "id": "product_vendor_enable","label": "Show product vendor","default":true},
+	  {"type": "checkbox", "id": "review_show","label": "Show product reviews","default":true},
+	  {"type": "checkbox", "id": "show_sku","label": "Show product SKU","default":true},  
+	  {"type": "text",	"id": "sub_text_product","label": "Sub - Title","default": "Premium Male Dog Wraps"},
+	  {"type": "html","id": "sf_product_des","label": "Description","default": "Content here..."},
+      {"type": "header","content": "Product options"},
+      {"type": "checkbox", "id": "quantity_enabled","label": "Show quantity picker"},
+      {"type": "select", "id": "product_selector","label": "Product Options Picker type","options": [
+          {"value": "radio","label": "Button"},
+          {"value": "select","label": "Dropdown"}
+        ]},
+	    { "type": "header","content": "Extra"},
+      { "type": "checkbox", "id": "online_exclusive", "label": "Show Online Exclusive Badge", "default": false },
+	  { "type": "checkbox", "id": "online_ex_by_click", "label": "Show Badge By Click", "default": false },
+      { "type": "image_picker", "id": "exe_image", "label": "Exclusive Badge" }, 
+	  { "type": "image_picker", "id": "exe_image_m", "label": "Exclusive Badge(Mobile)" },
+      { "type": "range", "id": "badge_max_width", "min": 1, "max": 100, "step": 1, "unit": "%", "label": "Badge Max Width", "default": 70 },
+      { "type": "header", "content": "Offer Code Settings" }, 
+      { "type": "checkbox", "id": "show_offer", "label": "Show Offer Text", "default": true }, 
+      { "type": "richtext", "id": "offerText", "label": "Offer Text" }, 
+      { "type": "color", "id": "offer_txt_color", "label": "Offer Text Color", "default":"#000000" }, 
+      { "type": "range", "id": "text_size", "min": 15, "max": 100, "step": 1, "unit": "px", "label": "Font Size", "default": 25 }, 
+      { "type": "range", "id": "spacingTop", "min": 0, "max": 50, "step": 1, "unit": "px", "label": "Text Spacing - Top & Bottom", "default": 10 }, 
+      { "type": "range", "id": "spacingBottom", "min": 0, "max": 50, "step": 1, "unit": "px", "label": "Text Spacing - Left & Right", "default": 10 }, 
+      { "type": "checkbox", "id": "sow_border", "label": "Show Border", "default": true }, 
+      { "type": "range", "id": "border_width", "min": 1, "max": 5, "step": 1, "unit": "px", "label": "Border Width", "default": 2 }, 
+      { "type": "color", "id": "border_color", "label": "Border color", "default": "#000000" },	
+	  { "type": "header", "content": "Launch Date Settings" },
+	  { "type": "checkbox", "id": "show_launch_date", "label": "Show Launch Date", "default": true }, 
+	  { "type": "text", "id": "launch_text", "label": "Launch Date Text", "default": "Official Launch Date: February 2021" },
+	  { "type": "color", "id": "text_color", "label": "Text Color", "default": "#000000" }, 
+	  { "type": "range", "id": "text_fontsize", "min": 1, "max": 50, "step": 1, "unit": "px", "label": "Font Size", "default": 25 },
+	  { "type": "header", "content": "Patents Pending" },		
+	  { "type": "checkbox", "id": "pp_text_enable", "label": "Enable","default":false },
+	  { "type": "text", "id": "pp_text", "label": "Text","default":"Patents Pending" }
+
+    ],
+	"blocks" : [{
+                  "type": "size",
+                  "name": "Size Variant",
+                  "settings": [
+                      {"type":"text","id":"size","label":"Size Variant","info":"add same that is into back-end otherwise it not working"},
+                      {"type":"text","id":"size_text","label":"Size Variant custom Text"}
+							]
+				},
+				{
+                  "type": "color",
+                  "name": "Color Variant",
+                  "settings": [
+                      {"type":"text","id":"color","label":"Color Variant","info":"add same that is into back-end otherwise it not working"},
+                      {"type":"select", "id":"icon_type", "label":"Color Icon Type", "options": [{"value":"bgcolor", "label":"Color"},{"value":"bgimg", "label":"Image" } ],"default":"bgcolor"},
+                      {"type":"color","id":"icon_type_c","label":"Icon Color","default":"#ddd"},
+                      {"type":"image_picker","id":"color_imgs","label":"Color Variant Image"},
+                      {"type":"text","id":"color_text","label":"Color Variant custom Text"},
+                      {"type":"header", "content":"Other Color"},
+                      {"type": "checkbox","id": "show_other_colr","label": "Enable","default": false},
+                      {"type":"color", "id":"color_type_1", "label":"Color Type 1"},
+                      {"type":"color", "id":"color_type_2", "label":"Color Type 2"}
+                 			 ]
+				},
+                {
+                    "type": "feature",
+                    "name": "Feature",
+                    "settings": [
+                        {"type": "checkbox","id": "show_feature","label":"Show Feature","default":true},
+                        {"type":"text","id":"feature_txt","label":"feature Text"},
+                        {"type":"color","id":"feature_bg","label":"Feature Background Color"},
+                        {"type":"color","id":"feature_fr","label":"Feature Text Color","default":"#ffffff"},
+                        {"type":"image_picker","id":"badge_Img","label":"Flavor Variant Image"}
+                    ]
+                }
+
+	]
+  }
+{% endschema %}
+
+
+<style>
+div#ProductSection--product-blanket-pawtect-header .product-single.white_space.large--text-left.peePadVarientsSC {
+    padding-bottom: 30px;
+}
+ 
+  .sss_slider .forEveryNeed {display: block;}
+  .sf_PB_banner_right .__price_button .col-md-12.no-padding {
+      justify-content: center;
+      grid-column-gap: 30px;
+  }
+  .thumnails_mode .product-single__photo-wrapper>img {
+      mix-blend-mode: darken;
+  }
+  .inner_text.first_inner_text_ {
+      width: 100%;
+  }
+  span.color_variant_bg {
+      margin: 0 auto 15px!important;
+  }
+  .sf_PB_banner_right #ProductSelect-option-0 .__itemWraper input[type=radio]:checked+label span:before {
+      border: 0px solid #11b6bd!important;
+  }
+  span.color_variant_bg {
+      width: 45px;
+      height: 45px;
+      background-size: 120%!important;
+  }
+  .sf_PB_banner_right .product-single__add-to-cart {
+      margin: 30px auto 0;
+      padding: 35px 0;
+  }
+  .sf_PB_banner_right #ProductSelect-option-0 span.color_variant_bg {
+      border: 3px solid #aca4a6!important;
+  }
+  
+  
+  
+@media (max-width: 1285px) {
+  .sf_PB_banner_right .__price_button .col-md-12.no-padding>div {
+      width: 40% !important;
+      max-width: fit-content !important;
+  }
+  .sf_PB_banner_right .__price_button .col-md-12.no-padding>div.product-single__add-to-cart {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+}
+  
+@media only screen and (min-width: 100px) and (max-width: 1100px) {
+  .sf_PB_banner_right .__price_button .col-md-12.no-padding {
+      flex-direction: row;
+  }
+}
+   
+@media (max-width: 767px){
+    section.pb_slider_35be7bef-965e-4797-985d-ebe490ecc347.sss_slider {
+        display: block !important; 
+    }
+    .sf_PB_banner_right .__price_button .col-md-12.no-padding .product-single__add-to-cart {
+        justify-content: center;
+        padding: 20px 0!important;
+        margin:  0!important;
+        margin-top: 30px !important;
+        border-top: 1px solid #c6c6c6;
+        border-bottom: 1px solid #c6c6c6;
+    }
+    .product-single__quantity {
+        border-bottom: 0px solid #cccccc;
+    }
+	.product-single__quantity label span.span_bg_color {
+         margin-top: 0px; 
+        margin-bottom: 20px;
+    }
+    .sf_PB_banner_right label.single-option-radio__label:after {
+        background: transparent;
+    }
+    .radio-wrapper.js.product-form__item.__frm_1 span.span_bg_color {
+        padding: 0;
+        display: block;
+        text-align: center !important;
+        margin: 0px auto;
+    }
+    #PawtectBlanketSlider5 .bc_slide {
+        padding-top: 60%;
+    }
+   
+
+
+
+}
+</style>

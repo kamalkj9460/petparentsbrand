@@ -1,0 +1,89 @@
+<style>p.is_points_count {text-transform: uppercase;}</style>
+<section class="pearks_treats" id="pearks_treats_{{ section.id }}">
+    <div class="container">
+        <div class="row">
+            <h2>{{- section.settings.pt_rewards_headline -}}</h2>
+        </div>
+      {% assign sliderHTML = '' %}
+          {% for block in section.blocks %} 
+        		{% if block.type == 'perksandtreats' %} 
+                   {% capture slideHtml %}
+                    <div class="pearks_treats pearks_treats_0{{forloop.index}}">
+                      {% if  block.settings.show_block != blank %}
+                        <div class="pearks_treats_cont pearks_treats_img">
+                          {% if block.settings.pt_slide_img %}
+                    		{{ block.settings.pt_slide_img | img_url:'master' | img_tag:'pt_slide_img','img-responsive' }}
+                    	{% endif %}
+                       {% if block.settings.pt_slide_free != blank %}
+                        <h3>{{- block.settings.pt_slide_free -}}</h3>
+                         {% endif %}
+                        {% if block.settings.pt_slide_title != blank %}
+                        <h3>{{- block.settings.pt_slide_title -}}</h3>
+                         {% endif %}
+                        </div>                        
+                        {% else %}
+                        <div class="pearks_treats_cont pearks_treats_txt">
+                          <span class="doller-lg">{% if block.settings.pt_slide_price != blank %}
+                    		{{ block.settings.pt_slide_price }}
+                    	{% endif %}</span>
+                          
+                       {% if block.settings.pt_slide_off != blank %}
+                        <h2>{{- block.settings.pt_slide_off -}}</h2>
+                          <h2></h2>
+                         {% endif %}
+                        </div>                        
+                        {% endif %}                      
+                      <div class="pt_points">
+                        <p class="is_points_count"><span>{{- block.settings.pt_slide_points -}}</span> Points</p>
+                      </div>                 
+                   </div>
+                     {% endcapture %}
+                  {% assign sliderHTML = sliderHTML | append: slideHtml %}
+        		{% endif %}
+        	{% endfor %}
+      
+        <div class="row_new">
+            <div class="pearks_treats_main slider" id="pearks_treats_desk">
+              {{ sliderHTML }}
+          </div>
+          <div class="pearks_treats_main slider" id="pearks_treats_mob">
+              {{ sliderHTML }}
+          </div>
+        </div>
+    </div>
+</section>
+<!-- Question section  -->
+<section>
+    <div class="container">
+        <div class="question-btm">
+            <h2>{{- section.settings.pt_question_title -}}</h2>
+            {% if section.settings.pt_question_cont != blank %}
+            <p>{{- section.settings.pt_question_cont -}}</p>
+          {% endif %}
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Perks and Treats",
+    "settings": [
+      {"type":"text","id":"pt_rewards_headline","label":"Headline"},
+      {"type":"header", "content":"Questions"},
+      {"type":"text","id":"pt_question_title","label":"Title"},
+      {"type":"html","id":"pt_question_cont","label":"Content"}
+    ],
+    "blocks" : [{	
+				"name":"Slide",
+                "type":"perksandtreats",
+				"settings": [
+                {"type":"checkbox", "id":"show_block", "label":"Enable Image", "default": true },
+                {"type":"image_picker","id":"pt_slide_img","label":"Choose Image"},                  
+				{"type":"text","id":"pt_slide_price","label":"Price","info":"If uncheck the Enable Image","default":"$5"},
+				{"type":"text","id":"pt_slide_off","label":"Off Discount","info":"If uncheck the Enable Image","default":"OFF DISCOUNT"},
+                {"type":"text","id":"pt_slide_free","label":"Free Product Text","info":"If checked the Enable Image"},
+                {"type":"text","id":"pt_slide_title","label":"Product Title","info":"If checked the Enable Image"},                  
+                {"type":"number","id":"pt_slide_points","label":"Earn Points"}
+				]} 
+			]
+  }
+{% endschema %}

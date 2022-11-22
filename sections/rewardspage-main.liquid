@@ -1,0 +1,105 @@
+<!-- banner start -->
+
+<section class="rewards_banner_top">
+    <div class="container">        
+             {% if section.settings.rewards_logo_url !=blank %}
+               <img src="{{- section.settings.rewards_logo_url -}}" alt="rewards_logo" class="img-responsive" />
+        	{% endif %}           
+    </div>
+</section>
+
+<section class="rewards_banner_top">
+  <div class="rewards_banner_imgs _is_desktop" style="background:url({{ section.settings.rewards_img_desk | img_url:'master'}})">
+    <div class="container">  
+       
+            <div class="rewards_banner_titlee">
+                    <h1>{{- section.settings.rewards_headline -}}</h1>
+                    <ul class="rewards_btn">
+                     <a class="rewards_link rewards_join_link" href="{{- section.settings.rewards_join_link -}}">Join Now</a>
+                     <a class="rewards_link rewards_signin_link" href="{{- section.settings.rewards_signin_link -}}">Sign In</a>
+                    </ul>
+                </div>
+            </div>
+    
+    </div>
+  
+    <div class="rewards_banner_imgs _is_mobile" style="background:url({{ section.settings.rewards_img_mob | img_url:'master'}})">
+      <div class="container">     
+       
+            <div class="rewards_banner_titlee">
+                    <h1>{{- section.settings.rewards_headline -}}</h1>
+                     <ul class="rewards_btn mobBtn">
+                     <a class="rewards_link rewards_join_link" href="{{- section.settings.rewards_join_link -}}">Join Now</a>
+                     <a class="rewards_link rewards_signin_link" href="{{- section.settings.rewards_signin_link -}}">Sign In</a>
+                    </ul>
+                </div>
+          
+      </div>
+    </div>
+</section>
+<!-- banner end -->
+<!-- how it work start -->
+<section class="main_works">
+    <div class="container">
+        <div class="main_works_inn">
+            <h2>{{- section.settings.hiw_rewards_headline -}}</h2>
+            <p>{{- section.settings.hiw_rewards_headline_s -}}</p>
+        </div>
+        <div class="main_works_btm">
+            <div class="work_process">
+                <div class="card_process">
+                    <div class="card-count">
+                        <p>{{- section.settings.hiw_rewards_num_1 -}}</p>
+                    </div>
+                    <h3>{{- section.settings.hiw_rewards_title_1 -}}</h3>
+                    <p>{{- section.settings.hiw_rewards_cont_1 -}}</p>
+                </div>
+                
+                <div class="card_process">
+                    <div class="card-count">
+                        <p>{{- section.settings.hiw_rewards_num_2 -}}</p>
+                    </div>
+                    <h3>{{- section.settings.hiw_rewards_title_2 -}}</h3>
+                    <p>{{- section.settings.hiw_rewards_cont_2 -}}</p>
+                </div>
+                <div class="card_process">
+                    <div class="card-count">
+                       <p>{{- section.settings.hiw_rewards_num_3 -}}</p>
+                    </div>
+                    <h3>{{- section.settings.hiw_rewards_title_3 -}}</h3>
+                    <p>{{- section.settings.hiw_rewards_cont_3 -}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- how it work end -->
+
+{% schema %}
+  {
+    "name": "Main Section",
+    "settings": [
+      {"type":"url","id":"rewards_logo_url","label":"Logo URL","info":"Upload SVG Logo in files and paste logo url here"},
+      {"type":"header", "content":"Banner"},
+      {"type":"image_picker","id":"rewards_img_desk","label":"Image (Desktop)"},
+      {"type":"image_picker","id":"rewards_img_mob","label":"Image (Mobile)"},
+      {"type":"text","id":"rewards_headline","label":"Headline"},
+      {"type":"url","id":"rewards_join_link","label":"Join Now Link"},
+      {"type":"url","id":"rewards_signin_link","label":"Sign In Link"},
+      {"type":"header", "content":"How It Works"},
+      {"type":"text","id":"hiw_rewards_headline","label":"Headline"},
+      {"type":"text","id":"hiw_rewards_headline_s","label":"sub Headline"},
+      {"type":"number","id":"hiw_rewards_num_1","label":"Number [1]"},
+      {"type":"text","id":"hiw_rewards_title_1","label":"Title [1]"},
+      {"type":"html","id":"hiw_rewards_cont_1","label":"Content [1]"},
+      {"type":"number","id":"hiw_rewards_num_2","label":"Number [2]"},
+      {"type":"text","id":"hiw_rewards_title_2","label":"Title [2]"},
+      {"type":"html","id":"hiw_rewards_cont_2","label":"Content [2]"},
+      {"type":"number","id":"hiw_rewards_num_3","label":"Number [3]"},
+      {"type":"text","id":"hiw_rewards_title_3","label":"Title [3]"},
+      {"type":"html","id":"hiw_rewards_cont_3","label":"Content [3]"}      
+    ]
+  }
+{% endschema %}
+
+

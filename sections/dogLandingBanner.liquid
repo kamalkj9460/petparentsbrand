@@ -1,0 +1,33 @@
+<section class="homeBanner single_breed">
+	<div class="container">
+		<div class="row">
+			<div class="pp-5">
+				<div class="BannerDog">
+					{% if section.settings.dogLanding_banner %}
+    				 	{{ section.settings.dogLanding_banner | img_url: 'master' | img_tag:'home_banner','lazyloaded' }}
+    				{% endif %}
+				</div>
+			</div>
+			<div class="pp-7">
+				<div class="BannerText">
+                  	{{ section.settings.dogLanding_text }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+
+{% schema %}
+  {
+    "name" : "Dog Landing Bannner",
+    "settings" : [			
+			{"type":"image_picker","id":"dogLanding_banner","label":"Dog Banner Image"},
+			{"type":"html","id":"dogLanding_text","label":"Banner Headline"}
+          ],
+	"presets": [{
+      "name": "Dog Landing Bannner",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

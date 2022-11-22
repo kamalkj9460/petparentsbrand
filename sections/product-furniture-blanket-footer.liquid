@@ -1,0 +1,44 @@
+<!-- snippets/product-uses-snippet.liquid-->
+{% include 'product-furniture-footer-snippet' %}
+<!--Stamped - Begin Main Widget -->
+<div id="stamped-main-widget"   
+data-widget-style="standard" 
+data-product-id="{{ product.id }}"   
+data-name="{{ product.title | escape }}"   
+data-url="{{ shop.url }}{{ product.url }}"   
+data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+data-description="{{ product.description | escape }}"   
+data-product-sku="{{product.handle}}"
+data-product-type="{{product.type}}">   
+{{ product.metafields.stamped.reviews | replace: 'href="//cdn1.stamped.io/files/widget.min.css"' ,'data-href="//cdn1.stamped.io/files/widget.min.css"' }}   
+</div>
+<!-- Stamped - End Main Widget -->
+{% schema %}
+  {
+    "name": "Belly Band footer",
+    "settings": [
+	  {"type":"checkbox", "id":"is_content", "label":"Enable Product Content","info":"Enable and add content in section blocks bellow!","default":true},
+	  {"type":"checkbox", "id":"is_review", "label":"Enable Product Reviews","default":true},
+	  {"type":"color","id":"re_head_color","label":"Review Header Color","default":"#11b6bd"},
+	  {"type":"text","id":"r_title","label":"Review Titile Text"},
+	  {"type":"checkbox","id":"QA_show","label":"Show Question Answers","default":true}
+    ],
+	"blocks" : [{
+        "type": "content",
+        "name": "Content",
+        "settings": [
+			{"type":"text","id":"conetnt_header","label":"Content Header"},
+			{"type":"html","id":"conetnt_text","label":"Content Text"}
+		]},
+		{
+			"type":"product-c-review",
+			"name":"Product custom Review",
+			"settings":[
+				  {"type": "text","id":"review_title","label":"Review Title"},
+                  {"type":"range","id":"rating","min":1,"max":5,"step":1,"label":"Rating","default":5},
+                  {"type": "html","id":"review_c","label":"Review Text"},
+                  {"type": "text","id":"reviewer_id","label":"Reviewer Name"}
+			   ]
+		}]
+  }
+{% endschema %}

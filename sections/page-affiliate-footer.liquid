@@ -1,0 +1,42 @@
+<script type="lazyload2">
+	setTimeout(function() {
+  		$("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
+	}, 1000);
+</script>
+<script type="lazyload2" data-src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<section class="ProductFaq">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="faqproductpage sf_faq">
+					<h2>Frequently Asked Questions </h2>
+					<div id="accordion">
+						{% for block in section.blocks %}
+						<h3>{{block.settings.affiliate_faq_title}}</h3>
+						<div><p>{{block.settings.affiliate_faq_data}}</p></div>
+						{% endfor %}
+                      <div class="sf_More_Question"><p><span>More Questions?</span> Email Us: <a href="mailto:{{section.settings.affiliate_moreEmail}}">{{section.settings.affiliate_moreEmail}}</a></p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% schema %}
+  {
+    "name": "Affiliate Footer",
+    "settings": [
+		{"type": "text","id":"affiliate_moreEmail","label":"More Question Emial"}
+	],
+	"blocks" : [
+		{
+			"type":"Affiliate_FAQ",
+			"name":"Affiliate FAQ",
+			"limit": 12,
+			"settings":[
+             	  {"type": "text","id":"affiliate_faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"affiliate_faq_data","label":"Faq Content"}
+			   ]
+		}]
+	}
+{% endschema %}

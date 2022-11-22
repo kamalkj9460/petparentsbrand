@@ -1,0 +1,112 @@
+<script type="lazyload2">
+	setTimeout(function() {
+  		$("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
+	}, 1000);
+</script>
+<script type="lazyload2" data-src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<section class="ProductFaq" id="sf_ProductFaq">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="faqproductpagesf_faq">
+					<h2>Frequently Asked Questions </h2>
+					<div id="sf_accordion">
+						{% for block in section.blocks %}
+						<div class="faqConent"><h3>{{block.settings.faq_title}}</h3>
+                          <p>{{block.settings.faq_data}}</p></div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% if section.settings.advBanner %}
+    <section class="BannerAdvet">
+      <div class="advBanner {% if section.settings.advBannermobile %}desktopSection{% endif %}">
+      {% if section.settings.advBannerurl %}  <a href="{{section.settings.advBannerurl}}">{% endif %}
+        <img class="lazy2" data-src="{{section.settings.advBanner | img_url:'master' }}">
+        {% if section.settings.advBannerurl %}   </a>{% endif %}
+      </div>
+      {% if section.settings.advBannermobile %}
+        <div class="advBanner mobileSection">
+        {% if section.settings.advBannerurl %}  <a href="{{section.settings.advBannerurl}}">{% endif %}
+          <img class="lazy2" data-src="{{section.settings.advBannermobile | img_url:'master' }}">
+          {% if section.settings.advBannerurl %}   </a>{% endif %}
+        </div>
+      {% endif %}
+    </section>
+{% endif %}
+{% if section.settings.customReviewCheckboxImg %}
+{% if section.settings.customReviewImg %}
+<section class="customReview sec_pup_rec">
+	<div class="__customReviewSub">
+		<div class="container">
+			<h1> {{section.settings.cusreviewProduct}} <span style="color:{{section.settings.colorPicker}} !important;"> {{section.settings.cusreviewheadline}}</span></h1>
+			<div class="row">
+				<div class="__customReviewImg">
+					{% if section.settings.customReviewImg %}
+					<img class="lazy2" data-src="{{section.settings.customReviewImg | img_url:'master' }}">
+					{% endif %}
+				</div>
+				<div class="__customeReviewContent">
+					<p>{{section.settings.customReviewContent}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>{% endif %}{% endif %}
+{% if section.settings.CustomerReviewVideo %}
+  <section class="CustomerReviewVideo">
+    <div class="container">
+        <div class="row">
+            <div class="pp-12">
+              <div class="faqproductpage sf_faq">
+               	<h2 style="color:{{section.settings.CustomerReviewhead_color}}">PET PARENTS ARE SAYING...  </h2>
+               	<h6>{{section.settings.cusreviewProductsubHeding}}</h6>
+              </div>
+              <div class="CustomerReviewVideo_SectionX">
+              	<div class="inline_video img" id="{{section.settings.sec_video.id}}" video="{{section.settings.sec_video.id}}" href="{{section.settings.sec_video }}">
+         		 <div class="video_poster_img">{{ section.settings.video_poster | img_url:'master' | img_tag:'img-responsive' }}</div>
+                 {% comment %} <div class='embed-container'><iframe src='https://www.youtube.com/embed/{{section.settings.sec_video.id}}' frameborder='0' allowfullscreen></iframe></div>{% endcomment %}
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>	
+  </section>
+{% endif %}
+<div class="white_space02 bot_no">
+	{%- for block in section.blocks -%}
+		{%- if block.type == 'content' -%}
+			<div class="__express02">{{- block.settings.conetnt_header -}}</div>
+			<div class="__Blog_cnt">{{- block.settings.conetnt_text -}}<p></p></div>
+		{%- endif -%}
+	{%- endfor -%}
+</div>
+<!-- review widget -->
+<!--Stamped - Begin Main Widget -->
+<div id="stamped-main-widget"   
+data-widget-style="standard" 
+data-product-id="{{ product.id }}"   
+data-name="{{ product.title | escape }}"   
+data-url="{{ shop.url }}{{ product.url }}"   
+data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+data-description="{{ product.description | escape }}"   
+data-product-sku="{{product.handle}}"
+data-product-type="{{product.type}}">   
+{{ product.metafields.stamped.reviews }}   
+</div>
+<!-- Stamped - End Main Widget -->
+
+{% style %}
+  .CustomerReviewVideo_SectionX{max-width: 620px;}
+  div#shopify-section-homepage--look-a-like{display: none;}
+  .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .inline_video { flex: 1 0 61%;}
+  .inline_video{position:relative;cursor:pointer;}
+  .mfp-iframe-holder .mfp-close { top: -66px; right: -66px; }
+  /*.inline_video:after{ content:' ';background:url('{{ 'player.png' | file_img_url:'master'}}'); height: 20%; width: 10%; position: absolute; background-size: 100%; background-repeat: no-repeat; left: 0; right: 0; border: 0; margin: 0 auto; transform: translateY(54%); top: 29%; }*/
+  .mfp-bg {background-color: #0b0b0b;}
+  .inline_video.playing:after{opacity: 0;top: -100%;}
+{% endstyle %}

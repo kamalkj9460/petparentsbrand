@@ -1,0 +1,33 @@
+<section class="homeBanner single_breed catbr">
+	<div class="container">
+		<div class="row">
+			<div class="pp-5">
+				<div class="BannerDog">
+					{% if section.settings.catLanding_banner %}
+    				 	{{ section.settings.catLanding_banner | img_url: 'master' | img_tag:'home_banner','lazyloaded' }}
+    				{% endif %}
+				</div>
+			</div>
+			<div class="pp-7">
+				<div class="BannerText">
+                  	{{ section.settings.catLanding_text }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+
+{% schema %}
+  {
+    "name" : "Cat Landing Bannner",
+    "settings" : [			
+			{"type":"image_picker","id":"catLanding_banner","label":"Cat Banner Image"},
+			{"type":"html","id":"catLanding_text","label":"Banner Headline"}
+          ],
+	"presets": [{
+      "name": "Cat Landing Bannner",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

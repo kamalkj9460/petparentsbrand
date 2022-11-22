@@ -1,0 +1,79 @@
+<section class="productWarranty warrnty_type_2">
+  <div class="container">
+    <div class="productWarranty-banner">
+    	{% if  section.settings.bannerOne %}
+           {{ section.settings.bannerOne | img_url:'master' |img_tag:'bannerOne','img-responsive' }}
+         {% endif %}
+    </div>
+    <div class="product-text blu_wrrnty_2">
+      <p>{{section.settings.productText}}</p>
+    </div>
+    <div class="productWarr">
+      <div class="__leftProWarr">
+        <p>{{section.settings.leftProWarr}}</p>
+      </div>
+      <div class="__rytProWarr">
+      	{% if  section.settings.rytProImg %}
+           {{ section.settings.rytProImg | img_url:'master' |img_tag:'rytProImg','img-responsive' }}
+         {% endif %}
+      </div>
+    </div>
+    <div class="productWarr-text">
+      <h3>Register your new product below to <span> secure your respective product warranty. </span></h3>
+      <p>In the unlikely event you have a defective product or product issue please click to make a product warranty claim below.</p>
+    </div>
+    <div class="probott-Warranty">
+      <a href="{{section.settings.productWarrantyurl}}">
+        <div class="productWarranty">
+          <p><b>CLICK HERE TO</b></p>
+          <h4>Register for your</h4>
+          <h3>Product Warranty</h3>
+        </div>
+      </a>
+      <a href="{{section.settings.warrentyClaimurl}}">
+        <div class="warrentyClaim">
+            <p><b>CLICK HERE TO</b></p>
+            <h4>Make a product</h4>
+            <h3>Warranty Claim</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="bottom--buttons">
+  	<h1 class="btn_bot_abt">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'redButton' %}
+        <a href="{{block.settings.getLink}}" target="_self">{{block.settings.buttonText}}</a>
+      	 {% endif %}
+      {% endfor %}
+    </h1>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "productWarranty",
+    "settings": [
+		 {"type":"image_picker","id":"bannerOne","label":"Banner Image"},
+		 {"type":"text","id":"productText","label":"About Intro - Text"},	
+		 {"type":"text","id":"leftProWarr","label":"wsaheading - Text"},
+		 {"type":"image_picker","id":"rytProImg","label":"Select Image"},
+	  	 {"type":"header","content":"Warrenty section"},	
+		 {"type":"url","id":"productWarrantyurl","label":"Product Warranty - URL"},
+		 {"type":"url","id":"warrentyClaimurl","label":"Content - URL"}
+	],
+	"blocks" : [{
+        "type": "redButton",
+        "name": "Button",
+        "settings": [
+	       {"type":"url","id":"getLink","label":"Button Link"},
+	       {"type":"text","id":"buttonText","label":"Button text"}
+		]}],
+	"presets":[{
+      "name": "productWarranty",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+

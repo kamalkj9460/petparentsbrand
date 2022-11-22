@@ -1,0 +1,50 @@
+<!-- snippets/product-uses-snippet.liquid-->
+{% include 'product-footer-snippet' %}
+{% schema %}
+  {
+    "name": "Blanket Regular Footer",
+    "settings": [
+	  {"type":"checkbox", "id":"is_content", "label":"Enable Product Content","info":"Enable and add content in section blocks bellow!","default":true},
+	  {"type":"checkbox", "id":"is_review", "label":"Enable Product Reviews","default":true},
+	  {"type":"color","id":"re_head_color","label":"Review Header Color","default":"#11b6bd"},
+	  {"type":"color","id":"colorPicker","label":"Header Color","default":"#11b6bd"},
+	  {"type":"text","id":"r_title","label":"Review Titile Text"},
+	  {"type":"checkbox","id":"QA_show","label":"Show Question Answers","default":true},
+	  {"type":"header","content":"Image Banner Section"},
+	  {"type":"image_picker","id":"advBanner","label":"Banner Image"},
+	  {"type":"header","content":"Customer Review Section"},
+	  {"type":"text","id":"cusreviewProduct","label":"Review Product"},
+	  {"type":"text","id":"cusreviewheadline","label":"Review Title "},
+	  {"type":"image_picker","id":"customReviewImg","label":"Review Image"},
+	  {"type":"text","id":"customReviewContent","label":"Review Content"}
+    ],
+	"blocks" : [{
+        "type": "content",
+        "name": "Content",
+		"limit": 5,
+        "settings": [
+			{"type":"text","id":"conetnt_header","label":"Content Header"},
+			{"type":"html","id":"conetnt_text","label":"Content Text"}
+		]},
+		{
+			"type":"product-c-review",
+			"name":"Product custom Review",
+			"limit": 2,
+			"settings":[
+				  {"type": "text","id":"review_title","label":"Review Title"},
+                  {"type":"range","id":"rating","min":1,"max":5,"step":1,"label":"Rating","default":5},
+                  {"type": "html","id":"review_c","label":"Review Text"},
+                  {"type": "text","id":"reviewer_id","label":"Reviewer Name"}
+			   ]
+		},
+		{
+			"type":"faq",
+			"name":"faq content",
+			"limit": 12,
+			"settings":[
+				  {"type": "text","id":"faq_title","label":"Faq Heading"},
+				  {"type": "html","id":"faq_data","label":"Faq Content"}
+			   ]
+		}]
+  }
+{% endschema %}

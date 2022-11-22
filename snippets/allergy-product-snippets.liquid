@@ -1,0 +1,395 @@
+<div class="newformatingSizeSection sf_newformatingSizeSection">
+  <div class="product-blanket-regular-middle-content">
+  {%- for block in section.blocks -%}
+     {%- case block.type -%}
+        {%- when 'titleBB' -%}
+           {%- if block.settings.show_block and block.settings.text != blank  -%}
+              <div class="Spec_Features_txt block-{{block.id}} text-{{block.settings.text_align}}" {{block.shopify_attributes}}>
+                 {{- block.settings.text -}}
+              </div>
+              {%- style -%}
+                 .block-{{block.id}}{ background-color:{{block.settings.bg_color}}; }
+                 .block-{{block.id}} p{font-size:{{ block.settings.font_size }}px; padding:{{block.settings.specingUp}}px {{block.settings.specingDown}}px; color:{{block.settings.font_color}};letter-spacing:{{block.settings.letter-spacing}}px;margin: 0;} 
+              {%- endstyle -%}
+           {% endif -%}
+        {% when 'content_with_imgBB' %}
+           {% if block.settings.show_block %}
+              <section {{block.shopify_attributes}} class="additional_sec_helpIssue pro_points block-{{block.id}} {% if block.settings.block_type == 'block_type' %}white_space{% endif %}" style="background-color:{{block.settings.block_bg}}!important;">
+                <div class="container"> 
+                  <div class="top_additional_sec_issue">
+                      <div class="top_additional_sec_Img sf_top_additional_left_sec" style="background:{{-block.settings.img__per_bg_clr-}}">
+                        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.topAddit_sec_Img | img_url: 'master' }}" alt="block-img">
+                         
+                      </div>
+                      <div class="top_additional_sec_content listing_pnts sf_top_additional_right_sec">
+                         <h1 class="header-{{block.id}} text-{{block.settings.text_align}}">{{-block.settings.headerText-}}</h1>
+                         <div class="top_additional_sec_subcontent">
+                            <div class="top_add_sec_leftcontent">{{-block.settings.addit_leftcontent-}}</div>
+                            <div class="top_add_sec_rightcontent">{{-block.settings.addit_rightcontent-}}</div>
+                         </div>
+                      </div>      
+                   </div>
+                </div>
+                {% if block.settings.addit_sec_paragraph != blank %}
+                 <p class="sub_cod text-{{block.settings.add_txt_align}}">{{-block.settings.addit_sec_paragraph-}}</p>
+                {% endif %}
+              </section>
+              {% style %}        
+                 .additional_sec_helpIssue.block-{{block.id}}{ 
+                    margin:{{block.settings.margn-up}}px {{block.settings.margn-dwn}}px 0 {{block.settings.margn-dwn}}px !important; 
+                    {% if block.settings.block_type == 'boxed' %}
+                       width:{{ block.settings.width }}%;margin: 0 auto !important;
+                    {% endif %}
+                 }
+                 {% if block.settings.img_align == 'right' %}
+                    .block-{{block.id}} .top_additional_sec_Img{ order:1; }
+                 {% endif %}
+                 .header-{{block.id}}{
+                    color: {{block.settings.headerTextColor}} !important;
+                    font-size:{{block.settings.headerTextSize}}px !important;
+                    letter-spacing:{{block.settings.ltr-spacing}}px !important;            
+                 }         
+              {% endstyle %}
+           {% endif %}
+        {% when 'cont_videoBB' %}  	
+    		 {% if block.settings.enable_sec_video !=blank %}
+                        <div class='embed-containerfg is_desktop_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{{-block.settings.video_poster-}}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+                        <div class='embed-containerfg is_mobile_enble'> 
+                         <video-js data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' id="videoControl" class="video-js" width="100%" height="720" poster="https://cdn.shopify.com/s/files/1/1355/5443/{% if block.settings.video_poster_m !=blank %}{{-block.settings.video_poster_m-}}{% else %}{{-block.settings.video_poster-}}{% endif %}">
+                           <source src="{{ block.settings.sec_video | asset_url }}" type="video/mp4">					
+                        </video-js>
+                        </div>
+              		{% endif %}  
+            {% if block.settings.addit_sec_paragraph !=blank %}
+              <div class="additional_sec_helpIssue pro_points never-secrifice" style="margin-top:0px; background-color:{{block.settings.addit_bg_color}} !important;">
+                <div class="container">
+                  <p class="sub_cod">{{block.settings.addit_sec_paragraph}}</p>
+                </div>
+              </div>
+              {% endif %} 
+        {% when 'sp_featureBB' %}
+           {% if block.settings.show_block %}  
+    <section class="sf_Special_Features_sec" style="background:{{ block.settings.block_bg_Spe}}">
+			<div class="container">
+              <div class="Special_Features">
+	<div class="Special_Features_content">
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_1">{{ block.settings.featureTitle1}}</h3>
+		<div id="spc_ftu_1" class="sf_c_content"><p>{{ block.settings.featureText1}}</p>		
+		</div>{% if block.settings.featurePlusText1 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText1}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_2">{{ block.settings.featureTitle2}}</h3>
+		<div id="spc_ftu_2" class="sf_c_content"><p>{{ block.settings.featureText2}}</p>
+		</div>{% if block.settings.featurePlusText2 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText2}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_3">{{ block.settings.featureTitle3}}</h3>
+		<div id="spc_ftu_3" class="sf_c_content"><p>{{ block.settings.featureText3}}</p>		
+		</div>{% if block.settings.featurePlusText3 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText3}}</p>{% endif %}</div>
+		<div class="inner_text">
+		<h3 spf_id="spc_ftu_4">{{ block.settings.featureTitle4}}</h3>
+		<div id="spc_ftu_4" class="sf_c_content"><p>{{ block.settings.featureText4}}</p>		
+		</div>{% if block.settings.featurePlusText4 != blank %}<p class="sf_plus_only">{{ block.settings.featurePlusText4}}</p>{% endif %}</div>
+	</div>
+	<div class="Special_Features_img" style="background:{{-block.settings.img__f_bg_clr-}}">
+      	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.featureRightImg | img_url: 'master' }}" alt="featureRightImg">
+	</div>
+     
+</div>
+
+      </div>
+</section>   
+  			{% style %}
+  		.__PeePadUse.block-{{block.id}} .row.row_iconic{ margin:0 auto;}
+  			  {% endstyle %}
+           {% endif %}
+          	{% when 'antler' %}
+    		<section class="aps_NaturalIngredients allergy">
+              <div class="container"> 
+              <ul class="naturl_a_Ingredients{% if block.settings.antlerImg_4 !=blank %} is_fout_items{% else %} is_three_items{% endif %}">
+               {% if block.settings.antlerImg_1 %}
+                <li>                
+                  <span>
+                    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_1 | img_url: 'master' }}" alt="antlerImg_1">
+                    
+                  </span>				
+                  <h3>{{ block.settings.antlerHeading_1 }}</h3>
+                  <p>{{ block.settings.antlerContent_1 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.antlerImg_2 %}
+                <li>           
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_2 | img_url: 'master' }}" alt="antlerImg_2">
+				
+                  <h3>{{ block.settings.antlerHeading_2 }}</h3>
+                  <p>{{ block.settings.antlerContent_2 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.antlerImg_3 %}
+                <li>             
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_3 | img_url: 'master' }}" alt="antlerImg_3">
+				
+                  <h3>{{ block.settings.antlerHeading_3 }}</h3>
+                  <p>{{ block.settings.antlerContent_3 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.antlerImg_4 %}
+                <li>            
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_4 | img_url: 'master' }}" alt="antlerImg_4">
+				
+                  <h3>{{ block.settings.antlerHeading_4 }}</h3>
+                  <p>{{ block.settings.antlerContent_4 }}</p>
+                </li>
+                {% endif %}
+              </ul>
+              </div>
+    </section>
+    {%- when 'ss_Ingredient' -%}
+    <section class="sec-ss_Ingredient">
+      <div class="container">        
+      <div class="main_ss_Ingredient{% if block.settings.si_enable_box_2 != blank %} is_right_ss_sec{% endif %}">        
+        <div class="inner_ss_Ingredient left_ss_Ingredient"> 
+        <div class="ss_content">
+          <div class="logotext">
+           <h3>{% if block.settings.si_title %}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title | img_url: 'master' }}" alt="si_title">
+		
+           {% endif %}</h3>
+             <p>{{- block.settings.si_description -}}</p>             
+          </div>
+           <div class="logotext_img"> 
+            {% if block.settings.si_image %}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image | img_url: 'master' }}" alt="si_image">
+            
+             {% endif %}
+          </div>                  
+        </div>
+         </div> 
+        {% if block.settings.si_enable_box_2 != blank %}
+        <div class="inner_ss_Ingredient right_ss_Ingredient">
+			 <div class="ss_content">
+          <div class="logotext">
+           <h3>{% if block.settings.si_title_2 %}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title_2 | img_url: 'master' }}" alt="si_title_2">
+		
+           {% endif %}</h3>
+             <p>{{- block.settings.si_description_2 -}}</p>             
+          </div>
+           <div class="logotext_img"> 
+            {% if block.settings.si_image_2 %}
+             	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image_2 | img_url: 'master' }}" alt="si_image_2">
+            
+             {% endif %}
+          </div>                  
+        </div>
+		</div>
+        {% endif %}
+        
+		</div>
+        
+      </div>           
+    </section>
+ {%- when 'Branded_Natural' -%}   
+ <section id="Branded_Natural">
+      <div class="container">        
+      <div class="Branded_Natural">        
+        <div class="inner_ss_Ingredient left_ss_Ingredient"> 
+          <h3 class="forEveryNeed sliderEveryNeed">{{- block.settings.bn_heading_1 -}}</h3>
+        <div class="ss_content">
+          <div class="logotext">
+           <h3>{% if block.settings.si_title %}
+             <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_title | img_url: 'master' }}" alt="si_title">
+		
+           {% endif %}</h3>
+             <p>{{- block.settings.si_description -}}</p>             
+          </div>
+           <div class="logotext_img"> 
+            {% if block.settings.si_image %}
+             <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.si_image | img_url: 'master' }}" alt="si_image">
+            
+             {% endif %}
+          </div>                  
+        </div>
+         </div>
+        <div class="inner_bn_Ingredient right_bn_Ingredient"> 
+          <h3 class="forEveryNeed sliderEveryNeed">{{- block.settings.bn_heading_2 -}}</h3>
+        <ul class="naturl_a_Ingredients is_three_items is_2_items">
+               {% if block.settings.antlerImg_1 %}
+                <li>                
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_1 | img_url: 'master' }}" alt="antlerImg_1"></span>				
+                  <h3>{{ block.settings.antlerHeading_1 }}</h3>
+                  <p>{{ block.settings.antlerContent_1 }}</p>
+                </li>
+                {% endif %}
+          {% if block.settings.antlerImg_2 %}
+                <li>                
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_2 | img_url: 'master' }}" alt="antlerImg_2"></span>				
+                  <h3>{{ block.settings.antlerHeading_2 }}</h3>
+                  <p>{{ block.settings.antlerContent_2 }}</p>
+                </li>
+                {% endif %}
+          </ul>
+         </div>
+		</div>        
+        <ul class="naturl_a_Ingredients is_three_items">
+               {% if block.settings.antlerImg_3 %}
+                <li>                
+                  
+                  <span><img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_3 | img_url: 'master' }}" alt="antlerImg_3"></span>				
+                  <h3>{{ block.settings.antlerHeading_3 }}</h3>
+                  <p>{{ block.settings.antlerContent_3 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.antlerImg_4 %}
+                <li>                
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_4 | img_url: 'master' }}" alt="antlerImg_4">
+				
+                  <h3>{{ block.settings.antlerHeading_4 }}</h3>
+                  <p>{{ block.settings.antlerContent_4 }}</p>
+                </li>
+                {% endif %}
+                {% if block.settings.antlerImg_5 %}
+                <li class="last-li-ni">                
+                  <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg_5 | img_url: 'master' }}" alt="antlerImg_5">
+				
+                  <h3>{{ block.settings.antlerHeading_5 }}</h3>
+                  <p>{{ block.settings.antlerContent_5 }}</p>
+                </li>
+                {% endif %}
+        </ul>        
+      </div>           
+    </section> 
+     {%- endcase -%}
+  {%- endfor -%}
+</div>
+</div>
+<section id="OurBaseIngredients">
+  <div class="container">
+    <div class="main_ob_Ingred">
+        <div class="inner_ob_Ingred">
+            <div class="inner-left_ob_Ingred">
+              <h3 class="HeadingTitle">{{ section.settings.obi_title_1 }}</h3>
+              <div class="main-sub-in">
+              <div class="sub-in sub-in01">
+                <div class="sub-in_c">
+                  {% if section.settings.obi_img1 %}
+                  <div class="PlushIocn">
+                    <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img1 | img_url: 'master' }}" alt="obi_img1">
+                    <span>{{ section.settings.obi_txt1 }}</span></div>
+         			  {% endif %}
+                  <span class="PlushSign"> + </span>
+                </div>
+               
+              </div>
+              <div class="sub-in sub-in02">
+                 <div class="sub-in_c">
+                  {% if section.settings.obi_img2 %}
+                   	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img2 | img_url: 'master' }}" alt="obi_img2">
+					
+         			  {% endif %}
+                  <span>{{ section.settings.obi_txt2 }}</span>
+                </div>
+                <div class="sub-in_c">
+                  {% if section.settings.obi_img3 %}
+                  	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img3 | img_url: 'master' }}" alt="obi_img3">
+					
+         			  {% endif %}
+                  <span>{{ section.settings.obi_txt3 }}</span>
+                </div>
+                <div class="sub-in_c">
+                  {% if section.settings.obi_img4 %}
+                  	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obi_img4 | img_url: 'master' }}" alt="obi_img4">
+					
+         			  {% endif %}
+                  <span>{{ section.settings.obi_txt4 }}</span>
+                </div>
+              </div>
+              </div>
+            </div>
+        <div class="inner-right_ob_Ingred">
+       	 <h3 class="HeadingTitle">{{ section.settings.obi_title_2 }}</h3>
+        	<p class="inner-para">{{ section.settings.ic_content }}</p>
+        </div>
+        </div>
+      <div class="inner_ob_Ingred_bottom">
+        {{ section.settings.ic_content_b }}
+      </div>
+  </div>
+     </div>
+</section>
+
+<section class="sec_nofillter_allergy">
+  <div class="container">
+  <div class="row nofillter_inner">	
+    <div class="nofillter_left">
+      <h3>{{section.settings.leftNofillHeading}}</h3>   
+    </div>
+    <div class="nofillter_right">
+		{% if section.settings.botimag %}
+      			<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="secnofillter-subPart" style="background:{{section.settings.aif_bg_color}}">
+  <div class="container">
+    <div class="row">
+      <div class="MoreActive">
+      	<h4>{{section.settings.aif_heading}}</h4>
+      </div>
+    </div>
+    
+    <div class="HealthyFillers">
+      
+      <div class="border-top-bottom">
+        <div class="col_01 col_style">
+          <div class="vs-text">{{- section.settings.aif_text_1 -}}            
+          </div>
+          <div class="MoblieImg">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_1 | img_url: 'master' }}" alt="aif_img_1">
+            
+          </div>
+        </div>
+        <div class="col_02 col_style">
+          <div class="Vs">VS</div>
+        </div>
+        <div class="col_03 col_style">
+          <div class="vs-text">{{- section.settings.aif_text_2 -}}            
+          </div>
+			<div class="MoblieImg">
+              <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_2 | img_url: 'master' }}" alt="aif_img_2">
+              
+          </div>
+        </div>
+      </div>
+      <div class="no-border-top-bottom">
+        <div class="col_01 col_style">
+          <div class="vs-text-img">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_1 | img_url: 'master' }}" alt="aif_img_1">
+            
+          </div>
+        </div>
+        <div class="col_02 col_style">
+          <div class="Vs">&nbsp;</div>
+        </div>
+        <div class="col_03 col_style">
+          <div class="vs-text-img">
+            <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.aif_img_2 | img_url: 'master' }}" alt="aif_img_2">
+          
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+

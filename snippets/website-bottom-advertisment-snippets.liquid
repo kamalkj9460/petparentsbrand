@@ -1,0 +1,16 @@
+<section class="websiteBottomAdvertisment">
+	<div class="advertismentContent  {% if section.settings.webadvertismentBottommobile %}desktopSection{% endif %}">
+		{% if section.settings.webadvertismentBottom %}
+		<a href="{{section.settings.webadverLink}}">
+			<img class="lazy2" data-src="{{section.settings.webadvertismentBottom | img_url:'master'}}">
+		</a>
+		{% endif %}
+	</div>
+	<div class="advertismentContent mobileSection">
+		{% if section.settings.webadvertismentBottommobile %}
+		<a href="{{section.settings.webadverLink}}">
+			<img class="lazy2" data-src="{{section.settings.webadvertismentBottommobile | img_url:'master'}}">
+		</a>
+		{% endif %}
+	</div>
+</section>

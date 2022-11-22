@@ -1,0 +1,42 @@
+<!-- As seen on section -->
+<!-- sections/homepage--asseen.liquid-->
+<div class="__as_seen_on">
+  <div class="container">
+    <div class="row">
+      <div class="__as_seen_on_inner">
+        <div class="respondw">
+          <div class="__as_seen_title">{{ section.settings.header_text }}</div>
+        </div>
+        <div class="__seen_logo">
+          <ul>
+            {% if section.blocks.size > 0 %}
+			{% for block in section.blocks %}
+           	<li>{{ block.settings.logo_img | img_url:'master' | img_tag:'logo_as_seen' }}</li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "As Seen On",
+    "max_blocks": 5,
+    "settings": [
+          {"type":"text","id":"header_text","label":"Section Header Text"}
+    ],
+    "presets":[{
+          "name": "Home -- As Seen On",
+          "category": "Homepage"
+    }],
+    "blocks" : [{
+          "type": "as_seen_on",
+          "name": "Logo",
+          "settings": [
+              {"type":"image_picker","id":"logo_img","label":"Select Image"}
+          ]		
+    }]
+}
+{% endschema %}

@@ -1,0 +1,37 @@
+{% comment %}Free shipping trashold calculator{% endcomment %}
+{% assign FST_amount =  settings.fst_amount | default:45.00 %}
+{% if settings.fst %}   
+      {% assign cart_total = cart.total_price | money_without_currency %}
+      {% assign FST_left = FST_amount | minus: cart_total %}
+      <div class="FST{% if settings.fst_text_align %} fst-center{% endif %}{% if settings.fst_uppercase %} fst-uppercase{% endif %}">
+         <p class="shipping-savings-message">
+            {% if FST_left >= 0 %}
+               {% assign amt = FST_left %}
+               {% assign Ptext = settings.pending_text | replace:'{{amount}}', amt %}
+               {% capture pTextDefault %}You are {{ amt }} away from FREE shipping{% endcapture %}
+               {{ Ptext | default: pTextDefault }}
+            {% else %}
+               {{ settings.free_ship_msg | default:"You've got free shipping!!!" }}
+            {% endif %}
+         </p>
+      </div>
+   {% style %}
+      .FST {
+         max-width: {{settings.fst_width}}%;
+         margin: 0 auto;
+         padding: 8px;
+         display: inline-block;
+         color: {{settings.fst_text_color}};
+         font-size: {{settings.fst_font_size}}px;
+         line-height: {{settings.fst_font_size}}px;         
+         background-color:{{settings.fst_bg_color}};
+      }
+	.FST.fst-center{
+		text-align: center;
+	}
+	.FST.fst-uppercase{
+		text-transform: uppercase;
+	}
+	.FST p{ padding:0;margin:0;}
+   {% endstyle %}
+{% endif %}

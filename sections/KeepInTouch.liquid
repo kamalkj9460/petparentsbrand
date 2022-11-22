@@ -1,0 +1,32 @@
+<section class="shopPetAge_wht sf_ShopByNeedSlider sf_KeepInTouch">
+	<div class="container">
+      <span class="sf_divider" style="background:{{section.settings.kt_dividerColor}}"></span>		
+			<h2 class="head_sec bl_h">{{section.settings.kt_section_title}}</h2>
+      <div class="proKadsfnSlider">
+      		<h3 class="head_sec sf_h3">{{section.settings.kt_section_subtitle}}</h3>
+			<div class="proKnownSliderHome" id="sf_KeepInTouch">
+              {% comment %}Embeding klaviyo form{% endcomment %}
+              <div class="klaviyo-form-UqiGqu"></div>
+              {% comment %}
+              <input type="text" placeholder="First Name*"><input type="text" placeholder="Last Name*"><span class="rad_span"><input type="radio" name="pet_cat">Cat<input type="radio" name="pet_cat" value="Dog">Dog </span>
+              <input id="sf_emails" class="sf_email" type="text" placeholder="Enter Your Email*">
+              <input type="button" class="sf_send_BTN" value="Sign Up" />{% endcomment %}
+			
+			  </div>
+		 </div>
+</div>
+</section>
+
+{% schema %}
+	{
+		"name": "Keep in Touch",
+		"settings": [
+			{"type":"text","id":"kt_section_title","label":"Section Title"},
+			{"type":"text","id":"kt_section_subtitle","label":"Sub Title"},
+			{"type":"color","id":"kt_dividerColor","label":"Divider Color","default":"#ed1b3c"}		
+		],
+		"presets": [{
+			"name": "Keep in Touch"
+		}]
+	}
+{% endschema %}

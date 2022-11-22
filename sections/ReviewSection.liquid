@@ -1,0 +1,63 @@
+<section class="shopPetAge_wht sf_ShopByNeedSlider sf_BestKnownFor sf_ReviewSection">
+	<div class="container">
+      <span class="sf_divider" style="background:{{section.settings.rs_dividerColor}}"></span>
+		
+			<h2 class="head_sec bl_h">{{section.settings.rs_section_title}}</h2>
+			<h3 class="head_sec sf_h3 deskTab">{{section.settings.rs_section_subtitle}}</h3>
+      		<h3 class="head_sec sf_h3 mobBan">{{section.settings.rs_section_msubtitle1}}<br>{{section.settings.rs_section_msubtitle2}}</h3>
+			<div class="proKnownSliderHome slider" id="sf_ReviewSection">
+              {% for block in section.blocks %} 
+				<div class="proKnownSlider">				  
+					<span class="sf_pro_img">					
+                      {% if block.settings.rs_starRating == 5 %}
+                     <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span>
+                      {% endif %}
+                      {% if block.settings.rs_starRating == 4 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 3 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 2 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 1 %}
+                      <span class="is_enable">&#9733;</span> <span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+					</span>				 
+                  <h3>{{block.settings.rs_productTitle}}</h3>
+                   <h5>{{block.settings.rs_productAuthor}}</h5>
+                  <div class="review_footer"><a href="{{block.settings.rs_productReviewUrl}}">Read full review</a>
+                    <img class="paw-gray lazy2 lazy3" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/paw-gray.png"></div>
+				</div>
+				{% endfor %}
+			
+			  </div>
+		 </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Review Section",
+		"settings": [
+			{"type":"text","id":"rs_section_title","label":"Section Title"},
+			{"type":"color","id":"rs_dividerColor","label":"Divider Color","default":"#ed1b3c"},
+			{"type":"text","id":"rs_section_subtitle","label":"Sub Title"},
+			{ "type": "header", "content": "Sub Heading [Mobile]" },
+			{"type":"text","id":"rs_section_msubtitle1","label":"Sub Title [1]"},
+			{"type":"text","id":"rs_section_msubtitle2","label":"Sub Title [2]"}
+		],
+		"blocks" : [{
+         "type": "slide",
+         "name": "New Item",
+         "settings": [
+			{"type":"range","id":"rs_starRating","label":"Star Rating","step": 1,"min":1,"max":5,"default":5},
+			{"type":"text","id":"rs_productTitle","label":"Title"},
+            {"type":"text","id":"rs_productAuthor","label":"Author"},
+			{"type":"url","id":"rs_productReviewUrl","label":"Full Review Url"}	
+            ]}],
+		"presets": [{
+			"name": "Review Section"
+		}]
+	}
+{% endschema %}

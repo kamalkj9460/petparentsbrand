@@ -1,0 +1,78 @@
+<!-- Homepage Full View Collection Section 
+sections/homepage--petcollectionfull.liquid -->
+<style type="text/css">
+.crafted__above_data {background-color: {{ section.settings.crafted_clr_abv}};}
+</style>
+<div class="__Product_Section">
+  <div class="container">
+      {% if section.blocks.size > 0 %}
+        {% assign counter = 1 %}
+        {% for block in section.blocks %}
+            {% capture count %}{{ counter | modulo: 2 }}{% endcapture %}
+            {% if counter == 4 %}
+                {% capture cls %}style="line-height:70px;top:33%;"{% endcapture %}
+            {% else %}
+                {% capture cls %}style="line-height:normal;top:37%;"{% endcapture %}
+             {% endif %}
+            {% assign countt = count | plus: 0 %}
+               {% if countt > 0 %}
+                    <div class="row">
+              {% endif %}
+                   {% if counter < 7 %}
+                      <div class="col-md-6 no-padding">
+                        <div class="__Dog_Diapers">						
+                          <a href="{{ block.settings.collection_url }}">
+                            <div class="__Dog_Diapers_img">
+                                {{ block.settings.full_collection_img | img_url: 'master' | img_tag:'collection_img' }}
+                            </div>
+                          </a>
+                          <div class="__Pro_Title">{% if block.settings.collection_name %}
+                            <a {{ cls }} href="{{ block.settings.collection_url }}">{{ block.settings.collection_name }}</a>{% endif %}
+                          </div>
+                        </div>	
+                      </div>
+                   {% endif %}      
+
+                   {% if counter == 7 %}
+                        <div class="col-md-12 no-padding carefully_crafted">
+                          <div class="crafted__above_data"></div>
+                          <div class="__Dog_Diapers">						
+                            <div class="__Dog_Diapers_img">
+                              {{ block.settings.full_collection_img | img_url: 'master' | img_tag:'collection_img' }}
+                            </div>
+                            <div class="__Pro_Title">
+                              {% if block.settings.collection_name %}
+                                  <a {% if block.settings.collection_url == blank %}style="cursor:default;"{% endif %} href="{{ block.settings.collection_url }}">{{ block.settings.collection_name }}</a>
+                              {% endif %}
+                            </div>
+                          </div>	
+                        </div>
+                   {% endif %}
+               {% if countt == 0 or counter == 7 %}</div>{% endif %}
+            {% assign counter = counter | plus: 1 %}            	
+        {% endfor %}
+    {% endif %}	
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Full Collection List",
+	"max_blocks": 7,
+    "settings": [
+                 {"type":"color","id":"crafted_clr_abv","label":"Carefully Crafted  Above Stripe Color"}
+          ],
+	"presets":[{
+      "name": "Home -- Full Collection List",
+      "category": "Homepage"
+    }],
+	"blocks" : [{
+        "type": "colection",
+        "name": "Collection",
+        "settings": [
+			{"type":"image_picker","id":"full_collection_img","label":"Select Image"},
+			{"type":"url","id":"collection_url","label":"Select Url"},
+			{"type":"html","id":"collection_name","label":"Collection Name"}
+		]		
+	}]
+  }
+{% endschema %}

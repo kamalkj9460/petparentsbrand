@@ -1,0 +1,424 @@
+{% if section.settings.is_middle %}
+<div class="white_space ">
+  <div class="__SizeChartbanner">
+    <div class="__SizeChartbanner--left">
+    	{% if section.settings.proSizeChart %}
+      		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.proSizeChart | img_url: 'master' }}" alt="useCase">
+            
+         {% endif %}
+    </div>
+    <div class="__SizeChartbanner--right">
+    	{% if section.settings.proSizeChart2 %}
+      		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.proSizeChart2 | img_url: 'master' }}" alt="useCase">
+            
+         {% endif %}
+    </div>
+  </div>
+  <div class ="additional_sec _newsite banner_over_sing Chew_banners" >
+      <div class ="dog_dia_img">
+        	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      
+      </div>
+      <div class ="dog_dia_cont chew_ban_content">
+         {{ section.settings.image_content }}
+      </div>
+    </div>
+  {% if section.settings.is_middle_video_sec %}  
+     {% capture media_content %}
+      {% if section.settings.mediaType == 'img' %}
+          <div class="top_additional_sec_Img">
+            	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img  | img_url: 'master' }}" alt="topAddit_sec_Img">
+            
+          </div>
+      {% else %}
+          <div class="inline_video img" video="{{section.settings.sec_video.id}}" href="{{section.settings.sec_video }}">
+            {% comment %}<div class="video_poster_img">{{ section.settings.video_poster | img_url:'master' | img_tag:'img-responsive' }}</div>{% endcomment %}
+            <div class='embed-container'><iframe src='https://www.youtube.com/embed/{{section.settings.sec_video.id}}' frameborder='0' allowfullscreen></iframe></div>
+          </div>
+      {% endif %}  
+     {% endcapture %}
+      <div class="additional_sec_helpIssue chew_problems dogg_allrgy_width ">
+        <div class="top_additional_sec_issue">
+          {% if section.settings.media_alignment == 'left' %}{{-media_content-}}{% endif %}        
+            <div class="top_additional_sec_content listing_pnts bladder_p_list">
+               <h4 class="red" style="color:{{section.settings.peePadHeaderColor}}!important ;">{{section.settings.topAddit_sec_head}}</h4>
+              <div class="right_suppliments calm_ll">
+                <span></span><h6 style="color:{{section.settings.suppcolor2}}!important ;">{{section.settings.addit_leftcontent}}</h6>
+                <span></span><h6 style="color:{{section.settings.suppcolor3}}!important ;">{{section.settings.addit_rightcontent}}</h6>
+              </div>
+            </div>
+          {% if section.settings.media_alignment == 'right' %}{{-media_content-}}{% endif %}
+        </div>
+    	<p class="sub_cod box_p">{{section.settings.addit_sec_paragraph}}</p>
+      </div>
+      {% style %}
+                {% if section.settings.mediaType == 'video' %}
+                  .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+                  .top_additional_sec_subcontent{flex-direction: column;}
+                  .inline_video { flex: 1 0 61%;}
+                  .top_additional_sec_subcontent>div ul>li:before{ top:12px; }
+                  .top_additional_sec_subcontent ul li { font-size: 23px !important; line-height: 34px !important; display: flex; margin: 0; align-items: center; align-self: center; }
+                  .top_additional_sec_content.listing_pnts h1 { font-size: 28px; margin: 0px 0;}
+                  p.sub_cod {padding: 30px 30px 0 30px;}
+                  .inline_video{position:relative;cursor:pointer;}
+                  .mfp-iframe-holder .mfp-close { top: -66px; right: -66px; }
+                  /*.inline_video:after{ content:' ';background:url('{{ 'player.png' | file_img_url:'master'}}'); height: 20%; width: 10%; position: absolute; background-size: 100%; background-repeat: no-repeat; left: 0; right: 0; border: 0; margin: 0 auto; transform: translateY(54%); top: 29%; }*/
+                  .mfp-bg {background-color: #0b0b0b;}
+                  .inline_video.playing:after{opacity: 0;top: -100%;}
+  				  .chew_problems .top_additional_sec_content.listing_pnts{margin-left: 30px;}
+  				  .additional_sec_helpIssue{margin:0 -20px;}
+                  .right_suppliments {padding-left: 58px;}
+                  @media screen and (max-width:1020px){
+                    .mfp-iframe-holder .mfp-close {top: -71px; right: -33px;}
+                    .top_additional_sec_content.listing_pnts h1 { font-size: 25px;}
+                    p.sub_cod { padding: 28px 0px 0 0px; }
+                  }
+                  @media screen and (max-width:767px){
+                    .top_additional_sec_content.listing_pnts{order: 1;}
+                    .inline_video { margin-top: 30px!important; }
+  					.right_suppliments {
+                        padding-left: 46px;
+                        text-align: left;
+                    }
+                  }
+                  @media screen and (min-width:1024px) and (max-width:1100px){
+                    .chew_problems .listing_pnts h4.red {
+                      	font-size: 32px;
+                      }
+                   .right_suppliments h6 {
+                  	  font-size: 25px;
+					}
+                  }
+                  @media screen and (min-width:768px) and (max-width:1023px){
+                    .top_additional_sec_subcontent {flex-direction: row;}  			
+                  }
+                {%  endif %}
+      {% endstyle %}
+  {% else %}
+  <div class="additional_sec_helpIssue chew_problems ">
+    <div class="top_additional_sec_issue flex_cente">
+      <div class="top_additional_sec_Img">
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+      	
+      </div>
+      <div class="top_additional_sec_content listing_pnts bladder_p_list">
+         <h4 class="red" style="color:{{section.settings.peePadHeaderColor}}!important ;">{{section.settings.topAddit_sec_head}}</h4>
+        <div class="right_suppliments calm_ll">
+          <span></span><h6 style="color:{{section.settings.suppcolor2}}!important ;">{{section.settings.addit_leftcontent}}</h6>
+          <span></span><h6 style="color:{{section.settings.suppcolor3}}!important ;">{{section.settings.addit_rightcontent}}</h6>
+        </div>
+      </div>      
+    </div>
+    <p class="sub_cod box_p">{{section.settings.addit_sec_paragraph}}</p>
+  </div>
+ {% endif %}
+  		<section class="specialFeature product_collage big_pill_box">
+            <div class="container">
+                <div class="pp-12">
+                   <div class="useCases incontiProduct featureTitle title_large">
+                       <h2 class="blue" style="color:{{section.settings.peePadHeaderColor}} !important;">{{ section.settings.bellyHeadline }}</h2>
+                   </div>
+                </div>
+                <div class="__mainSuppmobileImg">
+                        {% if section.settings.bellyfeature7 %}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7  | img_url: 'master' }}" alt="useCase">
+                             
+                        {% endif %}
+                 </div>
+              <div class="row row_floer chew_box calmin_max">
+                    <div class="pp-12 chw_box_1 ">
+                        <div class="featureContent">
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg" style="background:{{section.settings.featureColor}}">
+                               {% if section.settings.bellyfeature1 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1  | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText featurepad">
+                              	{{ section.settings.bellyProText1}}
+                            </div>
+                          </div> 
+                          <div class="GnawfeatureContent ">
+                            <div class="GnawfeatureImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature2 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2  | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText">
+                              	{{ section.settings.bellyProText2}}
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <div class="__mainCenterImageGnaw calming_big ">
+                	{% if section.settings.bellyfeature7 %}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7  | img_url: 'master' }}" alt="useCase">
+                         
+                    {% endif %}
+                </div>
+                    <div class="pp-12 chw_box_2">
+                        <div class="featureContent ">
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature3 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3  | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText">
+                              	{{ section.settings.bellyProText3}}
+                            </div>
+                          </div>
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature4 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4  | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText elasticText">
+                              	{{ section.settings.bellyProText4}}
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <section class="gnawIngredients">
+    <div class="gnawcontainer">
+      <div class="pp-12">  
+        {% for block in section.blocks %}
+         {% if block.type == 'antler' %}
+        <div style="background:{{block.settings.antlercolor}};" class="suppliment_uniqe niq_calm ">
+        	{% if block.settings.antlerTopHeading != '' %}       
+              <div class="useCases incontiProduct featureTitle title_large ">
+                  <h2 class="blue" style="color:{{block.settings.antlerHeadColor}} !important;">{{block.settings.antlerTopHeading}}</h2>
+              </div>
+        	{% endif %}
+          <div class="gnawAntlerGuid ">
+            {%if block.settings.align =="left"%}
+              <div class="leftGnawImage">
+                <div class="imageAntler">
+                    {% if block.settings.antlerImg %}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg  | img_url: 'master' }}" alt="useCase">
+                         
+                    {% endif %}
+                </div>
+              </div>
+            {% endif %} 
+            <div class="antlerContent">
+              
+              <h5 style="color:{{section.settings.peePadHeaderColor}}">
+                {% if block.settings.antlerHeading %}
+                  {{block.settings.antlerHeading}}
+                {% endif %}
+                {% if block.settings.antlerfirstImg %}
+                	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerfirstImg  | img_url: 'master' }}" alt="useCase">
+                       
+                {% endif %}
+              </h5>
+              <p style="color:{{block.settings.antlertextcolor}}">{{block.settings.antlerContent}}</p>
+            </div>
+            {%if block.settings.align =="right"%}
+              <div class="rightGnawImage">
+                <div class="imageAntler">
+                    {% if block.settings.antlerImg %}
+                  	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.antlerImg  | img_url: 'master' }}" alt="useCase">
+                         
+                    {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="OurMainIngrdients">
+    <div class="sec--OurIngridients bgColorOBI">
+      <div class="ing_plus_30">
+      <div class="obi--Heading">
+        <h2>{{section.settings.obiHeading}}</h2>
+      </div>
+      </div>
+      <div class="ing_plus_70">
+      <div class="0bi--firstImage">
+      	{% if section.settings.obiImg1 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg1  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        <p>{{section.settings.obiHeading2}}</p>
+      </div>
+      <span class="ad_calm">+</span>
+      <div class="0bi--secImage">
+      	{% if section.settings.obiImg2 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg2  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        <p>{{section.settings.obiHeading3}}</p>
+      </div>
+      <div class="0bi--thirdImage">
+      	{% if section.settings.obiImg3 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg3  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        <p>{{section.settings.obiHeading4}}</p>
+      </div>
+      <div class="0bi--frthImage">
+      	{% if section.settings.obiImg4 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.obiImg4  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        <p>{{section.settings.obiHeading5}}</p>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="sec--nofillter claming">
+    <div class="nofillter--left">
+      <h3>{{section.settings.leftNofillHeading}}</h3>   
+    </div>
+    <div class="nofillter--right">
+		{% if section.settings.botimag %}
+      	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+    </div>
+  </section>
+  <section class="sec--nofillter-subPart" style="background:{{section.settings.nofillercolor}}">
+      <h4>{{section.settings.leftNofillerHeading}}</h4>  
+    <div class="__nofillersection">
+      <div class="left__nofillerSection">
+    	{% if section.settings.botimag2 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag2  | img_url: 'master' }}" alt="useCase">
+            
+         {% endif %}
+      </div>
+      <span>VS</span>
+      <div class="ryt__nofillerSection">
+    	{% if section.settings.botimag3 %}
+        	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.botimag3  | img_url: 'master' }}" alt="useCase">
+            
+         {% endif %}
+      </div>
+    </div>
+  </section>
+  <section class="ingridents">
+    <div class="sec--indgridents">
+      <p>{{section.settings.ingredients}}</p>
+    </div>
+  </section>
+  <section class="safety">
+    <div class="Container">
+      <div class="bgColorSafter blader_bfore">
+        <div class="safetyImg  ">
+           {% if section.settings.safetyIcon %}
+          	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.safetyIcon  | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        </div>
+      </div>
+      <div class="safetyContent calm_safe">
+        <h5 style="color:{{section.settings.saftyheadingcolor}}">{{section.settings.saftyheading}}</h5>
+        <p style="color:{{section.settings.saftysubheadingcolor}}">{{section.settings.saftysubheading}}</p>
+        <ul>
+          <span></span><li>{{section.settings.safcontent1}}</li>
+          <span></span><li>{{section.settings.safcontent2}}</li>
+          <span></span><li>{{section.settings.safcontent3}}</li>
+        </ul>
+      </div>
+    </div>  	
+  </section>
+  <section class="ProductRelatedAdvertisement last_banner_pro margin_no_top  {% if section.settings.specialProdAdvetImgmobile %} desktopSection {% endif %}">
+    <div class="container">
+      <div class="row">
+        <div class="pp-6">
+          <div class="leftRelatedAdvert head_srink">
+            <h4>{{section.settings.specialProdAdvet}}</h4>
+            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+          </div>
+        </div>
+        <div class="pp-6">
+          <div class="rightRelatedAdvert content_cal_rpo">
+            <h4 class="red" style="color:#6cafb4 !important">{{section.settings.specialProdAdvetHead}}</h4>
+            {% if section.settings.specialProdAdvetImg2 %}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg2  | img_url: 'master' }}" alt="useCase">
+              
+            {% endif %}
+            
+            {% comment %}adding Product_ids for inline cart{% endcomment %}
+            {% assign productIds  = "" | split: "," %}
+            {% if section.blocks.size > 0 %}
+            {% assign stickyprice = 0 %}
+            	{% for block in section.blocks %}
+                  {% if block.type == 'product' %}
+                  	{% assign pro_data 		= block.settings.inline_product %}
+                  	{% assign productt 		= all_products[pro_data] %}
+            		{% assign stickyprice 	= stickyprice | plus: productt.selected_or_first_available_variant.price %}
+                  	{% assign productId 	= productt.selected_or_first_available_variant.id | split: ',' %}
+            		{% assign productIds 	= productIds | concat:productId  %}
+                  {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+            <div class="learnMoreBtn" data-pro="{{-productIds | join: '|' -}}">
+              	{% if section.settings.specialProdAdvetcheck %}
+              		<a href="{{section.settings.specialProdAdveturl}}" class="RedButton signUpBtn ashdajsl" style="background:#5db9b8;">{{section.settings.specialProdAdvetBut}}</a>	
+              	{% else %}
+              		<a href="javascript:void(0);" class="RedButton signUpBtn redBack __productInline" style="background:#5db9b8;">{{section.settings.specialProdAdvetBut}}</a>
+				{% endif %}
+            </div>           
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% if section.settings.specialProdAdvetImgmobile %}
+    <section class="ProductRelatedAdvertisement last_banner_pro mobileNewFormatingSection mobileSection">
+      {% if section.settings.specialProdAdvetcheck %}
+          <a href="{{section.settings.specialProdAdveturl}}">		
+              {% if section.settings.specialProdAdvetImgmobile %}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
+              {% endif %}
+          </a>	
+              {% else %}         
+          <a href="javascript:void(0);">
+              {% if section.settings.specialProdAdvetImgmobile %}
+            	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImgmobile | img_url: 'master' }}" alt="useCase">
+                
+              {% endif %}
+          </a>
+      {% endif %}
+
+    </section> 
+  {% endif %}
+</div> 
+
+<style>
+ .additional_sec._newsite {
+    background-image:url('{{ section.settings.addi_img | img_url:'master'}}');
+    background-repeat: no-repeat;
+    background-size: unset;
+    position: relative;
+    background-position:center;
+  }
+  .bgColorSafter{
+    background:{{section.settings.safetycolor}};
+  }
+  .sec--indgridents{
+    background:{{section.settings.ingrecolor}};
+	color:#fff;
+  }
+  .bgColorOBI{
+    background:{{section.settings.obiBG}};
+  }
+  .claming .nofillter--left h3 span {color:{{section.settings.nofiller }} !important; } 
+</style>
+{% endif %}

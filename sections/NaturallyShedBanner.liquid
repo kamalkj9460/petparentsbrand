@@ -1,0 +1,46 @@
+<section class="NaturallyShedBanner slider" style="{{section.settings.NaturallyBgColor}}" id="sf_NaturallyShedBanner">
+  {% for block in section.blocks %} 
+	<div class="container">
+		<div class="row">
+          	<div class="sf_NaturallyShedBanner_{{forloop.index}}" >               
+                  <div class="BannerHome pd_rel">
+                      <div class="BannerContent">
+                        <h2>{{block.settings.NaturallyHeading_b}}</h2>
+                        <p>{{block.settings.NaturallyDes_b}}</p>
+                      </div>
+                      <div class="shed_img">
+                           {{ block.settings.NaturallyshedBannerImage_b | img_url:'master' | img_tag:'NaturallyshedBannerImage_b','img-responsive' }} 
+                      </div>
+                      <div class="BannerContent">
+                        <!-- a class="btn_green">SWIPE FOR MORE INFO</a -->
+                        <a href="{{block.settings.NaturallyDes_btn}}" class="btn_green">Learn More</a>
+                      </div>
+                  </div>
+              
+              </div>
+		</div>
+	</div>{% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "Naturally Shed Banner",
+    "settings": [
+	{"type":"color","id":"NaturallyBgColor","label":"Background Color","default":"#94b099"}
+	],
+  	"blocks" : [{	
+				"name":"Add slide",
+  				"type":"naturallyshedslide",
+				"settings": [
+				 {"type":"text","id":"NaturallyHeading_b","label":"Banner Heading"},
+                 {"type":"image_picker","id":"NaturallyshedBannerImage_b","label":"Image"},
+                 {"type":"html","id":"NaturallyDes_b","label":"Banner Description"},
+				{"type":"url","id":"NaturallyDes_btn","label":"Button Url"}
+				]} 
+			],
+	"presets": [{
+      "name": "Naturally Shed slider",
+      "category": "Home"
+    }]
+  }
+{% endschema %}

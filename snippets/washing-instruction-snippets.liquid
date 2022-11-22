@@ -1,0 +1,73 @@
+<section class="sf_new_washingDiaper_banner">
+  <div class="banner_section">
+    <h1>{{section.settings.sf_wash_ins_heading}}</h1>
+    <p>{{section.settings.sf_wash_ins_sub_heading}}</p>
+  </div>
+</section>
+<section class="washingDiaper sf_new_washingDiaper">
+  <div class="container">
+<div class="Sf_wi_tabs">
+  {% assign wi_list_html = '' %}
+    {% assign wi_content_html = '' %}
+    {% for block in section.blocks %}
+   {% capture raw_list_html %}
+    <li class="Sf_wi_{{forloop.index}}{% if forloop.first == true %} Sf_wi_active{% endif %}">
+     <a href="{{-block.settings.sf_block_link-}}">{{block.settings.sf_item_title}}</a>
+    </li>
+	{% endcapture %}
+     {% assign wi_list_html = wi_list_html | append: raw_list_html %}      
+   {% capture raw_content_html %}
+      <div id="wi_tab{{forloop.index}}" class="Sf_wi_tab{% if forloop.first == true %} Sf_wi_active{% endif %}">
+      {% assign currURL = canonical_url | split:'/' %}
+      {% assign last =  currURL.size | minus: 1 %}
+      {% assign current = block.settings.sf_block_link | split:'/' %}
+      {% assign lastt =  current.size | minus: 1 %}
+     {% comment %} {{  currURL[last] }} -- {{ current[lastt] }} {% endcomment %} 
+      {% if currURL[last] == current[lastt] %}  
+        <div class="sf_content_tab">
+            <ul>
+                {% if block.settings.sf_item_img1 != blank %}<li>{{ block.settings.sf_item_img1 | img_url:'master' | img_tag:'sf_item_img1','img-responsive' }}
+                <span class="image_caption">{{ block.settings.sf_item_img_caption1 }}</span></li>{% endif %}
+              {% if block.settings.sf_item_img2 != blank %}<li>{{ block.settings.sf_item_img2 | img_url:'master' | img_tag:'sf_item_img2','img-responsive' }}
+                <span class="image_caption">{{ block.settings.sf_item_img_caption2 }}</span></li>{% endif %}
+              {% if block.settings.sf_item_img3 != blank %}<li>{{ block.settings.sf_item_img3 | img_url:'master' | img_tag:'sf_item_img3','img-responsive' }}
+                <span class="image_caption">{{ block.settings.sf_item_img_caption3 }}</span></li>{% endif %}
+              {% if block.settings.sf_item_img4 != blank %}<li>{{ block.settings.sf_item_img4 | img_url:'master' | img_tag:'sf_item_img4','img-responsive' }}
+                <span class="image_caption">{{ block.settings.sf_item_img_caption4 }}</span></li>{% endif %}
+              {% if block.settings.sf_item_img5 != blank %}<li>{{ block.settings.sf_item_img5 | img_url:'master' | img_tag:'sf_item_img5','img-responsive' }}
+                <span class="image_caption">{{ block.settings.sf_item_img_caption5 }}</span></li>{% endif %}
+            </ul>
+           {% if block.settings.sf_item_description != blank %}<p><em>{{block.settings.sf_item_description}}</em></p>{% endif %}
+      	</div>
+        <section class="sf_ExcessOdor">
+          <div class="sf_row_ExcessOdor">
+            <div class="container">
+                <div class="col-md-4">
+                <h3>{{block.settings.sf_wash_ins_ls_heading}}</h3>
+                  <div class="sf_contentOdor">{{block.settings.sf_wash_ins_ls_content}}</div>
+                </div>
+                <div class="col-md-8">
+                <h3>{{block.settings.sf_wash_ins_eo_heading}}</h3>
+                  <div class="sf_contentOdor">{{block.settings.sf_wash_ins_eo_content}}</div>
+                </div>
+            </div>
+          </div>
+        </section>
+      {% endif %}
+  </div>
+ {% endcapture %}     
+   {% assign wi_content_html = wi_content_html | append: raw_content_html %}  
+      
+    {% endfor %}
+  
+  <ul class="Sf_wi_tabs-list">
+    <div>
+    	{{wi_list_html}}
+    </div>
+  </ul>
+  <div class="sf_wi_tab_content">
+      {{wi_content_html}}
+  </div>
+ </div>
+  </div>
+</section>

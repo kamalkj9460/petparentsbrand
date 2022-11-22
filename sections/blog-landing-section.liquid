@@ -1,0 +1,109 @@
+{% assign count = section.settings.blog_per_page %}
+{% assign blog_name2 =  section.settings.blog_setting %}
+ 
+
+<!-- Dog Blog List -->
+<div class="DogBlogList slider"> 
+  {% if section.settings.blog_type_o == 'blogList' %}
+  {% assign petListBlogs = blogs[blog_name2].articles %}
+  {% for article in  petListBlogs %}
+  	<ul class="asfdgfhgjhkjk">   
+      <li>
+        <a href="{{ article.url }}">
+          <div class="_dog-img-list">
+              <img src="{{ article.image.src | image_url: width: 500 }}" >
+          </div>
+          <div class="_dog-img-text">
+          
+            <div class="__dog-title">
+              <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+              {% if article.tags.size > 0 and article.tags contains 'vet reviewed' %}
+                <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+               		 {% endif %}
+            </div>
+            <div class="_dog_cnt_">
+               {{  article.title }}
+                <p><span class="SeeMOre"> > See More <span class="blog_tag omnkar">
+                  {% for tag in article.tags %} 
+                  	{% unless tag contains 'meta' %}
+                  		{{tag}}
+                  		{% break %}
+                  	{% endunless %}
+                  {% endfor %}
+                </span></span></p>  
+            </div>
+          </div>
+        </a>
+      </li>  
+     </ul>
+   {% endfor %}
+  {% else %}
+  {% for block in section.blocks %} 
+  	{% if block.type == 'selectArticless' %} 
+        <ul class="asfdgfhgjhkjk">   
+          {% assign article = articles[block.settings.for_article] %}
+    			{% if article %} 
+            <li>
+              <a href="{{ article.url }}">
+                <div class="_dog-img-list">
+                    <img src="{{ article.image.src | image_url: width: 500 }}" >
+                </div>
+                <div class="_dog-img-text">
+
+                  <div class="__dog-title">
+                    <span class="img-title">{{ article.published_at | date: "%b %d " }}</span>
+                     {% if article.tags.size > 0 and article.tags contains 'vet reviewed' %}
+                	<img src="https://cdn.shopify.com/s/files/1/1355/5443/files/vetrev.jpg?v=1640605184"  />
+               		 {% endif %}
+                  </div>
+                  <div class="_dog_cnt_">
+                     {{  article.title }}
+                      <p><span class="SeeMOre"> > See More <span class="blog_tag omnkar">
+                        {% for tag in article.tags %} 
+                          {% unless tag contains 'meta' %}
+                              {{tag}}
+                              {% break %}
+                          {% endunless %}
+                        {% endfor %}
+                      </span></span></p>  
+                  </div>
+                </div>
+              </a>
+            </li>  
+          {% endif %}
+           </ul>
+  		{% endif %}
+  	{% endfor %}
+  {% endif %}
+</div>
+<!-- Blog Landing Section Ends -->
+{% schema %}
+  {
+    "name": "Blog Page section",
+      "settings": [
+		{"type":"select", "id":"blog_type_o", "label":"List Type", "options": [ {"value":"blogList", "label":"Blog"},{"value":"article", "label":"Article"} ],"default":"article","info":"If choose blog, select only collection, otherwise article select manully"},
+		{"type":"header", "content":"Blog Type"},	
+         {"type": "blog", "id":"blog_setting","label": "Blog"},
+         {"type": "number", "id": "blog_per_page","label": "Blog per page","default": 20},
+         {"type": "checkbox",  "id": "blog_show_tags", "label": "Show tags", "default": true }    	
+		],
+		"blocks" : [{	
+				"name":"Article",
+				"type":"selectArticless",
+				"settings": [
+				{"type":"article", "id":"for_article", "label":"Select Aticle"}
+				]
+				}],
+	"presets":[{
+      "name": "Blog landing Page",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<script>
+  jQuery(".FilterButton").click(function(){
+   jQuery(".flist").toggle();
+    
+  });
+</script>

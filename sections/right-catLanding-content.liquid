@@ -1,0 +1,27 @@
+{% if section.settings.catrLanding_content %}
+    <a href="{{section.settings.catrLanding_url1}}">
+      <img src="{{section.settings.catrLanding_content | img_url: 'master' }}" />
+    </a>
+  {% endif %}
+
+{% if section.settings.catrLanding_content2 %}
+    <a href="{{section.settings.catrLanding_url2}}">
+      <img src="{{section.settings.catrLanding_content2 | img_url: 'master' }}" />
+    </a>
+  {% endif %}
+
+{% schema %}
+  {
+    "name" : "Right Cat Product Content",
+    "settings" : [			
+			{"type":"url","id":"catrLanding_url1","label":"Dog Image Url (1)"},
+			{"type":"image_picker","id":"catrLanding_content","label":"Dog Image (1)"},
+			{"type":"url","id":"catrLanding_url2","label":"Dog Image Url (2)"},
+			{"type":"image_picker","id":"catrLanding_content2","label":"Dog Image (2)"}
+          ],
+	"presets": [{
+      "name": "Right Cat Product Content",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

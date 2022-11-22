@@ -1,0 +1,39 @@
+<div class="_sf_AsSeenOn_ {{section.settings.AsSeenClass}}">
+<div class="sf_heading22 mobBan">
+          <span class="sf_divider" style="background:#00b7bc"></span>
+           <h2>{{section.settings.AsSeenHeading}}</h2>
+          </div>
+<section class="_AsSeenOn_">
+		<div class="_row_">          
+          <h2 class="deskTab">{{section.settings.AsSeenHeading}}</h2>
+          <div class="_sf_logos_ slider" id="sf_logos_id">
+            {% for block in section.blocks %} 
+           <div class="logo_items logo_items_{{forloop.index}}"> {% if block.settings.LogoLink != blank %} <a target="_blank" href="{{ block.settings.LogoLink }}">{% endif %}
+             <img class="img-responsive lazy3 lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.LogoImg | img_url: 'master' }}" alt="LogoImg">
+             {% if block.settings.LogoLink != blank %}</a>{% endif %}</div>
+            {% endfor %}
+          </div>
+        </div>
+</section>
+</div>
+
+{% schema %}
+  {
+    "name": "As Seen Logos",
+    "settings": [
+	{"type":"text","id":"AsSeenHeading","label":"Heading"},
+	{"type":"text","id":"AsSeenClass","label":"Add Class"}
+		],
+	"blocks" : [{
+ "type": "AsSeenLogos",
+ "name": "Add Logo",
+ "settings": [
+	  {"type":"image_picker","id":"LogoImg","label":"Select Image"},
+	 {"type":"url","id":"LogoLink","label":"Link"} 
+		]} ],
+	"presets": [{
+      "name": "As Seen Logos",
+      "category": "Home"
+    }]
+  }
+{% endschema %}

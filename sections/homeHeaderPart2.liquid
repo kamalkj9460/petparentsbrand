@@ -1,0 +1,44 @@
+<section id="section_id_{{section.id}}" class="BannerHome sfBannerHome banner_1 home-shrink_outer" style="background: {{section.settings.home_bgColor}}">
+  <div class="home-shrink">  
+    {% comment %}
+      {{ 'home-blanket.png' | asset_url | img_tag: 'home-blaket', 'home-blaket home_desktab'}}
+      {{ 'home-blanket-mob.png' | asset_url | img_tag: 'home-blaket', 'home-blaket home_mobile'}}
+       {% endcomment %}
+    {% if section.settings.home_banner1 %}
+                {{ section.settings.home_banner1 | img_url:'master' | img_tag:'home_banner1','home-blaket home_desktab' }}
+                {% endif %}
+                {% if section.settings.home_banner2 %}
+                {{ section.settings.home_banner2 | img_url:'master' | img_tag:'home_banner2','home-blaket home_mobile' }}
+                {% endif %} 
+     
+      <div class="container home-shrink-content">
+          <div class="row ">
+            <div class="half-empty">
+            </div>
+              <div class="BannerHome">
+                  <div class="BannerContent">
+                    <h2>{{section.settings.home_banner_heading}}</h2>
+                    <p>{{section.settings.home_banner_des}}</p>
+                    <a href="{{section.settings.home_banner_url}}">Learn More</a>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% schema %}
+{
+"name" : "Home Header Banner",
+"settings" : [			
+{"type":"image_picker","id":"home_banner1","label":"Banner Image"},
+{"type":"image_picker","id":"home_banner2","label":"Banner Image [Mobile]"},
+{"type":"color","id":"home_bgColor","label":"Background Color","default":"#7facc4"},
+{"type":"text","id":"home_banner_heading","label":"Banner Heading"},
+{"type":"html","id":"home_banner_des","label":"Banner Description"},
+{"type":"url","id":"home_banner_url","label":"Button Url"}
+],
+"presets": [{
+"name": "Home Header Banner"
+}]
+}
+{% endschema %}

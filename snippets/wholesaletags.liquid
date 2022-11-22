@@ -1,0 +1,88 @@
+<div class="dog_text">
+  <h1 style="text-align: center;font-size: 18px;font-weight: 600;color: #000;"><img src="//cdn.shopify.com/s/files/1/1355/5443/files/logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a_small.png?4547325651903564430" alt="_logo" class="pawicon">
+    <span class="blue
+    _text">Click below </span>on the topic you are chasing after<span class="black
+    _text">!</span></h1>
+</div>
+{% assign counter = 1 %}
+<ul class='__linkUL'>
+ {% assign Limit = blogs['wholesale'].all_tags | size %}
+
+{% for tag in blogs['wholesale'].all_tags limit:Limit %}
+{% assign tagName = tag | downcase  %}
+    {% case tagName %}
+		{% when 'customer experience' %}
+	<!-- 	 <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Antlers.jpg?4015239840496914526' />-->
+	    <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+          	<!-- 	 {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-01.jpg' |  file_img_url:'grande' | img_tag:'_customerExperiencene','CustomerExperience'}}
+            <!-- <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+	 
+		{% when 'education' %}
+<!-- 		 <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Belly_Bands.jpg?10917311630202962529' /> -->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+           	<!-- 	{{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-02.jpg' |  file_img_url:'grande' | img_tag:'_education','Education'}}
+                       <!--  <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+	
+		{% when 'merchandising' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Breeding.jpg?2543833595369053210' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+          	<!-- 	 {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-03.jpg' |  file_img_url:'grande' | img_tag:'_merchandising','Merchandising'}}
+              <!--    <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+	
+		{% when 'sales' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Cat_Spraying.jpg?3252449602004083351' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+          	<!-- 	 {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-04.jpg' |  file_img_url:'grande' | img_tag:'_sales','Sales'}}
+     <!--  <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+
+		{% when 'seasonal' %}
+		 <!--<img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Crate.jpg?6066177789082224113' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+       	<!-- 	    {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-05.jpg' |  file_img_url:'grande' | img_tag:'_seasonal','Seasonal'}}
+                 <!--   <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+	
+		{% when 'success' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Dog_Diapers.jpg?556714834932537865' />-->
+		 <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+         	<!-- 	  {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-06.jpg' |  file_img_url:'grande' | img_tag:'_success','Success'}}
+                <!--    <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+
+		{% when 'trends' %}
+		<!-- <img src='https://cdn.shopify.com/s/files/1/1355/5443/files/Female_Dogs.jpg?17154488642507062982' />-->
+		  <li class="__linkLi">
+           <a href="{{ shop.url }}/blogs/wholesale/tagged/{{ tag | handle }}" class="__catHref">
+         	<!-- 	  {{ 'logo_sign_3f3fef23-7e39-42f7-8b3b-6e93a8f62f1a.png' | file_img_url:'small' | img_tag:'_logo','logo'}}-->
+           {{ 'PetParents_Image_TopicIcons4-07.jpg' |  file_img_url:'grande' | img_tag:'_trends','Trends'}}
+                 <!--   <span class="__catName">{{ tag }}</span>-->
+           </a>
+  		 </li>
+	{% endcase %}    
+{% assign counter = counter | plus: 1 %}
+{% endfor %}
+
+
+</ul>

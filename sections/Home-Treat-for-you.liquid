@@ -1,0 +1,57 @@
+<!-- Treats Section -->
+<section class="treatSection">
+	<div class="container">
+		<div class="row">
+			<div class="pp-12">
+				<div class="treatTitle">
+				   <h3 class="petTitle">{{ section.settings.Section_treat_headline }}</h3>
+				</div>
+              {% for block in section.blocks %}
+				<div class="treatContent {% if block.settings.buttonCeter %} subscribeContent {% endif %}">
+					<div class="treatImg">
+                       <img src="{{ block.settings.treatIcon | img_url: 'master' }}" />
+					</div>
+					<div class="treatText">
+						<h4>{{ block.settings.treat_headline }}</h4>
+						<p>{{ block.settings.treat_subTitle }}</p>
+					</div>
+					<div class="treatBtn">
+						<div class="learnMoreBtn">
+							<a href="{{ block.settings.treat_button_link }}" class="RedButton {% if block.settings.buttoncolor %} signUpBtn {% endif %}">{{ block.settings.treat_button_name }}</a>
+						</div>
+					</div>
+				</div>
+			  {% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Treats  Section End -->
+
+{% schema %}
+  {
+    "name": "Treat For You [Home]",
+    "settings": [
+		{"type":"text","id":"Section_treat_headline","label":"Enter Section Headline"}
+	],
+	"blocks":[
+		{
+			"type":"treat_for_you",
+			"name":"Treat For You",
+			"settings":[
+				{"type": "checkbox","id": "buttonCeter","label": "Please tick this if content will be in middle ","default": false},
+				{"type":"image_picker","id":"treatIcon","label":"Choose Image"},
+				{"type":"text","id":"treat_headline","label":"Enter Headline"},
+				{"type":"text","id":"treat_subTitle","label":"Enter Sub-Content"},
+				{"type": "checkbox","id": "buttoncolor","label": "For green Button ","default": false},
+				{"type":"text","id":"treat_button_name","label":"Button Name"},
+			   	{"type":"url","id":"treat_button_link","label":"Button Link"}
+			]
+		}
+	],
+	"presets": [{
+      "name": "Treat For You [Home]",
+      "category": "Text"
+    }]
+  }
+{% endschema %}

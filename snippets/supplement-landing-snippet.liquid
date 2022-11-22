@@ -1,0 +1,128 @@
+{% if section.settings.is_middle %}
+<div class="white_space ">
+   <div class ="additional_sec _newsite banner_over_sing Chew_banners" > 
+      <div class ="dog_dia_img">
+      <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1 | img_url: 'master' }}" alt="addi_img1">
+      </div>
+      <div class ="dog_dia_cont chew_ban_content">
+         {{ section.settings.image_content }}
+      </div>
+    </div>
+  		<section class="specialFeature product_collage big_pill_box">
+            <div class="container">
+                
+                    <div class="pp-12">
+                        <div class="useCases incontiProduct featureTitle title_large">
+                            <h2 class="blue" style="color:{{section.settings.featureColor}} !important;">{{ section.settings.bellyHeadline }}</h2>
+                        </div>
+                    </div>
+              <div class="row row_floer chew_box">
+                    <div class="pp-12 chw_box_1">
+                        <div class="featureContent">
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg" style="background:{{section.settings.featureColor}}">
+                               {% if section.settings.bellyfeature1 %}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText featurepad">
+                              	{{ section.settings.bellyProText1}}
+                            </div>
+                          </div>
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature2 %}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText">
+                              	{{ section.settings.bellyProText2}}
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <div class="__mainCenterImageGnaw skin_coat_box">
+                	{% if section.settings.bellyfeature7 %}
+                  		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature7 | img_url: 'master' }}" alt="useCase">
+                         
+                    {% endif %}
+                </div>
+                    <div class="pp-12 chw_box_2">
+                        <div class="featureContent ">
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature3 %}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText">
+                              	{{ section.settings.bellyProText3}}
+                            </div>
+                          </div>
+                          <div class="GnawfeatureContent">
+                            <div class="GnawfeatureImg fabricImg" style="background:{{section.settings.featureColor}}">
+                                {% if section.settings.bellyfeature4 %}
+                              		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="Gnaw featureText elasticText">
+                              	{{ section.settings.bellyProText4}}
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <section class="safety safty_white">
+    <div class="Container">
+      <div class="bgColorSafter blader_bfore">
+        <div class="safetyImg  ">
+           {% if section.settings.safetyIcon %}
+          		<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.safetyIcon | img_url: 'master' }}" alt="useCase">
+              
+           {% endif %}
+        </div>
+      </div>
+      <div class="safetyContent Skin_point suppLand">
+        <h5 style="color:{{section.settings.saftyheadingcolor}}">{{section.settings.saftyheading}}</h5>
+        <p style="color:{{section.settings.saftysubheadingcolor}}">{{section.settings.saftysubheading}}</p>
+        <ul>
+          <span></span><li>{{section.settings.safcontent1}}</li>
+          <span></span><li>{{section.settings.safcontent2}}</li>
+          <span></span><li>{{section.settings.safcontent3}}</li>
+        </ul>
+      </div>
+    </div>  	
+  </section>
+  
+</div> 
+
+<style>
+ .additional_sec._newsite {
+    background-image:url('{{ section.settings.addi_img | img_url:'master'}}');
+    background-repeat: no-repeat;
+    background-size: unset;
+    position: relative;
+    background-position:center;
+  }
+  .top_additional_sec_Img{
+    background-image:url('{{ section.settings.topAddit_sec_bgImg | img_url:'master'}}');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    background-position: center;
+  }
+  .bgColorSafter{
+    background:{{section.settings.safetycolor}};
+  }
+  .sec--indgridents{
+    background:{{section.settings.ingrecolor}};
+	color:#fff;
+  }
+</style>
+{% endif %}

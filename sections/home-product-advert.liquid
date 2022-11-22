@@ -1,0 +1,51 @@
+<!-- Product Advertisement Section -->
+<section class="advertProduct">
+  <div class="container">
+    <div class="row banner_foot" >
+        <div class="pp-5 leftContent">
+          <div class="advertLeftContent">
+        	{{ section.settings.left_advert_content }}
+          </div>
+          <div class="advertLeftImage">
+        	<img src="{{ section.settings.advertImage | img_url: 'master' }}" />
+          </div>
+        </div> 
+      <div class="rightContant pp-7">
+          <div class="advertLeftImage">
+               <img src="{{ section.settings.advertProImage | img_url: 'master' }}" />
+          </div>
+          <div class="advertLeftContent">
+        	{{section.settings.advertPro_content}}
+            <a href="{{ section.settings.advertPro_button_link }}" class="RedButton" style="background:{{section.settings.advert_color}}">{{section.settings.advertPro_button_name}}</a> 
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .banner_foot{
+    background:{{section.settings.BG_advert}};
+  }
+</style>
+
+<!-- Product Advertisement End -->
+{% schema %}
+  {
+    "name": "Product Advertisement",
+    "settings": [
+                {"type":"color","id":"BG_advert","label":"Background Color","default":"#f9bcca"},
+				{"type":"html","id":"left_advert_content","label":"Enter Left Side Content[HTML]"},
+				{"type":"image_picker","id":"advertImage","label":"Choose Pet Image"},
+				{"type":"image_picker","id":"advertProImage","label":"Choose Product Image"},
+				{"type":"html","id":"advertPro_content","label":"Enter HTML content"},
+				{"type":"text","id":"advertPro_button_name","label":"Button Name"},
+			   	{"type":"url","id":"advertPro_button_link","label":"Button Link"},
+                {"type":"color","id":"advert_color","label":"Color for content","default":"#e81c76"}
+		],
+	"presets": [{
+      "name": "Product Advertisement",
+      "category": "Text"
+    }]
+  }
+{% endschema %}
+

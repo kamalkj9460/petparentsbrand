@@ -1,0 +1,37 @@
+{% render 'washing-instruction-snippets' %}
+{% schema %}
+  {
+    "name": "Washing Instructions",
+    "settings": [
+		 {"type":"text","id":"sf_wash_ins_heading","label":"Heading"},
+		 {"type":"text","id":"sf_wash_ins_sub_heading","label":"Sub Heading"}          
+		],
+	"blocks" : [{
+        "name": "New Item",
+		"type": "washInst",
+        "settings": [
+            {"type":"url", "id":"sf_block_link", "label":"Block URL"},
+            {"type":"text","id":"sf_item_title","label":"Title"},
+            {"type":"image_picker","id":"sf_item_img1","label":"Image[1]"},
+            {"type":"text","id":"sf_item_img_caption1","label":"Image Caption[1]"},
+            {"type":"image_picker","id":"sf_item_img2","label":"Image[2]"},
+            {"type":"text","id":"sf_item_img_caption2","label":"Image Caption[2]"},
+            {"type":"image_picker","id":"sf_item_img3","label":"Image[3]"},
+            {"type":"text","id":"sf_item_img_caption3","label":"Image Caption[3]"},
+            {"type":"image_picker","id":"sf_item_img4","label":"Image[4]"},
+            {"type":"text","id":"sf_item_img_caption4","label":"Image Caption[4]"},
+            {"type":"image_picker","id":"sf_item_img5","label":"Image[5]"},
+            {"type":"text","id":"sf_item_img_caption5","label":"Image Caption[5]"},
+            {"type":"text","id":"sf_item_description","label":"Footer Description"},
+			{"type":"text","id":"sf_wash_ins_ls_heading","label":"Lingering Stains Title"},
+            {"type":"html","id":"sf_wash_ins_ls_content","label":"Lingering Stains Content"},
+            {"type":"text","id":"sf_wash_ins_eo_heading","label":"Excess odor Title"},
+            {"type":"html","id":"sf_wash_ins_eo_content","label":"Excess odor Content"}
+		]}],
+	"presets":[{
+      "name": "Washing Instructions"
+    }]
+
+}
+{% endschema %}
+

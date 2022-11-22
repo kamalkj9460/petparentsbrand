@@ -1,0 +1,259 @@
+<!-- Begin ReCharge code -->
+{% include 'subscription-cart-footer' %}
+<!-- End ReCharge code -->
+<!-- /templates/cart.liquid  [latest cart 1] -->
+{% comment %}
+  For info on test orders:
+    - General http://docs.shopify.com/manual/your-store/orders/test-orders
+    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+{% endcomment %}
+<div class="white_space">
+  <div class="grid__item large--one-whole no-padding">
+    {% if cart.item_count > 0 %}
+      <header class="__cart_header section-header text-center">
+        <!--<h1 class="text-center">{{ 'cart.general.title' | t }}</h1>-->
+		<div class="yourcartlogo">
+          <img src="https://cdn.shopify.com/s/files/1/1355/5443/t/10/assets/YourCart_Website.png?v=8914007835612014185" />
+        </div>
+      </header>
+
+      <form action="/cart" method="post" novalidate class="cart">
+        <div class="__itemsCount mobileCart__">
+          <div class="grid__item one-quarter __itemNumber">{{ cart.item_count }}</div>
+          <div class="grid__item three-quarters __itemsText">items(s) added to your cart</div>
+        </div>
+        <div class="cart__row medium-down--hide cart__header-labels cart_item_header_section">
+          <div class="grid--full cart_header_secContainer">
+                <div class="cart_item-header header_items_label">
+                  Items ({{ cart.item_count }})
+                </div>
+                <div class="cart_item-header header_price_label">
+                  Price
+                </div>
+                <div class="cart_item-header header_qyt_label">
+                  {{ 'cart.label.quantity' | t }}
+                </div>
+                <div class="cart_item-header header_subtotal_label">
+                  {{ 'cart.label.total' | t }}
+                </div>
+          </div>
+        </div>
+
+        {% comment %}
+          Loop through products in the cart
+        {% endcomment %}
+        {% for item in cart.items %}
+          <div class="cart__row cart_items_section">
+            <div class="grid--full cart__row--table-large">
+
+              <div class="grid__item large--three-fifths">
+                <div class="grid">
+
+                  <div class="grid__item one-third">
+                    <a href="{{ item.url | within: collections.all }}" class="cart__image">
+
+                      {% comment %}
+                        More image size options at:
+                          - http://docs.shopify.com/themes/filters/product-img-url
+                      {% endcomment %}
+                      <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                    </a>
+                  </div>
+
+                  <div class="grid__item two-thirds">
+                    <a href="{{ item.url }}" class="h4 cart__product-name cart_addedtitle_data">
+                      {{ item.product.title }}
+                    </a>
+                    {% unless item.variant.title contains 'Default' %}
+                      <p class="cart__product-meta varients_product_meta">
+                        {{ item.variant.title }}
+                      </p>
+                    {% endunless %}
+
+                    {% if settings.product_vendor_enable %}
+                      <p class="cart__product-meta varients_product_meta">{{ item.vendor }}</p>
+                    {% endif %}
+
+                    {% assign property_size = item.properties | size %}
+                    {% if property_size > 0 %}
+                      {% for p in item.properties %}
+                        {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                        {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" or first_character_in_key == '_' %}
+                          {{ p.first }}:
+
+                          {% if p.last contains '/uploads/' %}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {% else %}
+                            {{ p.last }}
+                          {% endif %}
+
+                          <br>
+                        {% endunless %}
+                      {% endfor %}
+                    {% endif %}
+
+                    <p class="cart__product-meta varients_product_meta">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                        <b> {{ 'cart.general.remove' | t }}</b>
+                      </a>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+               <div class="grid__item  custome-cart __newPawCartDesktop">
+                 <div class="grid">
+                   <div class="grid__item two-thirds">
+                     <p class="cart__product-meta"><span>{{ item.price | money}}</span></p>
+                   </div>
+                  </div>
+               </div>
+              <div class="grid__item large--two-fifths addCartTabel">
+                <div class="grid--full cart__row--table">
+                  <div class="grid__item one-half-custom text-center custom_added_data _newPawtecAdd">
+                    <label for="updates_{{ item.key }}" class="visually-hidden">{{ 'cart.label.quantity' | t }}</label>
+					<div class="cart-quantity">
+                        <button type='button' value='-' class='qtyminus js-qty__adjust js-qty__adjust--minus icon-fallback-text' field='updates_{{ item.id }}'>
+                          <span class="icon icon-minus" aria-hidden="true"></span>
+                          <span class="fallback-text" aria-hidden="true">&minus;</span>
+                        </button>
+                        <input type="text" name="updates[]" id="updates_{{ item.id }}" class="quantity js-qty__num cart__product-qty" value="{{ item.quantity }}">
+                        <button type='button' value='+' class='qtyplus js-qty__adjust js-qty__adjust--plus icon-fallback-text' field='updates_{{ item.id }}' >
+                          <span class="icon icon-plus" aria-hidden="true"></span>
+                          <span class="fallback-text" aria-hidden="true">+</span>
+                        </button>
+                    </div>
+                  </div>
+				  <div class="grid__item two-thirds text-right mobileCart__">
+                    <p class="cart__product-meta"><span>{{ item.price | money}}</span></p>
+                  </div>
+                  <div class="grid__item two-thirds text-right __newPawCartDesktop">
+                    {% if item.original_line_price != item.line_price %}
+                    <small class="cart__price cart__price--strikethrough"><span>{{ item.original_line_price | money }}</span></small>
+                    {% endif %}
+                    <span class="cart__price"><span>{{ item.line_price | money }}</span></span>
+                    {% assign discounts_size = item.discounts | size %}
+                    {% if discounts_size > 0 %}
+                      {% for discount in item.discounts %}
+                        <small class="cart__discount">{{ discount.title }}</small>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <div class="cart__row">
+            <div class="bottomCart buttonsCart __newPawCartDesktop">  
+              <div class="leftcartButton">
+                  <a href="https://petparentsbrand.com/">
+                      <button type="button" class="btn--secondary">Continue Shopping</button>
+                  </a>
+                 <button type="submit" name="checkout" class="btn cart__checkout" style="background: #ed1b3c; padding: 13.6px;">
+                  {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                </button>
+			  </div>
+              <div class="rytcartButton">
+              	<button type="submit" name="update" class="btn--secondary update-cart" >{{ 'cart.general.update' | t }}</button>
+              </div>
+            </div>
+          <div class="grid--full cart__row--table-large NewCartBottom">
+            {% comment %}
+              Optional, add a textarea for special notes
+                - Your theme settings can turn this on or off. Default is on.
+                - Make sure you have name="note" for the message to be submitted properly
+            {% endcomment %}
+            {% if settings.cart_notes_enable %}
+              <div class="grid__item large--seven-twelfths">
+                <div class="cart__note">
+                  <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+                  <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+                </div>
+              </div>
+            {% endif %}
+            
+            {% capture FST %}{% render 'fst-snippet' %}{% endcapture %}
+            
+            <div class="grid__item large--five-twelfths text-center large--text-right{% unless settings.cart_notes_enable %} push--large--seven-twelfths{% endunless %}">
+              <div class="bottomCartSection__">
+              	<div class="grid--full cart__row--table cart__subtotal_data">
+                  <p class="cart__subtotal"><b>{{ 'cart.general.subtotal' | t }}</b> : <span>{{ cart.total_price | money }}</span></p>
+                	
+                  <div class="_leftpart mobileCart__">
+                    <span class="__undershipping _cart_slide blu_but aaa">Free 3 day shipping on orders over $45</span>
+                    {{FST}}
+                  </div>
+                </div>
+                {% if cart.total_discounts > 0 %}
+                  {% assign cartTotalDiscounts = cart.total_discounts | money %}
+                  <p class="cart__savings">{{ 'cart.general.savings_html' | t: savings: cartTotalDiscounts }}</p>
+                {% endif %}
+				<div class="updateCart__ mobileCart__">
+					<button type="submit" name="update" class="btn--secondary update-cart" >{{ 'cart.general.update' | t }}</button>
+                </div>
+                <div class="_leftpart __newPawCartDesktop">
+                  {{FST}}
+                  <span class="__undershipping _cart_slide blu_but bbb">Free 3 day shipping on U.S. orders over $45</span>
+                </div>
+                <!--<p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>-->
+                <button type="submit" name="checkout" class="btn cart__checkout"  style="background: #ed1b3c;">
+                  {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                </button>
+				<!-- giftcard button 
+				<a href="https://petparentsbrand.com/checkout">
+                  <button type="submit" name="giftcard" class="btn cart__checkout cart__afterGift" style="background: #11b6bd;margin: 0px;font-size: 13px;padding: 12px 13px;">Pay with Gift Card/Afterpay</button>
+                </a>-->
+
+                <div class="mobileCart__">
+                  <a href="https://petparentsbrand.com/">
+                      <button type="button" class="btn--secondary">Continue Shopping</button>
+                  </a>
+                </div>
+                <!--<div class="cartInc">
+                  <img src="//cdn.shopify.com/s/files/1/1355/5443/files/2_43e92a42-6764-441f-a980-34755a664a8d.png?v=1597905947" alt="useCase" class="lazyloaded">
+                </div>-->
+                {% if additional_checkout_buttons and settings.cart_type != 'drawer' %}
+                  <div class="additional_checkout_buttons"><span class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</span></div>
+                {% endif %}
+                <div class="paymentMethod">
+                       <img src="https://cdn.shopify.com/s/files/1/1355/5443/files/Checkout_Logos_Final_Prancheta_1_co_pia_5.png?v=1608035786" alt="useCase">
+                </div>
+				</div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+
+    {% else %}
+      {% comment %}
+        The cart is empty
+      {% endcomment %}
+      <header class="section-header text-center cart_addeddata">
+        <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
+        <hr class="hr--small">
+        <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
+        <p class="cart--continue-browsing"><!--{ { 'cart.general.continue_browsing_html' | t  } } -->Continue browsing <a href="https://petparentsbrand.com/products/dog-supplements">here.</a> </p>
+        <p class="cookie-message">{{ 'cart.general.cookies_required' | t }}</p>
+      </header>
+
+    {% endif %}
+  </div>
+</div>
+<!-- Review Slider -->
+<div class="StampedReview_widget_test">
+<div id="stamped-reviews-widget" data-widget-type="carousel" data-title="Hear what our customers are barking about" data-limit-words="60" data-random="? string:Hear what our customers are barking about ?"></div> 
+</div>
+<!--{ % include 'judgeme_widgets', widget_type: 'judgeme_featured_carousel', concierge_install: false %}-->
+<style>
+.jdgm-star.jdgm--on:before {
+    content: '' !important;
+    background-image: url(https://cdn.shopify.com/s/files/1/1355/5443/files/rate.png?v=1586520078);
+    height: 20px;
+    width: 21px;
+    display: inline-block;
+}
+</style>
+<script data-cfasync="false">window.ju_num="02C872BE-0B0B-4159-A6A2-FC65279F49A0";window.asset_host='//cdn.jst.ai/';(function(i,s,o,g,r,a,m){i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script',asset_host+'vck.js','juapp');</script>

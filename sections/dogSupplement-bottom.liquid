@@ -1,0 +1,58 @@
+<div class="dogSupplement-bottom multi_prducts_sec">
+  <div class="dogSupplement-heading ProHead">
+    <h3>{{section.settings.proHedName}}</h3>
+  </div>
+  <div class="dogsupplement-midContent">
+    <div class="dogproduct-container">
+      	{% for block in section.blocks %}
+      	 {% if block.type == 'ProSupplement' %}
+      		<a href="{{section.settings.proSupplink1}}">
+              <div class="__problemProductBanner">
+                  {% if  block.settings.prosuppimg1 %}
+                      {{ block.settings.prosuppimg1 | img_url:'master' |img_tag:'prosuppimg1','img-responsive' }}
+                  {% endif %}
+                <p>{{block.settings.prosupptext1}}</p>
+              </div>
+      		</a>
+         {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+  <div class="dogSuppBottom-Section">
+    <p>{{section.settings.proBottCont}}</p>
+    <div class="learnMoreBtn">
+		<a href="{{section.settings.proButtonUrl}}" class="RedButton">LEARN MORE</a>
+	</div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Dog Pet Products",
+    "settings": [
+	       {"type":"color","id":"proHedcolor","label":"Heading Color"},
+	       {"type":"text","id":"proHedName","label":"Heading Name"},
+	       {"type":"text","id":"proBottCont","label":"Bottom Content"},
+	       {"type":"url","id":"proButtonUrl","label":"Button Url"}
+	],
+	"blocks" : [{
+        "type": "ProSupplement",
+        "name": "Supplements",
+        "settings": [
+	       {"type":"url","id":"proSupplink1","label":"Supplement Link"},
+	       {"type":"image_picker","id":"prosuppimg1","label":"Supplement Image"},
+	       {"type":"text","id":"prosupptext1","label":"Supplement Text"}
+		]}
+],
+	"presets":[{
+      "name": "Pet Pet Products",
+      "category": "Pages"
+    }]
+
+}
+{% endschema %}
+<style>
+  .dogSupplement-heading.ProHead{
+  	color:{{section.settings.proHedcolor}};
+  }
+</style>

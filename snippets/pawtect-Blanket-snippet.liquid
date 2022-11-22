@@ -1,0 +1,195 @@
+{% if section.settings.is_middle %}
+<div class="white_space ">
+  	{% if section.settings.addi_img1 %} 
+   <div class ="product_dog_bannerd" >
+      <div class ="__product_Banner">
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img1  | img_url: 'master' }}" alt="addi_img1">
+      
+      </div>
+    </div>
+     {% endif %}
+  <div class="additional_sec_helpIssue pro_points" style="margin-top:0px;">
+    <div class="top_additional_sec_issue">
+      <div class="top_additional_sec_Img">
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.topAddit_sec_Img | img_url: 'master' }}" alt="topAddit_sec_Img">
+      	
+      </div>
+      <div class="top_additional_sec_content listing_pnts">
+         <h1 class="red" style="color:{{section.settings.peePadHeaderColor}}!important ;">{{section.settings.topAddit_sec_head}}</h1>
+        <div class="top_additional_sec_subcontent">
+          <div class="top_add_sec_leftcontent">
+              {{section.settings.addit_leftcontent}}
+          </div>
+          <div class="top_add_sec_rightcontent">
+              {{section.settings.addit_rightcontent}}
+          </div>
+        </div>
+      </div>      
+    </div>
+    <p class="sub_cod">{{section.settings.addit_sec_paragraph}}</p>
+  </div>
+  		<section class="specialFeature product_collage __PeePadUse">
+            <div class="container">
+                
+                    <div class="pp-12">
+                        <div class="useCases incontiProduct featureTitle">
+                            <h2 class="blue" style="color:{{section.settings.peePadHeaderColor}}">{{ section.settings.bellyHeadline }}</h2>
+                        </div>
+                    </div>
+              <div class="row row_iconic">
+                    <div class="pp-12 arw_1">
+                        <div class="featureContent">
+                            <div class="featureText featurepad">
+                              	{{ section.settings.bellyProText1}}
+                            </div>
+                            <div class="featureImg">
+                               {% if section.settings.bellyfeature1 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature1 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="featureImg">
+                                {% if section.settings.bellyfeature2 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature2 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="featureText">
+                              	{{ section.settings.bellyProText2}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pp-12 arw_1">
+                        <div class="featureContent ">
+                            <div class="featureText">
+                              	{{ section.settings.bellyProText3}}
+                            </div>
+                            <div class="featureImg fabricImg">
+                                {% if section.settings.bellyfeature3 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature3 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="featureImg fabricImg">
+                                {% if section.settings.bellyfeature4 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature4 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                            <div class="featureText elasticText">
+                              	{{ section.settings.bellyProText4}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pp-12 Last_rnd pee_mob_flex"> 
+                        <div class="featureContent">
+                            <div class="featureText">
+                              	{{ section.settings.bellyProText5}}
+                            </div>
+                            <div class="featureImg fabricImg">
+                                {% if section.settings.bellyfeature5 %}
+                              	<img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.bellyfeature5 | img_url: 'master' }}" alt="useCase">
+                                    
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>	
+  {% if section.settings.everyNeedSection %}
+  	<section class="PeePadd--Products container">
+      <h1 class="big_brwn" style="background:#00b7bc">FOR EVERY NEED</h1>
+      <div class="PeePadDta pe_pad_varait">
+ 	  {% for block in section.blocks %}
+      	 {% if block.type == 'ProductImageTwo' %}
+        <div class="PeePadImages--two">
+          <div class="ProductPeePad--leftSection">
+            {% if block.settings.prodBanner1 %}
+            <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner1  | img_url: 'master' }}" alt="prodBanner1">
+                  
+            {% endif %}
+          </div>
+          <div class="ProductPeePad--rightSection">
+            {% if block.settings.prodBanner2 %}
+            <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner2  | img_url: 'master' }}" alt="prodBanner2">
+                  
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      	 {% if block.type == 'ProductImageBig' %}
+        <div class="peePadProduct--BigImage">
+            {% if block.settings.prodBanner3 %}
+          <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner3  | img_url: 'master' }}" alt="prodBanner3">
+                  
+            {% endif %}
+        </div>
+        {% endif %}
+      	 {% if block.type == 'ProductImageSingle' %}
+        <div class="peePadProduct--SimpleLastImage">
+            {% if block.settings.prodBanner4 %}
+          <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.prodBanner4  | img_url: 'master' }}" alt="prodBanner4">
+                  
+            {% endif %}
+        </div>
+        {% endif %}
+     {% endfor %}
+      </div>
+  </section>
+  {% endif %}
+  <section class="ProductRelatedAdvertisement last_banner_pro pee_pad_mtop">
+    <div class="container">
+      <div class="row">
+        <div class="pp-6">
+          <div class="leftRelatedAdvert">
+            <h4>{{section.settings.specialProdAdvet}}</h4>
+            <img src="{{ section.settings.specialProdAdvetImg | img_url:'master'}}" alt="{{ section.settings.specialProdAdvetImg}}" />
+          </div>
+        </div>
+        <div class="pp-6">
+          <div class="rightRelatedAdvert">
+            <h4 class="red" style="color:#7fabc2 !important">{{section.settings.specialProdAdvetHead}}</h4>
+            {% if section.settings.specialProdAdvetImg2 %}
+            <img class="lazyloaded lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.specialProdAdvetImg2  | img_url: 'master' }}" alt="useCase">
+              
+            {% endif %}
+            {% comment %}adding Product_ids for inline cart{% endcomment %}
+            {% assign productIds  = "" | split: "," %}
+            {% if section.blocks.size > 0 %}
+            	{% for block in section.blocks %}
+                  {% if block.type == 'product' %}
+                  	{% assign pro_data 		= block.settings.inline_product %}
+                  	{% assign productt 		= all_products[pro_data] %}
+            		{% assign stickyprice 	= stickyprice | plus: productt.selected_or_first_available_variant.price %}
+                  	{% assign productId 	= productt.selected_or_first_available_variant.id | split: ',' %}
+            		{% assign productIds 	= productIds | concat:productId  %}
+                  {% endif %}
+                {% endfor %}
+            {% endif %}
+            <div class="learnMoreBtn" data-pro="{{-productIds | join: '|' -}}">
+              	{% if section.settings.specialProdAdvetcheck %}
+              		<a href="{{section.settings.specialProdAdveturl}}" class="RedButton signUpBtn ashdajsl" style="background:#00b7bc!important;">{{section.settings.specialProdAdvetBut}}</a>	
+              	{% else %}
+					<a href="javascript:void(0);" class="RedButton signUpBtn redBack __productInline" style="background:#00b7bc!important">{{section.settings.specialProdAdvetBut}}</a>
+				{% endif %}
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+<style>
+ .additional_sec._newsite {
+    background-image:url('{{ section.settings.addi_img | img_url:'master'}}');
+    background-repeat: no-repeat;
+    background-size: unset;
+    position: relative;
+    background-position:center;
+  }
+  
+</style>
+{% endif %}

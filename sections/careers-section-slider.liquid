@@ -1,0 +1,51 @@
+<section id="ppcp_join_pack">
+<div class="main_div_join_pack">
+<div class="join_pack join_pack_left">
+  <div class="wwa_heading_red_anchor">
+  <h2 class="wwa_heading wwa_heading_red">{{ section.settings.wjp_title }}</h2>
+  <p>{{ section.settings.wjp_content }}</p>
+  <a class="careers_btn" href="{{ section.settings.wjp_btn_url }}">Open Roles</a>
+  </div>
+</div>
+<div class="join_pack join_pack_right">
+  <div class="join_pack_s slider" id="join_pack_right_sl">
+    {% for block in section.blocks %} 
+		{% if block.type == 'CorelastSlider' %} 
+    <div class="join_pack_sfsd CoreSlide_{{forloop.index}}">
+ {% if block.settings.wjp_img %}
+	{{ block.settings.wjp_img | img_url:'master' | img_tag:'wjp_img','img-responsive is_img_desktop' }}
+	{% endif %}
+ {% if block.settings.wjp_img_mob %}
+	{{ block.settings.wjp_img_mob | img_url:'master' | img_tag:'wjp_img_mob','img-responsive is_img_mobile' }}
+	{% endif %}
+<span class="join_pack_img_con">{{ block.settings.wjp_img_con }}</span>
+      </div>
+     {% endif %}
+	{% endfor %}
+</div>
+</div>
+</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Last slider",
+    "settings": [
+        {"type":"text","id":"wjp_title","label":"Heading"},
+        {"type":"richtext","id":"wjp_content","label":"Content"},
+        {"type":"url","id":"wjp_btn_url","label":"Button Url"}        
+	],
+	"blocks" : [{	
+				"name":"Core Last Slider",
+				"type":"CorelastSlider",
+				"settings": [
+				{"type":"image_picker","id":"wjp_img","label":"Image"},
+				{"type":"image_picker","id":"wjp_img_mob","label":"Image (Mobile)"},
+        		{"type":"richtext","id":"wjp_img_con","label":"Image Content"}
+				]
+				}]
+			
+  }
+{% endschema %}
+
+

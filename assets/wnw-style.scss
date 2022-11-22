@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'icons';
+	src: url('//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/icons.eot?v=116185433802405525661664785596');
+	src: url('//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/icons.eot?v=116185433802405525661664785596#iefix') format("embedded-opentype"),
+	url('//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/icons.woff?v=62038813993387723851664785596') format("woff"),
+	url('//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/icons.ttf?v=129991431052430511731664785596') format("truetype"),
+	url('//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/icons.svg?v=18801478888481195671664785596#timber-icons') format("svg");
+	font-weight: normal;
+	font-style: normal;
+};
+
+$socialIconFontStack: 'icons';

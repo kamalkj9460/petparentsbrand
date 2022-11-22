@@ -1,0 +1,58 @@
+<section class="shopPetAge_wht sf_ShopByNeedSlider sf_BestKnownFor sf_ReviewSection">
+	<div class="container">
+      <h2 class="wwa_heading wwa_heading_red">{{section.settings.rs_section_title}}</h2>
+			<h3 class="head_sec sf_h3">{{section.settings.rs_section_subtitle}}</h3>
+			<div class="proKnownSliderHome slider" id="sf_ReviewSection_we_are">
+              {% for block in section.blocks %} 
+				<div class="proKnownSlider">				  
+					<span class="sf_pro_img">					
+                      {% if block.settings.rs_starRating == 5 %}
+                     <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span>
+                      {% endif %}
+                      {% if block.settings.rs_starRating == 4 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 3 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 2 %}
+                      <span class="is_enable">&#9733;</span><span class="is_enable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+                      {% if block.settings.rs_starRating == 1 %}
+                      <span class="is_enable">&#9733;</span> <span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span><span class="is_disable">&#9733;</span>
+                      {% endif %} 
+					</span>				 
+                   <div>
+                  		<h3>{{block.settings.rs_productTitle}}</h3>
+                   		<h5>{{block.settings.rs_productAuthor}}</h5>
+                  </div>
+                  <div class="review_footer"><a href="{{block.settings.rs_productReviewUrl}}">Read full review</a>
+                    </div>
+				</div>
+				{% endfor %}
+			
+			  </div>
+		 </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Our Impact",
+		"settings": [
+			{"type":"text","id":"rs_section_title","label":"Section Title"},
+			{"type":"text","id":"rs_section_subtitle","label":"Sub Title"}
+		],
+		"blocks" : [{
+         "type": "slide",
+         "name": "New Item",
+         "settings": [
+			{"type":"range","id":"rs_starRating","label":"Star Rating","step": 1,"min":1,"max":5,"default":5},
+			{"type":"text","id":"rs_productTitle","label":"Title"},
+            {"type":"text","id":"rs_productAuthor","label":"Author"},
+			{"type":"url","id":"rs_productReviewUrl","label":"Full Review Url"}	
+            ]}],
+		"presets": [{
+			"name": "Review Section"
+		}]
+	}
+{% endschema %}

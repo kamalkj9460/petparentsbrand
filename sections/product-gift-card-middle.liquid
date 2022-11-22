@@ -1,0 +1,63 @@
+<section id="{{ section.id }}">
+   <div class="container">
+      <div class="GiftCard_main">
+        <div class="GiftCard_m GiftCard_main_lft">
+          {% if section.settings.gift_card_s_heading != blank %}
+          <p class="top_headline">{{- section.settings.gift_card_s_heading -}}</p>
+          {% endif %}
+          {% if section.settings.gift_card_heading != blank %}
+          <h2>{{- section.settings.gift_card_heading -}}</h2>
+          {% endif %}
+          {% if section.settings.gift_card_s_content != blank %}
+          <p class="sub_headline">{{- section.settings.gift_card_s_content -}}</p>
+          {% endif %}
+          {% if section.settings.gift_card_content != blank %}
+          <p class="footer_headline">{{- section.settings.gift_card_content -}}</p>
+          {% endif %}
+        </div>
+        <div class="GiftCard_m GiftCard_main_rgt">
+          <ul class="GiftCard_list">
+            {%- if section.blocks.size > 0 -%}
+               {%- for block in section.blocks -%}
+                 <li class="gift_item gift_item_0{{forloop.index}}">
+                   {% if block.settings.gift_item_link != blank %}
+                   <a href="{{- block.settings.gift_item_link -}}">
+                     {% endif %}
+                   {% if block.settings.gift_item_img %}
+              		{{ block.settings.gift_item_img | img_url:'master' | img_tag:'gift_item_img','img-responsive' }}
+                	{% endif %}
+                 {% if block.settings.gift_item_title != blank %}
+                <span class="product_headline">{{- block.settings.gift_item_title -}}</span>
+                {% endif %}                     
+                  {% if block.settings.gift_item_link != blank %}
+                   </a>
+                     {% endif %}
+                 </li>
+                {% endfor %}
+            {% endif %}
+          </ul>
+        </div>        
+     </div>
+   </div>
+</section>
+{% schema %}
+  {
+    "name": "Gift Card Middle",
+    "settings": [
+        {"type": "text","id": "gift_card_s_heading","label": "Top Title","default": "The Gift for Everything Pet Parents®"},
+        {"type": "text","id": "gift_card_heading","label": "Title","default": "Pet Parents® Gift Card"},
+        {"type": "text","id": "gift_card_s_content","label": "Sub Content","default": "Don't overthink it, give the gift of Pet Parenting™. With our full list of products and accessories, this gift card does it all. And then some."},
+        {"type": "html","id": "gift_card_content","label": "Content"}
+    ],
+    "blocks" : [
+		{
+	        "type": "gift_item",
+	        "name": "Item",
+	        "settings": [
+				{"type":"text","id":"gift_item_title","label":"Title"},
+				{"type":"image_picker","id":"gift_item_img","label":"Image"},
+				{"type":"url","id":"gift_item_link","label":"Link"}
+			]
+		}]
+  }
+{% endschema %}

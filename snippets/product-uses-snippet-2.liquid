@@ -1,0 +1,36 @@
+{% if section.settings.is_middle %}
+<div class="white_space">
+  <div class ="additional_sec">
+  <div class ="dog_dia_cont">
+      <p>{{ section.settings.image_content }}</p>
+   
+  </div>
+    <div class ="dog_dia_img">
+      <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.addi_img | img_url: 'master' }}" alt="addi_img">
+
+    </div>
+    </div>
+  <div class="case_studies_div _dmet_page">
+    <div class="real-title-inr {{ section.settings.extraCls }}">
+      <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.middle_bg_img | img_url: 'master' }}" alt="middle_bg_img">
+
+    </div>
+    <div class="button_over_green">
+     {% if section.settings.middle_logo_img %}
+      <span>
+        <img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.middle_logo_img | img_url: 'master' }}" alt="middle_logo_img">
+
+      </span>
+      {% endif %}
+      {% for block in section.blocks %}
+      	<a href="javascript:void(0);" style="background-color:{{ section.settings.uses_bg }};color:{{ section.settings.uses_txt_color }}">{{ block.settings.uses_text }}</a>
+      {% endfor %}      
+    </div>
+  </div>
+</div>
+{% endif %}
+{% style  %}
+  ._dmet_page{ position:relative;}
+  ._dmet_page .real-title-inr02,._dmet_page{ margin: 0px;}
+  ._dmet_page .button_over_green {margin-top: -75px;}
+{% endstyle %}

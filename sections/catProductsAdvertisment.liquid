@@ -1,0 +1,56 @@
+<!-- Product Advertisement Section -->
+<section class="advertProduct">
+  <div class="container">
+    <div class="row banner_foot" >
+     
+        <div class="pp-5 leftContent">
+          <div class="advertLeftContent">
+        	{{ section.settings.left_catadvert_content }}
+          </div>
+          <div class="advertLeftImage">
+        	<img src="{{ section.settings.advertcatImage | img_url: 'master' }}" />
+          </div>
+        </div> 
+      <div class="rightContant pp-7">
+          <div class="advertLeftImage">
+               <img src="{{ section.settings.advertcatProImage | img_url: 'master' }}" />
+          </div>
+          <div class="advertLeftContent">
+        	{{section.settings.advertProcat_content}}
+            <div class="dogLanButton">
+            	<a href="{{ section.settings.advertProcat_button_link }}" class="RedButton" style="background:{{section.settings.advertcat_color}}">{{section.settings.advertProcat_button_name}}</a>
+             	<!--<a href="{{ section.settings.advertProcat_button_link2 }}" class="RedButton" style="background:{{section.settings.advertcat_color2}}">{{section.settings.advertProcat_button_name2}}</a>-->
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .banner_foot{
+    background:{{section.settings.BG_catadvert}};
+  }
+</style>
+
+<!-- Product Advertisement End -->
+{% schema %}
+  {
+    "name": "Cat Landing Advertisement",
+    "settings": [
+                {"type":"color","id":"BG_catadvert","label":"Background Color","default":"#f9bcca"},
+				{"type":"html","id":"left_catadvert_content","label":"Enter Left Side Content[HTML]"},
+				{"type":"image_picker","id":"advertcatImage","label":"Choose Pet Image"},
+				{"type":"image_picker","id":"advertcatProImage","label":"Choose Product Image"},
+				{"type":"html","id":"advertProcat_content","label":"Enter HTML content"},
+				{"type":"text","id":"advertProcat_button_name","label":"Button Name (1)"},
+				{"type":"text","id":"advertProcat_button_name2","label":"Button Name (2)"},
+			   	{"type":"url","id":"advertProcat_button_link","label":"Button Link (1)"},
+                {"type":"color","id":"advertcat_color","label":"Color for content","default":"#e81c76"}
+		],
+	"presets": [{
+      "name": "Cat Landing Advertisement",
+      "category": "Text"
+    }]
+  }
+{% endschema %}
+

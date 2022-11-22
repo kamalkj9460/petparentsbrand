@@ -1,0 +1,103 @@
+<section id="section_id_banner">
+  <div class="sf_drop_banner"{% if section.settings.drops_banner_bg !=blank %} style="background:{{section.settings.drops_banner_bg}}"{% endif %}>
+    <div class="container">
+          <div class="row">
+              <div class="dropsProductM">
+                  <div class="dropsProductMain">
+                    {% if section.settings.drops_banner_h !=blank %}
+                    <h2>{{section.settings.drops_banner_h}}</h2>
+                    {% endif %}
+                    {% if section.settings.drops_banner_c !=blank %}
+                    <p>{{section.settings.drops_banner_c}}</p>    
+                    {% endif %}
+              </div>
+              <div class="dropsProductImg">
+                {% if section.settings.drops_banner_img %}
+                <img class="home_Forage home_Forage_desktab lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.drops_banner_img | img_url: 'master' }}" alt="drops_banner_img">
+                
+                {% endif %}
+                {% if section.settings.drops_banner_img_m %}
+                <img class="home_Forage home_Forage_mobile lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ section.settings.drops_banner_img_m | img_url: 'master' }}" alt="drops_banner_img_m">
+                
+                {% endif %} 
+              </div>
+          </div>
+      </div>
+      </div>	
+  </div>
+</section>
+<section id="section_id_c_collection">
+  <div class="sf_drop_coll">
+    <div class="container">
+          <div class="sf_row">
+            <h2>Current Collection: <span class="c_collection">{{section.settings.c_collection}}</span></h2>
+            {% assign rawHTML = '' %}                
+                	{% for block in section.blocks %} 
+						{% if block.type == 'dropsProducts' %} 
+                		{% capture rHtml %}
+							<div class="dropsc_collectionM">
+                              {% if block.settings.dp_product_img %}
+                              	<img class="img-responsive lazy2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.dp_product_img | img_url: 'master' }}" alt="dp_product_img">
+                				
+                  			{% endif %}
+                              <h3>{{ block.settings.dp_product_title }}</h3>
+                              <a href="{{ block.settings.dp_product_url }}">Shop Now</a>
+               			 </div>
+                		{% endcapture %}
+						{% endif %}
+                		{% assign rawHTML = rawHTML | append: rHtml %}
+				{% endfor %}
+           <div class="c_coll_is_desktop">
+             <div class="dropsCurrentCollection slider">
+               {{rawHTML}}
+           	</div>
+          </div>
+            <div class="c_coll_is_mobile">
+             <div class="dropsCCollMob slider">
+               {{rawHTML}}
+           	</div>
+          </div>         
+      </div>
+      </div>	
+  </div>
+</section>
+<section id="section_id_f_need">
+  <div class="sf_drop_need">
+    <div class="container">
+          <div class="sf_row">
+            <h2>{{section.settings.fen_title}}</h2>
+            <p>{{section.settings.fen_title_s}}</p>
+            {% assign slideHTML = '' %}
+     		{% assign popHTML = '' %}            
+            {% for block in section.blocks %} 
+						{% if block.type == 'dropsSlide' %} 
+            				{% capture slidHTML %}
+							<div class="dropsForNeednM">
+                              {% if block.settings.ds_slide_img %}
+                              <img img_id="dfn_img_{{forloop.index}}" data-src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive lazy2">           
+                  			{% endif %}                             
+               			 	</div>
+            				{% endcapture %}
+            				{% capture poHTML %}
+							<div class="dropspopUpHTML" id="dfn_img_{{forloop.index}}">
+                            <div>    <span class="sf_close_bTn"><img class="lazy2" data-src="https://cdn.shopify.com/s/files/1/1355/5443/files/white1.png"></span>
+                                {% if block.settings.ds_slide_img %}
+                                <img data-src="//cdn.shopify.com/s/files/1/1355/5443/{{- block.settings.ds_slide_img -}}" alt="ds_slide_img" class="img-responsive lazy2">           
+                              {% endif %} 
+                              </div>
+               			 	</div>
+            				{% endcapture %}
+						{% endif %}
+            		{% assign slideHTML = slideHTML | append: slidHTML %}
+    				{% assign popHTML = popHTML | append: poHTML %}
+				{% endfor %} 
+              <div class="dropsForNeed slider">
+                {{slideHTML}}
+           </div>
+           <div class="dropsForNpopUp">
+                {{popHTML}}
+           </div>
+      </div>
+      </div>	
+  </div>
+</section>

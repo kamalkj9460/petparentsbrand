@@ -1,0 +1,30 @@
+<div class="__top_navbar">
+  <!-- begin site-nav -->
+  <ul class="nav">
+    {% for link in linklists[section.settings.main_menu_link_list].links %}
+    {% if link.links != blank %}
+      {% assign parent_index = forloop.index %}
+      <li class="{{ link.title | handleize | escape }} _if">
+       {% comment %} <a href="{{ link.url }}" class="{% if link.active %}active{% endif%}">{{ link.title | escape }}</a> {% endcomment %}
+         <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        {% if link.url contains section.settings.mega_menu_item %}
+          {% render 'sub-mega-menu' %}
+        {% else %}
+          {% render 'nav-sub-child-items', link:link %}    
+        {% endif %}
+      </li>
+    {% else %}
+      <li class="{{ link.title | handleize | escape }} _else">
+        <a href="{{ link.url }}" class="{% if link.active %}active{% endif%}" data-meganav-type="child"
+           {% unless template.name == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
+           {{ link.title | escape }}        
+        </a>
+        {% if link.url contains section.settings.mega_menu_item %}
+            {% render 'sub-mega-menu' %}
+          {% endif %}
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <!-- //site-nav -->
+</div>            
