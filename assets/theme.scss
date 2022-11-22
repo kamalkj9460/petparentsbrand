@@ -2305,7 +2305,7 @@ $slick-opacity-not-active: 0.25;
 
 // Only called once so make sure proper file is grabbed
 @function slick-image-url($url) {
-  @return url(//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/ajax-loader.gif?v=41356863302472015721664785596);
+  @return url(//cdn.shopify.com/s/files/1/1355/5443/t/40/assets/ajax-loader.gif?v=41356863302472015721668678163);
 }
 
 // Unused intentionally
@@ -3940,7 +3940,7 @@ button.mfp-arrow {
   width: 100%;
 
   @if $passwordPageUseBgImage {
-	background-image: url(//cdn.shopify.com/s/files/1/1355/5443/t/38/assets/comming-soon-banner.png?v=135933680889955649691664785596);
+	background-image: url(//cdn.shopify.com/s/files/1/1355/5443/t/40/assets/comming-soon-banner.png?v=135933680889955649691668678163);
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: #ffffff;

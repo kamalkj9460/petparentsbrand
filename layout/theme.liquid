@@ -7,36 +7,30 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="no-js"> <!--<![endif]-->
 	<head
-
-      <!-- Global site tag (gtag.js) - Google Analytics --><script>
-/* >> TriplePixel :: start*/
-~function(W,H,A,L,E,_){function O(T,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET","//triplewhale-pixel.web.app/triplepx.txt?"+~(Date.now()/9e7),!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?setTimeout(function(){return eval(H.responseText)},50):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(T-1))}}if(L=window,!L[H+"sn"]){L[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),W.includes("⇈")&&A.setItem(H+"Stg",1+(0|A.getItem(H+"Stg")||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=L,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),E._headless=!0,W},E.ch=W,O(5)))}}("","TriplePixel",localStorage);
-/* << TriplePixel :: end*/
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274395-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108274395-1');
-</script>
-
-      <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WHBXNVR');</script>
-<!-- End Google Tag Manager -->
-
-      
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="lazyload2">
+            /* >> TriplePixel :: start*/
+            ~function(W,H,A,L,E,_){function O(T,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET","//triplewhale-pixel.web.app/triplepx.txt?"+~(Date.now()/9e7),!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?setTimeout(function(){return eval(H.responseText)},50):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(T-1))}}if(L=window,!L[H+"sn"]){L[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),W.includes("⇈")&&A.setItem(H+"Stg",1+(0|A.getItem(H+"Stg")||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=L,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),E._headless=!0,W},E.ch=W,O(5)))}}("","TriplePixel",localStorage);
+            /* << TriplePixel :: end*/
+        </script>
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-108274395-1"></script>
+        <script type="lazyload2">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-108274395-1');
+        </script>
+        <!-- Google Tag Manager -->
+        <script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WHBXNVR');</script>
+        <!-- End Google Tag Manager -->      
 		<meta name="google-site-verification" content="r-VsmXAVHA7fHtBssGdTo5_xx-e5mZXlY6EerSx6wXA">
 		<meta name="facebook-domain-verification" content="gvfpiow6qtnrqcpwldlmefyetvbh8s" />
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        
 		{% if settings.favicon %}
 			<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
 		{% endif %}
@@ -84,13 +78,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			gtag('js', new Date());
 			gtag('config', 'UA-63196059-2');
 		</script>
+        {% if template contains 'index' %} 
+            {% render 'homepage-critical-css' %}
+        {% elsif template contains 'product' %}
+            {% render 'product-critical-css' %}
+        {% else %}
+            {% render 'all-css' %}
+            {% render 'all-css-2' %}
+            {% render 'all-css-3' %}
+        {% endif %}
       	
-        {% render 'all-css' %}
-      	{% render 'all-css-2' %}
-      	{% render 'all-css-3' %}
-      	{% if template contains 'product' %}
-			{% render 'product-css' %}
-		{% endif %}
       	<link rel="stylesheet" data-href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       	<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
@@ -100,9 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<link rel="stylesheet" data-href="{{ 'responsive.css' | asset_url }}">
 		<link rel="stylesheet" data-href="{{ 'slick.css'  | asset_url }}">
 		<link rel="stylesheet" data-href="{{ 'slick-theme.css'  | asset_url }}">
-
 		{% if template contains 'product' %}
-		<link rel="stylesheet" data-href="{{ 'product.scss.css' | asset_url }}">
+		    <link rel="stylesheet" data-href="{{ 'product.scss.css' | asset_url }}">
 		{% endif %}
 		<script >
 			window.theme = window.theme || {};
@@ -144,14 +140,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<script type="lazyload2" data-src="{{ 'jquery-2.2.3.min.js' | asset_url }}"></script>
 		<script type="lazyload2" data-src="{{ 'lazysizes.min.js' | asset_url }}"></script>
 		<script type="lazyload2" data-src="{{ 'theme.js' | asset_url }}"></script>
-		
 		<!-- Header hook for plugins-->
         {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
             {{ content_for_header }}
         {%- else -%}
             {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
             {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
-            <script>var trekkie=[];trekkie.integrations=!0;</script>
+            <script>var trekkie=[];trekkie.integrations=!0;window.BOOMR={},window.BOOMR.version=true;</script>
         {%- endif -%}
 		{% include 'oldIE-js' %}
 		<script type="lazyload2" data-src="{{ 'modernizr.min.js' | asset_url }}"></script>
@@ -172,7 +167,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       	{% if template contains 'product' %}
       		<link data-href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
       	{% endif %}
-      	<style class="cls_css">@media only screen and (min-width:1200px){.template-index .AdsBanner-main .AdsBanner_item.deskTab img{min-height:23vw}}.site-header__logo img{min-height:56.6167px}@media only screen and (max-width:500px){#shopify-section-header{min-height:131.617px}.template-index .AdsBanner-main .AdsBanner_item.mobBan img{min-height:80vw}}</style>
       	<!-- Google Tag Manager -->
 		<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -183,40 +177,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       	<!-- Global site tag (gtag.js) - Google Analytics -->
         <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=UA-63196059-2"></script>
         <script type="lazyload2">
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-63196059-2');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-63196059-2');
         </script>
-      <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-873066568');
+        <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
+        <script type="lazyload2">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-873066568');
         </script>
-
-
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "df9mucrevp");
-</script>
-  
+        <script type="lazyload2">
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "df9mucrevp");
+        </script>
+        <style class="cls_css">@media only screen and (min-width:1200px){.template-index .AdsBanner-main .AdsBanner_item.deskTab img{min-height:23vw}}.site-header__logo img{min-height:56.6167px}@media only screen and (max-width:500px){#shopify-section-header{min-height:131.617px}.template-index .AdsBanner-main .AdsBanner_item.mobBan img{min-height:80vw}}</style>
 	</head>
 		{% comment %}Add the page template as a class for easy page or template specific styling.{% endcomment %}
-      	<link rel="stylesheet" href="{{ 'header-footer.css' | asset_url }}" />
-	<body data-layout="theme" data-pid="{{product.id}}" id="{{ page_title | handle }}" class="supports-fontface {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">
-
+      	<link rel="stylesheet" data-href="{{ 'header-footer.css' | asset_url }}" />
+	    <body data-layout="theme" data-pid="{{product.id}}" id="{{ page_title | handle }}" class="supports-fontface {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHBXNVR"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-      
 		<script type="lazyload2">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
 		<script type="lazyload2">window.Beacon('init', '1e408e71-d6e6-4bcd-ae7c-0d52eba424a8')</script>
 		<div class="sf_wrapper">
@@ -240,7 +229,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			</div>
 			<div id="PageContainer" class="page-container">
 				{% section 'header' %}
-              
 				{% if template.name == "index" %}
 					{% section 'slideshow' %}
               		{% render 'newstyle-css' %}
@@ -275,7 +263,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			}, 1000);
 			{% endif %}
 		</script>
-
 		{% if settings.cart_type == 'drawer' %}
 			{% include 'ajax-cart-template' %}
 		{% endif %}
@@ -336,8 +323,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					$('.section-header > h1').html('Wholesale Login');
 				}
 			}, 1000);
-             $(document).on("click","span.sf_search_i",function(){
-            $(".__top_login.RedblueSubscription").toggleClass("is_active");
+            $(document).on("click","span.sf_search_i",function(){
+                $(".__top_login.RedblueSubscription").toggleClass("is_active");
             });
 		</script>
 		<script type="lazyload2">
@@ -442,128 +429,118 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			{% render 'pet-sticky-bar' %}
 		{% endif %}
 		{% comment %}{% endcomment %}
-		      {% if template contains 'product' %}
-        <style>
-          #videoControl{
-            width:100%;height: 550px !important;
-          }
-          .vjs-big-play-button{
-            display:none !important;
-          } 
-          .vjs-poster {
-            background-size: cover;
-          }
-        </style>
-        <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-      	<script type="lazyload2">
-          setTimeout(function(){
-            if( jQuery(window).width() > 767 ){
-              let counter = 1;
-              let imgURL = 'https://cdn.shopify.com/s/files/1/1355/5443/files/';
-              let acImg = jQuery('.Special_Features_img img').attr('src');
-              jQuery('.Special_Features .inner_text,.Special_Features_row .inner_text').each(function(id, ele){
-
-                let fname = '{{ product.handle }}-'+counter+'.png';
-                jQuery(ele).attr({'data-src': fname ,'data-id': counter});
-
-                if( 
-                  document.body.dataset.id == 6050703999166 
-                  || document.body.dataset.id == 626011668532 
-                  || document.body.dataset.id  == 625932894260 ){
-                   jQuery('.Special_Features_row .inner_text').last().addClass('dis');
+        {% if template contains 'product' %}
+            <style>
+                #videoControl{
+                    width:100%;height: 550px !important;
+                }
+                .vjs-big-play-button{
+                    display:none !important;
                 } 
-
-                // create image and append to image div
-                let image = imgURL+''+jQuery(ele).data('src');
-                let img   = document.createElement('img');
-                img.setAttribute('src', image);
-                img.classList.add('hide');
-                img.classList.add('img-'+counter);
-                img.dataset.i = counter;
-                jQuery('.Special_Features_img').append(img);
-
-
-                jQuery(ele).on('mouseenter', function(){
-                  if( !jQuery(this).hasClass('dis') ){
-                    let ids = jQuery(ele).data('id');
-                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').addClass('black');
-                    jQuery(ele).addClass('white').removeClass('black');
-                    let img = imgURL+''+jQuery(ele).data('src');
-                    jQuery('.Special_Features_img').addClass('up_div');
-                    jQuery('.Special_Features_img img').addClass('hide');
-                    jQuery('.Special_Features_img .img-'+ids).removeClass('hide').addClass('updated');
-
-                  }else{
-                    jQuery('.Special_Features_img').removeClass('up_div');
-                    if( document.body.dataset.id == 626011668532){
-                      jQuery('.Special_Features_img img').addClass('hide');
-                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                      jQuery('.Special_Features_img img').eq(1).removeClass('hide');
-                    }else{
-                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                    }
-
-
-                  }
-                });
-
-                jQuery(ele).on('mouseleave', function(){
-                  if( !jQuery(this).hasClass('dis') ){
-                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
-                    jQuery('.Special_Features_img img').addClass('hide');   
-                    jQuery('.Special_Features_img').removeClass('up_div');
-                    if( document.body.dataset.id == 626011668532){            
-                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                      jQuery('.Special_Features_img img').eq(1).removeClass('hide');
-                    }else{
-                      jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                    }
-                  }
-                });
-                counter++;
-              });
-              jQuery('.Special_Features_img').on('mouseenter', function(){
-                jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('black');
-                jQuery('.Special_Features_img').removeClass('up_div');
-                jQuery('.Special_Features_img img').addClass('hide');
-                if( document.body.dataset.id == 626011668532){      	
-                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                  jQuery('.Special_Features_img img').eq(1).removeClass('hide');
-                }else{
-                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                .vjs-poster {
+                    background-size: cover;
                 }
-              });
-
-              jQuery('.sf_Special_Features_sec .container').on('mouseleave', function(){
-                jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
-                jQuery('.Special_Features_img').removeClass('up_div');
-                jQuery('.Special_Features_img img').addClass('hide');
-                if( document.body.dataset.id == 626011668532){      	
-                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                  jQuery('.Special_Features_img img').eq(1).removeClass('hide');
-                }else{
-                  jQuery('.Special_Features_img img').eq(0).removeClass('hide');
-                }
-              });
-            }
-          });   
-        </script>
+            </style>
+            <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+            <script type="lazyload2">
+                setTimeout(function(){
+                    if( jQuery(window).width() > 767 ){
+                        let counter = 1;
+                        let imgURL = 'https://cdn.shopify.com/s/files/1/1355/5443/files/';
+                        let acImg = jQuery('.Special_Features_img img').attr('src');
+                        jQuery('.Special_Features .inner_text,.Special_Features_row .inner_text').each(function(id, ele){
+                            let fname = '{{ product.handle }}-'+counter+'.png';
+                            jQuery(ele).attr({'data-src': fname ,'data-id': counter});
+                            if( 
+                            document.body.dataset.id == 6050703999166 
+                            || document.body.dataset.id == 626011668532 
+                            || document.body.dataset.id  == 625932894260 ){
+                                jQuery('.Special_Features_row .inner_text').last().addClass('dis');
+                            } 
+                            // create image and append to image div
+                            let image = imgURL+''+jQuery(ele).data('src');
+                            let img   = document.createElement('img');
+                            img.setAttribute('src', image);
+                            img.classList.add('hide');
+                            img.classList.add('img-'+counter);
+                            img.dataset.i = counter;
+                            jQuery('.Special_Features_img').append(img);
+                            jQuery(ele).on('mouseenter', function(){
+                                if( !jQuery(this).hasClass('dis') ){
+                                    let ids = jQuery(ele).data('id');
+                                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').addClass('black');
+                                    jQuery(ele).addClass('white').removeClass('black');
+                                    let img = imgURL+''+jQuery(ele).data('src');
+                                    jQuery('.Special_Features_img').addClass('up_div');
+                                    jQuery('.Special_Features_img img').addClass('hide');
+                                    jQuery('.Special_Features_img .img-'+ids).removeClass('hide').addClass('updated');
+                                }else{
+                                    jQuery('.Special_Features_img').removeClass('up_div');
+                                    if( document.body.dataset.id == 626011668532){
+                                    jQuery('.Special_Features_img img').addClass('hide');
+                                    jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                    jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                                    }else{
+                                    jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                    }
+                                }
+                            });
+                            jQuery(ele).on('mouseleave', function(){
+                                if( !jQuery(this).hasClass('dis') ){
+                                    jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
+                                    jQuery('.Special_Features_img img').addClass('hide');   
+                                    jQuery('.Special_Features_img').removeClass('up_div');
+                                    if( document.body.dataset.id == 626011668532){            
+                                    jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                    jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                                    }else{
+                                    jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                    }
+                                }
+                            });
+                            counter++;
+                        });
+                        jQuery('.Special_Features_img').on('mouseenter', function(){
+                            jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('black');
+                            jQuery('.Special_Features_img').removeClass('up_div');
+                            jQuery('.Special_Features_img img').addClass('hide');
+                            if( document.body.dataset.id == 626011668532){      	
+                                jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                            }else{
+                                jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                            }
+                        });
+                        jQuery('.sf_Special_Features_sec .container').on('mouseleave', function(){
+                            jQuery('.Special_Features .inner_text, .Special_Features_row .inner_text').removeClass('white').addClass('black');
+                            jQuery('.Special_Features_img').removeClass('up_div');
+                            jQuery('.Special_Features_img img').addClass('hide');
+                            if( document.body.dataset.id == 626011668532){      	
+                                jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                                jQuery('.Special_Features_img img').eq(1).removeClass('hide');
+                            }else{
+                                jQuery('.Special_Features_img img').eq(0).removeClass('hide');
+                            }
+                        });
+                    }
+                });   
+            </script>
       	{% endif %}
-	
-				        <script>
-          var site_nav_link_burger = true;
-          jQuery(document).ready(function() {
-            jQuery(".is_mobil_manu").click(function() {
-              if(site_nav_link_burger) {
-                event.preventDefault();
-                site_nav_link_burger = false;
-              }
-            });
-          })
+        
+        <script>
+            var site_nav_link_burger = true;
+            jQuery(document).ready(function() {
+                jQuery(".is_mobil_manu").click(function() {
+                    if(site_nav_link_burger) {
+                        event.preventDefault();
+                        site_nav_link_burger = false;
+                    }
+                });
+            })
         </script>
-	
-
-{% include 'stamped-rewards-init' %}
+        
+        {% include 'stamped-rewards-init' %}
+                    
 {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
 {% assign oneclickupsellapp = true %}
 </body>

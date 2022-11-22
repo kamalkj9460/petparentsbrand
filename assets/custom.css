@@ -893,7 +893,7 @@ a.giftCard-Petparents {
     display: inline-block;
     font-size: 14px !important;
 }
-}
+
 
 
 
@@ -2902,7 +2902,7 @@ section.ProductFaq .row {
 .__title_banner .container, .__title_banner .container .__Inner_title {
     padding: 0;
 }
-}
+
 span.__Packbag {
     color: #fff;
     text-align: center;
@@ -6950,7 +6950,7 @@ span.item-reviews span.jdgm-prev-badge__stars {
   .problemContentInredBox>div {
     max-width: 100% !important;
     width: 100% !important;
-    flex-wrap: ;
+    
 }
 .problemContentInredBox {
     flex-wrap: wrap;
@@ -10596,7 +10596,7 @@ section.productBannerInnerSection {
     min-height: 116px;
 
 }
-}
+
 
 @media only screen and (max-width:759px)
 {
@@ -12097,11 +12097,11 @@ a.sf_learn_more:hover {
 .sf_image_combint a:last-child {margin-top: 0;display: block;}
 .template-product-pet-blankets-landing-page .sf-img-with-content .sf_title_igm a{display: grid;}
   .template-product-pet-blankets-landing-page .sf_title_igm .sf_title_img__ {
-    order 0;padding-left: 0 !important;
+    padding-left: 0 !important;
 }
 
    .template-product-pet-blankets-landing-page .sf_title_igm {
-    order 1;
+    
 }
 body#\33-pack-washable-dog-diapers-male-amp-female-dog-diapers-pet-parents .__itemWraper {
     max-width: 45px;

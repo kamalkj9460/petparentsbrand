@@ -49,6 +49,6 @@ data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '
 data-description="{{ product.description | escape }}"   
 data-product-sku="{{product.handle}}"
 data-product-type="{{product.type}}">   
-{{ product.metafields.stamped.reviews }}   
+{{ product.metafields.stamped.reviews | replace: 'href="//cdn1.stamped.io/files/widget.min.css"', 'data-href="//cdn1.stamped.io/files/widget.min.css"' | replace: "class='stamped-lazyload'", "class='stamped-lazyload lazy2'" | replace: 'src="https://cdn.stamped.io/cdn/images/pixel.png"', "" }}   
 </div></div>
 <!-- Stamped - End Main Widget -->

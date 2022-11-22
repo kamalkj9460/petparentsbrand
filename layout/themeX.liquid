@@ -6,12 +6,12 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="no-js"> <!--<![endif]-->
-  	<head><script>
-/* >> TriplePixel :: start*/
-~function(W,H,A,L,E,_){function O(T,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET","//triplewhale-pixel.web.app/triplepx.txt?"+~(Date.now()/9e7),!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?setTimeout(function(){return eval(H.responseText)},50):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(T-1))}}if(L=window,!L[H+"sn"]){L[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),W.includes("⇈")&&A.setItem(H+"Stg",1+(0|A.getItem(H+"Stg")||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=L,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),E._headless=!0,W},E.ch=W,O(5)))}}("","TriplePixel",localStorage);
-/* << TriplePixel :: end*/
-</script>
-
+  	<head>
+        <script type="lazyload2">
+            /* >> TriplePixel :: start*/
+            ~function(W,H,A,L,E,_){function O(T,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET","//triplewhale-pixel.web.app/triplepx.txt?"+~(Date.now()/9e7),!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?setTimeout(function(){return eval(H.responseText)},50):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(T-1))}}if(L=window,!L[H+"sn"]){L[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),W.includes("⇈")&&A.setItem(H+"Stg",1+(0|A.getItem(H+"Stg")||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=L,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),E._headless=!0,W},E.ch=W,O(5)))}}("","TriplePixel",localStorage);
+            /* << TriplePixel :: end*/
+        </script>
 		<!-- PAGESPEED GURU OPTIMIZED /11/16/2018 11:51:00 AM -->
 		<meta name="google-site-verification" content="r-VsmXAVHA7fHtBssGdTo5_xx-e5mZXlY6EerSx6wXA">
       	<!-- Faceebook verification meta code -->
@@ -60,16 +60,14 @@
           gtag('js', new Date());
           gtag('config', 'UA-63196059-2');
         </script>
-      <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-873066568');
+        <!-- Global site tag (gtag.js) - Google Ads: 873066568 -->
+        <script type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=AW-873066568"></script>
+        <script type="lazyload2">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-873066568');
         </script>
-
 		<!-- Helpers -->
 		{% include 'social-meta-tags' %}
 		<link rel="canonical" href="{{ canonical_url }}">
@@ -80,21 +78,24 @@
 		{%- endfor -%}
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 		<meta name="theme-color" content="{{ settings.color_primary }}">
-
 		<!-- CSS-->
 		{% comment %}
 		{% include 'guru-font-awesome_min_css' %}
 		{% include 'guru-timber_scss_css' %}
 		{% include 'guru-petparents_css' %}  
       	{% endcomment %}
-      	
-		{% render 'theme-all-css' %}
-      	{% render 'theme-all-css-2' %}
-      	{% render 'theme-all-css-3' %}
-      	{% if template contains 'product' %}
-			{% render 'product-css' %}
-		{% endif %}
-      	{% render 'header-footer-css' %}
+        {% if template contains 'index' %} 
+            {% render 'homepage-critical-css' %}
+        {% elsif template contains 'collection' %}
+            {% render 'collection-critical-css' %}
+        {% elsif template contains 'product' %}
+            {% render 'product-critical-css' %}
+        {% else %}
+            {% render 'theme-all-css' %}
+        	{% render 'theme-all-css-2' %}
+        	{% render 'theme-all-css-3' %}
+            {% render 'header-footer-css' %}
+        {% endif %}       
         <link rel="stylesheet" data-href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       	<link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
@@ -158,7 +159,7 @@
         {%- else -%}
             {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
             {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload2" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load', asyncLoad, false);" | replace: "DOMContentLoaded", "DOMContentLoaded2" }}
-            <script>var trekkie=[];trekkie.integrations=!0;</script>
+            <script>var trekkie=[];trekkie.integrations=!0;window.BOOMR={},window.BOOMR.version=true;</script>
         {%- endif -%}
       
       	{% include 'oldIE-js' %}
@@ -196,19 +197,18 @@
       	{% if template contains 'product' %}
       		<link data-href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
       	{% endif %}
-      	
 	</head>
-        {% assign c_id = 0 %}
-        {% if template contains 'product' %}
-            {% assign c_id = product.id %}
-        {% elsif template contains 'page' %}
-            {% assign c_id = page.id %}
-        {% elsif template contains 'article' %}
-            {% assign c_id = article.id %}
-        {% else %}
-            {% assign c_id = collection.id %}
-        {% endif %}
-      	<link rel="stylesheet" data-href="{{ 'header-footer.css' | asset_url }}" />
+    {% assign c_id = 0 %}
+    {% if template contains 'product' %}
+        {% assign c_id = product.id %}
+    {% elsif template contains 'page' %}
+        {% assign c_id = page.id %}
+    {% elsif template contains 'article' %}
+        {% assign c_id = article.id %}
+    {% else %}
+        {% assign c_id = collection.id %}
+    {% endif %}
+    <link rel="stylesheet" data-href="{{ 'header-footer.css' | asset_url }}" />
 	<body data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}" date-tempName="{{template}}" data-layout="themeX" data-id="{{ c_id }}" id="{{ page_title | handle }}" class="loading {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | handle }}" data-head-to-cart="{{settings.move_to_cart}}" data-dis-drawer="{{settings.disable_drawer}}" data-update-atc="{{settings.update_atc}}">	
 		<!-- Google Tag Manager (noscript) -->
       	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQHPBWX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -285,180 +285,178 @@
 			{% endif %}
 		</script>
 		<!-- cart type drawer -->
-		{% if settings.cart_type == 'drawer' %}{% include 'ajax-cart-template' %}{% endif %}
-		{% if template.name == 'product' or template.name == 'index' %}
-      	{% if product.id == 6050703999166 or product.id == 6087189332158 %}
-      		{% capture AtcTect %}PREORDER{% endcapture %}
-      	{% else %}
-      		{% capture AtcTect %}{{ 'products.product.add_to_cart' | t | json }}{% endcapture %}
-      	{% endif %}
-		<script>
-			theme.productStrings = {
-                addToCart: {{AtcTect}},
-				soldOut: {{ 'products.product.sold_out' | t | json }},
-				unavailable: {{ 'products.product.unavailable' | t | json }}
-			}
-		</script>
-		{% endif %}
-		{% include 'sumo' %}
-		<script type="application/javascript">
-			var referrer   = encodeURIComponent( document.referrer ),
-			landedPage = encodeURIComponent(window.location.href),
-			pixelUrl   = "https://bettermetrics.co/track/?op=trak&uid=899&referrer=" + referrer + "page=" + landedPage;
-			pixelScript      = document.createElement( "script" );
-			pixelScript.type = "application/javascript";
-			pixelScript.src  = pixelUrl;
-			document.getElementsByTagName( "body" )[0].appendChild( pixelScript );
-		</script>
-		<script type="lazyload2">
-			(function(h,i,v,e,s,d,k){h.HiveSDKObject=s;h[s]=h[s]||function(){(h[s].q=h[s].q||[]).push(arguments)},d=i.createElement(v),k=i.getElementsByTagName(v)[0];d.async=1;d.id=s;d.src=e+'?sef=1&r='+parseInt(new Date()/60000);k.parentNode.insertBefore(d,k)})(window,document,'script','https://cdn-prod.hive.co/static/js/sdk-loader.js','HIVE_SDK')
-			HIVE_SDK('init', 121090);
-			function onFormSubmitSuccess(){
-				// you can use this function to do things when users sucessfully submit your form
-			}
-		</script>
-		<script type="lazyload2">
-			setTimeout(function(){
-				if(window.location.href.indexOf("login") > -1 || window.location.href.indexOf("account") > -1 ) {
-					$('.section-header').css('visibility','visible');
-				}
-				if(window.location.href.indexOf("online-training-program") > -1) {
-					$('.section-header').css('visibility','visible');
-					$('.section-header > h1').html('Wholesale Login');
-				}
-			}, 1000);
+        {% if settings.cart_type == 'drawer' %}{% include 'ajax-cart-template' %}{% endif %}
+        {% if template.name == 'product' or template.name == 'index' %}
+            {% if product.id == 6050703999166 or product.id == 6087189332158 %}
+                {% capture AtcTect %}PREORDER{% endcapture %}
+            {% else %}
+                {% capture AtcTect %}{{ 'products.product.add_to_cart' | t | json }}{% endcapture %}
+            {% endif %}
+            <script>
+                theme.productStrings = {
+                    addToCart: {{AtcTect}},
+                    soldOut: {{ 'products.product.sold_out' | t | json }},
+                    unavailable: {{ 'products.product.unavailable' | t | json }}
+                }
+            </script>
+        {% endif %}
+        {% include 'sumo' %}
+        <script type="lazyload2">
+            var referrer   = encodeURIComponent( document.referrer ),
+            landedPage = encodeURIComponent(window.location.href),
+            pixelUrl   = "https://bettermetrics.co/track/?op=trak&uid=899&referrer=" + referrer + "page=" + landedPage;
+            pixelScript      = document.createElement( "script" );
+            pixelScript.type = "application/javascript";
+            pixelScript.src  = pixelUrl;
+            document.getElementsByTagName( "body" )[0].appendChild( pixelScript );
+        </script>
+        <script type="lazyload2">
+            (function(h,i,v,e,s,d,k){h.HiveSDKObject=s;h[s]=h[s]||function(){(h[s].q=h[s].q||[]).push(arguments)},d=i.createElement(v),k=i.getElementsByTagName(v)[0];d.async=1;d.id=s;d.src=e+'?sef=1&r='+parseInt(new Date()/60000);k.parentNode.insertBefore(d,k)})(window,document,'script','https://cdn-prod.hive.co/static/js/sdk-loader.js','HIVE_SDK')
+            HIVE_SDK('init', 121090);
+            function onFormSubmitSuccess(){
+                // you can use this function to do things when users sucessfully submit your form
+            }
+        </script>
+        <script type="lazyload2">
+            setTimeout(function(){
+                if(window.location.href.indexOf("login") > -1 || window.location.href.indexOf("account") > -1 ) {
+                    $('.section-header').css('visibility','visible');
+                }
+                if(window.location.href.indexOf("online-training-program") > -1) {
+                    $('.section-header').css('visibility','visible');
+                    $('.section-header > h1').html('Wholesale Login');
+                }
+            }, 1000);
             $(document).on("click","span.sf_search_i",function(){
             $(".__top_login.RedblueSubscription").toggleClass("is_active");
             });
-		</script>
-		{% if template contains 'page' %}
-		<script type="lazyload2">
-			setTimeout(function(){
-				$('.custom_reviews_slider1').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviews"),
-					customDirectionNav: $(".custom-navigation-reviews a")
-				});
-				$('.custom_reviews_slider2').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-bands"),
-					customDirectionNav: $(".custom-navigation-bands a")
-				});
-				$('.custom_reviews_slider3').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-dogs"),
-					customDirectionNav: $(".custom-navigation-dogs a")
-				});
-				$('.custom_reviews_slider4').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-cats"),
-					customDirectionNav: $(".custom-navigation-cats a")
-				});
-				$('.custom_reviews_slider5').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-gnawtlers"),
-					customDirectionNav: $(".custom-navigation-gnawtlers a")
-				});
-				$('.custom_reviews_slider6').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-furniture"),
-					customDirectionNav: $(".custom-navigation-furniture a")
-				});
-				$('.custom_reviews_slider7').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-peepads"),
-					customDirectionNav: $(".custom-navigation-peepads a")
-				});
-				$('.custom_reviews_sliderallergy').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsallergy"),
-					customDirectionNav: $(".custom-navigation-reviewsallergy a")
-				});
-				$('.custom_reviews_sliderbladder').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsbladder"),
-					customDirectionNav: $(".custom-navigation-reviewsbladder a")
-				});
-				$('.custom_reviews_slidercalming').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewscalming"),
-					customDirectionNav: $(".custom-navigation-reviewscalming a")
-				});
-				$('.custom_reviews_sliderhipjoint').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewshipjoint"),
-					customDirectionNav: $(".custom-navigation-reviewshipjoint a")
-				});
-				$('.custom_reviews_slidermultivitamin').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsmultivitamin"),
-					customDirectionNav: $(".custom-navigation-reviewsmultivitamin a")
-				});
-				$('.custom_reviews_sliderprobiotic').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsprobiotic"),
-					customDirectionNav: $(".custom-navigation-reviewsprobiotic a")
-				});
-				$('.custom_reviews_sliderskincoat').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsskincoat"),
-					customDirectionNav: $(".custom-navigation-reviewsskincoat a")
-				});
-				$('.custom_reviews_sliderturmeric').flexslider({
-					animation: "slide",
-					slideshow: false,
-					controlsContainer: $(".custom-controls-container-reviewsturmeric"),
-					customDirectionNav: $(".custom-navigation-reviewsturmeric a")
-				});
-				$(window).trigger('resize');
-			}, 1000);
-            
-		</script>
-		{% endif %}
-		<!-- Begin ReCharge code -->
-		{% include 'subscription-theme-footer' %}
-		<!-- End ReCharge code -->
-		
-		{% if settings.sticky_cart and template contains 'product' %}
-			{% render 'pet-sticky-bar' %}
-		{%  endif %}
-		{% if template contains 'product' %}
-        <style>
-          #videoControl{
-            width:100%;height: 550px !important;
-          }
-          .vjs-big-play-button{
-            display:none !important;
-          } 
-          .vjs-poster {
-            background-size: cover;
-          }
-        </style>
-        <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-        <script>
-          window.addEventListener('load', function(){
-            document.body.classList.remove('loading');
-          });         
-
         </script>
+        {% if template contains 'page' %}
+            <script type="lazyload2">
+                setTimeout(function(){
+                    $('.custom_reviews_slider1').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviews"),
+                        customDirectionNav: $(".custom-navigation-reviews a")
+                    });
+                    $('.custom_reviews_slider2').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-bands"),
+                        customDirectionNav: $(".custom-navigation-bands a")
+                    });
+                    $('.custom_reviews_slider3').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-dogs"),
+                        customDirectionNav: $(".custom-navigation-dogs a")
+                    });
+                    $('.custom_reviews_slider4').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-cats"),
+                        customDirectionNav: $(".custom-navigation-cats a")
+                    });
+                    $('.custom_reviews_slider5').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-gnawtlers"),
+                        customDirectionNav: $(".custom-navigation-gnawtlers a")
+                    });
+                    $('.custom_reviews_slider6').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-furniture"),
+                        customDirectionNav: $(".custom-navigation-furniture a")
+                    });
+                    $('.custom_reviews_slider7').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-peepads"),
+                        customDirectionNav: $(".custom-navigation-peepads a")
+                    });
+                    $('.custom_reviews_sliderallergy').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsallergy"),
+                        customDirectionNav: $(".custom-navigation-reviewsallergy a")
+                    });
+                    $('.custom_reviews_sliderbladder').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsbladder"),
+                        customDirectionNav: $(".custom-navigation-reviewsbladder a")
+                    });
+                    $('.custom_reviews_slidercalming').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewscalming"),
+                        customDirectionNav: $(".custom-navigation-reviewscalming a")
+                    });
+                    $('.custom_reviews_sliderhipjoint').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewshipjoint"),
+                        customDirectionNav: $(".custom-navigation-reviewshipjoint a")
+                    });
+                    $('.custom_reviews_slidermultivitamin').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsmultivitamin"),
+                        customDirectionNav: $(".custom-navigation-reviewsmultivitamin a")
+                    });
+                    $('.custom_reviews_sliderprobiotic').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsprobiotic"),
+                        customDirectionNav: $(".custom-navigation-reviewsprobiotic a")
+                    });
+                    $('.custom_reviews_sliderskincoat').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsskincoat"),
+                        customDirectionNav: $(".custom-navigation-reviewsskincoat a")
+                    });
+                    $('.custom_reviews_sliderturmeric').flexslider({
+                        animation: "slide",
+                        slideshow: false,
+                        controlsContainer: $(".custom-controls-container-reviewsturmeric"),
+                        customDirectionNav: $(".custom-navigation-reviewsturmeric a")
+                    });
+                    $(window).trigger('resize');
+                }, 1000);
+                
+            </script>
         {% endif %}
-    {% include 'stamped-rewards-init' %}
- {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
-{% assign oneclickupsellapp = true %}
+        <!-- Begin ReCharge code -->
+        {% include 'subscription-theme-footer' %}
+        <!-- End ReCharge code -->
+        {% if settings.sticky_cart and template contains 'product' %}
+            {% render 'pet-sticky-bar' %}
+        {%  endif %}
+        {% if template contains 'product' %}
+            <style>
+                #videoControl{
+                    width:100%;height: 550px !important;
+                }
+                .vjs-big-play-button{
+                    display:none !important;
+                } 
+                .vjs-poster {
+                    background-size: cover;
+                }
+            </style>
+            <script type="lazyload2" data-src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+            <script>
+                window.addEventListener('load', function(){
+                    document.body.classList.remove('loading');
+                });         
+            </script>
+        {% endif %}
+        {% include 'stamped-rewards-init' %}
+        {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
+        {% assign oneclickupsellapp = true %}
 	</body>
 </html>
 <script src="{{ 'wnw-optimization.js' | asset_url }}"></script>
